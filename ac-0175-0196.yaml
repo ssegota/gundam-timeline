@@ -18,7 +18,7 @@ events:
     summary: >
       Somebody shoots dead the leading colonial advocate of unarmed
       resistance. His death removes the one figure who held colonial
-      opposition to a non-violent course. Every armed group in this file
+      opposition to a non-violent course. Every armed group that follows
       traces its case back to it.
     referenced_in: [ser.ac.wing]
     claims:
@@ -122,8 +122,7 @@ events:
         value: >
           The settlement lasts one year before an armed movement tests it.
           The work presents that as proof of pacifism rather than a
-          refutation. This dataset records that reading. It does not
-          endorse it.
+          refutation.
         sources: [src.ac.endless-waltz]
         confidence: interpretive
     related: [evt.ac.0196.mariemaia-rebellion]

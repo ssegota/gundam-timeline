@@ -165,8 +165,8 @@ events:
         sources: [src.ce.seed-destiny]
       - property: colony_drop_lineage
         value: >
-          The third colony drop in this dataset, after UC 0079 and UC
-          0083. It is the second one carried out with a colony that was
+          The third colony drop in the franchise, after UC 0079 and UC
+          0083. It is the second carried out with a colony that was
           already a war grave.
         sources: [src.ce.seed-destiny]
         confidence: editorial

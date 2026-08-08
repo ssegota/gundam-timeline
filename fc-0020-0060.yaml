@@ -17,9 +17,8 @@ events:
         confidence: approximate
     summary: >
       The fourth running of the tournament. The orbital colony nations use
-      it to decide which of them governs the others for the next cycle.
-      This entry exists only because it is the one earlier Fight the work
-      fixes to a year, and so the only anchor for the cadence.
+      it to decide which of them governs the others for the next cycle. It
+      is the only earlier Fight the series pins to a year.
 
   - id: evt.fc.undated.devil-gundam-theft
     label: Theft of the Ultimate Gundam

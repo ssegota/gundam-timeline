@@ -71,7 +71,8 @@ series:
         weight: main
         confidence: approximate
     focus: >
-      Ground warfare in Southeast Asia, at the same time as ser.uc.msg.
+      Ground warfare in Southeast Asia, at the same time as the original
+      series.
 
   - id: ser.uc.thunderbolt
     title: Mobile Suit Gundam Thunderbolt
@@ -177,7 +178,7 @@ series:
         weight: main
         confidence: approximate
     focus: >
-      The First Neo Zeon War. It follows directly from ser.uc.zeta.
+      The First Neo Zeon War. It follows directly from Zeta Gundam.
 
   - id: ser.uc.cca
     title: "Mobile Suit Gundam: Char's Counterattack"
@@ -211,8 +212,8 @@ series:
           Shifted in the 2026-08 pass, with the corrected Laplace incident
           dates. See evt.uc.0096.laplace-incident.
     focus: >
-      The Laplace's Box affair. The prologue span is the reason `covers`
-      is a list. One range would draw this as a 95-year work.
+      The Laplace's Box affair. It opens with one scene in UC 0001, at the
+      bombing that started everything, then jumps ninety-five years.
 
   - id: ser.uc.narrative
     title: Mobile Suit Gundam Narrative
@@ -229,8 +230,8 @@ series:
         weight: flashback
         confidence: approximate
     focus: >
-      A direct sequel to ser.uc.unicorn. It follows the fate of the third
-      Unicorn unit.
+      A direct sequel to Unicorn. It follows the fate of the third Unicorn
+      unit.
 
   - id: ser.uc.hathaway
     title: "Mobile Suit Gundam: Hathaway's Flash"
@@ -271,7 +272,7 @@ series:
         end: "0133"
         weight: main
     focus: >
-      The Jupiter Empire conflict, ten years after ser.uc.f91.
+      The Jupiter Empire conflict, ten years after F91.
 
   - id: ser.uc.victory
     title: Mobile Suit Victory Gundam
@@ -302,10 +303,9 @@ series:
         weight: main
         confidence: approximate
     focus: >
-      Set in the divergent branch that timelines.yaml defines. The main
-      narrative runs in UC 0085 on a Side 6 colony. The prologue restages
-      the Side 7 raid and the war it forks, with Char taking the Gundam
-      and Zeon winning.
+      The main story runs in UC 0085 on a Side 6 colony. The prologue
+      restages the Side 7 raid and the war it forks, with Char taking the
+      Gundam and Zeon winning.
     note: >
       Split in the 2026-08 pass from one 0079-0085 placeholder span. That
       single span drew a six-year bar for a work whose main action fills
@@ -415,9 +415,8 @@ series:
         weight: main
     focus: >
       The Bloody Valentine War, seen from a neutral colony caught inside
-      it. The prologue span holds the nuclear attack that starts the war,
-      eleven months before the narrative opens. It has the same shape as
-      Unicorn's prologue.
+      it. It opens with the nuclear attack that started the war, eleven
+      months before the story proper.
 
   - id: ser.ce.seed-destiny
     title: Mobile Suit Gundam SEED Destiny
@@ -446,8 +445,9 @@ series:
         weight: main
         confidence: needs-verification
     focus: >
-      A sequel film. Its year is the least certain span in this file, and
-      it carries a flag rather than a value smoothed to match the others.
+      A sequel film, set a couple of years after the second war. Its year
+      is the least certain here, and it is marked rather than smoothed
+      over.
 
   - id: ser.ad.gundam-00-s1
     title: Mobile Suit Gundam 00 (first season)
@@ -493,7 +493,7 @@ series:
         end: "2314"
         weight: main
     focus: >
-      First contact, and the only non-human antagonist in this dataset.
+      First contact, and the only non-human enemy in any Gundam continuity.
 
   - id: ser.ag.gundam-age
     title: Mobile Suit Gundam AGE
@@ -659,7 +659,7 @@ series:
           axis, not at its origin.
     focus: >
       A model-building tournament in a near-present real world. Every
-      other continuity in this dataset exists there as fiction.
+      other Gundam continuity exists there as fiction.
 
   - id: ser.build.build-fighters-try
     title: Gundam Build Fighters Try
@@ -671,9 +671,9 @@ series:
       - undated: true
         weight: main
     focus: >
-      Seven years after ser.build.build-fighters. The work states that
-      interval, in a continuity that states no years. An anchor in
-      build.yaml carries it. It is the only chronology this era has.
+      Seven years after Build Fighters. The work states that interval, in a
+      continuity that never states a year. It is the only chronology this
+      era has.
 
   - id: ser.build.build-divers
     title: Gundam Build Divers

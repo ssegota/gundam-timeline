@@ -72,9 +72,8 @@ events:
       - property: cover_up
         value: >
           An executive decision reclassifies it as an accident and imposes
-          a reporting ban on the witnesses. This dataset records the
-          cover-up as an attribute of the event, not as a competing
-          account of it. No source believes the accident version.
+          a reporting ban on the witnesses. Nobody involved believes the
+          accident version.
         sources: [src.as.witch]
         note: >
           Keep this apart from a contested claim. A lie inside the fiction

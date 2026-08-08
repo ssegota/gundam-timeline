@@ -102,7 +102,9 @@ def build():
             events.append(e)
 
     tl_meta = {t["id"]: t for t in timelines["timelines"]}
-    out = {"timelines": [], "relations": timelines.get("relations", []),
+    rels = [{k: v for k, v in r.items() if k != "note"}
+            for r in timelines.get("relations", [])]
+    out = {"timelines": [], "relations": rels,
            "totals": {"events": len(events), "series": len(series),
                       "sources": len(sources), "factions": len(factions),
                       "timelines": len(tl_meta)}}
@@ -120,7 +122,7 @@ def build():
                 "id": s["id"], "title": s["title"], "home": s["timeline"],
                 "foreign": s["timeline"] != tid,
                 "release": s.get("release_year"), "format": s.get("format"),
-                "focus": s.get("focus", ""), "note": s.get("note", ""),
+                "focus": s.get("focus", ""),
                 "source": s.get("source"),
                 "wiki": wiki(s["title"]),
                 "spans": [{
@@ -130,7 +132,6 @@ def build():
                     "undated": bool(c.get("undated")),
                     "weight": c.get("weight", "main"),
                     "flag": flag(c.get("confidence")),
-                    "note": c.get("note", ""),
                 } for c in spans],
             })
 
@@ -144,7 +145,6 @@ def build():
                 "lo": ordinal(a["start"]), "hi": ordinal(a["end"], upper=True) if "end" in a else None,
                 "start": a["start"], "end": a.get("end"),
                 "flag": flag(a.get("confidence")),
-                "note": a.get("note", "") or f.get("note", ""),
                 "predecessor": f.get("predecessor"), "parent": f.get("parent"),
                 "wiki": wiki(f["name"]),
             })
@@ -164,9 +164,7 @@ def build():
                 "anchor": d.get("anchor"),
                 "contested": len(e["date"]) > 1,
                 "flag": flag(d.get("confidence")),
-                "dateNote": d.get("note", ""),
                 "summary": e.get("summary", "").strip(),
-                "note": e.get("note", ""),
                 "participants": e.get("participants", []),
                 "depicted_in": e.get("depicted_in", []),
                 "referenced_in": e.get("referenced_in", []),
@@ -175,7 +173,7 @@ def build():
                 "claims": [{
                     "property": c["property"], "value": c["value"].strip(),
                     "sources": c.get("sources", []), "flag": flag(c.get("confidence")),
-                    "resolution": c.get("resolution"), "note": c.get("note", ""),
+                    "resolution": c.get("resolution"),
                 } for c in e.get("claims", [])],
                 "wiki": wiki(e["label"]),
             })
@@ -199,9 +197,12 @@ def build():
         out["timelines"].append({
             "id": tid, "name": t["name"], "abbrev": t["abbrev"],
             "status": t.get("status", "primary"),
-            "note": (t.get("note") or "").strip(),
             "blurb": (t.get("blurb") or "").strip(),
-            "epoch": t.get("epoch", {}), "span": t.get("span", {}),
+            # `note` is deliberately not emitted anywhere in this file. Those
+            # are working notes about how the collection is built, and the
+            # people reading the page came for Gundam.
+            "epoch": {k: v for k, v in t.get("epoch", {}).items() if k != "note"},
+            "span": t.get("span", {}),
             "series": rows, "factions": facs, "events": evs,
             "lo": min(bounds) if bounds else None,
             "hi": max(bounds) if bounds else None,
@@ -210,7 +211,6 @@ def build():
     out["sources"] = {sid: {"title": s["title"], "kind": s["kind"],
                             "year": s.get("year"), "tier": s["tier"],
                             "timeline": s["timeline"],
-                            "note": (s.get("note") or "").strip(),
                             "flag": flag(s.get("confidence")),
                             "wiki": wiki(s["title"])}
                       for sid, s in sources.items()}

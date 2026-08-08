@@ -32,8 +32,7 @@ events:
     summary: >
       Settlement of Mars begins. The colonists adopt a calendar of their
       own, counted in Martian years. The new era does not replace After
-      Colony. It runs beside it at half the speed. Every later date in
-      this file depends on that.
+      Colony. It runs beside it at half the speed.
     referenced_in: [ser.mc.frozen-teardrop]
     claims:
       - property: calendar_rate

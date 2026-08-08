@@ -24,8 +24,7 @@ events:
       - property: adaptation_note
         value: >
           The novel and the film adaptation differ in emphasis and in
-          detail. This dataset registers them as separate sources, so that
-          somebody can record the differences once they catalogue them.
+          detail.
         sources: [src.uc.hathaway-novel, src.uc.hathaway]
         confidence: editorial
 
@@ -46,9 +45,8 @@ events:
       - property: era_context
         value: >
           Mobile suits in this period are much smaller and faster than
-          those of the Char era. They show a generation of postwar
-          miniaturization. This is useful for a render that bands
-          technology.
+          those of the Char era. A generation of postwar miniaturization
+          stands between them.
         sources: [src.uc.f91]
     note: >
       About thirty years after the previous entry. It is the largest gap

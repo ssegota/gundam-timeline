@@ -70,10 +70,10 @@ events:
           come later. Minovsky predicts the particle in UC 0047. Nobody
           observes the effect that makes it a weapon until UC 0065.
     summary: >
-      Research into the Minovsky particle starts under Zeon patronage. The
-      later military use of the particle blocks radar and long-range
-      guided weapons. That is the precondition for close-range mobile suit
-      combat, and so for the shape of every battle in this dataset.
+      Research into the Minovsky particle starts under Zeon patronage. Its
+      later military use blocks radar and long-range guided weapons. That
+      is the precondition for close-range mobile suit combat, and so for
+      the shape of every battle that follows.
 
   - id: evt.uc.0058.republic-declared
     label: Side 3 declares independence as the Republic of Zeon
@@ -210,10 +210,9 @@ events:
     claims:
       - property: note
         value: >
-          The rollout dates for individual units in this period come
-          almost entirely from model kit documentation and encyclopedia
-          material. No narrative work states them. They agree well enough
-          to be useful, and they rest on weak enough ground that nobody
-          should give them day-level precision.
+          The rollout dates for individual machines in this period come
+          almost entirely from technical material rather than from any
+          story. They agree well enough to be useful, and they rest on
+          weak enough ground that nobody should trust them to the day.
         sources: [src.uc.chronology]
         confidence: editorial

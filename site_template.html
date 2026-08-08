@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gundam Timeline Dataset</title>
+<title>Gundam Timeline</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20rx%3D%278%27%20fill%3D%27%231f4fd8%27%2F%3E%3Cpath%20d%3D%27M20.6%209.2H13.9c-2.6%200-4.3%201.6-4.8%204.1l-.7%205.4c-.3%202.5%201%204.1%203.6%204.1h6.7c2.6%200%204.3-1.6%204.6-4.1l.4-3.1h-6.2l-.4%203h2.3l-.1.7c-.1.6-.5.9-1.1.9h-3.8c-.7%200-1-.4-.9-1l.6-4.6c.1-.6.5-1%201.2-1h7.6z%27%20fill%3D%27%23fff%27%2F%3E%3C%2Fsvg%3E">
 <style>
   /* Display face: Noto Sans Display ExtraCondensed Black Italic, subset to
@@ -284,7 +284,7 @@
 <aside class="side">
   <div class="brand">
     <div class="mk disp">G</div>
-    <div><b>Gundam Timeline</b><span>Dataset</span></div>
+    <div><b>Gundam Timeline</b><span>Every continuity</span></div>
   </div>
 
   <h4>Views</h4>
@@ -480,6 +480,8 @@ function headSVG(t){
 let THEME="rx78";
 const isDark=()=>THEMES[THEME].mode==="dark";
 const hue=id=>(isDark()?HUE_D:HUE_L)[id]||(isDark()?"#8fa0bd":"#5b6b85");
+// Never print a raw id at the reader. Fall back to the era's own name.
+const eraName=id=>((DATA.timelines.find(x=>x.id===id)||{}).name)||id;
 const FLAGMAP={editorial:"guess","needs-verification":"unchecked",disputed:"contested",
   interpretive:"reading",inherited:"inherited"};
 const flagOf=c=>FLAGMAP[c];
@@ -780,7 +782,7 @@ function drawChart(){
           "stroke-dasharray":sp.flag?"3 2.5":(main?"":"5 3")});
         r.addEventListener("mousemove",ev=>showTip(ev,
           `<b>${esc(s.title)}</b><span class="m">${esc(sp.weight)} · ${esc(sp.start)}–${esc(sp.end)}`
-          +`${s.foreign?` · span in ${esc(TL.abbrev)}. The work belongs to ${esc(s.home)}`:""}</span>`
+          +`${s.foreign?` · shown in ${esc(TL.abbrev)}. The work belongs to ${esc(eraName(s.home))}`:""}</span>`
           +(sp.flag?`<br>${flagHtml(sp.flag)}`:"")));
         r.addEventListener("mouseleave",hideTip);
         r.addEventListener("click",()=>openSeries(s));
@@ -896,7 +898,7 @@ function drawOrder(wrap,evs,C){
 
   if(TL.factions.length){
     const p=el("p",{class:"chainsub",style:"margin-top:22px"});
-    p.appendChild(document.createTextNode("This page lists the factions instead of drawing them. The schema needs a start value, so each one holds a placeholder, not a date: "));
+    p.appendChild(document.createTextNode("The factions here are listed rather than drawn, because this continuity gives no dates to place them against: "));
     TL.factions.forEach((f,i)=>{const a=el("a",{href:"#"},f.name);
       a.onclick=ev=>{ev.preventDefault();openFaction(f);};p.appendChild(a);
       if(i<TL.factions.length-1)p.appendChild(document.createTextNode(", "));});
@@ -954,7 +956,6 @@ function drawRels(){
       if(r.confidence)head.appendChild(el("span",{class:"flag f-"+(flagOf(r.confidence)||"reading"),
         style:"margin-left:10px"},el("i",{}),r.confidence));
       d.appendChild(head);
-      if(r.note)d.appendChild(el("div",{class:"meta",text:r.note.trim()}));
       box.appendChild(d);});});
 }
 
@@ -979,20 +980,17 @@ function openEvent(e){
     h.appendChild(el("span",{class:"flag f-"+f,style:"margin-top:8px"},el("i",{}),f)));
   const b=el("div",{});
   b.appendChild(el("p",{text:e.summary}));b.appendChild(wikiLink(e.wiki));
-  if(e.dateNote)b.appendChild(el("div",{class:"note",text:"On the date: "+e.dateNote.trim()}));
   if(e.anchor)b.appendChild(el("div",{class:"note",
     text:`Relative date: ${e.anchor.direction} ${DATA.labels[e.anchor.relative_to]||e.anchor.relative_to}`
       +(e.anchor.offset_years?` by ${e.anchor.offset_years} years.`:". The source gives no interval.")}));
   if(e.undated)b.appendChild(el("div",{class:"note",
     text:"No date. The source shows that this happened. It gives no date and no order against another event."}));
-  if(e.note)b.appendChild(el("div",{class:"note",text:e.note.trim()}));
   if(e.sources.length){b.appendChild(el("h3",{text:"Sources"}));b.appendChild(srcList(e.sources));}
   if(e.claims.length){b.appendChild(el("h3",{text:"Claims"}));
     e.claims.forEach(c=>{const d=el("div",{class:"claim"}),hh=el("div",{class:"p"},c.property.replace(/_/g," "));
       if(c.flag)hh.appendChild(el("span",{class:"flag f-"+c.flag},el("i",{}),c.flag));
       if(c.resolution==="unresolved")hh.appendChild(el("span",{class:"flag f-contested"},el("i",{}),"unresolved"));
       d.appendChild(hh);d.appendChild(el("p",{text:c.value}));
-      if(c.note)d.appendChild(el("div",{class:"note",text:c.note.trim()}));
       d.appendChild(srcList(c.sources));b.appendChild(d);});}
   if(e.participants.length){b.appendChild(el("h3",{text:"Participants"}));b.appendChild(idList(e.participants));}
   if(e.depicted_in.length){b.appendChild(el("h3",{text:"Depicted in"}));b.appendChild(idList(e.depicted_in));}
@@ -1005,15 +1003,14 @@ function openSeries(s){
   if(s.focus)b.appendChild(el("p",{text:s.focus.trim()}));
   b.appendChild(wikiLink(s.wiki));
   if(s.foreign)b.appendChild(el("div",{class:"note",
-    text:`This work belongs to ${s.home}. One of its coverage spans is set in ${TL.name}, so it also appears here.`}));
+    text:`This work belongs to ${eraName(s.home)}. Part of it is set in ${TL.name}, so it appears here too.`}));
   b.appendChild(el("h3",{text:"Coverage"}));
   const ul=el("ul",{class:"plain"});
   s.spans.forEach(sp=>{const li=el("li",{},sp.undated?`${sp.weight} — undated`:`${sp.weight}: ${sp.start}–${sp.end}`);
     if(sp.flag)li.appendChild(el("span",{class:"flag f-"+sp.flag,style:"margin-left:8px"},el("i",{}),sp.flag));
-    if(sp.note)li.appendChild(el("div",{class:"note",text:sp.note.trim()}));ul.appendChild(li);});
+ul.appendChild(li);});
   b.appendChild(ul);
   if(s.source){b.appendChild(el("h3",{text:"Source"}));b.appendChild(srcList([s.source]));}
-  if(s.note)b.appendChild(el("div",{class:"note",text:s.note.trim()}));
   const go=el("p",{},el("button",{class:"btn",type:"button"},"Open "+TL.name+" →"));
   go.firstChild.onclick=()=>{dlg.close();openContinuity(TL.id);};
   b.appendChild(go);
@@ -1026,7 +1023,6 @@ function openFaction(f){
     text:"This start is the first event that names the faction. It is not a founding date. Read it as a lower bound."}));
   if(f.predecessor)b.appendChild(el("p",{class:"meta",text:"Succeeds: "+(DATA.labels[f.predecessor]||f.predecessor)}));
   if(f.parent)b.appendChild(el("p",{class:"meta",text:"Part of: "+(DATA.labels[f.parent]||f.parent)}));
-  if(f.note)b.appendChild(el("div",{class:"note",text:f.note.trim()}));
   openDialog(h,b);}
 
 /* ---------- shell ---------- */
@@ -1069,15 +1065,16 @@ $("#mapHelp").onclick=()=>{
     +"so one scale for all of them would be wrong. Open a continuity to see its own axis."}));
   b.appendChild(el("p",{text:"Click a rail head to open that continuity. Click a node to read its "
     +"sources and claims. Use the search to find a work, an era or a year."}));
-  openDialog(dtitle("How to read the star chart","19 continuities, 44 works"),b);
+  openDialog(dtitle("How to read the star chart",
+    `${DATA.totals.timelines} continuities, ${DATA.totals.series} works`),b);
 };
 $("#flagHelp").onclick=()=>{
   const rows=[["guess","This project inferred it. No source states it."],
               ["unchecked","Somebody entered it. Nobody checked it against the work."],
               ["contested","The sources disagree."]];
   const b=el("div",{});
-  b.appendChild(el("p",{text:"This dataset keeps what a source says apart from what this project "
-    +"guessed. A mark that carries a flag is drawn dashed, in the chart and in the table."}));
+  b.appendChild(el("p",{text:"Not everything here is equally certain. Where a date or a span is a "
+    +"guess, or where the sources disagree, the mark is drawn dashed and carries a flag."}));
   const g=el("div",{class:"flagkey"});
   rows.forEach(([f,txt])=>g.appendChild(el("span",{},
     el("span",{class:"flag f-"+f},el("i",{}),f), " "+txt)));
@@ -1095,8 +1092,8 @@ $("#aboutBtn").onclick=()=>{
     ["Ko","Ko-fi","Coming soon","#",true],
   ];
   const b=el("div",{});
-  b.appendChild(el("p",{text:"A source-attributed chronology of every Gundam continuity. "
-    +"It keeps what a source says apart from what this project guessed."}));
+  b.appendChild(el("p",{text:"Every Gundam continuity, every work set in one, and the "
+    +"events they cover. Built by a fan, for fans."}));
   const ul=el("div",{class:"links"});
   rows.forEach(([ic,name,val,href,off])=>{
     const a=el("a",{href,...(off?{"aria-disabled":"true"}:{target:"_blank",rel:"noopener"})},
@@ -1105,7 +1102,7 @@ $("#aboutBtn").onclick=()=>{
     ul.appendChild(a);
   });
   b.appendChild(ul);
-  openDialog(dtitle("About","Gundam Timeline Dataset"),b);
+  openDialog(dtitle("About","Gundam Timeline"),b);
 };
 $("#mapQ").addEventListener("input",e=>{MAPQ=e.target.value.trim();drawMap();});
 $("#mapQ").addEventListener("keydown",e=>{if(e.key==="Escape"){e.target.value="";MAPQ="";drawMap();}});

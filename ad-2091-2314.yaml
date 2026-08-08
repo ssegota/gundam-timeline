@@ -166,9 +166,8 @@ events:
     claims:
       - property: participant_kind
         value: >
-          Not a polity. The `participants` model assumes that a
-          belligerent is an organization of people. This is the one entry
-          in the dataset where that assumption fails.
+          Not a polity. Everywhere else in Gundam a belligerent is an
+          organization of people. This is the one exception.
         sources: [src.ad.trailblazer]
         confidence: editorial
         note: >
