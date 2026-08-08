@@ -83,6 +83,7 @@
     font-size:13px;line-height:1;transition:left .22s cubic-bezier(.4,0,.2,1),
     border-color .16s ease,color .16s ease}
   .fold:hover{border-color:var(--brand);color:var(--brand)}
+  .fold .fl{display:none}          /* the chevron carries it on a wide screen */
   /* Folded, the handle sits in the main pane, so the pane makes room for it
      rather than letting the page title run underneath. */
   .app.folded .fold{left:12px}
@@ -300,7 +301,18 @@
     .app,.app.folded{grid-template-columns:1fr}
     .side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}
     .navlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
-    .fold{display:none}      /* the sidebar is already a banner at this width */
+    /* Here the sidebar is a full-width banner that fills the first screen, so
+       it folds by height and the handle has to be a control a reader can
+       actually find: a labelled button floating clear of the banner. */
+    .app.folded .side{display:none}
+    .app.folded main{padding-left:clamp(16px,2.6vw,32px)}
+    .fold,.app.folded .fold{left:auto;right:12px;top:12px;width:auto;height:36px;
+      padding:0 14px;gap:8px;display:inline-flex;align-items:center;border-radius:11px;
+      font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+      color:var(--ink);background:var(--card);
+      box-shadow:0 6px 20px color-mix(in srgb,var(--bg) 55%,transparent)}
+    .fold .fl{display:inline}
+    .fold .fi{transform:rotate(90deg)}   /* up to fold away, down to bring back */
   }
 </style>
 </head>
@@ -308,7 +320,8 @@
 <canvas id="bg" aria-hidden="true"></canvas>
 <div class="app" id="app">
 <button class="fold" id="foldBtn" type="button" aria-expanded="true"
-  aria-controls="sideNav" title="Hide the sidebar">‹</button>
+  aria-controls="sideNav" title="Hide the sidebar"><span class="fi"
+  id="foldIcon" aria-hidden="true">‹</span><span class="fl" id="foldLbl">Hide</span></button>
 
 <aside class="side" id="sideNav">
   <div class="brand">
@@ -581,7 +594,9 @@ function buildNav(){
       el("span",{class:"ab",text:t.abbrev}),
       el("span",{class:"nm",text:t.name}),
       el("span",{class:"ct",text:String(t.events.length||"·")}));
-    b.onclick=()=>openContinuity(t.id);
+    // On a phone the banner covers the page it just navigated to, so it gets
+    // out of the way once a choice is made.
+    b.onclick=()=>{openContinuity(t.id); if(narrow())setFold(true,false);};
     box.appendChild(b);
   });
   $("#navMap").setAttribute("aria-current",String(VIEW==="map"));
@@ -1138,7 +1153,8 @@ function openContinuity(id){
   render();scrollTo({top:0,behavior:"smooth"});
 }
 function goMap(){VIEW="map";render();scrollTo({top:0,behavior:"smooth"});}
-$("#navMap").onclick=goMap; $("#backBtn").onclick=goMap;
+$("#navMap").onclick=()=>{goMap(); if(narrow())setFold(true,false);};
+$("#backBtn").onclick=goMap;
 $("#q").addEventListener("input",e=>{Q=e.target.value.trim();drawChart();drawTray();drawTable();});
 $("#mapHelp").onclick=()=>{
   const b=el("div",{});
@@ -1268,20 +1284,33 @@ function render(){
 /* ---------- sidebar ---------- */
 // Folding the sidebar changes how much room the drawings have, and neither
 // chart reflows on its own, so redraw once the column has finished moving.
-function setFold(on,redraw){
+const narrow=()=>innerWidth<=900;
+function setFold(on,user){
   $("#app").classList.toggle("folded",on);
   const btn=$("#foldBtn");
-  btn.textContent=on?"›":"‹";
+  $("#foldIcon").textContent=on?"›":"‹";
+  $("#foldLbl").textContent=on?"Menu":"Hide";
   btn.setAttribute("aria-expanded",String(!on));
   btn.title=on?"Show the sidebar":"Hide the sidebar";
-  try{localStorage.setItem("gt-fold",on?"1":"0")}catch(e){}
-  if(redraw) setTimeout(()=>{paintBg(); VIEW==="map"?drawMap():drawChart();},240);
+  // Only a deliberate press on a wide screen is remembered. On a phone the
+  // banner is opened to reach the nav and closed again straight after, so
+  // remembering it open would put the reader back where they started on the
+  // next visit.
+  if(user){
+    if(!narrow()){try{localStorage.setItem("gt-fold",on?"1":"0")}catch(e){}}
+    setTimeout(()=>{paintBg(); VIEW==="map"?drawMap():drawChart();},240);
+  }
 }
 $("#foldBtn").onclick=()=>setFold(!$("#app").classList.contains("folded"),true);
 
 try{const t=localStorage.getItem("gt-theme"); if(t&&THEMES[t])THEME=t;}catch(e){}
 document.documentElement.setAttribute("data-theme",THEME);
-try{setFold(localStorage.getItem("gt-fold")==="1",false)}catch(e){}
+// On a phone the banner fills the first screen, so it always starts folded.
+// The remembered choice belongs to the wide layout, where it was made.
+let fold0=true;
+if(!narrow()){fold0=false;
+  try{fold0=localStorage.getItem("gt-fold")==="1";}catch(e){}}
+setFold(fold0,false);
 markTheme();paintBg();drawRels();render();
 let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{
   paintBg(); VIEW==="map"?drawMap():drawChart();},170);});
