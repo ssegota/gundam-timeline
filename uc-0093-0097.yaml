@@ -1,0 +1,158 @@
+# UC 0093 - 0097: the Second Neo Zeon War and the Laplace affair.
+
+events:
+  - id: evt.uc.0093.second-neo-zeon-war
+    label: Second Neo Zeon War
+    type: war
+    timeline: tl.uc
+    date:
+      - start: "0093.03.03"
+        end: "0093.03"
+        precision: range
+        sources: [src.uc.cca, src.uc.chronology]
+        confidence: approximate
+        note: >
+          Sharpened in the 2026-08 pass. The date here is the first
+          military move of the campaign, the Fifth Luna drop of 3 March.
+          Char declares war in public a week earlier. That declaration
+          sits below as a claim, not as the start of the event, because
+          the film does not show it. In the date field it would push the
+          event outside the coverage of ser.uc.cca. That would invite a
+          widened span, to silence a warning that told the truth.
+    participants: [fac.uc.neo-zeon-2, fac.uc.londo-bell, fac.uc.efed]
+    summary: >
+      Char Aznable leads a rebuilt Neo Zeon and tries to make Earth
+      uninhabitable, in order to force humanity into space for good. The
+      campaign opens with the drop of Fifth Luna onto a Federation
+      facility.
+    depicted_in: [ser.uc.cca]
+    claims:
+      - property: stated_rationale
+        value: >
+          Humanity will not evolve while it stays tied to Earth, and the
+          political class of the Federation will never leave by choice.
+          The text presents this position as sincere, coherent and
+          monstrous at once.
+        sources: [src.uc.cca]
+      - property: declaration_of_war
+        value: >
+          Char declares war on the Earth Federation in public on
+          0093.02.27, four days before the first shot. The war therefore
+          runs a few days longer than the campaign the film shows.
+        sources: [src.uc.chronology]
+        confidence: approximate
+    related: [evt.uc.0093.axis-shock]
+
+  - id: evt.uc.0093.axis-shock
+    label: Attempted drop of Axis
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0093.03.12"
+        sources: [src.uc.cca, src.uc.chronology]
+        confidence: approximate
+        note: >
+          Sharpened in the 2026-08 pass from month precision.
+    participants: [fac.uc.neo-zeon-2, fac.uc.londo-bell]
+    summary: >
+      Neo Zeon moves the Axis asteroid onto a collision course with Earth.
+      Massed mobile suits push against the falling mass and turn it aside
+      at the last moment. Accounts agree that the machines involved could
+      not have done this by force alone.
+    depicted_in: [ser.uc.cca]
+    claims:
+      - property: mechanism
+        value: >
+          Accounts credit the deflection to a shared psychic effect. That
+          effect amplifies the mechanical push beyond what the machines
+          contribute.
+        sources: [src.uc.cca]
+        note: >
+          The text explains nothing here on purpose. This entry records
+          the reading as a sourced claim rather than as narration. That
+          keeps the difference clear between what a work shows and what it
+          asserts.
+      - property: amuro_ray_fate
+        value: >
+          Nobody recovers Amuro Ray. No source confirms his death, and
+          none shows his survival.
+        sources: [src.uc.cca]
+        resolution: unresolved
+        note: >
+          The best case in the dataset for an explicit `unresolved` state.
+          To render this as "died UC 0093" is a factual error. To render
+          it as a live thread is also wrong. The schema needs a third
+          option, and this is why.
+
+  - id: evt.uc.0096.laplace-incident
+    label: The Laplace's Box affair
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0096.04"
+        end: "0096.05"
+        precision: range
+        sources: [src.uc.unicorn, src.uc.chronology]
+        confidence: approximate
+        note: >
+          Corrected in the 2026-08 pass from "0096.03"-"0096.04". The
+          incident runs April into May, not March into April. Day-level
+          figures of 7 April and 4 May circulate, but they rest on one
+          compilation. This entry keeps month precision and leaves the
+          days out, rather than give them a confidence they have not
+          earned. The main coverage span of ser.uc.unicorn moved with it.
+    participants: [fac.uc.sleeves, fac.uc.londo-bell, fac.uc.efed]
+    summary: >
+      Federation forces and the Zeon remnant called the Sleeves contend
+      over the place and the contents of Laplace's Box. Both sides use
+      prototype mobile suits built to navigate to it.
+    depicted_in: [ser.uc.unicorn]
+    related: [evt.uc.0001.laplace-bombing, evt.uc.0096.box-revealed]
+
+  - id: evt.uc.0096.box-revealed
+    label: Contents of Laplace's Box made public
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0096.05"
+        sources: [src.uc.unicorn]
+        confidence: approximate
+        note: >
+          Moved in the 2026-08 pass, with the parent incident. The
+          disclosure is its closing act, so it takes the later month of
+          the corrected range.
+    participants: [fac.uc.efed]
+    summary: >
+      Somebody discloses the hidden original text of the Universal Century
+      Charter. The text includes the clause that gives spacenoids a part
+      in the government of the Federation.
+    depicted_in: [ser.uc.unicorn]
+    claims:
+      - property: consequence
+        value: >
+          The disclosure does not bring the collapse of the Federation
+          that both sides expected. Its effects come slowly and stay
+          incomplete.
+        sources: [src.uc.unicorn]
+        note: >
+          This matters for the later eras. Works set in the 0100s and the
+          0120s show a Federation that still works and is still resented.
+          A resolver that treats this as a clean break will contradict the
+          F91 and Victory eras.
+    related: [evt.uc.0001.laplace-bombing, evt.uc.0105.mafty-insurgency]
+
+  - id: evt.uc.0097.phenex-incident
+    label: The third Unicorn unit
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0097"
+        sources: [src.uc.narrative]
+        confidence: approximate
+    participants: [fac.uc.efed]
+    summary: >
+      A Federation operation to recover the third unit of the Unicorn
+      program. The unit has been missing since the events of the previous
+      year.
+    depicted_in: [ser.uc.narrative]
+    related: [evt.uc.0096.laplace-incident]

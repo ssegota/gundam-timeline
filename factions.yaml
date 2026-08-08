@@ -1,0 +1,715 @@
+# Factions carry their own active spans so they can be rendered as a
+# separate band beneath the event axis. Successor edges are what make the
+# UC readable at a glance: the same grievance renames itself roughly every
+# ten years, and drawing that chain explains more than any single event.
+
+factions:
+  - id: fac.uc.efed
+    name: Earth Federation
+    timeline: tl.uc
+    active:
+      start: "0001"
+      confidence: editorial
+      note: >
+        This start is the calendar epoch, not the founding. The Federation
+        predates the Universal Century, and its real founding year falls
+        in the AD era. This schema cannot express that. Solve it before
+        more continuities arrive, because several of them also hold
+        institutions older than their own calendars. The Federation runs
+        across the whole span. No source records a dissolution.
+
+  - id: fac.uc.efsf
+    name: Earth Federation Space Force
+    timeline: tl.uc
+    parent: fac.uc.efed
+    active:
+      start: "0070"
+      confidence: approximate
+
+  - id: fac.uc.republic-zeon
+    name: Republic of Zeon
+    timeline: tl.uc
+    active:
+      start: "0058.09.14"
+      end: "0069.08.15"
+      confidence: approximate
+      note: >
+        Corrected in the 2026-08 pass from 0069-0071. The Republic is
+        Deikun's. He founded it a decade before his death, and the Zabis
+        abolished it a year after. That is eleven years, not two. The old
+        span made it a formality between the death and the Zabi monarchy.
+    note: >
+      Side 3 declared independence under Zeon Zum Deikun. A post-war state
+      took the same name. That name collision needs explicit handling. Do
+      not merge the two.
+
+  - id: fac.uc.principality-zeon
+    name: Principality of Zeon
+    timeline: tl.uc
+    active:
+      start: "0069.08.15"
+      end: "0080.01.01"
+      confidence: approximate
+    predecessor: fac.uc.republic-zeon
+
+  - id: fac.uc.republic-zeon-2
+    name: Republic of Zeon (post-war)
+    timeline: tl.uc
+    active:
+      start: "0080.01.01"
+      end: "0100"
+      confidence: approximate
+      note: >
+        Added in the 2026-08 pass. The entry fac.uc.republic-zeon already
+        carried a note that called the post-war republic a name collision
+        to handle explicitly. The Treaty of Granada then pointed at the
+        pre-war state anyway. The new faction-span rule caught it on the
+        first run: a 0080 treaty signed by a state dissolved in 0069. The
+        end year is when the Republic is said to have given up its
+        autonomous rights. No work confirms it.
+    predecessor: fac.uc.principality-zeon
+
+  - id: fac.uc.delaz
+    name: Delaz Fleet
+    timeline: tl.uc
+    active:
+      start: "0080"
+      end: "0083.11"
+      confidence: approximate
+    predecessor: fac.uc.principality-zeon
+
+  - id: fac.uc.titans
+    name: Titans
+    timeline: tl.uc
+    parent: fac.uc.efed
+    active:
+      start: "0083.12.04"
+      end: "0088.02.22"
+      confidence: approximate
+      note: >
+        Corrected in the 2026-08 pass from 0083.11-0087.02. The end date
+        was the clearest internal contradiction here. The Titans appeared
+        as dissolved in UC 0087 while still listed as a participant in a
+        war that runs to UC 0088. The gryps-conclusion event in this same
+        file says they were destroyed there. On any render the faction
+        band would have stopped in the middle of the war.
+
+  - id: fac.uc.aeug
+    name: Anti-Earth Union Group
+    timeline: tl.uc
+    abbrev: AEUG
+    active:
+      start: "0085"
+      end: "0089"
+      confidence: approximate
+      note: >
+        End moved in the 2026-08 pass from 0088. The AEUG takes part in
+        the First Neo Zeon War, which runs to 0089.01. The old end came
+        before an event the faction is listed in. This is the same fault
+        as the Titans above. A validator rule that compares faction spans
+        against the events naming them catches both.
+
+  - id: fac.uc.axis
+    name: Axis Zeon
+    timeline: tl.uc
+    active:
+      start: "0080"
+      end: "0088"
+      confidence: approximate
+      note: >
+        Start moved in the 2026-08 pass from 0086. Axis exists as a Zeon
+        exile community from the end of the One Year War. In 0086 it
+        fitted thrusters and began the voyage back, arriving 0087.10.12.
+        Dating the faction from its departure erased the six years in
+        which it became the thing that departed.
+    predecessor: fac.uc.principality-zeon
+
+  - id: fac.uc.neo-zeon-1
+    name: Neo Zeon (First)
+    timeline: tl.uc
+    active:
+      start: "0088"
+      end: "0089.01"
+      confidence: approximate
+    predecessor: fac.uc.axis
+
+  - id: fac.uc.neo-zeon-2
+    name: Neo Zeon (Second)
+    timeline: tl.uc
+    active:
+      start: "0092"
+      end: "0093.03"
+      confidence: approximate
+    predecessor: fac.uc.neo-zeon-1
+    note: >
+      Char Aznable's organization. It is distinct from fac.uc.neo-zeon-1,
+      despite the name.
+
+  - id: fac.uc.sleeves
+    name: The Sleeves
+    timeline: tl.uc
+    active:
+      start: "0094"
+      end: "0096"
+      confidence: approximate
+      note: >
+        Corrected in the 2026-08 pass from 0090. The Sleeves are what
+        remains after Char's defeat in 0093. A start of 0090 put them in
+        the field two years before the founding of the organization they
+        succeed. The faction began before its own predecessor. A validator
+        rule that checks predecessor.start against successor.start catches
+        this class directly. Nothing checks it today.
+    predecessor: fac.uc.neo-zeon-2
+
+  - id: fac.uc.londo-bell
+    name: Londo Bell
+    timeline: tl.uc
+    parent: fac.uc.efed
+    active:
+      start: "0090"
+      confidence: approximate
+
+  - id: fac.uc.mafty
+    name: Mafty Nabiu Erin
+    timeline: tl.uc
+    active:
+      start: "0104"
+      end: "0105"
+      confidence: approximate
+
+  - id: fac.uc.crossbone-vanguard
+    name: Crossbone Vanguard
+    timeline: tl.uc
+    active:
+      start: "0123"
+      confidence: approximate
+
+  - id: fac.uc.jupiter-empire
+    name: Jupiter Empire
+    timeline: tl.uc
+    active:
+      start: "0133"
+      confidence: approximate
+
+  - id: fac.uc.zanscare
+    name: Zanscare Empire
+    timeline: tl.uc
+    active:
+      start: "0149"
+      end: "0153"
+      confidence: approximate
+
+  - id: fac.uc.league-militaire
+    name: League Militaire
+    timeline: tl.uc
+    active:
+      start: "0150"
+      end: "0153"
+      confidence: approximate
+
+# ---------------------------------------------------------------------
+# Independent continuities, in release order.
+#
+# READ THIS BEFORE TRUSTING ANY SPAN BELOW. The UC gives founding dates for
+# its factions; almost none of these continuities do. Where no founding is
+# stated, `active.start` is the earliest point at which this dataset
+# attests the faction — the first event that names it — and is flagged
+# `editorial`. That is a statement about the dataset, not about the
+# fiction. A renderer drawing these as faction lifespans will imply
+# organisations that sprang into being on the day the camera found them.
+# Treat an editorial start as a left-censored bound, not a birth date.
+# ---------------------------------------------------------------------
+
+  - id: fac.fc.neo-japan
+    name: Neo Japan
+    timeline: tl.fc
+    active:
+      start: "0060"
+      confidence: editorial
+
+  - id: fac.fc.neo-hong-kong
+    name: Neo Hong Kong
+    timeline: tl.fc
+    active:
+      start: "0060"
+      confidence: editorial
+    note: >
+      The host nation of the 13th Gundam Fight. It is compromised in that
+      role.
+
+  - id: fac.fc.shuffle-alliance
+    name: Shuffle Alliance
+    timeline: tl.fc
+    active:
+      start: "0060"
+      confidence: editorial
+
+  - id: fac.fc.devil-gundam
+    name: Devil Gundam
+    timeline: tl.fc
+    active:
+      start: "0060"
+      confidence: editorial
+    note: >
+      A machine, not an organization. It appears as a faction because it
+      fights as a belligerent and commands subordinates of its own.
+      Leaving it out would make the events of FC 0060 read as though one
+      side fought alone.
+
+  - id: fac.ac.uesa
+    name: United Earth Sphere Alliance
+    abbrev: UESA
+    timeline: tl.ac
+    active:
+      start: "0175"
+      end: "0195"
+      confidence: editorial
+
+  - id: fac.ac.oz
+    name: Organization of the Zodiac
+    abbrev: OZ
+    timeline: tl.ac
+    active:
+      start: "0175"
+      end: "0195.12.24"
+      confidence: editorial
+    note: >
+      It works inside the Alliance for twenty years before it takes over.
+      A `parent` link would be about as accurate as a separate entry. This
+      dataset keeps it separate, because the takeover is the point.
+
+  - id: fac.ac.romefeller
+    name: Romefeller Foundation
+    timeline: tl.ac
+    active:
+      start: "0195"
+      end: "0195.12.24"
+      confidence: editorial
+
+  - id: fac.ac.white-fang
+    name: White Fang
+    timeline: tl.ac
+    active:
+      start: "0195"
+      end: "0195.12.24"
+      confidence: editorial
+
+  - id: fac.ac.gundam-pilots
+    name: Gundam pilots
+    timeline: tl.ac
+    active:
+      start: "0195.04.07"
+      end: "0196.12.24"
+      confidence: editorial
+    note: >
+      Five agents, sent by separate colonial groups, not one organization.
+      This dataset models them as one faction because every event they
+      appear in treats them as a bloc. That is a simplification, and this
+      note flags it rather than hides it.
+
+  - id: fac.ac.esun
+    name: Earth Sphere Unified Nation
+    abbrev: ESUN
+    timeline: tl.ac
+    active:
+      start: "0195.12"
+      confidence: editorial
+    predecessor: fac.ac.uesa
+
+  - id: fac.ac.mariemaia-army
+    name: Mariemaia Army
+    timeline: tl.ac
+    active:
+      start: "0196"
+      end: "0196.12.24"
+      confidence: editorial
+
+  - id: fac.aw.une
+    name: United Nations Earth
+    abbrev: UNE
+    timeline: tl.aw
+    active:
+      start: "0001"
+      end: "0001"
+      confidence: editorial
+      note: >
+        Entirely before the epoch. The After War calendar begins at the
+        end of the war that destroyed this body. Its whole existence
+        therefore falls before AW 0001, and cannot be expressed. The same
+        limit applies to fac.uc.efed and fac.pd.gjallarhorn. Three
+        continuities out of eleven hold institutions older than their own
+        calendars.
+
+  - id: fac.aw.sra
+    name: Space Revolutionary Army
+    abbrev: SRA
+    timeline: tl.aw
+    active:
+      start: "0001"
+      confidence: editorial
+
+  - id: fac.aw.new-une
+    name: New United Nations Earth
+    timeline: tl.aw
+    active:
+      start: "0015"
+      confidence: editorial
+    predecessor: fac.aw.une
+
+  - id: fac.aw.vulture
+    name: Vultures
+    timeline: tl.aw
+    active:
+      start: "0015"
+      confidence: editorial
+    note: >
+      Freelance salvage crews. They fight only when they must.
+
+  - id: fac.cc.moonrace
+    name: Moonrace (Dianna Counter)
+    timeline: tl.cc
+    active:
+      start: "2345"
+      confidence: editorial
+
+  - id: fac.cc.militia
+    name: Inglessa Militia
+    timeline: tl.cc
+    active:
+      start: "2345"
+      confidence: editorial
+
+  - id: fac.cc.ghingnham-fleet
+    name: Ghingnham Fleet
+    timeline: tl.cc
+    active:
+      start: "2345"
+      confidence: editorial
+
+  - id: fac.ce.earth-alliance
+    name: Earth Alliance
+    timeline: tl.ce
+    active:
+      start: "0070"
+      confidence: editorial
+
+  - id: fac.ce.plants
+    name: PLANT Supreme Council
+    timeline: tl.ce
+    active:
+      start: "0070"
+      confidence: editorial
+
+  - id: fac.ce.zaft
+    name: ZAFT
+    timeline: tl.ce
+    parent: fac.ce.plants
+    active:
+      start: "0070"
+      confidence: editorial
+
+  - id: fac.ce.blue-cosmos
+    name: Blue Cosmos
+    timeline: tl.ce
+    active:
+      start: "0070"
+      confidence: editorial
+
+  - id: fac.ce.orb
+    name: Orb Union
+    timeline: tl.ce
+    active:
+      start: "0071"
+      confidence: editorial
+
+  - id: fac.ce.three-ships-alliance
+    name: Three Ships Alliance
+    timeline: tl.ce
+    active:
+      start: "0071"
+      end: "0071.09.27"
+      confidence: editorial
+
+  - id: fac.ce.phantom-pain
+    name: Phantom Pain
+    timeline: tl.ce
+    parent: fac.ce.earth-alliance
+    active:
+      start: "0073"
+      end: "0074"
+      confidence: editorial
+
+  - id: fac.ad.celestial-being
+    name: Celestial Being
+    timeline: tl.ad
+    active:
+      start: "2091"
+      confidence: editorial
+
+  - id: fac.ad.union
+    name: Union of Solar Energy and Free Nations
+    timeline: tl.ad
+    active:
+      start: "2307"
+      end: "2308"
+      confidence: editorial
+
+  - id: fac.ad.aeu
+    name: Advanced European Union
+    abbrev: AEU
+    timeline: tl.ad
+    active:
+      start: "2307"
+      end: "2308"
+      confidence: editorial
+
+  - id: fac.ad.hrl
+    name: Human Reform League
+    abbrev: HRL
+    timeline: tl.ad
+    active:
+      start: "2307"
+      end: "2308"
+      confidence: editorial
+
+  - id: fac.ad.esf
+    name: Earth Sphere Federation
+    abbrev: ESF
+    timeline: tl.ad
+    active:
+      start: "2312"
+      confidence: editorial
+    predecessor: fac.ad.union
+    note: >
+      It succeeds all three power blocs, not the Union alone. The
+      `predecessor` field holds one value, so two of the three edges
+      cannot be recorded, and the one kept here is arbitrary among equals.
+      This is the first true many-to-one succession in the dataset. The UC
+      never needed it, because its factions renamed themselves in a line.
+
+  - id: fac.ad.a-laws
+    name: A-Laws
+    timeline: tl.ad
+    parent: fac.ad.esf
+    active:
+      start: "2312"
+      end: "2312"
+      confidence: editorial
+
+  - id: fac.ad.innovators
+    name: Innovators
+    timeline: tl.ad
+    active:
+      start: "2312"
+      end: "2312"
+      confidence: editorial
+
+  - id: fac.ad.els
+    name: Extraterrestrial Living-metal Shapeshifter
+    abbrev: ELS
+    timeline: tl.ad
+    active:
+      start: "2314"
+      end: "2314"
+      confidence: editorial
+    note: >
+      Not human. It is the only participant here that is not a human
+      polity.
+
+  - id: fac.ag.efed
+    name: Earth Federation
+    timeline: tl.ag
+    active:
+      start: "0101"
+      confidence: editorial
+    note: >
+      Not fac.uc.efed. This name collides with the Federation of the
+      Universal Century, and that collision is why entity ids carry a
+      timeline namespace at all. See timelines.yaml.
+
+  - id: fac.ag.vagan
+    name: Vagan
+    timeline: tl.ag
+    active:
+      start: "0101"
+      confidence: editorial
+    note: >
+      The narrative calls this group only "the Unknown Enemy" for its
+      first two generations. The name Vagan is applied backwards across
+      the whole span. That is a small but real anachronism in any AG 0101
+      render.
+
+  - id: fac.rc.capital-territory
+    name: Capital Territory
+    timeline: tl.rc
+    active:
+      start: "1014"
+      confidence: editorial
+
+  - id: fac.rc.capital-army
+    name: Capital Army
+    timeline: tl.rc
+    parent: fac.rc.capital-territory
+    active:
+      start: "1014"
+      confidence: editorial
+
+  - id: fac.rc.amerian
+    name: Amerian Forces
+    timeline: tl.rc
+    active:
+      start: "1014"
+      confidence: editorial
+
+  - id: fac.rc.towasanga
+    name: Towasanga
+    timeline: tl.rc
+    active:
+      start: "1014"
+      confidence: editorial
+
+  - id: fac.rc.venus-globe
+    name: Venus Globe
+    timeline: tl.rc
+    active:
+      start: "1014"
+      confidence: editorial
+
+  - id: fac.pd.gjallarhorn
+    name: Gjallarhorn
+    timeline: tl.pd
+    active:
+      start: "0001"
+      confidence: editorial
+      note: >
+        Founded at the end of the Calamity War, which is where the
+        calendar starts. The span therefore begins at the epoch by
+        construction, not by evidence.
+
+  - id: fac.pd.tekkadan
+    name: Tekkadan
+    timeline: tl.pd
+    active:
+      start: "0323"
+      end: "0325"
+      confidence: editorial
+
+  - id: fac.pd.teiwaz
+    name: Teiwaz
+    timeline: tl.pd
+    active:
+      start: "0323"
+      confidence: editorial
+
+  - id: fac.pd.arianrhod
+    name: Arianrhod Fleet
+    timeline: tl.pd
+    parent: fac.pd.gjallarhorn
+    active:
+      start: "0325"
+      confidence: editorial
+
+  - id: fac.as.benerit-group
+    name: Benerit Group
+    timeline: tl.as
+    active:
+      start: "0101"
+      confidence: editorial
+
+  - id: fac.as.vanadis
+    name: Vanadis Institute
+    timeline: tl.as
+    active:
+      start: "0101"
+      end: "0101"
+      confidence: editorial
+
+  - id: fac.as.shin-sei
+    name: Shin Sei Development Corporation
+    timeline: tl.as
+    active:
+      start: "0122"
+      confidence: editorial
+
+  - id: fac.as.earth-house
+    name: Earth House
+    timeline: tl.as
+    active:
+      start: "0122"
+      confidence: editorial
+
+  - id: fac.as.dawn-of-fold
+    name: Dawn of Fold
+    timeline: tl.as
+    active:
+      start: "0122"
+      end: "0122"
+      confidence: editorial
+
+  - id: fac.as.space-assembly-league
+    name: Space Assembly League
+    timeline: tl.as
+    active:
+      start: "0122"
+      confidence: editorial
+
+# ---------------------------------------------------------------------
+# Mars Century and SD Gundam.
+#
+# The Build continuity has NO factions and the omission is deliberate. Its
+# events have no belligerents — they are tournaments and game sessions, and
+# the organisations involved are a toy company and a game operator. An
+# empty faction band there is accurate, not missing. If someone later adds
+# `fac.build.*` for the corporations, the band will imply a conflict
+# structure the works do not have.
+# ---------------------------------------------------------------------
+
+  - id: fac.mc.preventers
+    name: Preventers
+    timeline: tl.mc
+    active:
+      start: "0001"
+      confidence: editorial
+      note: >
+        Founded in After Colony, not Mars Century, so this start uses the
+        epoch of the wrong calendar. It is the least meaningful faction
+        span here. It stays because the organization truly works in both
+        eras, and because `active` has nowhere to hold an AC date on an MC
+        faction. A faction that spans two eras is the entity-level version
+        of the problem that `coverageSpan.timeline` solves for series.
+
+  - id: fac.mc.mars-colonies
+    name: Mars colonial administration
+    timeline: tl.mc
+    active:
+      start: "0001"
+      confidence: editorial
+
+  - id: fac.sd-f.sdg
+    name: Super Dimensional Guard
+    abbrev: SDG
+    timeline: tl.sd.force
+    active:
+      start: "0001"
+      confidence: editorial
+      note: >
+        This start means nothing. The timeline tl.sd.force has no
+        calendar, `active` needs an eraDate, and "0001" is the only
+        literal that fits the pattern without asserting anything. A
+        coverage span or a date claim can say `undated`. The `active`
+        field cannot. That is the third schema hole of the same shape,
+        left open rather than patched in the same pass.
+
+  - id: fac.sd-f.dark-axis
+    name: Dark Axis
+    timeline: tl.sd.force
+    active:
+      start: "0001"
+      confidence: editorial
+
+  - id: fac.sd-w.kingdoms
+    name: The Three Kingdoms
+    timeline: tl.sd.world
+    active:
+      start: "0001"
+      confidence: editorial

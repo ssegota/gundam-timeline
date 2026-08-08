@@ -1,0 +1,172 @@
+# The Build continuity: Build Fighters, Build Divers, and sequels.
+#
+# THE ONLY FILE IN THIS DATASET WITH NO DATES AT ALL. Not imprecise dates,
+# not disputed dates — none. The works are set in a near-present real world
+# and state no year for any event in any of them. Every entry below is
+# either `undated` or ordered by `anchor` against another entry.
+#
+# Two consequences a renderer must handle rather than paper over:
+#
+#   1. Nothing here can be placed on a time axis. There is no epoch to
+#      place it against. Drawing these at the origin of a shared axis would
+#      assert that Gunpla battles happen at UC 0001.
+#
+#   2. The anchors form TWO DISCONNECTED CHAINS, not one ordering. The
+#      Build Fighters works are internally ordered, the Build Divers works
+#      are internally ordered, and the relationship between the two chains
+#      is not established by any source — Build Metaverse confirms they
+#      share a universe without saying which came first. A partial order is
+#      the honest output. Anything that linearises this has invented the
+#      missing edge.
+
+events:
+  - id: evt.build.undated.gunpla-battle-established
+    label: Gunpla Battle becomes a competitive sport
+    type: competition
+    timeline: tl.build
+    date:
+      - undated: true
+        sources: [src.build.gunpla-builders]
+        note: >
+          The root of the first anchor chain, and the first fully undated
+          entry in the dataset. It cannot be anchored itself, because a
+          chain needs a base, and there is no calendar to date it in. The
+          third state is the only truthful option. Before `undated`
+          existed, the choice was to invent an era or to leave the
+          continuity out.
+    summary: >
+      A system for battling assembled plastic models as though they were
+      the machines they depict becomes a commercial product and then a
+      ranked competition. Everything else in this continuity is a
+      tournament held under it.
+    depicted_in: [ser.build.gunpla-builders]
+    claims:
+      - property: diegetic_status_of_other_continuities
+        value: >
+          The mobile suits that competitors build come from works that
+          exist, in this continuity, as fiction. The Universal Century and
+          the rest are stories that its characters have watched.
+        sources: [src.build.build-fighters]
+        note: >
+          This is why the relation enum gained `depicts_as_fiction`. It is
+          worth stating why none of the existing types fits. The type
+          `contains` is what the Correct Century does to the Universal
+          Century, where one history encloses another. Used here it would
+          assert that the One Year War happened in the past of the Build
+          continuity. It did not. It was on television.
+    related: [evt.build.undated.world-championship]
+
+  - id: evt.build.undated.world-championship
+    label: The seventh Gunpla Battle World Championship
+    type: competition
+    timeline: tl.build
+    date:
+      - anchor:
+          relative_to: evt.build.undated.gunpla-battle-established
+          direction: after
+        sources: [src.build.build-fighters]
+        note: >
+          An ordinal position in a tournament series is the only
+          chronology this work gives. That is the same situation as the
+          Gundam Fights of the Future Century, but without a stated
+          cadence to fall back on. No year can be derived, even in
+          principle.
+    summary: >
+      A boy who builds well and a boy who fights well enter the seventh
+      world championship together. They find that the organizers run it as
+      cover for something else.
+    depicted_in: [ser.build.build-fighters]
+    related: [evt.build.undated.later-championship]
+
+  - id: evt.build.undated.later-championship
+    label: A later world championship, seven years on
+    type: competition
+    timeline: tl.build
+    date:
+      - anchor:
+          relative_to: evt.build.undated.world-championship
+          offset_years: 7
+          direction: after
+        sources: [src.build.build-fighters-try]
+        confidence: approximate
+        note: >
+          The stated seven-year interval is the most precise statement
+          about time that this whole continuity makes. The label leaves
+          out the ordinal number of the championship on purpose. The
+          interval is sourced and the number is not. A number invented for
+          a tidier title would put a guess in a field that carries no
+          confidence flag.
+    summary: >
+      Seven years later the sport has changed shape and moved to team
+      formats. A new set of competitors enters under the shadow of the
+      previous generation.
+    depicted_in: [ser.build.build-fighters-try]
+
+  - id: evt.build.undated.gbn-launch
+    label: Launch of the virtual battle network
+    type: technological
+    timeline: tl.build
+    date:
+      - undated: true
+        sources: [src.build.build-divers]
+        note: >
+          THE ROOT OF THE SECOND CHAIN, and not anchored to anything
+          above, on purpose. No source establishes whether this falls
+          before or after the Build Fighters works. An anchor that
+          asserted either would be fabrication in the one field of this
+          schema that cannot carry a useful caveat. A wrong `direction` is
+          simply wrong, and `approximate` does not soften it.
+    summary: >
+      Battling moves into a massively multiplayer virtual world. The
+      models exist there as data, and the people who play them need build
+      nothing at all.
+    depicted_in: [ser.build.build-divers]
+    related: [evt.build.undated.eldora-contact]
+
+  - id: evt.build.undated.eldora-contact
+    label: Contact with Eldora
+    type: technological
+    timeline: tl.build
+    date:
+      - anchor:
+          relative_to: evt.build.undated.gbn-launch
+          offset_years: 2
+          direction: after
+        sources: [src.build.build-divers-rerise]
+        confidence: approximate
+    summary: >
+      Players go on what they take for a game scenario and reach a world
+      whose inhabitants are not players. They must then decide what they
+      owe to people they were told were content.
+    depicted_in: [ser.build.build-divers-rerise]
+
+  - id: evt.build.undated.metaverse-convergence
+    label: The two communities meet
+    type: competition
+    timeline: tl.build
+    date:
+      - undated: true
+        sources: [src.build.build-metaverse]
+        note: >
+          Undated rather than anchored after both chains, although it
+          plainly follows each. An anchor takes ONE `relative_to`. To say
+          "after the end of two separate chains" needs two claims. A
+          resolver would read those as competing dates, not as a
+          conjunction. This entry is undated, with the order in prose,
+          because a wrong structure is worse than an absent one. This is a
+          real limit of the anchor model. It expresses sequence but not
+          joins.
+    summary: >
+      Competitors from the physical tournaments and from the virtual
+      network appear together. That settles that both bodies of work
+      describe one world, not two parallel ones.
+    depicted_in: [ser.build.build-metaverse]
+    claims:
+      - property: topology
+        value: >
+          Its contribution is structural, not narrative. It settles that
+          the Build Fighters works and the Build Divers works share a
+          continuity. It does not settle their order.
+        sources: [src.build.build-metaverse]
+        confidence: interpretive
+    related: [evt.build.undated.later-championship, evt.build.undated.eldora-contact]

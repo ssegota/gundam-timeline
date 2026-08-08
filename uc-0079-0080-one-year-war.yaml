@@ -1,0 +1,296 @@
+# UC 0079.01 - 0080.01: the One Year War.
+#
+# The densest period in the dataset and the one with the most series
+# overlapping the same months. Six works in this file cover the same year
+# from different vantage points; `depicted_in` is what lets a renderer
+# stack them as concurrent lanes rather than a single undifferentiated bar.
+
+events:
+  - id: evt.uc.0079.war-declared
+    label: Zeon declares war on the Earth Federation
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0079.01.03"
+        sources: [src.uc.msg-tv]
+    participants: [fac.uc.principality-zeon, fac.uc.efed]
+    summary: >
+      The Principality of Zeon declares independence and opens fire. The
+      conflict later takes its name from how long it runs.
+    depicted_in: [ser.uc.origin]
+
+  - id: evt.uc.0079.operation-british
+    label: Operation British
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0079.01.04"
+        end: "0079.01.10"
+        precision: range
+        sources: [src.uc.msg-tv, src.uc.chronology]
+        confidence: approximate
+        note: >
+          Corrected in the 2026-08 pass from an end of "0079.01.16". Zeon
+          reinforces the colony and puts it under thrust on 4 January, and
+          it strikes Sydney on 10 January. 16 January is the close of the
+          Battle of Loum, a separate engagement. The old range merged the
+          two without saying so, and it would have drawn the opening month
+          as one continuous operation.
+    participants: [fac.uc.principality-zeon, fac.uc.efed]
+    summary: >
+      Zeon takes a Side 2 colony, clears it, and drops it toward Jaburo,
+      the headquarters of the Federation. Federation fire breaks the
+      colony on the way down. The surviving mass hits Australia instead.
+    depicted_in: [ser.uc.origin]
+    claims:
+      - property: casualties
+        value: >
+          Sources commonly state that the opening phase of the war killed
+          about half of the human population. That figure counts the
+          colony drop and the nuclear and chemical weapons used with it.
+        sources: [src.uc.msg-tv]
+        note: >
+          This is the most useful contested figure in the dataset. The
+          headline proportion comes from the 1979 series. The absolute
+          population numbers implied by later supplementary material do
+          not agree with it, and different works have quietly used
+          different bases. Do not resolve this to one number. Render it as
+          a range, with the dispute visible.
+      - property: target
+        value: >
+          Jaburo, the underground headquarters of the Federation in South
+          America.
+        sources: [src.uc.msg-tv]
+      - property: outcome
+        value: >
+          The strike misses its target. The Federation command structure
+          survives. That is why the war runs a year rather than a month.
+        sources: [src.uc.msg-tv]
+    related: [evt.uc.0079.antarctic-treaty, evt.uc.0079.loum]
+
+  - id: evt.uc.0079.loum
+    label: Battle of Loum
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0079.01.15"
+        end: "0079.01.16"
+        precision: range
+        sources: [src.uc.msg-tv]
+        confidence: approximate
+        note: >
+          Checked in the 2026-08 pass and kept. Most sources give 15-16
+          January. Some compilations close the battle on 17 January. This
+          entry does not record that as a competing claim, because the
+          difference lies between secondary reference works, not between
+          narrative sources. Hold that distinction, or the date list fills
+          with citation noise.
+    participants: [fac.uc.principality-zeon, fac.uc.efsf]
+    summary: >
+      A decisive fleet action near Side 5. Zeon mobile suits destroy a
+      larger Federation fleet and establish the mobile suit as the
+      dominant weapon of the war.
+    depicted_in: [ser.uc.origin, ser.uc.origin-anime]
+    claims:
+      - property: char_aznable_performance
+        value: >
+          Char Aznable destroys five enemy capital ships during the
+          action, and earns the name Red Comet.
+        sources: [src.uc.msg-tv]
+      - property: char_aznable_performance
+        value: >
+          The Origin restages the battle at length. It differs from the
+          1979 account in the order of events, and in what it credits to
+          Char himself.
+        sources: [src.uc.origin]
+        confidence: needs-verification
+        note: >
+          This entry stays vague on purpose. The divergence is real and
+          well known. Somebody must check the exact particulars against
+          the volumes before this claim gets a concrete value. An honest
+          placeholder beats a confident wrong number.
+    related: [evt.uc.0079.operation-british]
+
+  - id: evt.uc.0079.antarctic-treaty
+    label: Antarctic Treaty
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0079.01.31"
+        sources: [src.uc.msg-tv]
+    participants: [fac.uc.principality-zeon, fac.uc.efed]
+    summary: >
+      Both sides agree to ban nuclear, biological and chemical weapons.
+      They also agree rules for the treatment of colonies and prisoners.
+      The opening month has already killed a large share of the species.
+      The war goes on under the new limits.
+
+  - id: evt.uc.0079.ground-offensive
+    label: Zeon ground offensive and occupation
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0079.03"
+        end: "0079.09"
+        precision: range
+        confidence: approximate
+        sources: [src.uc.msg-tv, src.uc.08th]
+    participants: [fac.uc.principality-zeon, fac.uc.efed]
+    summary: >
+      Zeon lands forces on Earth and occupies a large share of the
+      surface. That includes the resource regions that feed the Federation
+      war economy. The front settles into a war of attrition on the
+      ground.
+    referenced_in: [ser.uc.08th]
+    note: >
+      The series ser.uc.08th shows the later phase of this campaign, from
+      0079.11 onward. It does not show the offensive as dated here. That
+      is why this event uses referenced_in.
+
+  - id: evt.uc.0079.side7-raid
+    label: Zeon raid on Side 7
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0079.09.18"
+        sources: [src.uc.msg-tv]
+    participants: [fac.uc.principality-zeon, fac.uc.efsf]
+    summary: >
+      A Zeon scout team attacks the Side 7 colony that holds the
+      Federation mobile suit program. A civilian who lives there pilots
+      the prototype RX-78-2 in the defense of the colony. The assault
+      carrier White Base leaves with a crew that is mostly civilian.
+    depicted_in: [ser.uc.msg]
+    note: >
+      The opening of ser.uc.msg, and the anchor point for the main
+      narrative spine.
+
+  - id: evt.uc.0079.thunderbolt-sector
+    label: Fighting in the Thunderbolt Sector
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0079"
+        end: "0080"
+        precision: range
+        confidence: approximate
+        sources: [src.uc.thunderbolt]
+    participants: [fac.uc.principality-zeon, fac.uc.efsf]
+    summary: >
+      Long combat in the debris field left by the destruction of Side 4.
+      Both sides fight mostly by sniping and ambush among the wreckage.
+    depicted_in: [ser.uc.thunderbolt]
+
+  - id: evt.uc.0079.odessa
+    label: Operation Odessa
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0079.11.07"
+        end: "0079.11.09"
+        precision: range
+        sources: [src.uc.msg-tv, src.uc.chronology]
+        confidence: approximate
+        note: >
+          Widened in the 2026-08 pass from a single day. Odessa is an
+          operation of several days, not a date. The compilations disagree
+          at both ends. Some open it on 6 November. Some run it to 11
+          November. The range here is the part they all cover, not the
+          union, and the start is the one figure they share.
+    participants: [fac.uc.efed, fac.uc.principality-zeon]
+    summary: >
+      The first major ground counteroffensive by the Federation retakes
+      the Odessa mining region. It reverses the strategic balance on Earth
+      and starts the Zeon withdrawal from the surface.
+    depicted_in: [ser.uc.msg]
+
+  - id: evt.uc.0079.jaburo-assault
+    label: Zeon assault on Jaburo
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0079.11.30"
+        confidence: approximate
+        sources: [src.uc.msg-tv, src.uc.chronology]
+        note: >
+          Sharpened in the 2026-08 pass from month precision. The assault
+          opens on 30 November. Some compilations run the fighting to 3
+          December. This entry therefore records no end, rather than a
+          contested one.
+    participants: [fac.uc.principality-zeon, fac.uc.efed]
+    summary: >
+      A direct Zeon attack on the underground headquarters of the
+      Federation fails. It ends the last chance to decide the war on
+      Earth.
+    depicted_in: [ser.uc.msg]
+
+  - id: evt.uc.0079.side6-operation
+    label: Zeon special operation in Side 6
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0079.12"
+        end: "0080.01"
+        precision: range
+        sources: [src.uc.0080]
+        confidence: approximate
+    participants: [fac.uc.principality-zeon, fac.uc.efsf]
+    summary: >
+      A commando team enters a neutral Side 6 colony to destroy a
+      Federation prototype. If the team fails, the plan calls for the
+      destruction of the colony itself.
+    depicted_in: [ser.uc.0080]
+
+  - id: evt.uc.0079.solomon
+    label: Battle of Solomon
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0079.12.24"
+        sources: [src.uc.msg-tv]
+        confidence: approximate
+    participants: [fac.uc.efsf, fac.uc.principality-zeon]
+    summary: >
+      The Federation takes the forward Zeon fortress at Solomon. That
+      opens the approach to the Zeon home territory at Side 3.
+    depicted_in: [ser.uc.msg]
+
+  - id: evt.uc.0079.a-baoa-qu
+    label: Battle of A Baoa Qu
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0079.12.30"
+        end: "0079.12.31"
+        precision: range
+        sources: [src.uc.msg-tv]
+        confidence: approximate
+    participants: [fac.uc.efsf, fac.uc.principality-zeon]
+    summary: >
+      The last action of the war, fought at the final Zeon fortress. The
+      Zeon command structure collapses from inside during the battle, as
+      the Zabi family destroys itself, and the fortress falls.
+    depicted_in: [ser.uc.msg]
+    claims:
+      - property: command_collapse
+        value: >
+          Gihren Zabi dies at the hand of his sister Kycilia during the
+          battle. Char Aznable kills Kycilia shortly after, and so
+          completes his revenge against the family.
+        sources: [src.uc.msg-tv]
+    related: [evt.uc.0080.granada-treaty]
+
+  - id: evt.uc.0080.granada-treaty
+    label: Treaty of Granada
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0080.01.01"
+        sources: [src.uc.msg-tv]
+    participants: [fac.uc.efed, fac.uc.republic-zeon-2]
+    summary: >
+      The armistice that ends the One Year War. Side 3 becomes a republic
+      again, under Federation supervision. Zeon forces at Axis and
+      elsewhere do not disarm. That unsettled remnant question drives the
+      next fifteen years of the timeline.
+    related: [evt.uc.0083.operation-stardust, evt.uc.0088.first-neo-zeon-war]

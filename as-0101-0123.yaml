@@ -1,0 +1,107 @@
+# Ad Stella: The Witch from Mercury.
+#
+# The belligerents here are companies. That costs the schema nothing —
+# `participants` takes any faction id — but it should change how a render
+# reads: a band labelled Benerit Group is a holding company, not an army,
+# and colouring it like ZAFT or the Titans would misrepresent every event
+# in this file.
+
+events:
+  - id: evt.as.0101.vanadis-incident
+    label: The Vanadis Incident
+    type: atrocity
+    timeline: tl.as
+    date:
+      - start: "0101"
+        sources: [src.as.witch]
+    participants: [fac.as.vanadis, fac.as.benerit-group]
+    summary: >
+      An industry regulatory body acts as an armed force. It destroys a
+      research institute that develops a banned human-machine interface,
+      and it kills the staff. A surviving child and a surviving parent
+      spend the next twenty-one years preparing an answer.
+    depicted_in: [ser.as.witch]
+    claims:
+      - property: regulatory_violence
+        value: >
+          A standards body authorizes the killing, not a state. The
+          premise of the work is that this continuity draws no real line
+          between the two.
+        sources: [src.as.witch]
+        confidence: interpretive
+    related: [evt.as.0122.plant-quetta-incident, evt.as.0123.quiet-zero]
+
+  - id: evt.as.0122.asticassia-duels
+    label: The Asticassia duelling system
+    type: political
+    timeline: tl.as
+    date:
+      - start: "0122"
+        sources: [src.as.witch]
+    participants: [fac.as.benerit-group, fac.as.shin-sei, fac.as.earth-house]
+    summary: >
+      A corporate school settles commercial and personal disputes by
+      mobile suit duel. Control of subsidiary companies is among the
+      stakes. Twenty-one years after the ban on the interface, the
+      industry that banned it runs on machines built from its remains.
+    depicted_in: [ser.as.witch]
+    claims:
+      - property: earthian_spacian_divide
+        value: >
+          The student body splits between space-born corporate heirs and
+          Earth-born scholarship students. The dueling system formalises
+          that difference rather than levels it.
+        sources: [src.as.witch]
+        confidence: interpretive
+
+  - id: evt.as.0122.plant-quetta-incident
+    label: The Plant Quetta attack
+    type: atrocity
+    timeline: tl.as
+    date:
+      - start: "0122"
+        sources: [src.as.witch]
+        confidence: approximate
+    participants: [fac.as.dawn-of-fold, fac.as.benerit-group]
+    summary: >
+      An Earth-based militant group attacks a corporate facility. A banned
+      weapon system wipes the group out. Its leaders die, the survivors
+      are silenced, and the record calls the event an industrial accident.
+    depicted_in: [ser.as.witch]
+    claims:
+      - property: cover_up
+        value: >
+          An executive decision reclassifies it as an accident and imposes
+          a reporting ban on the witnesses. This dataset records the
+          cover-up as an attribute of the event, not as a competing
+          account of it. No source believes the accident version.
+        sources: [src.as.witch]
+        note: >
+          Keep this apart from a contested claim. A lie inside the fiction
+          is data about the fiction. A disagreement between sources is
+          data about the sources. Only the second belongs in a multi-claim
+          list. To merge them would make the resolver adjudicate
+          propaganda.
+    related: [evt.as.0123.quiet-zero]
+
+  - id: evt.as.0123.quiet-zero
+    label: The Quiet Zero incident
+    type: battle
+    timeline: tl.as
+    date:
+      - start: "0123"
+        sources: [src.as.witch]
+        confidence: approximate
+        note: >
+          The main narrative runs from AS 0122 into AS 0123, and the work
+          never says where the year turns. This entry sits in the later
+          year on sequence alone. That is weaker evidence than the other
+          dates in this file.
+    participants: [fac.as.benerit-group, fac.as.space-assembly-league, fac.as.earth-house]
+    summary: >
+      Somebody activates the system built across two decades from the
+      banned interface. It can seize control of every compatible machine
+      at once. The people it was built to avenge stop it, and the
+      settlement that follows comes by negotiation rather than victory.
+    depicted_in: [ser.as.witch]
+    related: [evt.as.0101.vanadis-incident]

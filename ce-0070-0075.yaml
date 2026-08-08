@@ -1,0 +1,214 @@
+# Cosmic Era: Gundam SEED, SEED Destiny, SEED FREEDOM.
+#
+# The densest non-UC chronology here, and the only one that supplies day
+# precision more than once. Note the structural rhyme with the UC that the
+# dataset now makes visible: both continuities open with a mass-casualty
+# atrocity against a colony, and both have a second war begun by dropping
+# the first war's dead colony onto Earth. That is a claim about the works,
+# not about the fiction, and it lives in claims rather than in relations.
+
+events:
+  - id: evt.ce.0070.bloody-valentine
+    label: Bloody Valentine
+    type: atrocity
+    timeline: tl.ce
+    date:
+      - start: "0070.02.14"
+        sources: [src.ce.seed]
+    participants: [fac.ce.earth-alliance, fac.ce.plants]
+    summary: >
+      Earth Alliance forces destroy an agricultural colony with nuclear
+      weapons and kill everybody on it. The attack gives the war its name.
+      It also turns a political dispute over genetic engineering into a
+      fight for survival.
+    depicted_in: [ser.ce.seed]
+    claims:
+      - property: casualties
+        value: >
+          243,721 dead. The work cites that exact figure again and again,
+          and does not round it.
+        sources: [src.ce.seed]
+        note: >
+          Contrast this with the UC and After War entries. Both of those
+          give a proportion of an unstated total. An exact count does
+          different rhetorical work from "half of humanity". Do not
+          flatten the two into one casualties field.
+    related: [evt.ce.0070.first-alliance-plant-war, evt.ce.0073.break-the-world]
+
+  - id: evt.ce.0070.first-alliance-plant-war
+    label: First Alliance-PLANT War
+    type: war
+    timeline: tl.ce
+    date:
+      - start: "0070.02"
+        end: "0071.09"
+        precision: range
+        sources: [src.ce.seed]
+        confidence: approximate
+    participants: [fac.ce.earth-alliance, fac.ce.zaft, fac.ce.plants]
+    summary: >
+      A war between the governments of Earth and the orbital colonies,
+      fought along a genetic line rather than a territorial one. The
+      engineered live in the colonies, and the unengineered mostly live on
+      Earth. Each side treats the other as a category, not as a state.
+    depicted_in: [ser.ce.seed]
+    claims:
+      - property: blue_cosmos_role
+        value: >
+          An anti-engineering movement inside the Alliance leadership
+          drives escalation on its own, apart from Alliance war aims.
+          Several of the worst acts of the war therefore belong to no
+          government policy.
+        sources: [src.ce.seed]
+        confidence: interpretive
+    related: [evt.ce.0071.jachin-due]
+
+  - id: evt.ce.0071.heliopolis-raid
+    label: Raid on Heliopolis
+    type: battle
+    timeline: tl.ce
+    date:
+      - start: "0071.01.25"
+        sources: [src.ce.seed]
+    participants: [fac.ce.zaft, fac.ce.earth-alliance, fac.ce.orb]
+    summary: >
+      Raiders attack a colony of a neutral state to take the prototype
+      mobile suits built there in secret. The colony is destroyed in the
+      fighting. A civilian who lives there ends up piloting one of the
+      prototypes in its defense.
+    depicted_in: [ser.ce.seed]
+    claims:
+      - property: structural_parallel
+        value: >
+          The opening beat restages the Side 7 raid of UC 0079. A hidden
+          prototype program sits in a colony that claims no part in the
+          war. A raid comes to seize it. A civilian pilots it. The
+          survivors escape aboard a new warship with a crew assembled on
+          the spot.
+        sources: [src.ce.seed]
+        confidence: editorial
+        note: >
+          An observation by this project. It belongs in the data. A reader
+          who compares two lanes on a render will see the shapes match.
+          That reader may reasonably ask whether somebody copied the
+          entry. Nobody did.
+    related: [evt.ce.0070.first-alliance-plant-war]
+
+  - id: evt.ce.0071.jachin-due
+    label: Second Battle of Jachin Due
+    type: battle
+    timeline: tl.ce
+    date:
+      - start: "0071.09.26"
+        end: "0071.09.27"
+        precision: range
+        sources: [src.ce.seed]
+        confidence: approximate
+    participants: [fac.ce.zaft, fac.ce.earth-alliance, fac.ce.three-ships-alliance]
+    summary: >
+      The closing action of the war, fought around a ZAFT fortress. One
+      side uses nuclear weapons and the other a mass-driver weapon. A
+      third force of defectors from both sides steps in and stops both
+      from firing.
+    depicted_in: [ser.ce.seed]
+    related: [evt.ce.0071.junius-treaty]
+
+  - id: evt.ce.0071.junius-treaty
+    label: Treaty of Junius Seven
+    type: political
+    timeline: tl.ce
+    date:
+      - start: "0071.09"
+        sources: [src.ce.seed]
+        confidence: approximate
+        note: >
+          Signed right after the fighting ends. The work does not give the
+          day. This entry keeps month precision rather than borrow the
+          date of the battle, which would be a guess dressed as a
+          citation.
+    participants: [fac.ce.earth-alliance, fac.ce.plants]
+    summary: >
+      The armistice that ends the first war. It takes its name from the
+      colony destroyed at the start of that war. It bans the weapons that
+      made the war catastrophic, and settles none of the grievance that
+      caused it.
+    referenced_in: [ser.ce.seed-destiny]
+    claims:
+      - property: durability
+        value: >
+          It holds for two years. The second war then begins when somebody
+          uses the physical remains of the colony that the treaty is named
+          after as a weapon.
+        sources: [src.ce.seed-destiny]
+    related: [evt.ce.0073.break-the-world]
+
+  - id: evt.ce.0073.break-the-world
+    label: Break the World
+    type: atrocity
+    timeline: tl.ce
+    date:
+      - start: "0073.10.02"
+        sources: [src.ce.seed-destiny]
+    participants: [fac.ce.zaft, fac.ce.earth-alliance]
+    summary: >
+      Extremists move the wreck of the destroyed colony out of orbit and
+      onto Earth. It breaks up on the way down, and the fragments kill
+      great numbers across several continents. The war restarts within
+      days.
+    depicted_in: [ser.ce.seed-destiny]
+    claims:
+      - property: attribution
+        value: >
+          A faction carried it out without the government of the colonies.
+          That does not stop other states from treating the attack as an
+          act of that government.
+        sources: [src.ce.seed-destiny]
+      - property: colony_drop_lineage
+        value: >
+          The third colony drop in this dataset, after UC 0079 and UC
+          0083. It is the second one carried out with a colony that was
+          already a war grave.
+        sources: [src.ce.seed-destiny]
+        confidence: editorial
+    related: [evt.ce.0073.second-alliance-plant-war]
+
+  - id: evt.ce.0073.second-alliance-plant-war
+    label: Second Alliance-PLANT War
+    type: war
+    timeline: tl.ce
+    date:
+      - start: "0073.10"
+        end: "0074"
+        precision: range
+        sources: [src.ce.seed-destiny]
+        confidence: approximate
+        note: >
+          The end is the weakest date in this file. Sources usually put
+          the close of the war in CE 0074, without a month. Summaries of
+          the series also disagree about which year it ends in. This entry
+          carries a flag rather than a pinned value.
+    participants: [fac.ce.zaft, fac.ce.earth-alliance, fac.ce.orb, fac.ce.phantom-pain]
+    summary: >
+      A second and wider war. The leadership of the colonies pursues a
+      program that assigns every person a permanent social role by genetic
+      assessment. The opposition to it rises inside its own side.
+    depicted_in: [ser.ce.seed-destiny]
+
+  - id: evt.ce.0075.foundation-conflict
+    label: The Foundation crisis
+    type: war
+    timeline: tl.ce
+    date:
+      - start: "0075"
+        sources: [src.ce.seed-freedom]
+        confidence: needs-verification
+        note: >
+          The year comes from summary material. Nobody checked it against
+          the film. It is the least reliable date in this file, and the
+          only date in the Cosmic Era with a needs-verification flag.
+    participants: [fac.ce.zaft, fac.ce.orb, fac.ce.plants]
+    summary: >
+      A state that rises after the second war offers to end conflict by
+      technical means. It turns out to have been a belligerent throughout.
+      Its defeat closes the main sequence of the continuity.
+    depicted_in: [ser.ce.seed-freedom]

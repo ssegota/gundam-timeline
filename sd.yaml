@@ -1,0 +1,107 @@
+# SD Gundam: two populated settings, undated throughout.
+#
+# Three further SD settings — Knight (Lacroa), Musha (Ark), and Command
+# Chronicles — are declared in timelines.yaml as `stub` and appear nowhere
+# in this file. That is deliberate. They are model-kit and manga lines with
+# sprawling, poorly documented stories and no chronology of any kind, and a
+# chronology dataset has close to nothing true to say about them. Declaring
+# them records that they exist and are uncatalogued; inventing events for
+# them would record something worse than nothing.
+#
+# `stub` had been unused since RC and CC were populated. It exists for
+# exactly this.
+
+events:
+  - id: evt.sd-f.undated.dark-axis-invasion
+    label: The Dark Axis invades Neotopia
+    type: war
+    timeline: tl.sd.force
+    date:
+      - undated: true
+        sources: [src.sd-f.gundam-force]
+        note: >
+          This continuity has no calendar, and it implies none. Unlike the
+          Build entries, it does not even offer an anchor chain to hang an
+          order on. The work sequences its own episodes and says nothing
+          about how long anything takes.
+    participants: [fac.sd-f.dark-axis, fac.sd-f.sdg]
+    summary: >
+      Invaders from another dimension attack a city where humans and
+      robots live together. The defenders organize in secret, so the
+      population never learns that a war is being fought over it.
+    depicted_in: [ser.sd-f.gundam-force]
+    related: [evt.sd-f.undated.dimensional-campaign]
+
+  - id: evt.sd-f.undated.dimensional-campaign
+    label: The campaign across Lacroa and Ark
+    type: war
+    timeline: tl.sd.force
+    date:
+      - undated: true
+        sources: [src.sd-f.gundam-force]
+    participants: [fac.sd-f.sdg, fac.sd-f.dark-axis]
+    summary: >
+      The war spreads into two further worlds. One is a petrified kingdom
+      of knights and magic. The other is a land of samurai. It ends in the
+      dimension the invaders came from.
+    depicted_in: [ser.sd-f.gundam-force]
+    claims:
+      - property: relationship_to_older_sd_settings
+        value: >
+          Lacroa and Ark rework the Knight and Musha settings as
+          dimensions inside the cosmology of this work. They are the same
+          material. They are not the same continuity.
+        sources: [src.sd-f.gundam-force]
+        confidence: interpretive
+        note: >
+          This is why no `contains` edge runs to tl.sd.knight or
+          tl.sd.musha. The type `contains` is what the Correct Century
+          does to the Universal Century. It asserts that the history of
+          the contained continuity truly happened in the past of the
+          container. A work that adapts the imagery of an older setting
+          does something else. To record that as containment would put a
+          claim in the graph that nobody made. It is the same discipline
+          as refusing to link the eight independent continuities with
+          `parallel_to`.
+
+  - id: evt.sd-w.undated.three-kingdoms-war
+    label: The war of the Three Kingdoms
+    type: war
+    timeline: tl.sd.world
+    date:
+      - undated: true
+        sources: [src.sd-w.sangoku]
+    participants: [fac.sd-w.kingdoms]
+    summary: >
+      Three rival kingdoms contend for a continent. It retells a
+      fourteenth-century Chinese historical novel, cast entirely with
+      Gundam designs.
+    depicted_in: [ser.sd-w.sangoku]
+    related: [evt.sd-w.undated.multiverse-revealed]
+
+  - id: evt.sd-w.undated.multiverse-revealed
+    label: The other worlds are revealed
+    type: political
+    timeline: tl.sd.world
+    date:
+      - undated: true
+        sources: [src.sd-w.heroes]
+    summary: >
+      The kingdom-world turns out to be one of many. Each has its own
+      appointed protector, and the sequel draws its cast from several of
+      them at once.
+    depicted_in: [ser.sd-w.heroes]
+    claims:
+      - property: unmodelled_structure
+        value: >
+          The work shows the other worlds. It does not name them, date
+          them, or give them histories of their own.
+        sources: [src.sd-w.heroes]
+        confidence: interpretive
+        note: >
+          If a source ever does, they become sibling timelines, and this
+          schema handles them without change. They would form a
+          `tl.sd.world.*` family with `diverges_from` or `parallel_to`
+          edges, exactly as tl.uc.gquuuuuux hangs off tl.uc. This note
+          records that, so whoever meets the material knows the shape is
+          already supported and does not reach for a new mechanism.

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/gundam-timeline/events.schema.json",
+  "title": "Event file",
+  "type": "object",
+  "required": ["events"],
+  "additionalProperties": false,
+  "properties": {
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "label", "timeline", "date", "summary"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "$ref": "common.schema.json#/$defs/id" },
+          "label": { "type": "string", "minLength": 1 },
+          "type": {
+            "enum": [
+              "battle",
+              "war",
+              "political",
+              "technological",
+              "atrocity",
+              "disaster",
+              "personal",
+              "competition"
+            ]
+          },
+          "timeline": { "$ref": "common.schema.json#/$defs/id" },
+          "date": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "common.schema.json#/$defs/dateClaim" },
+            "description": "A list because two sources may date the same event differently. Length > 1 means contested; the resolver picks by source tier and the renderer should flag it."
+          },
+          "participants": {
+            "type": "array",
+            "items": { "$ref": "common.schema.json#/$defs/id" }
+          },
+          "location": { "type": "string" },
+          "summary": { "type": "string", "minLength": 1 },
+          "depicted_in": {
+            "type": "array",
+            "items": { "$ref": "common.schema.json#/$defs/id" },
+            "description": "Series that dramatise this event on the page or screen. The inverse of series.covers; the validator checks that the event's date falls inside the series' coverage spans."
+          },
+          "referenced_in": {
+            "type": "array",
+            "items": { "$ref": "common.schema.json#/$defs/id" },
+            "description": "Series that establish this event as backstory without depicting it — dialogue, narration, opening crawl. Not subject to the coverage check, because the whole point is that it lies outside the series' narrative span. Keeping this separate from depicted_in is what stops a render from drawing Zeta Gundam as beginning in UC 0083."
+          },
+          "claims": {
+            "type": "array",
+            "items": { "$ref": "common.schema.json#/$defs/claim" }
+          },
+          "related": {
+            "type": "array",
+            "items": { "$ref": "common.schema.json#/$defs/id" }
+          },
+          "note": { "type": "string" }
+        }
+      }
+    }
+  }
+}

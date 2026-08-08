@@ -1,0 +1,7 @@
+# Generated. `python build_site.py` rebuilds it, and CI builds it for Pages.
+site/
+
+__pycache__/
+*.pyc
+.claude/
+.DS_Store

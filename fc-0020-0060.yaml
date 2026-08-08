@@ -1,0 +1,113 @@
+# Future Century: Mobile Fighter G Gundam.
+#
+# The thinnest chronology in the dataset, and honestly so. The work dates
+# almost nothing; what it gives is an ordinal position in a tournament
+# series and a stated cadence, from which a year can sometimes be derived.
+# Where the derivation fails — see the schedule claim on the 13th Fight —
+# that failure is recorded rather than resolved.
+
+events:
+  - id: evt.fc.0020.fourth-gundam-fight
+    label: Fourth Gundam Fight
+    type: political
+    timeline: tl.fc
+    date:
+      - start: "0020"
+        sources: [src.fc.g-gundam]
+        confidence: approximate
+    summary: >
+      The fourth running of the tournament. The orbital colony nations use
+      it to decide which of them governs the others for the next cycle.
+      This entry exists only because it is the one earlier Fight the work
+      fixes to a year, and so the only anchor for the cadence.
+
+  - id: evt.fc.undated.devil-gundam-theft
+    label: Theft of the Ultimate Gundam
+    type: technological
+    timeline: tl.fc
+    date:
+      - anchor:
+          relative_to: evt.fc.0060.thirteenth-gundam-fight
+          direction: before
+        sources: [src.fc.g-gundam]
+        confidence: approximate
+        note: >
+          The work gives no year, and none can be derived. The anchor
+          carries the order and nothing more. This entry omits
+          `offset_years` rather than guess it, which is the case the field
+          was made optional for. The id uses `undated` where the
+          convention wants a year. That is a gap in the convention, not a
+          typo. An event that a source places only in sequence has no year
+          to name it with. To force one would put a guess in the id, where
+          no confidence flag can reach it.
+    participants: [fac.fc.devil-gundam]
+    summary: >
+      A machine built to repair the ruined Earth is taken from its
+      developers. Somebody brings it to the surface, to keep it away from
+      the military. The descent damages it. It resumes its task of
+      restoration, but it now counts humanity as the thing to remove.
+    depicted_in: [ser.fc.g-gundam]
+    claims:
+      - property: intent
+        value: >
+          Was the theft a defection, or did the developers order it? The
+          series spends its whole length on that question, and the answer
+          decides which of the two men is at fault.
+        sources: [src.fc.g-gundam]
+        resolution: unresolved
+        note: >
+          Marked unresolved for the same reason as Amuro Ray at UC 0093.
+          The work holds both readings open on purpose. A resolver that
+          picks one does not summarize the text. It finishes it.
+    related: [evt.fc.0060.thirteenth-gundam-fight]
+
+  - id: evt.fc.0060.thirteenth-gundam-fight
+    label: Thirteenth Gundam Fight
+    type: political
+    timeline: tl.fc
+    date:
+      - start: "0060"
+        sources: [src.fc.g-gundam]
+    participants: [fac.fc.neo-japan, fac.fc.neo-hong-kong]
+    summary: >
+      The tournament that frames the whole series, hosted by Neo Hong
+      Kong. The prize is real power. The winning nation rules the others
+      until the next cycle. A sporting event is therefore the only working
+      political process this continuity has.
+    depicted_in: [ser.fc.g-gundam]
+    claims:
+      - property: schedule_consistency
+        value: >
+          The work states that the Fight runs every four years, and it
+          dates the fourth to FC 0020. On that cadence the thirteenth
+          falls in FC 0056, not FC 0060. The work explains the four-year
+          difference as a delay to the twelfth Fight.
+        sources: [src.fc.g-gundam]
+        confidence: interpretive
+        note: >
+          Keep this as an explicit claim. Do not quietly adopt FC 0060 and
+          move on. A reader who derives intermediate Fight years from the
+          stated cadence will get wrong dates for everything after the
+          eleventh. Nothing else here would warn them. This is the only
+          entry where an arithmetic rule the source gives contradicts a
+          date the same source gives.
+    related: [evt.fc.0060.devil-gundam-destroyed]
+
+  - id: evt.fc.0060.devil-gundam-destroyed
+    label: Destruction of the Devil Gundam
+    type: battle
+    timeline: tl.fc
+    date:
+      - start: "0060"
+        sources: [src.fc.g-gundam]
+        confidence: approximate
+        note: >
+          Inside the year of the 13th Fight, at its close. No source gives
+          a finer date.
+    participants: [fac.fc.shuffle-alliance, fac.fc.devil-gundam, fac.fc.neo-japan]
+    summary: >
+      The tournament stops partway through, because the machine loose on
+      Earth becomes the more urgent problem. The surviving fighters join
+      against it instead of fighting each other. The contest built to
+      replace war is set aside in order to fight one.
+    depicted_in: [ser.fc.g-gundam]

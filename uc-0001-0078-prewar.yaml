@@ -1,0 +1,219 @@
+# UC 0001 - 0078: founding, colonisation, and the road to war.
+#
+# Note the retcon direction across this file: almost everything before
+# UC 0068 was established by works released decades after the 1979 series.
+# The `sources` on each claim make that visible without editorialising.
+
+events:
+  - id: evt.uc.0001.laplace-bombing
+    label: Destruction of Laplace
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0001.01.31"
+        sources: [src.uc.unicorn]
+    participants: [fac.uc.efed]
+    summary: >
+      A bomb destroys the orbital government residence of the Earth
+      Federation during the ceremony that opens the new calendar. The
+      first Prime Minister of the Federation dies in the attack.
+    depicted_in: [ser.uc.unicorn]
+    claims:
+      - property: significance
+        value: >
+          After the attack, somebody hides the original text of the
+          Universal Century Charter. That text holds a clause on the
+          future political rights of spacenoids. It becomes the object
+          later called Laplace's Box.
+        sources: [src.uc.unicorn]
+        note: >
+          This entry is a claim, not a fact, because no source before 2010
+          mentions Laplace, the Charter or the Box. It is the clearest
+          single case here of a later work filling an empty part of the
+          timeline. A resolver must never show it as background that
+          nobody disputes.
+    related: [evt.uc.0096.box-revealed]
+
+  - id: evt.uc.0030s.colonisation-program
+    label: Large-scale emigration to the Sides
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0001"
+        end: "0050"
+        precision: range
+        confidence: approximate
+        sources: [src.uc.msg-tv]
+        note: >
+          No source gives a start or an end date for the migration
+          program. This span is an editorial bracket, not a sourced claim.
+          A render must draw an approximate span differently from a
+          sourced one.
+    participants: [fac.uc.efed]
+    summary: >
+      The Federation moves a large share of the population of Earth into
+      colony clusters at the Lagrange points. It organizes them as
+      numbered Sides.
+
+  - id: evt.uc.0045.minovsky-physics
+    label: Minovsky physics established
+    type: technological
+    timeline: tl.uc
+    date:
+      - start: "0045"
+        confidence: approximate
+        sources: [src.uc.chronology]
+        note: >
+          Checked in the 2026-08 pass. The year holds. Sources date the
+          Minovsky Physics Society to UC 0045 at Side 3. The credit moved
+          from src.uc.msg-tv, which never states it. The dependent dates
+          come later. Minovsky predicts the particle in UC 0047. Nobody
+          observes the effect that makes it a weapon until UC 0065.
+    summary: >
+      Research into the Minovsky particle starts under Zeon patronage. The
+      later military use of the particle blocks radar and long-range
+      guided weapons. That is the precondition for close-range mobile suit
+      combat, and so for the shape of every battle in this dataset.
+
+  - id: evt.uc.0058.republic-declared
+    label: Side 3 declares independence as the Republic of Zeon
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0058.09.14"
+        sources: [src.uc.chronology]
+        confidence: approximate
+        note: >
+          Corrected in the 2026-08 pass from "0069". Deikun founds the
+          Republic in UC 0058, a decade before his death. The Zabis do not
+          found it after his death. The old value made the Zabi takeover
+          and the declaration of independence one act. That inverts the
+          political story the rest of this file depends on. The
+          chronologies also circulate a day, 14 September, but it rests on
+          a single line. Treat the year as the figure that carries weight.
+    participants: [fac.uc.republic-zeon, fac.uc.efed]
+    summary: >
+      Side 3 leaves the Earth Federation under Zeon Zum Deikun and names
+      the new state after him. Deikun leads it until his death ten years
+      later. The Zabi family then inherits an independence movement it did
+      not found.
+    referenced_in: [ser.uc.origin]
+    claims:
+      - property: state_name
+        value: >
+          The Origin calls the pre-Zabi state the Autonomous Republic of
+          Munzo. It puts Deikun's declaration of full independence at the
+          moment of his death, not a decade earlier.
+        sources: [src.uc.origin]
+        confidence: needs-verification
+        note: >
+          A real divergence, and the pre-0068 counterpart to the
+          cause_of_death dispute below. This entry stays vague on purpose.
+          The naming is certain. The consequence for the chronology is
+          not. Somebody must check the volumes before this claim gets a
+          date of its own. If it holds, it becomes the first true
+          contested DATE here, rather than a contested property.
+    related: [evt.uc.0068.deikun-death, evt.uc.0069.principality-declared]
+
+  - id: evt.uc.0068.deikun-death
+    label: Death of Zeon Zum Deikun
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0068"
+        sources: [src.uc.msg-tv, src.uc.origin]
+        confidence: approximate
+        note: >
+          Corrected in the 2026-08 pass from "0068.08.15" to year
+          precision. No source gives a day for the death. 15 August is the
+          day Degwin Zabi abolished the Republic in UC 0069, and the
+          day-level value here mixed the two together. The warning sign
+          was a day that survived a change of year untouched. Look for
+          that wherever a precise date sits beside a vague one.
+    participants: [fac.uc.republic-zeon]
+    summary: >
+      The founder of the Side 3 independence movement dies during a public
+      speech. He also originated the Contolist doctrine of spacenoid
+      self-determination. The Zabi family then takes control of the
+      movement.
+    depicted_in: [ser.uc.origin, ser.uc.origin-anime]
+    claims:
+      - property: cause_of_death
+        value: >
+          Sudden death. The text does not establish a cause.
+        sources: [src.uc.msg-tv]
+        note: >
+          The 1979 series treats the death as background and does not
+          settle it. This entry records the absence of a stated cause as a
+          position of its own. It is not agreement with either
+          alternative.
+      - property: cause_of_death
+        value: >
+          Assassination. The accusation falls on the Zabi family.
+        sources: [src.uc.origin]
+        note: >
+          The Origin shows the death and the accusation against the Zabis
+          directly. This is the worked example for the claim model: two
+          sources, two tiers, two values that cannot both hold, and
+          neither one deleted.
+    related: [evt.uc.0058.republic-declared, evt.uc.0069.principality-declared]
+
+  - id: evt.uc.0069.principality-declared
+    label: Republic reorganised as the Principality of Zeon
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0069.08.15"
+        sources: [src.uc.chronology]
+        confidence: approximate
+        note: >
+          Corrected in the 2026-08 pass from "0071". Degwin Sodo Zabi
+          abolished the Republic and declared the change to a monarchy on
+          15 August UC 0069. That is about a year after Deikun's death,
+          not three. The credit moved from src.uc.msg-tv, which does not
+          date the founding.
+    participants: [fac.uc.principality-zeon]
+    summary: >
+      Degwin Sodo Zabi takes the title of Sovereign and rebuilds the
+      republic as a hereditary state. The Zabi family thereby completes
+      its capture of Deikun's independence movement. The Deikun children
+      leave Side 3 around the same time.
+    depicted_in: [ser.uc.origin]
+    related: [evt.uc.0058.republic-declared, evt.uc.0068.deikun-death]
+
+  - id: evt.uc.0075.ms-development
+    label: Zeon mobile suit development programme
+    type: technological
+    timeline: tl.uc
+    date:
+      - start: "0073"
+        end: "0078"
+        precision: range
+        confidence: approximate
+        sources: [src.uc.msg-tv, src.uc.origin, src.uc.chronology]
+        note: >
+          Checked in the 2026-08 pass and left as written. The bracket
+          fits the rollout milestones the chronologies do give. Those are
+          the YMS-05 prototype in UC 0074, the MS-05B in mass production
+          in UC 0075, and the MS-06 prototype in August UC 0077. The true
+          start of the program depends on the compact fusion reactor,
+          finished in UC 0071, so an earlier bound is defensible. The
+          value 0073 stays because no source states an earlier one. The id
+          says 0075 while the range starts at 0073. That is cosmetic, but
+          see the id convention in README.
+    participants: [fac.uc.principality-zeon]
+    summary: >
+      Zeon develops the mobile suit as a weapons platform and then
+      mass-produces it. The Federation has no answer until well into the
+      war that follows.
+    depicted_in: [ser.uc.origin]
+    claims:
+      - property: note
+        value: >
+          The rollout dates for individual units in this period come
+          almost entirely from model kit documentation and encyclopedia
+          material. No narrative work states them. They agree well enough
+          to be useful, and they rest on weak enough ground that nobody
+          should give them day-level precision.
+        sources: [src.uc.chronology]
+        confidence: editorial

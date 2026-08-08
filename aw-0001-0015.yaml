@@ -1,0 +1,115 @@
+# After War: After War Gundam X.
+#
+# A continuity whose calendar begins at a catastrophe, which means the
+# catastrophe itself is barely expressible in it. See the note on the
+# Seventh Space War below — the same shape recurs in tl.pd, and it is the
+# clearest structural gap the 2026-08 expansion found.
+
+events:
+  - id: evt.aw.0001.seventh-space-war
+    label: Seventh Space War
+    type: war
+    timeline: tl.aw
+    date:
+      - start: "0001"
+        sources: [src.aw.gundam-x]
+        confidence: interpretive
+        note: >
+          This date is a construction, not a reading. The After War
+          calendar takes its name from this war and begins at the end of
+          it. AW 0001 is therefore the end of the war by definition, and
+          its start falls before the epoch with no way to express it. Read
+          the literal as "ends at the epoch". A render that draws a
+          one-year war is drawing the calendar, not the conflict.
+    participants: [fac.aw.une, fac.aw.sra]
+    summary: >
+      A colonial war of independence ends when the space forces drop
+      hundreds of colonies onto Earth at once. Most of the surface
+      population dies, and the pre-war Earth government dies with it.
+    referenced_in: [ser.aw.gundam-x]
+    claims:
+      - property: casualties
+        value: >
+          Sources commonly state 99% of the people living on the surface
+          of Earth at the time.
+        sources: [src.aw.gundam-x]
+        note: >
+          A round proportion of an unstated base, exactly like the One
+          Year War figure in the UC. Both continuities reach for the same
+          rhetorical number, and neither supplies the arithmetic. Render
+          it as a claim, never as a count.
+      - property: victor
+        value: >
+          Neither side wins in any useful sense. The colonies destroy the
+          thing they were leaving and inherit a planet they can no longer
+          live on.
+        sources: [src.aw.gundam-x]
+        confidence: interpretive
+    related: [evt.aw.0001.nuclear-winter, evt.aw.0015.une-sra-confrontation]
+
+  - id: evt.aw.0001.nuclear-winter
+    label: Post-drop climatic collapse
+    type: disaster
+    timeline: tl.aw
+    date:
+      - start: "0001"
+        end: "0008"
+        precision: range
+        sources: [src.aw.gundam-x]
+        confidence: approximate
+        note: >
+          The work gives a duration of about seven years, not an end date.
+          This range lays that duration onto the epoch, so the end is
+          derived rather than sourced.
+    summary: >
+      Dust from the colony impacts blocks sunlight for years. Agriculture
+      collapses, and much of what the drops began ends here. Recovery
+      counts from the end of the winter, not from the end of the war.
+    referenced_in: [ser.aw.gundam-x]
+
+  - id: evt.aw.0015.gundam-x-recovered
+    label: Recovery of a war-era Gundam
+    type: technological
+    timeline: tl.aw
+    date:
+      - start: "0015"
+        sources: [src.aw.gundam-x]
+    participants: [fac.aw.vulture]
+    summary: >
+      A salvage crew digs a fifteen-year-old mobile suit out of the ground
+      and returns it to service. This is the defining reversal of the
+      continuity. Its most advanced weapons come from archaeology, not
+      manufacture, and every side fights with the equipment of the
+      previous generation, because nobody can build any.
+    depicted_in: [ser.aw.gundam-x]
+
+  - id: evt.aw.0015.une-sra-confrontation
+    label: Renewed Earth-space confrontation
+    type: war
+    timeline: tl.aw
+    date:
+      - start: "0015"
+        sources: [src.aw.gundam-x]
+        confidence: approximate
+    participants: [fac.aw.new-une, fac.aw.sra, fac.aw.vulture]
+    summary: >
+      The rebuilt Earth government and the space forces that dropped the
+      colonies both rearm and move toward a second war. Each one hunts for
+      the people whose abilities decided the first one.
+    depicted_in: [ser.aw.gundam-x]
+    claims:
+      - property: newtype_framing
+        value: >
+          Both governments treat the decisive pilots of the previous war
+          as a strategic resource to find and use. The work is explicit
+          that the search is instrumental. It is also skeptical about
+          whether the faculty they search for exists at all.
+        sources: [src.aw.gundam-x]
+        confidence: interpretive
+        note: >
+          This is the closest thing in the non-UC continuities to the
+          Newtype question in the UC, and it is pointedly the inverse.
+          Here the belief is a policy problem, not a metaphysics. This
+          dataset does not model it as a cross-timeline relation. The
+          resemblance is thematic, and the relation types are not for
+          thematic edges.

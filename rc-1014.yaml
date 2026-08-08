@@ -1,0 +1,101 @@
+# Regild Century: Gundam Reconguista in G.
+#
+# The only continuity here with a stated relationship to another: RC
+# `succeeds` UC in timelines.yaml. The relationship is real and the
+# interval is not — no source fixes how long the gap is, which is why the
+# relation carries no offset and why nothing in this file can be dated
+# against a UC event.
+
+events:
+  - id: evt.rc.1014.capital-tower-raid
+    label: Raid on the Capital Tower
+    type: battle
+    timeline: tl.rc
+    date:
+      - start: "1014"
+        sources: [src.rc.g-reco]
+    participants: [fac.rc.capital-territory, fac.rc.amerian]
+    summary: >
+      Raiders attack the orbital elevator that supplies the world with
+      energy. A guard cadet finds that he can operate the advanced mobile
+      suit they arrive in. People treat the elevator as a religious object
+      as much as an installation, so the raid is sacrilege before it is
+      warfare.
+    depicted_in: [ser.rc.g-reco]
+    claims:
+      - property: uc_inheritance
+        value: >
+          The tower comes from the previous era. Nobody in this one built
+          it. The doctrine that limits technology exists to stop the
+          Universal Century from happening again. The central institution
+          of the continuity is therefore a UC artefact that nobody alive
+          can reproduce.
+        sources: [src.rc.g-reco]
+        note: >
+          This detail carries the `succeeds` relation. It also shows why
+          an offset would help and cannot be had. The artefact proves that
+          time passed. It does not say how much.
+    related: [evt.rc.1014.capital-army-mobilises]
+
+  - id: evt.rc.1014.capital-army-mobilises
+    label: The Capital Army mobilises
+    type: political
+    timeline: tl.rc
+    date:
+      - start: "1014"
+        sources: [src.rc.g-reco]
+        confidence: approximate
+    participants: [fac.rc.capital-army, fac.rc.capital-territory, fac.rc.amerian]
+    summary: >
+      The guard force that protects the elevator remakes itself as an army
+      and moves to rearm. That breaks the limits on technology it exists
+      to enforce. The institution built to prevent a return to the old era
+      is the one that restarts it.
+    depicted_in: [ser.rc.g-reco]
+    related: [evt.rc.1014.towasanga-contact]
+
+  - id: evt.rc.1014.towasanga-contact
+    label: Contact with Towasanga
+    type: political
+    timeline: tl.rc
+    date:
+      - start: "1014"
+        sources: [src.rc.g-reco]
+        confidence: approximate
+    participants: [fac.rc.towasanga, fac.rc.amerian, fac.rc.capital-army]
+    summary: >
+      The factions of Earth learn that the lunar population supplying
+      their energy is a state with interests of its own. The arrangement
+      they took for scripture is a supply contract.
+    depicted_in: [ser.rc.g-reco]
+
+  - id: evt.rc.1014.venus-globe-conflict
+    label: The Venus Globe fleet arrives
+    type: war
+    timeline: tl.rc
+    date:
+      - start: "1014"
+        sources: [src.rc.g-reco]
+        confidence: approximate
+    participants: [fac.rc.venus-globe, fac.rc.towasanga, fac.rc.amerian]
+    summary: >
+      A third human population returns to the Earth Sphere. It descends
+      from settlers sent much further out, and it brings a plan to
+      redistribute the species that its own people never agreed to. Every
+      faction ends up fighting a war about how humanity should be
+      arranged, not about who should govern it.
+    depicted_in: [ser.rc.g-reco]
+    claims:
+      - property: recut_divergence
+        value: >
+          The film series recuts this material, with scenes added and
+          changed. Where the films leave out something the broadcast
+          showed, that silence is not by itself a contradiction. Do not
+          enter it as a competing claim.
+        sources: [src.rc.g-reco-films]
+        confidence: editorial
+        note: >
+          The same rule as src.uc.msg-films against src.uc.msg-tv. It is
+          recorded here because nothing else references
+          src.rc.g-reco-films, and nobody remembers to check a source that
+          nothing references.

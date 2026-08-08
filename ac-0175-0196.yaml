@@ -1,0 +1,159 @@
+# After Colony: Gundam Wing and Endless Waltz.
+#
+# The best-dated alternate continuity in the dataset. Two of its events
+# carry full day precision and fall on the same calendar day twenty years
+# apart — 7 April AC 0175 and 7 April AC 0195. That is authorial, not
+# coincidence, and a renderer that rounds either to year precision destroys
+# the only piece of deliberate chronological design in the file.
+
+events:
+  - id: evt.ac.0175.heero-yuy-assassination
+    label: Assassination of Heero Yuy
+    type: political
+    timeline: tl.ac
+    date:
+      - start: "0175.04.07"
+        sources: [src.ac.wing]
+    participants: [fac.ac.uesa, fac.ac.oz]
+    summary: >
+      Somebody shoots dead the leading colonial advocate of unarmed
+      resistance. His death removes the one figure who held colonial
+      opposition to a non-violent course. Every armed group in this file
+      traces its case back to it.
+    referenced_in: [ser.ac.wing]
+    claims:
+      - property: attribution
+        value: >
+          An agent of the organization working inside the Alliance
+          military carried it out. The Alliance did not order it as
+          policy. The colonies never make that distinction, and the plot
+          depends on it.
+        sources: [src.ac.wing]
+        confidence: interpretive
+    related: [evt.ac.0195.operation-meteor]
+
+  - id: evt.ac.0195.operation-meteor
+    label: Operation Meteor
+    type: battle
+    timeline: tl.ac
+    date:
+      - start: "0195.04.07"
+        sources: [src.ac.wing]
+    participants: [fac.ac.gundam-pilots, fac.ac.uesa]
+    summary: >
+      Five colonial groups each drop a pilot and a mobile suit onto Earth,
+      and start a campaign of assassination and sabotage against the
+      Alliance military. The pilots take their operational names from the
+      man whose killing the operation avenges.
+    depicted_in: [ser.ac.wing]
+    claims:
+      - property: original_plan
+        value: >
+          The operation as designed called for a colony drop. The
+          engineers who built the machines corrupted it on purpose, and
+          the pilots run that changed version. Their sponsors did not
+          authorize it.
+        sources: [src.ac.wing]
+        note: >
+          This distinction matters for the AC 0196 entry below, where the
+          original plan returns. It sits here as a claim rather than
+          inside the summary. A later work is likely to revise it, and
+          src.ac.endless-waltz revises a great deal.
+    related: [evt.ac.0175.heero-yuy-assassination, evt.ac.0196.mariemaia-rebellion]
+
+  - id: evt.ac.0195.oz-takeover
+    label: OZ seizes the Alliance
+    type: political
+    timeline: tl.ac
+    date:
+      - start: "0195"
+        sources: [src.ac.wing]
+        confidence: approximate
+        note: >
+          Year precision only. The work places the coup clearly against
+          Operation Meteor but gives it no date. This file will not invent
+          one for the sake of a tidier bar.
+    participants: [fac.ac.oz, fac.ac.uesa, fac.ac.romefeller]
+    summary: >
+      The organization that has worked inside the Alliance military for
+      twenty years drops the pretense. It takes direct control of Earth,
+      with an aristocratic foundation behind it. The saboteurs sent to
+      break the Alliance find that somebody else has already broken it.
+    depicted_in: [ser.ac.wing]
+    related: [evt.ac.0195.eve-wars]
+
+  - id: evt.ac.0195.eve-wars
+    label: Eve Wars
+    type: war
+    timeline: tl.ac
+    date:
+      - start: "0195.12.24"
+        sources: [src.ac.wing]
+        confidence: approximate
+        note: >
+          Sources date the closing action to Christmas Eve. The wider
+          conflict runs for some weeks before that, undated. This entry
+          records the climax rather than an invented range.
+    participants: [fac.ac.white-fang, fac.ac.oz, fac.ac.gundam-pilots, fac.ac.romefeller]
+    summary: >
+      A three-sided war between the Earth regime, a colonial militant
+      movement, and the pilots who oppose both. It ends with a
+      battlestation aimed at Earth stopped in the atmosphere. Every
+      organized belligerent in the continuity is destroyed or dissolved.
+    depicted_in: [ser.ac.wing]
+    related: [evt.ac.0195.esun-founded]
+
+  - id: evt.ac.0195.esun-founded
+    label: Earth Sphere Unified Nation founded
+    type: political
+    timeline: tl.ac
+    date:
+      - start: "0195.12"
+        sources: [src.ac.wing]
+        confidence: approximate
+    participants: [fac.ac.esun]
+    summary: >
+      Earth and the colonies unite under one administration, committed to
+      total disarmament. The pilots destroy their own Gundams as part of
+      it.
+    depicted_in: [ser.ac.wing]
+    claims:
+      - property: durability
+        value: >
+          The settlement lasts one year before an armed movement tests it.
+          The work presents that as proof of pacifism rather than a
+          refutation. This dataset records that reading. It does not
+          endorse it.
+        sources: [src.ac.endless-waltz]
+        confidence: interpretive
+    related: [evt.ac.0196.mariemaia-rebellion]
+
+  - id: evt.ac.0196.mariemaia-rebellion
+    label: Mariemaia rebellion
+    type: war
+    timeline: tl.ac
+    date:
+      - start: "0196.12.24"
+        sources: [src.ac.endless-waltz]
+    participants: [fac.ac.mariemaia-army, fac.ac.esun, fac.ac.gundam-pilots]
+    summary: >
+      A faction that claims descent from the previous regime occupies the
+      capital of the new government and demands a return to military rule.
+      It carries out the colony drop that Operation Meteor was first
+      designed around. It collapses within days.
+    depicted_in: [ser.ac.endless-waltz]
+    claims:
+      - property: date_symmetry
+        value: >
+          This falls on 24 December, the same calendar day as the close of
+          the Eve Wars a year earlier. The operation it revives launched
+          on 7 April, the same day as the assassination twenty years
+          before that. Three of the four dated events in this continuity
+          land on two dates.
+        sources: [src.ac.wing, src.ac.endless-waltz]
+        confidence: editorial
+        note: >
+          An observation by this project, not a claim by either work, so
+          it carries the editorial flag. It is recorded because a reader
+          who spots the pattern in a render is likely to assume it is a
+          data-entry error.

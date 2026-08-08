@@ -1,0 +1,115 @@
+# Advanced Generation: Gundam AGE.
+#
+# One television series, three generations, roughly 25 years apart. The
+# strongest argument in the dataset for coverage being a list rather than a
+# range — see ser.ag.gundam-age, which has three separate `main` spans and
+# would otherwise render as a continuous 63-year work.
+#
+# Dates here are year precision throughout. The work is structured around
+# generational gaps rather than a campaign calendar, and nothing finer than
+# a year is stated for any of it.
+
+events:
+  - id: evt.ag.0101.angel-fall
+    label: Destruction of the Angel colony
+    type: atrocity
+    timeline: tl.ag
+    date:
+      - start: "0101"
+        sources: [src.ag.gundam-age]
+        confidence: approximate
+    participants: [fac.ag.vagan, fac.ag.efed]
+    summary: >
+      An unidentified force destroys a large space colony with no warning
+      and no demand. The Federation cannot say who attacked. That
+      inability to name an enemy shapes the next sixty years more than the
+      attack does.
+    referenced_in: [ser.ag.gundam-age]
+    claims:
+      - property: attacker_identity
+        value: >
+          For two generations the attacker is known only as the Unknown
+          Enemy. Sources later establish it as a Mars-descended population
+          that the Federation abandoned. The name Vagan is applied
+          backwards, including to this attack.
+        sources: [src.ag.gundam-age]
+        note: >
+          A naming anachronism this dataset cannot avoid. The entry lists
+          fac.ag.vagan as a participant, but nobody in AG 0101 could have
+          used that word. This note records the problem rather than works
+          around it. The alternative is a second faction id for the same
+          organization under its provisional name, and that would be
+          worse.
+    related: [evt.ag.0115.nora-attack]
+
+  - id: evt.ag.0115.nora-attack
+    label: Attack on the Nora colony
+    type: battle
+    timeline: tl.ag
+    date:
+      - start: "0115"
+        sources: [src.ag.gundam-age]
+    participants: [fac.ag.vagan, fac.ag.efed]
+    summary: >
+      Fourteen years after the first colony died, another falls to the
+      same enemy. A child survivor finishes a mobile suit from his
+      mother's design data. The Federation then starts the war it has
+      spent a decade refusing to admit it is in.
+    depicted_in: [ser.ag.gundam-age]
+    related: [evt.ag.0140.vagan-offensive]
+
+  - id: evt.ag.0140.vagan-offensive
+    label: Renewed Vagan offensive
+    type: war
+    timeline: tl.ag
+    date:
+      - start: "0140"
+        sources: [src.ag.gundam-age]
+        confidence: approximate
+    participants: [fac.ag.vagan, fac.ag.efed]
+    summary: >
+      Twenty-five years later the war resumes. The survivor of the Nora
+      attack now commands for the Federation, and his son flies against
+      the same enemy. By this point the Federation has become an occupying
+      power in its own right.
+    depicted_in: [ser.ag.gundam-age]
+    claims:
+      - property: generational_structure
+        value: >
+          Each generation inherits the war rather than starts one. The
+          work argues that the inheritance is the mechanism. The conflict
+          lasts because each side raises its children inside it.
+        sources: [src.ag.gundam-age]
+        confidence: interpretive
+    related: [evt.ag.0164.big-ring-destroyed]
+
+  - id: evt.ag.0164.big-ring-destroyed
+    label: Destruction of Big Ring
+    type: battle
+    timeline: tl.ag
+    date:
+      - start: "0164"
+        sources: [src.ag.gundam-age]
+    participants: [fac.ag.vagan, fac.ag.efed]
+    summary: >
+      The Vagan destroy the main orbital fortress of the Federation and
+      commit to a full invasion of Earth. The war can no longer stay in
+      space.
+    depicted_in: [ser.ag.gundam-age]
+
+  - id: evt.ag.0164.vagan-war-ends
+    label: End of the Vagan war
+    type: war
+    timeline: tl.ag
+    date:
+      - start: "0164"
+        sources: [src.ag.gundam-age]
+        confidence: approximate
+    participants: [fac.ag.vagan, fac.ag.efed]
+    summary: >
+      The war closes in the same year it escalates. The third generation
+      of the same family commands, and the settlement rests on terms that
+      the founders on neither side would have accepted. Sixty-three years
+      pass from the first attack to the last.
+    depicted_in: [ser.ag.gundam-age]
+    related: [evt.ag.0101.angel-fall]

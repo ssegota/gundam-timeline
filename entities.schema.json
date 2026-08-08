@@ -1,0 +1,336 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/gundam-timeline/entities.schema.json",
+  "title": "Entity files (series, sources, factions, timelines)",
+  "$defs": {
+    "seriesFile": {
+      "type": "object",
+      "required": [
+        "series"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "series": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "title",
+              "timeline",
+              "source",
+              "covers"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "title": {
+                "type": "string"
+              },
+              "timeline": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "source": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "release_year": {
+                "type": "integer",
+                "minimum": 1970
+              },
+              "format": {
+                "enum": [
+                  "tv",
+                  "film",
+                  "ova",
+                  "ona",
+                  "manga",
+                  "novel",
+                  "game"
+                ]
+              },
+              "covers": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "common.schema.json#/$defs/coverageSpan"
+                }
+              },
+              "focus": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "sourcesFile": {
+      "type": "object",
+      "required": [
+        "sources"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "title",
+              "kind",
+              "tier",
+              "timeline"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "title": {
+                "type": "string"
+              },
+              "kind": {
+                "enum": [
+                  "tv",
+                  "film",
+                  "ova",
+                  "ona",
+                  "manga",
+                  "novel",
+                  "game",
+                  "reference"
+                ]
+              },
+              "year": {
+                "type": "integer"
+              },
+              "tier": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4
+              },
+              "timeline": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "confidence": {
+                "$ref": "common.schema.json#/$defs/confidence"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "factionsFile": {
+      "type": "object",
+      "required": [
+        "factions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "factions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "timeline",
+              "active"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "name": {
+                "type": "string"
+              },
+              "timeline": {
+                "$ref": "common.schema.json#/$defs/id",
+                "description": "Required, as it is on series and sources. Factions were the one entity without it, which is exactly why the second continuity's Earth Federation had nowhere to live."
+              },
+              "abbrev": {
+                "type": "string"
+              },
+              "parent": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "predecessor": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "active": {
+                "type": "object",
+                "required": [
+                  "start"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "start": {
+                    "$ref": "common.schema.json#/$defs/eraDate"
+                  },
+                  "end": {
+                    "$ref": "common.schema.json#/$defs/eraDate"
+                  },
+                  "confidence": {
+                    "$ref": "common.schema.json#/$defs/confidence"
+                  },
+                  "note": {
+                    "type": "string"
+                  }
+                }
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "timelinesFile": {
+      "type": "object",
+      "required": [
+        "timelines"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "timelines": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "abbrev"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "name": {
+                "type": "string"
+              },
+              "abbrev": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "primary",
+                  "branch",
+                  "stub"
+                ]
+              },
+              "epoch": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "label": {
+                    "type": "string"
+                  },
+                  "gregorian_year": {
+                    "type": "integer"
+                  },
+                  "confidence": {
+                    "$ref": "common.schema.json#/$defs/confidence"
+                  },
+                  "note": {
+                    "type": "string"
+                  }
+                }
+              },
+              "span": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "earliest_event": {
+                    "$ref": "common.schema.json#/$defs/eraDate"
+                  },
+                  "latest_event": {
+                    "$ref": "common.schema.json#/$defs/eraDate"
+                  },
+                  "confidence": {
+                    "$ref": "common.schema.json#/$defs/confidence"
+                  }
+                }
+              },
+              "note": {
+                "type": "string"
+              },
+              "blurb": {
+                "type": "string",
+                "description": "A reader-facing description of the continuity itself: what it is and what happens in it. Distinct from `note`, which records this project's reasoning about the DATA. The site shows blurb; note stays for whoever reads the YAML."
+              }
+            }
+          }
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "from",
+              "type",
+              "to"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "from": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "type": {
+                "enum": [
+                  "succeeds",
+                  "contains",
+                  "diverges_from",
+                  "contested_by",
+                  "parallel_to",
+                  "depicts_as_fiction"
+                ]
+              },
+              "to": {
+                "$ref": "common.schema.json#/$defs/id"
+              },
+              "at": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "start": {
+                    "$ref": "common.schema.json#/$defs/eraDate"
+                  },
+                  "event": {
+                    "$ref": "common.schema.json#/$defs/id"
+                  },
+                  "confidence": {
+                    "$ref": "common.schema.json#/$defs/confidence"
+                  }
+                }
+              },
+              "sources": {
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/id"
+                }
+              },
+              "confidence": {
+                "$ref": "common.schema.json#/$defs/confidence"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

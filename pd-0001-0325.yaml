@@ -1,0 +1,130 @@
+# Post Disaster: Iron-Blooded Orphans.
+#
+# The widest span of any non-UC continuity in this dataset and almost
+# entirely empty: two dated points three hundred and twenty-two years
+# apart. That emptiness is the same kind as the UC 0093-0123 gap and should
+# be rendered rather than filled.
+#
+# Like After War, the calendar begins at the catastrophe it is named for,
+# so the catastrophe itself sits at the epoch by construction.
+
+events:
+  - id: evt.pd.0001.calamity-war-ends
+    label: End of the Calamity War
+    type: war
+    timeline: tl.pd
+    date:
+      - start: "0001"
+        sources: [src.pd.ibo]
+        confidence: interpretive
+        note: >
+          Constructed, not sourced. The Post Disaster calendar starts at
+          the end of this war. That makes the literal true by definition,
+          and silent about everything that matters: duration, start and
+          scale. This is the second case of the pattern, after
+          evt.aw.0001.seventh-space-war. Read both as "ends at the epoch",
+          not as a one-year war.
+    participants: [fac.pd.gjallarhorn]
+    summary: >
+      A war fought with autonomous mobile armors. It killed more people
+      than any conflict before it, and it left the governments of Earth
+      unable to govern. The organization that ended it keeps a permanent
+      policing role over the successor blocs. Three centuries later the
+      whole continuity still lives inside that settlement.
+    referenced_in: [ser.pd.ibo-s1]
+    claims:
+      - property: interval
+        value: >
+          Sources state more than three hundred years before PD 0323. That
+          fits a calendar that starts at the end of the war.
+        sources: [src.pd.ibo]
+        confidence: approximate
+        note: >
+          A rare case where a vague interval and a constructed epoch agree
+          with each other. That agreement is the only evidence that the
+          epoch above is right, and it is weak evidence.
+    related: [evt.pd.0323.tekkadan-founded]
+
+  - id: evt.pd.0323.tekkadan-founded
+    label: Founding of Tekkadan
+    type: political
+    timeline: tl.pd
+    date:
+      - start: "0323"
+        sources: [src.pd.ibo]
+        confidence: approximate
+    participants: [fac.pd.tekkadan, fac.pd.gjallarhorn]
+    summary: >
+      A Martian security company uses child soldiers as disposable labor.
+      It leaves them as a rearguard to die, and they take the company
+      over. They rebuild it under their own name and trade on the only
+      asset they hold, which is their willingness to be spent.
+    depicted_in: [ser.pd.ibo-s1]
+    claims:
+      - property: labour_framing
+        value: >
+          The work frames its central conflict as economic, not
+          ideological. The belligerents are employers, subcontractors and
+          debtors. That is why the `participants` here include a trade
+          conglomerate beside a police force.
+        sources: [src.pd.ibo]
+        confidence: interpretive
+    related: [evt.pd.0323.earth-escort]
+
+  - id: evt.pd.0323.earth-escort
+    label: Escort of the Martian delegation to Earth
+    type: battle
+    timeline: tl.pd
+    date:
+      - start: "0323"
+        sources: [src.pd.ibo]
+        confidence: approximate
+    participants: [fac.pd.tekkadan, fac.pd.gjallarhorn, fac.pd.teiwaz]
+    summary: >
+      The new company contracts to carry a Martian independence advocate
+      from Mars to Earth, against the policing organization itself.
+      Finishing the job makes their name, and it ties them for good to a
+      political cause they were paid only to transport.
+    depicted_in: [ser.pd.ibo-s1]
+
+  - id: evt.pd.0325.mcgillis-coup
+    label: Attempted coup within Gjallarhorn
+    type: political
+    timeline: tl.pd
+    date:
+      - start: "0325"
+        sources: [src.pd.ibo]
+        confidence: approximate
+    participants: [fac.pd.gjallarhorn, fac.pd.tekkadan, fac.pd.arianrhod]
+    summary: >
+      A reformist officer moves against the leadership of the policing
+      organization. He recruits the Martian company with a promise of
+      sovereignty. The coup fails, and nobody ever had the power to keep
+      that promise.
+    depicted_in: [ser.pd.ibo-s2]
+    related: [evt.pd.0325.tekkadan-destroyed]
+
+  - id: evt.pd.0325.tekkadan-destroyed
+    label: Destruction of Tekkadan
+    type: battle
+    timeline: tl.pd
+    date:
+      - start: "0325"
+        sources: [src.pd.ibo]
+        confidence: approximate
+    participants: [fac.pd.arianrhod, fac.pd.tekkadan]
+    summary: >
+      The authorities declare the company an illegal armed group and
+      destroy it with an overwhelming fleet. It has already served the
+      purpose of both sides of the coup. Martian autonomy follows by
+      negotiation, and goes to people who took no part in the fighting.
+    depicted_in: [ser.pd.ibo-s2]
+    claims:
+      - property: outcome
+        value: >
+          The stated goal arrives, and none of the people who fought for
+          it is alive or credited. The work says plainly that the
+          political settlement and the armed struggle were related only by
+          accident.
+        sources: [src.pd.ibo]
+        confidence: interpretive

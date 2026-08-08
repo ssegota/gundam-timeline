@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/gundam-timeline/common.schema.json",
+  "title": "Shared definitions",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^(evt|ser|src|fac|tl|loc|per)\\.[a-z0-9][a-z0-9.\\-]*$",
+      "description": "Namespaced identifier. Prefix declares the entity type."
+    },
+    "eraDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}(\\.[0-9]{2}(\\.[0-9]{2})?)?$",
+      "description": "Era-relative date. Precision is carried by the literal itself: YYYY is year precision, YYYY.MM is month, YYYY.MM.DD is day. Authored in this human-readable form; the ingest step converts each literal to a (min, max) day-ordinal pair relative to the era epoch, and all sorting and overlap logic downstream uses the ordinals."
+    },
+    "confidence": {
+      "enum": [
+        "certain",
+        "approximate",
+        "disputed",
+        "interpretive",
+        "editorial",
+        "inherited",
+        "needs-verification"
+      ],
+      "description": "editorial = an inference by this project rather than a claim by any source. needs-verification = entered but not yet checked against the work. Both must be visually distinct in any render."
+    },
+    "undated": {
+      "const": true,
+      "description": "The source establishes that this happened and supplies neither a date nor an ordering hook. A THIRD STATE, distinct from an absent date claim (nobody has entered one yet) and from an imprecise one (a year with no month). Required because the Build continuity has no calendar at all and the SD Gundam settings have no chronology of any kind: for those, inventing an era to satisfy the schema would be exactly the fabrication this project exists to avoid. Consumers must not sort on an undated entry; they must show it as unplaced."
+    },
+    "dateClaim": {
+      "type": "object",
+      "description": "One source's dating of an event. Always a list, so that competing datings coexist rather than overwrite. Exactly one of `start`, `anchor` or `undated` carries the claim.",
+      "properties": {
+        "start": { "$ref": "#/$defs/eraDate" },
+        "end": { "$ref": "#/$defs/eraDate" },
+        "undated": { "$ref": "#/$defs/undated" },
+        "precision": { "enum": ["day", "month", "year", "range"] },
+        "anchor": {
+          "type": "object",
+          "description": "Relative dating, for sources that give an offset rather than a date.",
+          "properties": {
+            "relative_to": { "$ref": "#/$defs/id" },
+            "offset_years": { "type": "number" },
+            "direction": { "enum": ["before", "after"] }
+          },
+          "required": ["relative_to", "direction"],
+          "additionalProperties": false
+        },
+        "sources": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "minItems": 1
+        },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "note": { "type": "string" }
+      },
+      "anyOf": [
+        { "required": ["start", "sources"] },
+        { "required": ["anchor", "sources"] },
+        { "required": ["undated", "sources"] }
+      ],
+      "additionalProperties": false
+    },
+    "claim": {
+      "type": "object",
+      "description": "An assertion by one or more sources about a property of an entity. Never merged, never overwritten.",
+      "properties": {
+        "property": { "type": "string" },
+        "value": { "type": "string" },
+        "sources": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" },
+          "minItems": 1
+        },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "resolution": {
+          "enum": ["default", "unresolved", "contested"],
+          "description": "unresolved = the sources deliberately leave this open; the resolver must not pick a winner."
+        },
+        "note": { "type": "string" }
+      },
+      "required": ["property", "value", "sources"],
+      "additionalProperties": false
+    },
+    "coverageSpan": {
+      "type": "object",
+      "description": "One contiguous stretch of in-universe time depicted by a series. Either dated (start+end) or explicitly undated.",
+      "properties": {
+        "start": { "$ref": "#/$defs/eraDate" },
+        "end": { "$ref": "#/$defs/eraDate" },
+        "undated": { "$ref": "#/$defs/undated" },
+        "timeline": {
+          "$ref": "#/$defs/id",
+          "description": "The era this SPAN lies in, when it differs from the series' own `timeline`. A work whose main narrative sits in one era and whose flashbacks sit in its predecessor cannot be described by one era: Frozen Teardrop is Mars Century with After Colony flashbacks, and forcing it into one would either erase the flashbacks or move the whole work into the wrong era. Defaults to the series' timeline. The series' `timeline` remains its home era and governs its id namespace."
+        },
+        "weight": {
+          "enum": ["main", "prologue", "flashback", "epilogue"],
+          "default": "main"
+        },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "note": { "type": "string" }
+      },
+      "anyOf": [
+        { "required": ["start", "end"] },
+        { "required": ["undated"] }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

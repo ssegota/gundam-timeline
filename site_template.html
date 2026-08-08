@@ -1,0 +1,1144 @@
+<!doctype html>
+<html lang="en" data-theme="rx78">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gundam Timeline Dataset</title>
+<style>
+  /* Display face: Noto Sans Display ExtraCondensed Black Italic, subset to
+     Latin + digits, SIL Open Font License 1.1. An original typographic
+     treatment of the titles — the official logos are trademarked artwork
+     and are not reproduced. */
+  @font-face{font-family:"Rail";src:url(data:font/woff2;base64,__FONT_DISPLAY__) format("woff2");
+    font-weight:900;font-style:italic;font-display:swap}
+
+  /* ---------------- themes ----------------
+     Four suits, four palettes. Each defines the COMPLETE token set — no
+     color is left to be inherited from another theme or from the host. */
+  :root, [data-theme="rx78"]{                 /* RX-78-2 — white, blue, red, gold */
+    --mode:light;
+    --bg:#eef1f7; --bg2:#e3e8f1; --card:#ffffff; --card2:#f7f9fc;
+    --ink:#0e1726; --ink2:#4a5872; --ink3:#8592ac;
+    --line:rgba(14,23,38,.10); --line2:rgba(14,23,38,.055);
+    --brand:#1f4fd8; --brand-ink:#ffffff; --accent2:#e02b3c; --accent3:#f3c118;
+    --shadow:0 1px 2px rgba(14,23,38,.05), 0 12px 30px -12px rgba(14,23,38,.16);
+    --glow:0 0 0 rgba(0,0,0,0);
+    --guess:#c2571b; --unchecked:#a67c00; --contested:#c62d3c;
+  }
+  [data-theme="char"]{                        /* Sazabi / Zaku II — crimson, gold */
+    --mode:dark;
+    --bg:#120407; --bg2:#1b070c; --card:#20090f; --card2:#2a0d14;
+    --ink:#ffeef0; --ink2:#e0a9ad; --ink3:#a4737a;
+    --line:rgba(255,150,155,.16); --line2:rgba(255,150,155,.08);
+    --brand:#f0433c; --brand-ink:#1a0306; --accent2:#f4a62a; --accent3:#ffd98a;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 44px -16px rgba(240,67,60,.30);
+    --glow:0 0 26px rgba(240,67,60,.45);
+    --guess:#ff9d5c; --unchecked:#ffd23f; --contested:#ff6b7a;
+  }
+  [data-theme="unicorn"]{                     /* RX-0 Unicorn — pearl, psycho-frame red */
+    --mode:light;
+    --bg:#f2f3f7; --bg2:#e7e9f0; --card:#ffffff; --card2:#f6f7fb;
+    --ink:#161a24; --ink2:#4e5568; --ink3:#8b93a6;
+    --line:rgba(22,26,36,.10); --line2:rgba(22,26,36,.05);
+    --brand:#d61f45; --brand-ink:#ffffff; --accent2:#c9a227; --accent3:#7b8496;
+    --shadow:0 1px 2px rgba(22,26,36,.05), 0 12px 32px -12px rgba(214,31,69,.22);
+    --glow:0 0 0 rgba(0,0,0,0);
+    --guess:#b8571d; --unchecked:#9a7500; --contested:#c01f42;
+  }
+  [data-theme="banshee"]{                     /* RX-0 Banshee Norn — black, gold */
+    --mode:dark;
+    --bg:#08080a; --bg2:#0e0e12; --card:#141419; --card2:#1c1c23;
+    --ink:#f6f1e4; --ink2:#bdb49b; --ink3:#7d765f;
+    --line:rgba(212,164,55,.18); --line2:rgba(212,164,55,.08);
+    --brand:#d4a437; --brand-ink:#100d05; --accent2:#8f7fd6; --accent3:#e8d9a8;
+    --shadow:0 1px 2px rgba(0,0,0,.6), 0 18px 44px -16px rgba(212,164,55,.24);
+    --glow:0 0 26px rgba(212,164,55,.40);
+    --guess:#ffab63; --unchecked:#ffd23f; --contested:#ff7a6b;
+  }
+
+  *{box-sizing:border-box}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+  #bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+  .disp{font-family:"Rail",system-ui,sans-serif;font-weight:900;font-style:italic;
+    letter-spacing:.01em;text-transform:uppercase}
+  a{color:var(--brand)}
+  :focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:8px}
+
+  /* ---------------- app shell ---------------- */
+  .app{position:relative;z-index:1;display:grid;grid-template-columns:264px minmax(0,1fr);
+    min-height:100vh;gap:0}
+  .side{position:sticky;top:0;height:100vh;overflow:auto;padding:20px 16px 28px;
+    background:color-mix(in srgb,var(--card) 82%,transparent);
+    border-right:1px solid var(--line);backdrop-filter:blur(14px)}
+  .brand{display:flex;align-items:center;gap:11px;margin-bottom:20px;padding:0 6px}
+  .brand .mk{width:34px;height:34px;border-radius:10px;background:var(--brand);
+    display:grid;place-items:center;color:var(--brand-ink);font-size:15px;flex:none;
+    box-shadow:var(--glow)}
+  .brand b{display:block;font-size:15px;line-height:1.15;letter-spacing:.01em}
+  .brand span{display:block;font-size:11px;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase}
+
+  .side{display:flex;flex-direction:column}
+  .themebox{margin-top:auto;padding-top:22px}
+  .side h4{margin:20px 6px 8px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink3);font-weight:700}
+  .swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0 4px}
+  .sw{position:relative;aspect-ratio:1;border-radius:12px;border:1px solid var(--line);
+    cursor:pointer;padding:5px;overflow:hidden;display:grid;place-items:center;
+    transition:transform .18s ease, box-shadow .18s ease}
+  .sw:hover{transform:translateY(-3px)}
+  .sw svg{width:100%;height:100%;display:block;
+    transition:transform .18s ease;filter:drop-shadow(0 1px 2px rgba(0,0,0,.28))}
+  .sw:hover svg{transform:scale(1.07)}
+  .sw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--brand);border-color:transparent}
+  .themeName{margin:9px 6px 0;font-size:11px;color:var(--ink3);letter-spacing:.09em;
+    text-transform:uppercase;font-weight:700}
+
+  .navlist{display:flex;flex-direction:column;gap:2px}
+  .navlist button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;
+    font:inherit;font-size:13.5px;color:var(--ink2);background:none;border:0;border-radius:9px;
+    padding:8px 10px;cursor:pointer;transition:background .14s ease,color .14s ease}
+  .navlist button:hover{background:var(--card2);color:var(--ink)}
+  .navlist button[aria-current="true"]{background:var(--brand);color:var(--brand-ink);font-weight:650}
+  .navlist .dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .navlist .ab{font-family:"Rail",system-ui;font-style:italic;font-weight:900;font-size:12px;
+    min-width:38px;letter-spacing:.02em}
+  .navlist .nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .navlist .ct{font-size:11px;opacity:.65;font-variant-numeric:tabular-nums}
+
+  main{min-width:0;padding:0 clamp(16px,2.6vw,32px) 72px}
+  .topbar{position:sticky;top:0;z-index:15;padding:22px 0 16px;
+    background:linear-gradient(var(--bg) 68%,transparent)}
+  .topbar>div{position:relative}
+  /* The italic display face overhangs its box on the left by about .06em,
+     measured off the rendered pixels. Indent the heading by that much so its
+     ink lines up with the body copy below. In em, so it holds as the clamped
+     size changes. */
+  .topbar h1{margin:0 0 0 .06em;font-size:clamp(22px,3.2vw,34px);line-height:1.05;
+    padding-right:210px}
+  .topbar p{margin:8px 0 0;color:var(--ink2);font-size:14px;max-width:none}
+  .back{position:absolute;right:0;top:2px;font:inherit;font-size:12.5px;color:var(--ink2);
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:7px 14px;cursor:pointer}
+  @media (max-width:760px){
+    .topbar h1{padding-right:0}
+    .back{position:static;margin-top:12px}
+  }
+
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:12px;margin-bottom:18px}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;
+    box-shadow:var(--shadow)}
+  .tile b{display:block;font-size:26px;line-height:1.1;letter-spacing:-.01em}
+  .tile span{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink3);margin-top:3px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:20px 22px;margin-bottom:18px;box-shadow:var(--shadow)}
+  .card h2{margin:0 0 6px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink3);font-weight:700}
+  .lead{color:var(--ink2);font-size:13.5px;max-width:80ch;margin:0}
+
+  .flag{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;
+    padding:2px 8px;border-radius:999px;white-space:nowrap;letter-spacing:.05em;
+    text-transform:uppercase;border:1px solid currentColor}
+  .flag i{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+  .f-guess{color:var(--guess)} .f-unchecked{color:var(--unchecked)}
+  .f-contested{color:var(--contested)} .f-reading,.f-inherited{color:var(--ink3)}
+
+  /* ---------------- map ---------------- */
+  #mapWrap{scroll-margin-top:130px}   /* clear the sticky topbar */
+  #mapWrap svg{display:block;width:100%;height:auto}
+  .badge-t{font-size:13px}
+  .work-t{font-size:12px}
+  .work-s{font-size:9px;fill:var(--ink3);font-variant-numeric:tabular-nums;letter-spacing:.05em;
+    font-family:system-ui,sans-serif;font-style:normal;font-weight:400}
+  .era-sub{font-size:9.5px;fill:var(--ink3);letter-spacing:.13em;
+    font-family:system-ui,sans-serif;font-style:normal;font-weight:700}
+  .hit{cursor:pointer}
+  .railg .plate{opacity:0;transition:opacity .16s ease}
+  .railg:hover .plate{opacity:1}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .rail-anim{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .75s cubic-bezier(.4,0,.2,1) forwards}
+  @keyframes pop{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .node-anim{animation:pop .4s ease backwards}
+
+  /* ---------------- explore ---------------- */
+  .toolbar{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-bottom:16px}
+  .search{flex:1 1 220px;min-width:0;display:flex;align-items:center;gap:8px;background:var(--card);
+    border:1px solid var(--line);border-radius:11px;padding:9px 13px;box-shadow:var(--shadow)}
+  .search input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:14px;color:var(--ink);outline:0}
+  .search input::placeholder{color:var(--ink3)}
+  .help{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+    background:var(--card);color:var(--ink2);font:inherit;font-size:15px;font-weight:700;
+    cursor:pointer;transition:background .14s ease,color .14s ease}
+  .help:hover{background:var(--brand);color:var(--brand-ink);border-color:transparent}
+  .aboutbtn{display:block;width:100%;margin-top:12px;font:inherit;font-size:13px;
+    color:var(--ink2);background:var(--card2);border:1px solid var(--line);
+    border-radius:9px;padding:8px 10px;cursor:pointer;text-align:left}
+  .aboutbtn:hover{color:var(--ink);border-color:var(--brand)}
+  .links{display:grid;gap:10px;margin-top:6px}
+  .links a{display:flex;align-items:center;gap:11px;padding:11px 13px;border-radius:11px;
+    border:1px solid var(--line);background:var(--card2);text-decoration:none;color:var(--ink)}
+  .links a:hover{border-color:var(--brand)}
+  .links a[aria-disabled="true"]{opacity:.5;pointer-events:none}
+  .links b{display:block;font-size:13.5px;font-weight:650;color:var(--ink)}
+  .links span{font-size:12px;color:var(--ink3)}
+  .links a>span:last-child{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .links .ic{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;flex:none;
+    background:var(--brand);color:var(--brand-ink);font-size:13px;font-weight:800}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .btn{font:inherit;font-size:12.5px;color:var(--ink2);background:var(--card);
+    border:1px solid var(--line);border-radius:999px;padding:6px 13px;cursor:pointer;
+    transition:background .14s ease,color .14s ease,border-color .14s ease}
+  .btn:hover{color:var(--ink)}
+  .btn[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);border-color:transparent;font-weight:650}
+
+  svg.chart{display:block;width:100%;height:auto;overflow:visible}
+  .lbl{font-size:11px;fill:var(--ink2)}
+  .tick{font-size:10px;fill:var(--ink3);font-variant-numeric:tabular-nums}
+  .gridline{stroke:var(--line2);stroke-width:1}
+  .axisline{stroke:var(--line);stroke-width:1}
+  .sect{font-size:9.5px;fill:var(--ink3);letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:12px;color:var(--ink3);margin-top:14px}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .key{width:18px;height:8px;border-radius:4px;display:inline-block}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);vertical-align:top}
+  th{font-size:10px;text-transform:uppercase;letter-spacing:.11em;color:var(--ink3);font-weight:700}
+  td.date{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink2)}
+  tbody tr{cursor:pointer;transition:background .12s ease}
+  tbody tr:hover{background:var(--card2)}
+  .scroll{overflow-x:auto}
+
+  /* Order diagram — for continuities with no calendar. Sequence is real
+     here even though dates are not, so it gets drawn rather than apologized
+     for. */
+  .flagkey{display:grid;gap:8px;margin-top:12px;font-size:12.5px;color:var(--ink2)}
+  .flagkey>span{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .chains{margin-top:16px}
+  .chainhead{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);
+    font-weight:700;margin:20px 0 2px}
+  .chainsub{font-size:12.5px;color:var(--ink3);margin:0 0 6px}
+  .chain{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin:10px 0 4px}
+  .cnode{flex:0 1 auto;max-width:290px;text-align:left;font:inherit;font-size:13px;color:var(--ink);
+    background:var(--card2);border:1px solid var(--line);border-left:3px solid var(--nc,var(--brand));
+    border-radius:12px;padding:10px 13px;cursor:pointer;
+    transition:transform .16s ease,box-shadow .16s ease}
+  .cnode:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .cnode b{display:block;font-weight:650;line-height:1.3}
+  .cnode span{display:block;font-size:11px;color:var(--ink3);margin-top:3px}
+  .cpair{display:flex;align-items:stretch;gap:10px;min-width:0}
+  .cedge{display:flex;flex-direction:column;justify-content:center;align-items:center;
+    color:var(--ink3);font-size:10.5px;letter-spacing:.05em;min-width:64px;text-align:center}
+  .cedge b{font-size:16px;line-height:1;color:var(--nc,var(--brand));font-weight:400}
+  .cloose{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:10px}
+
+  .tray{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+  .tray article{border:1px dashed var(--line);border-radius:12px;padding:13px 15px;
+    background:var(--card2);cursor:pointer;transition:transform .16s ease}
+  .tray article:hover{transform:translateY(-2px)}
+  .tray h4{margin:0 0 5px;font-size:13.5px}
+  .tray .m{color:var(--ink3);font-size:12px}
+
+  #tip{position:fixed;pointer-events:none;z-index:60;max-width:330px;opacity:0;transition:opacity .1s;
+    background:var(--card);border:1px solid var(--line);border-radius:11px;padding:10px 13px;
+    font-size:12.5px;box-shadow:var(--shadow);color:var(--ink)}
+  #tip b{display:block;margin-bottom:3px} #tip .m{color:var(--ink3)}
+
+  dialog{border:1px solid var(--line);border-radius:18px;padding:0;color:var(--ink);
+    background:var(--card);max-width:760px;width:calc(100% - 28px);box-shadow:var(--shadow)}
+  dialog::backdrop{background:color-mix(in srgb,var(--bg) 72%,transparent);backdrop-filter:blur(4px)}
+  .dhead{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;
+    padding:20px 22px;border-bottom:1px solid var(--line)}
+  .dbody{padding:18px 22px 24px;max-height:66vh;overflow:auto}
+  .dbody h3{margin:18px 0 6px;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3)}
+  .claim{border-left:2px solid var(--line);padding-left:14px;margin:12px 0}
+  .claim .p{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);
+    display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .note{font-size:12.5px;color:var(--ink2);background:var(--card2);border-left:2px solid var(--line);
+    border-radius:0 10px 10px 0;padding:10px 13px;margin:10px 0}
+  .meta{font-size:12.5px;color:var(--ink3)}
+  ul.plain{margin:6px 0;padding-left:18px} ul.plain li{margin:3px 0}
+  .muted{color:var(--ink3)} .empty{color:var(--ink2);font-size:13.5px}
+  .rel{margin:10px 0 16px}
+  footer{color:var(--ink3);font-size:12px;margin-top:26px;max-width:82ch}
+  [hidden]{display:none!important}
+
+  @media (max-width:900px){
+    .app{grid-template-columns:1fr}
+    .side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+    .navlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  }
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="app">
+
+<aside class="side">
+  <div class="brand">
+    <div class="mk disp">G</div>
+    <div><b>Gundam Timeline</b><span>Dataset</span></div>
+  </div>
+
+  <h4>Views</h4>
+  <div class="navlist"><button id="navMap" aria-current="true">
+    <span class="dot" style="background:var(--brand)"></span>
+    <span class="nm">Star chart</span></button></div>
+
+  <h4>Continuities</h4>
+  <div class="navlist" id="navList"></div>
+
+  <div class="themebox">
+    <h4>Theme</h4>
+    <div class="swatches" id="swatches"></div>
+    <div class="themeName" id="themeName"></div>
+    <button class="aboutbtn" id="aboutBtn" type="button">About this project →</button>
+  </div>
+</aside>
+
+<main>
+  <div class="topbar">
+    <div>
+      <button class="back" id="backBtn" hidden>← Back to the star chart</button>
+      <h1 class="disp" id="pageTitle">Star chart</h1>
+      <p id="pageSub"></p>
+    </div>
+  </div>
+
+  <div class="tiles" id="tiles"></div>
+
+  <!-- MAP -->
+  <section id="mapView">
+    <div class="card">
+      <div class="toolbar" style="margin:0 0 2px">
+        <label class="search"><span aria-hidden="true">⌕</span>
+          <input id="mapQ" type="search" placeholder="Find a work, an era or a year…"
+                 aria-label="Search the star chart"></label>
+        <button class="help" id="mapHelp" type="button" aria-label="How to read the star chart"
+                title="How to read the star chart">?</button>
+        <span class="meta" id="mapCount"></span>
+      </div>
+      <div id="mapWrap"></div>
+    </div>
+  </section>
+
+  <!-- EXPLORE -->
+  <section id="exploreView" hidden>
+    <div class="toolbar">
+      <label class="search"><span aria-hidden="true">⌕</span>
+        <input id="q" type="search" placeholder="Search events, summaries, sources…" aria-label="Search events"></label>
+      <div class="chips" id="types"></div>
+      <button class="btn" id="onlyFlagged" aria-pressed="false">Flagged only</button>
+    </div>
+
+    <div class="card">
+      <h2>What the flags mean</h2>
+      <p class="lead">This dataset keeps what a source says apart from what this project guessed.
+        A dashed mark carries a flag.</p>
+      <div class="flagkey">
+        <span><span class="flag f-guess"><i></i>guess</span> This project inferred it. No source states it.</span>
+        <span><span class="flag f-unchecked"><i></i>unchecked</span> Somebody entered it. Nobody checked it against the work.</span>
+        <span><span class="flag f-contested"><i></i>contested</span> The sources disagree.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 id="tlHead"></h2>
+      <p class="lead" id="tlNote"></p>
+      <div id="chartWrap"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+
+    <div class="card" id="trayCard">
+      <h2>Off the axis</h2>
+      <p class="lead" id="trayNote"></p>
+      <div class="tray" id="tray" style="margin-top:14px"></div>
+    </div>
+
+    <div class="card">
+      <h2>Events</h2>
+      <p class="lead">The table shows every value in the chart. You can read it without color.</p>
+      <div class="scroll" style="margin-top:12px"><table id="tbl">
+        <thead><tr><th>Date</th><th>Event</th><th>Type</th><th>Flags</th><th>Sources</th></tr></thead>
+        <tbody></tbody></table></div>
+    </div>
+  </section>
+
+  <div class="card" id="relCard">
+    <h2>Relations between continuities</h2>
+    <p class="lead">Nineteen continuities, eleven edges. The graph stays mostly disconnected on
+      purpose. An edge that no source states would add a structure that does not exist.</p>
+    <div id="rels" style="margin-top:14px"></div>
+  </div>
+
+  <footer>
+    The titles use an original type treatment, not the official logos. The official logos are
+    trademarked artwork, and this page does not copy them. The display face is Noto Sans Display
+    ExtraCondensed, under the SIL Open Font License 1.1. The build step subsets the font and
+    embeds it. Each wiki link opens the Gundam Wiki search. The search opens the article when
+    the title is an exact match.
+  </footer>
+</main>
+</div>
+
+<div id="tip" role="status"></div>
+<dialog id="dlg"><div class="dhead"><div id="dTitle"></div>
+  <button class="btn" id="dClose">Close</button></div><div class="dbody" id="dBody"></div></dialog>
+
+<script>
+const DATA = /*__DATA__*/null;
+const $=s=>document.querySelector(s);
+const el=(t,a={},...k)=>{const n=document.createElementNS(a._ns||"http://www.w3.org/1999/xhtml",t);
+  for(const[p,v] of Object.entries(a)){if(p==="_ns"||v==null)continue;   // null => omit, not "null"
+    if(p==="text")n.textContent=v;else n.setAttribute(p,v);}
+  k.flat().forEach(c=>c!=null&&n.appendChild(typeof c==="string"?document.createTextNode(c):c));return n;};
+const S=(t,a={},...k)=>el(t,{...a,_ns:"http://www.w3.org/2000/svg"},...k);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const yearOf=o=>Math.floor(o/360)+1, pad4=y=>String(y).padStart(4,"0");
+const clip=(s,n)=>s.length>n?s.slice(0,n-1)+"…":s;
+const shortTitle=t=>t.replace(/^(New Mobile Report|Mobile Suit|Mobile Fighter)\s+Gundam[:\s]*/i,"")
+  .replace(/^(New Mobile Report|Mobile Suit|Mobile Fighter)\s+/i,"")
+  .replace(/^Gundam[:\s]+/i,"").trim()||t;
+
+/* Era hues, stepped for each ground. Colour is NOT the encoding anywhere in
+   this page — every rail carries a badge, every work its title, every flag
+   its word — so nineteen of them is legible where nineteen chart series
+   would not be. */
+const HUE_D={"tl.uc":"#4fd8f0","tl.uc.gquuuuuux":"#63f0c8","tl.fc":"#ff5555","tl.ac":"#ff9a2e",
+  "tl.aw":"#ff5ec4","tl.cc":"#c9a6ff","tl.ce":"#5b9bff","tl.ad":"#43d67a","tl.ag":"#ffd23f",
+  "tl.rc":"#96a0ff","tl.pd":"#9fb0c9","tl.as":"#ff85ad","tl.mc":"#ffbe5c","tl.build":"#2fd6c3",
+  "tl.sd.knight":"#8f7bd6","tl.sd.musha":"#d67b7b","tl.sd.command":"#7bb0d6",
+  "tl.sd.force":"#a6e22e","tl.sd.world":"#e8b04b"};
+const HUE_L={"tl.uc":"#0e8fa8","tl.uc.gquuuuuux":"#0f9c76","tl.fc":"#d02525","tl.ac":"#c96b06",
+  "tl.aw":"#c62c8f","tl.cc":"#6f4fd0","tl.ce":"#2563d6",
+  "tl.ad":"#12874a","tl.ag":"#a37a00","tl.rc":"#4a56cf","tl.pd":"#5b6b85","tl.as":"#c4406d",
+  "tl.mc":"#c07a12","tl.build":"#0a8f82","tl.sd.knight":"#5b45a8","tl.sd.musha":"#a63f3f",
+  "tl.sd.command":"#3574a3","tl.sd.force":"#5f8a10","tl.sd.world":"#a2701f"};
+/* Head glyphs. ORIGINAL geometric drawings, not traced character art — the
+   official designs are copyrighted, and at 46px only silhouette and color
+   survive anyway. Each carries the cue that tells its suit apart: a split
+   V-fin, a mono-eye slot, one horn, a broken horn. */
+const THEMES={
+  rx78:{name:"RX-78-2",mode:"light",ground:"#eef1f7",
+    shell:"#f7f9fc",fin:"#f3c118",visor:"#16233a",eye:"#5fe08c",trim:"#e02b3c",kind:"gundam"},
+  char:{name:"Char",mode:"dark",ground:"#20090f",
+    shell:"#e8382f",fin:"#f4a62a",visor:"#1a0306",eye:"#ffe6a8",trim:"#8e1a18",kind:"monoeye"},
+  unicorn:{name:"Unicorn",mode:"light",ground:"#f2f3f7",
+    shell:"#fbfbfd",fin:"#c9a227",visor:"#262b38",eye:"#d61f45",trim:"#d61f45",kind:"horn"},
+  banshee:{name:"Banshee",mode:"dark",ground:"#141419",
+    shell:"#23232b",fin:"#d4a437",visor:"#08080a",eye:"#e8c25a",trim:"#7d6634",kind:"broken"}};
+
+function headSVG(t){
+  const {shell,fin,visor,eye,trim,kind}=t;
+  const OL=`stroke="${visor}" stroke-width="1" stroke-linejoin="round"`;
+
+  if(kind==="monoeye"){        // Zaku II / Sazabi: dome, centred lens, commander blade
+    return `<svg viewBox="0 0 48 48" aria-hidden="true">
+      <path d="M16.8 12 L10.2 1.6 L22.4 6.4 Z" fill="${fin}"/>
+      <path d="M24 5.6 C33.6 5.6 39.4 12.6 39.4 21.6 L39.4 31.5
+               C39.4 37.2 35.6 40.8 30 40.8 L18 40.8
+               C12.4 40.8 8.6 37.2 8.6 31.5 L8.6 21.6
+               C8.6 12.6 14.4 5.6 24 5.6 Z" fill="${shell}" ${OL}/>
+      <path d="M8.6 19.2 L39.4 19.2 L39.4 26 L8.6 26 Z" fill="${visor}"/>
+      <circle cx="24" cy="22.6" r="4.2" fill="${eye}"/>
+      <circle cx="24" cy="22.6" r="1.7" fill="${visor}" opacity=".5"/>
+      <rect x="12.6" y="29.8" width="22.8" height="3.1" rx="1.55" fill="${visor}" opacity=".42"/>
+      <rect x="12.6" y="34.4" width="22.8" height="3.1" rx="1.55" fill="${visor}" opacity=".26"/>
+    </svg>`;
+  }
+
+  // Gundam-type helmet: broad brow, faceted cheeks, tapered jaw.
+  const helm=`<path d="M24 9.5 L34 14 L36.5 23.5 L32.6 32.6 L28.2 40.6
+                       L19.8 40.6 L15.4 32.6 L11.5 23.5 L14 14 Z"
+                     fill="${shell}" ${OL}/>`;
+  const ears=`<path d="M12.2 20 L7.6 21.4 L7.6 28.8 L12.9 27 Z" fill="${trim}"/>
+              <path d="M35.8 20 L40.4 21.4 L40.4 28.8 L35.1 27 Z" fill="${trim}"/>`;
+  const jaw=`<path d="M20.4 30.4 h7.2 v3.4 l-1.4 2.8 h-4.4 l-1.4 -2.8 Z" fill="${visor}"/>`;
+
+  let brow="", face="";
+  if(kind==="gundam"){         // V-fin + twin eyes
+    brow=`<path d="M23 17.2 L19.8 10.4 L4.8 3.6 L9.6 14.4 L18.6 17.2 Z" fill="${fin}"/>
+          <path d="M25 17.2 L28.2 10.4 L43.2 3.6 L38.4 14.4 L29.4 17.2 Z" fill="${fin}"/>
+          <path d="M24 7 L27.2 16.6 L20.8 16.6 Z" fill="${trim}"/>`;
+    face=`<path d="M15.6 19.8 L32.4 19.8 L30.2 27.6 L17.8 27.6 Z" fill="${visor}"/>
+          <path d="M17.9 21.3 L22.6 21.3 L21.8 26.1 L18.8 26.1 Z" fill="${eye}"/>
+          <path d="M25.4 21.3 L30.1 21.3 L29.2 26.1 L26.2 26.1 Z" fill="${eye}"/>`;
+  } else if(kind==="horn"){    // Unicorn mode: one horn, sealed face
+    brow=`<path d="M24 0.8 L26.9 9.6 L27.7 16.6 L20.3 16.6 L21.1 9.6 Z" fill="${fin}"/>`;
+    face=`<path d="M15.6 19.8 L32.4 19.8 L30.2 27.6 L17.8 27.6 Z" fill="${visor}"/>
+          <path d="M17.7 22.4 L30.3 22.4 L29.6 25 L18.4 25 Z" fill="${eye}"/>`;
+  } else {                     // Banshee: horn split, one lit eye
+    brow=`<path d="M20.9 0.8 L24.3 10 L24.8 16.6 L17.6 16.6 L18.4 10 Z" fill="${fin}"/>
+          <path d="M30.4 4.6 L31.9 11.6 L31.4 16.6 L26.4 16.6 L26.9 11.6 Z" fill="${fin}" opacity=".8"/>`;
+    face=`<path d="M15.6 19.8 L32.4 19.8 L30.2 27.6 L17.8 27.6 Z" fill="${visor}"/>
+          <path d="M17.7 22.4 L30.3 22.4 L29.6 25 L18.4 25 Z" fill="${eye}"/>
+          <circle cx="28.8" cy="23.6" r="1.8" fill="${trim}"/>`;
+  }
+  return `<svg viewBox="0 0 48 48" aria-hidden="true">${helm}${ears}${face}${jaw}${brow}</svg>`;
+}
+
+let THEME="rx78";
+const isDark=()=>THEMES[THEME].mode==="dark";
+const hue=id=>(isDark()?HUE_D:HUE_L)[id]||(isDark()?"#8fa0bd":"#5b6b85");
+const FLAGMAP={editorial:"guess","needs-verification":"unchecked",disputed:"contested",
+  interpretive:"reading",inherited:"inherited"};
+const flagOf=c=>FLAGMAP[c];
+const flagHtml=f=>f?`<span class="flag f-${f}"><i></i>${f}</span>`:"";
+
+let TL=DATA.timelines[0], VIEW="map", TYPES=new Set(), ONLY_FLAGGED=false, Q="", MAPQ="";
+
+/* ---------- background ---------- */
+function paintBg(){
+  const c=$("#bg"),x=c.getContext("2d");
+  const w=c.width=innerWidth*devicePixelRatio, h=c.height=innerHeight*devicePixelRatio;
+  const css=getComputedStyle(document.documentElement);
+  x.clearRect(0,0,w,h);
+  let s=20250808; const rnd=()=>((s=(s*1103515245+12345)&0x7fffffff)/0x7fffffff);
+  if(isDark()){
+    const br=css.getPropertyValue("--brand").trim();
+    const g=x.createRadialGradient(w*.8,h*.1,0,w*.8,h*.1,Math.max(w,h)*.8);
+    g.addColorStop(0,hexA(br,.16)); g.addColorStop(1,hexA(br,0));
+    x.fillStyle=g; x.fillRect(0,0,w,h);
+    const n=Math.round(w*h/(16000*devicePixelRatio));
+    for(let i=0;i<n;i++){
+      const px=rnd()*w,py=rnd()*h,r=(rnd()**2.6)*2*devicePixelRatio+.3*devicePixelRatio;
+      x.fillStyle=`rgba(255,252,246,${.08+rnd()*.55})`;
+      x.beginPath();x.arc(px,py,r,0,6.2832);x.fill();
+    }
+  } else {
+    // Light themes get a soft gradient mesh instead — a starfield has no
+    // light-mode equivalent, and inverting one just makes grey confetti.
+    const blobs=[[.14,.05,"--brand",.13],[.9,.16,"--accent2",.11],[.55,.85,"--brand",.07]];
+    blobs.forEach(([bx,by,tok,al])=>{
+      const col=css.getPropertyValue(tok).trim();
+      const g=x.createRadialGradient(w*bx,h*by,0,w*bx,h*by,Math.max(w,h)*.55);
+      g.addColorStop(0,hexA(col,al)); g.addColorStop(1,hexA(col,0));
+      x.fillStyle=g; x.fillRect(0,0,w,h);
+    });
+  }
+}
+function hexA(hex,a){
+  const m=hex.replace("#","").trim();
+  const v=m.length===3?m.split("").map(ch=>ch+ch).join(""):m;
+  const n=parseInt(v,16);
+  return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`;
+}
+
+/* ---------- tooltip ---------- */
+const tip=$("#tip");
+function showTip(ev,html){tip.innerHTML=html;tip.style.opacity=1;
+  const r=tip.getBoundingClientRect();
+  let x=ev.clientX+16,y=ev.clientY+16;
+  if(x+r.width>innerWidth-8)x=ev.clientX-r.width-16;
+  if(y+r.height>innerHeight-8)y=ev.clientY-r.height-16;
+  tip.style.left=x+"px";tip.style.top=y+"px";}
+const hideTip=()=>tip.style.opacity=0;
+
+/* ---------- sidebar ---------- */
+(function themes(){
+  const box=$("#swatches");
+  Object.entries(THEMES).forEach(([k,t])=>{
+    const b=el("button",{class:"sw",type:"button",title:t.name,"aria-label":"Theme: "+t.name,
+      "aria-pressed":String(k===THEME),style:`background:${t.ground}`});
+    b.innerHTML=headSVG(t);
+    b.onclick=()=>setTheme(k);
+    box.appendChild(b);
+  });
+})();
+function setTheme(k){
+  THEME=k; document.documentElement.setAttribute("data-theme",k);
+  try{localStorage.setItem("gt-theme",k)}catch(e){}
+  markTheme(); paintBg(); buildNav(); render();
+}
+function markTheme(){
+  [...$("#swatches").children].forEach((b,i)=>
+    b.setAttribute("aria-pressed",String(Object.keys(THEMES)[i]===THEME)));
+  $("#themeName").textContent=THEMES[THEME].name;
+}
+function buildNav(){
+  const box=$("#navList"); box.textContent="";
+  DATA.timelines.forEach(t=>{
+    const b=el("button",{type:"button","aria-current":String(VIEW==="explore"&&t.id===TL.id)},
+      el("span",{class:"dot",style:`background:${hue(t.id)}`}),
+      el("span",{class:"ab",text:t.abbrev}),
+      el("span",{class:"nm",text:t.name}),
+      el("span",{class:"ct",text:String(t.events.length||"·")}));
+    b.onclick=()=>openContinuity(t.id);
+    box.appendChild(b);
+  });
+  $("#navMap").setAttribute("aria-current",String(VIEW==="map"));
+}
+
+/* ---------- map ---------- */
+const STEP=30, MINDROP=64, GAP=40, TAN=0.62;
+function drawMap(){
+  const host=$("#mapWrap"); host.textContent="";
+  const W=Math.max(600,host.clientWidth||900);
+  const twoCol=W>=760;
+  const colW=twoCol?(W-26)/2:W;
+
+  // Wide rails (many works) span both columns; the rest pack into the
+  // shorter column. Two columns roughly halve the height of the map, which
+  // was the whole complaint about the one-column poster.
+  // Scatter, not a grid. A seeded generator gives each rail its own slope,
+  // indent and breathing room, so the map reads as composed rather than
+  // laid out by a spreadsheet. Seeded and reset per draw, so it never
+  // reshuffles on resize — a map that rearranges itself when you drag the
+  // window is worse than a tidy one.
+  let sd=7781; const jr=()=>((sd=(sd*1103515245+12345)&0x7fffffff)/0x7fffffff);
+
+  // A work matches on title, era, span or release year — the four things a
+  // reader is likely to have in mind when they go looking.
+  const q=MAPQ.toLowerCase();
+  const hit=(t,s)=>{
+    if(!q) return true;
+    const span=s.spans.map(x=>x.undated?"undated":`${x.start} ${x.end}`).join(" ");
+    return `${s.title} ${t.name} ${t.abbrev} ${span} ${s.release||""} ${s.format||""}`
+      .toLowerCase().includes(q);
+  };
+  const eraHit=t=>!q||`${t.name} ${t.abbrev}`.toLowerCase().includes(q);
+
+  const rows=DATA.timelines.map(t=>{
+    const n=t.series.length, wide=twoCol&&n>6;
+    const cw=wide?W:colW;
+    const HEAD=Math.min(120,cw*.17), TAIL=Math.min(250,cw*.34);
+    const drop=Math.max(MINDROP,n*STEP);
+    const tan=TAN*(0.86+jr()*0.30);                 // per-rail slope
+    const room=cw-HEAD-TAIL;
+    const runX=Math.max(Math.min(150,room),Math.min(room,drop/tan));
+    const slack=Math.max(0,room-runX);
+    // Centre the drawn block in its column. Left-anchored rails leave a wide
+    // dead margin on the right, which reads as missing content.
+    const cx=Math.max(0,(cw-(HEAD+runX+TAIL))/2);
+    return {t,n,wide,cw,HEAD,TAIL,cx,drop,runX,
+            hits:t.series.filter(s=>hit(t,s)).length, era:eraHit(t),
+            jx:(jr()-.5)*Math.min(slack,54),         // organic drift about centre
+            jgap:jr()*30};                           // extra breathing room below
+  });
+  // During a search the matching rails rise to the top. Without this the
+  // only hits can sit below the fold, and the chart reads as though nothing
+  // happened. Order is otherwise untouched, and the sort is stable.
+  if(q) rows.sort((a,b)=>((b.hits>0)-(a.hits>0)) || ((b.era&&!b.n)-(a.era&&!a.n)));
+
+  let yA=34,yB=34;
+  rows.forEach(r=>{
+    const adv=r.drop+GAP+26+r.jgap;
+    if(r.wide||!twoCol){ const y=Math.max(yA,yB); r.x=0; r.y=y; yA=yB=y+adv; }
+    else if(yA<=yB){ r.x=0; r.y=yA; yA+=adv; }
+    else { r.x=colW+26; r.y=yB; yB+=adv; }
+  });
+  const H=Math.max(yA,yB)+16;
+
+  const svg=S("svg",{viewBox:`0 0 ${W} ${H}`,role:"img",
+    "aria-label":"All Gundam continuities and the works set in each"});
+  const defs=S("defs");
+  defs.appendChild(S("filter",{id:"gl",x:"-60%",y:"-60%",width:"220%",height:"220%"},
+    S("feGaussianBlur",{stdDeviation:"3",result:"b"}),
+    S("feMerge",{},S("feMergeNode",{in:"b"}),S("feMergeNode",{in:"SourceGraphic"}))));
+  svg.appendChild(defs);
+  const GLOW=isDark()?"url(#gl)":"";
+
+  let nWork=0,nEra=0;
+  rows.forEach(r=>{ nWork+=r.hits; if(r.hits||(r.era&&!r.n)) nEra++; });
+  $("#mapCount").textContent = !q ? ""
+    : (nWork||nEra) ? `${nWork} work${nWork===1?"":"s"} in ${nEra} continuit${nEra===1?"y":"ies"}`
+    : "Nothing matches.";
+
+  rows.forEach((r,ri)=>{
+    const t=r.t,c=hue(t.id),dead=r.n===0;
+    // A rail with no match fades but stays. To remove it would collapse the
+    // layout and hide how much of the chart the search passed over.
+    const live=!q||r.hits>0||(r.era&&dead);
+    const x0=r.x+r.cx+r.HEAD+r.jx,y0=r.y,x1=x0+r.runX,y1=y0+r.drop;
+    const g=S("g",{class:"railg",opacity:live?1:.15});
+
+    // invisible plate: makes the whole rail area a hover/click target
+    const plate=S("rect",{class:"plate",x:r.x,y:r.y-30,width:r.cw,height:r.drop+52,rx:14,
+      fill:c,"fill-opacity":isDark()?.06:.05});
+    g.appendChild(plate);
+
+    g.appendChild(S("line",{class:(dead||q)?"":"rail-anim",x1:x0,y1:y0,x2:x1,y2:y1,stroke:c,
+      "stroke-width":dead?1.1:2.2,"stroke-linecap":"round",pathLength:dead?null:1,
+      "stroke-dasharray":dead?"3 6":null,opacity:dead?.45:.95,filter:dead?"":GLOW,
+      style:(dead||q)?"":`animation-delay:${Math.min(ri*40,560)}ms`}));
+
+    // rail head: badge + era name + explore affordance
+    const bw=Math.max(46,14+t.abbrev.length*9), bh=22, bx=x0-bw-12, by=y0-bh/2;
+    const head=S("g",{class:"hit",role:"button",tabindex:"0",
+      "aria-label":`Open ${t.name}`});
+    head.appendChild(S("path",{d:`M${bx} ${by} h${bw-9} l9 ${bh/2} l-9 ${bh/2} h${-(bw-9)} z`,
+      fill:c,filter:GLOW}));
+    head.appendChild(S("text",{class:"disp badge-t",x:bx+9,y:by+15,fill:isDark()?"#0b0d12":"#fff",
+      text:t.abbrev}));
+    head.appendChild(S("text",{class:"era-sub",x:x0+2,y:y0-16},
+      t.name.toUpperCase()+(r.n?`  ·  ${r.n} WORK${r.n>1?"S":""}`:""),
+      S("tspan",{fill:c,"font-weight":"700"},"    OPEN →")));
+    const go=()=>openContinuity(t.id);
+    head.addEventListener("click",go);
+    head.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});
+    head.addEventListener("mousemove",ev=>showTip(ev,
+      `<b>${esc(t.name)}</b><span class="m">${t.events.length} events · ${r.n} works`
+      +`${t.span&&t.span.earliest_event?` · ${esc(t.span.earliest_event)}–${esc(t.span.latest_event)}`:" · no calendar"}</span>`
+      +`<br><span class="m">Open this continuity →</span>`));
+    head.addEventListener("mouseleave",hideTip);
+    g.appendChild(head);
+
+    if(dead){
+      // Below the rail end — at the midpoint the descending dashes strike
+      // straight through the words.
+      g.appendChild(S("text",{class:"work-s",x:x0+6,y:y1+16,
+        text:"declared, no entries"}));
+      svg.appendChild(g); return;
+    }
+
+    t.series.forEach((s,i)=>{
+      const f=(i+.5)/r.n, px=x0+(x1-x0)*f, py=y0+(y1-y0)*f;
+      const on=hit(t,s);
+      const gg=S("g",{class:q?"hit":"hit node-anim",opacity:(!q||on)?1:.2,
+        style:q?"":`animation-delay:${Math.min(ri*40,560)+Math.min(i*30,300)+140}ms`});
+      gg.appendChild(S("circle",{cx:px,cy:py,r:(q&&on)?6.4:4.6,fill:(q&&on)?c:"var(--card)",
+        stroke:c,"stroke-width":2.2,filter:GLOW}));
+      gg.appendChild(S("text",{class:"disp work-t",x:px+12,y:py-13,fill:c,
+        text:clip(shortTitle(s.title).replace(/\s*\((first|second) season\)/i,
+          m=>/first/i.test(m)?" I":" II"),r.wide?34:24)+(s.foreign?" ↗":"")},
+        S("title",{text:s.title})));
+      const span=s.spans.find(x=>!x.undated&&x.weight==="main")||s.spans.find(x=>!x.undated);
+      gg.appendChild(S("text",{class:"work-s",x:px+12,y:py-3,
+        text:(span?`${t.abbrev} ${span.start}${span.end&&span.end!==span.start?"–"+span.end:""}`:"undated")
+             +(s.release?` · ${s.release}`:"")}));
+      gg.addEventListener("click",e=>{e.stopPropagation();TL=t;openSeries(s);});
+      gg.addEventListener("mousemove",ev=>{ev.stopPropagation();showTip(ev,
+        `<b>${esc(s.title)}</b><span class="m">${esc(s.format||"")}${s.release?" · "+s.release:""}</span>`
+        +(s.focus?`<br><span class="m">${esc(clip(s.focus.trim(),150))}</span>`:""));});
+      gg.addEventListener("mouseleave",hideTip);
+      g.appendChild(gg);
+    });
+    svg.appendChild(g);
+  });
+  host.appendChild(svg);
+}
+
+/* ---------- explore chart ---------- */
+const GUT=180,PADR=16,ROW=20,BAR=9,EVROW=12;
+function niceTicks(loY,hiY,target){
+  const span=Math.max(1,hiY-loY),steps=[1,2,5,10,20,25,50,100,200,250,500,1000];
+  const step=steps.find(s=>span/s<=target)??1000,out=[];
+  for(let y=Math.max(step,Math.ceil(loY/step)*step);y<=hiY;y+=step)out.push(y);
+  if(!out.length)out.push(Math.max(1,loY));
+  return out;
+}
+function matches(e){
+  if(!Q) return true;
+  const q=Q.toLowerCase();
+  return (e.label+" "+e.summary+" "+e.type+" "+e.sources.map(s=>(DATA.sources[s]||{}).title||"").join(" "))
+    .toLowerCase().includes(q);
+}
+function visibleEvents(){
+  return TL.events.filter(e=>{
+    if(TYPES.size&&!TYPES.has(e.type))return false;
+    if(ONLY_FLAGGED&&!e.flag&&!e.contested&&!e.claims.some(c=>c.flag))return false;
+    return matches(e);});
+}
+function drawChart(){
+  const wrap=$("#chartWrap");wrap.textContent="";
+  const C=hue(TL.id), evs=visibleEvents(), dated=evs.filter(e=>e.lo!=null);
+  if(TL.lo==null){ drawOrder(wrap,evs,C); return; }
+  const W=Math.max(520,wrap.clientWidth||860);
+  const loY=yearOf(TL.lo),hiY=yearOf(TL.hi),pad=Math.max(1,(hiY-loY)*.02);
+  const d0=(loY-pad)*360,d1=(hiY+1+pad)*360;
+  const x=o=>GUT+(o-d0)/(d1-d0)*(W-GUT-PADR);
+  const lanes=[];
+  dated.forEach(e=>{const a=x(e.lo),b=Math.max(x(e.hi),a+9);
+    let i=0;while(i<lanes.length&&lanes[i]>a-8)i++;lanes[i]=b;e._lane=i;});
+  const evLanes=Math.max(1,lanes.length);
+  let y=24;const yS=y;y+=TL.series.length*ROW+(TL.series.length?14:0);
+  const yE=y+12;y=yE+evLanes*EVROW+14;
+  const yF=y+(TL.factions.length?12:0);y=yF+TL.factions.length*ROW+8;
+  const yAxis=y+4,H=yAxis+28;
+  const svg=S("svg",{class:"chart",viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":`${TL.name} timeline`});
+  niceTicks(loY,hiY,9).forEach(ty=>{const px=x((ty-1)*360);
+    svg.appendChild(S("line",{class:"gridline",x1:px,x2:px,y1:16,y2:yAxis}));
+    svg.appendChild(S("text",{class:"tick",x:px,y:yAxis+15,"text-anchor":"middle",text:pad4(ty)}));});
+  svg.appendChild(S("line",{class:"axisline",x1:GUT,x2:W-PADR,y1:yAxis,y2:yAxis}));
+  // Era label lives in the left gutter, not at the axis start — end-anchored
+  // at GUT it sits exactly where the first tick lands and reads "CE yea0070".
+  svg.appendChild(S("text",{class:"sect",x:0,y:yAxis+15,text:TL.abbrev+" YEAR"}));
+  const label=(yy,t)=>svg.appendChild(S("text",{class:"sect",x:0,y:yy,text:t}));
+
+  if(TL.series.length){
+    label(yS-6,"Works");
+    TL.series.forEach((s,i)=>{const ry=yS+i*ROW;
+      svg.appendChild(S("text",{class:"lbl",x:0,y:ry+10,
+        text:clip(shortTitle(s.title)+(s.foreign?" ↗":""),27)},S("title",{text:s.title})));
+      s.spans.forEach(sp=>{if(sp.lo==null)return;
+        const a=x(sp.lo),b=Math.max(x(sp.hi),a+3),main=sp.weight==="main";
+        // pointer-events:all — a dashed span is fill:none, so by default only
+        // the painted dashes answer a click and the gaps fall through.
+        const r=S("rect",{class:"hit",x:a,y:ry+2,width:b-a,height:BAR,rx:4,
+          fill:main?c2(C):"none",stroke:C,"stroke-width":main?0:1.4,
+          "pointer-events":"all",
+          "stroke-dasharray":sp.flag?"3 2.5":(main?"":"5 3")});
+        r.addEventListener("mousemove",ev=>showTip(ev,
+          `<b>${esc(s.title)}</b><span class="m">${esc(sp.weight)} · ${esc(sp.start)}–${esc(sp.end)}`
+          +`${s.foreign?` · span in ${esc(TL.abbrev)}. The work belongs to ${esc(s.home)}`:""}</span>`
+          +(sp.flag?`<br>${flagHtml(sp.flag)}`:"")));
+        r.addEventListener("mouseleave",hideTip);
+        r.addEventListener("click",()=>openSeries(s));
+        svg.appendChild(r);});});
+  }
+  label(yE-8,"Events");
+  const EC=getComputedStyle(document.documentElement).getPropertyValue("--accent2").trim()||"#e07a2b";
+  dated.forEach(e=>{
+    const cy=yE+e._lane*EVROW+6,a=x(e.lo),b=x(e.hi),fl=!!e.flag;
+    let node;
+    if(b-a>10) node=S("rect",{x:a,y:cy-4,width:b-a,height:8,rx:4,fill:fl?"none":EC,
+      stroke:EC,"stroke-width":fl?1.4:0,"stroke-dasharray":fl?"3 2.5":""});
+    else node=S("circle",{cx:a,cy,r:4.4,fill:fl?"var(--card)":EC,stroke:EC,
+      "stroke-width":fl?1.4:2,"stroke-dasharray":fl?"2.5 2":""});
+    node.setAttribute("pointer-events","none");svg.appendChild(node);
+    const hit=S("rect",{class:"hit",x:a-11,y:cy-11,width:Math.max(b-a,0)+22,height:22,fill:"transparent"},
+      S("title",{text:`${e.label} — ${e.start}${e.end?"–"+e.end:""}`}));
+    hit.addEventListener("mousemove",ev=>showTip(ev,
+      `<b>${esc(e.label)}</b><span class="m">${esc(e.start)}${e.end?"–"+esc(e.end):""} · ${esc(e.type)}</span>`
+      +(e.flag?`<br>${flagHtml(e.flag)}`:"")+(e.contested?`<br>${flagHtml("contested")}`:"")));
+    hit.addEventListener("mouseleave",hideTip);
+    hit.addEventListener("click",()=>openEvent(e));
+    svg.appendChild(hit);});
+  if(TL.factions.length){
+    label(yF-6,"Factions");
+    const FC=getComputedStyle(document.documentElement).getPropertyValue("--accent3").trim()||"#7fb8a0";
+    TL.factions.forEach((f,i)=>{
+      const ry=yF+i*ROW,open=f.hi==null,a=x(f.lo),b=open?W-PADR:Math.max(x(f.hi),a+3);
+      svg.appendChild(S("text",{class:"lbl",x:0,y:ry+10,text:clip(f.name,27)},S("title",{text:f.name})));
+      const r=S("rect",{class:"hit",x:a,y:ry+2,width:Math.max(b-a,3),height:BAR,rx:4,
+        fill:FC,stroke:FC,"stroke-width":f.flag?1.4:0,"stroke-dasharray":f.flag?"3 2.5":"",
+        "pointer-events":"all","fill-opacity":f.flag?.18:.8});
+      r.addEventListener("mousemove",ev=>showTip(ev,
+        `<b>${esc(f.name)}</b><span class="m">${esc(f.start)}–${open?"open":esc(f.end)}</span>`
+        +(f.flag?`<br>${flagHtml(f.flag)}`:"")
+        +(f.flag==="guess"?`<br><span class="m">This start is the first point where the dataset shows the faction. It is not a founding date.</span>`:"")));
+      r.addEventListener("mouseleave",hideTip);
+      r.addEventListener("click",()=>openFaction(f));
+      svg.appendChild(r);
+      if(open)svg.appendChild(S("text",{class:"tick",x:W-PADR+2,y:ry+10,text:"→"}));});
+  }
+  wrap.appendChild(svg);
+}
+const c2=c=>c;
+
+/* No calendar, so no axis. But "no dates" is not "no structure": some of
+   these events are anchored to each other with stated intervals. Drawing
+   the partial order is honest — it asserts sequence, which the source does
+   give, and nothing about when. Leaving the card empty threw that away and
+   left a header promising a chart that could never appear. */
+function drawOrder(wrap,evs,C){
+  if(TL.status==="stub"||!TL.events.length){
+    wrap.appendChild(el("p",{class:"empty",style:"margin-top:14px",
+      text:"This continuity is declared, but it holds no entries. It gives no chronology. An invented chronology would be worse than an empty page."}));
+    return;
+  }
+  const byId=Object.fromEntries(TL.events.map(e=>[e.id,e]));
+  const next={}, hasIn={};
+  TL.events.forEach(e=>{
+    const a=e.anchor; if(!a||!byId[a.relative_to]) return;
+    const [from,to]=a.direction==="before"?[e.id,a.relative_to]:[a.relative_to,e.id];
+    (next[from] ||= []).push({to,offset:a.offset_years});
+    hasIn[to]=true;
+  });
+  const inChain=new Set();
+  Object.keys(next).forEach(k=>{inChain.add(k);next[k].forEach(n=>inChain.add(n.to));});
+  const roots=TL.events.filter(e=>inChain.has(e.id)&&!hasIn[e.id]);
+
+  const box=el("div",{class:"chains"});
+  const node=e=>{
+    const b=el("button",{class:"cnode",type:"button",style:`--nc:${C}`},
+      el("b",{text:e.label}),
+      el("span",{text:e.type+(e.undated?" · undated":"")}));
+    b.onclick=()=>openEvent(e); return b;
+  };
+
+  if(roots.length){
+    box.appendChild(el("div",{class:"chainhead",
+      text:roots.length>1?`${roots.length} separate sequences`:"Known sequence"}));
+    box.appendChild(el("p",{class:"chainsub",text:roots.length>1
+      ? "The sources order each chain on its own. They do not order the chains against each other. No source says which chain came first. A link between them here would invent that fact."
+      : "The anchors give this order. The sources give no dates."}));
+    roots.forEach(r=>{
+      const row=el("div",{class:"chain"});
+      let cur=r, guard=0;
+      row.appendChild(node(cur));
+      while(next[cur.id]&&next[cur.id].length&&guard++<40){
+        const step=next[cur.id][0], nxt=byId[step.to];
+        // Arrow and the node it points at wrap together — as separate flex
+        // children the arrow strands itself at the end of a line, pointing
+        // at nothing.
+        row.appendChild(el("div",{class:"cpair"},
+          el("div",{class:"cedge"},el("b",{text:"→"}),
+            el("i",{style:"font-style:normal",
+              text:step.offset?`+${step.offset} yr`:"interval unknown"})),
+          node(nxt)));
+        cur=nxt;
+      }
+      box.appendChild(row);
+    });
+  }
+
+  const loose=TL.events.filter(e=>!inChain.has(e.id));
+  if(loose.length){
+    box.appendChild(el("div",{class:"chainhead",text:"No order given"}));
+    box.appendChild(el("p",{class:"chainsub",
+      text:`The sources put ${loose.length} event${loose.length>1?"s":""} in the world, but not in time. They give no date and no relation to another event.`}));
+    const g=el("div",{class:"cloose"});
+    loose.forEach(e=>g.appendChild(node(e)));
+    box.appendChild(g);
+  }
+  wrap.appendChild(box);
+
+  if(TL.factions.length){
+    const p=el("p",{class:"chainsub",style:"margin-top:22px"});
+    p.appendChild(document.createTextNode("This page lists the factions instead of drawing them. The schema needs a start value, so each one holds a placeholder, not a date: "));
+    TL.factions.forEach((f,i)=>{const a=el("a",{href:"#"},f.name);
+      a.onclick=ev=>{ev.preventDefault();openFaction(f);};p.appendChild(a);
+      if(i<TL.factions.length-1)p.appendChild(document.createTextNode(", "));});
+    wrap.appendChild(p);
+  }
+}
+
+function drawTray(){
+  const evs=visibleEvents().filter(e=>e.lo==null),card=$("#trayCard"),tray=$("#tray");
+  tray.textContent="";
+  // When the whole continuity is dateless the order diagram above already
+  // holds every event; repeating them here is noise, not redundancy.
+  if(!evs.length||TL.lo==null){card.hidden=true;return;} card.hidden=false;
+  $("#trayNote").textContent=`${evs.length} event${evs.length>1?"s have":" has"} no absolute date. `
+    +`This page shows them here, not on the axis. A mark at the origin would say that they happened in year one.`;
+  evs.forEach(e=>{const a=e.anchor;
+    const rel=a?`${a.direction} ${DATA.labels[a.relative_to]||a.relative_to}`
+      +(a.offset_years?` by ${a.offset_years} years`:", interval unknown"):"no date, no order";
+    const art=el("article",{},el("h4",{text:e.label}),el("div",{class:"m",text:rel}),
+      el("div",{class:"m",text:e.type}));
+    art.onclick=()=>openEvent(e);tray.appendChild(art);});
+}
+function drawTable(){
+  const tb=$("#tbl").querySelector("tbody");tb.textContent="";
+  const rows=visibleEvents();
+  if(!rows.length){tb.appendChild(el("tr",{},el("td",{colspan:"5",class:"muted",
+    text:"Nothing matches the current filters."})));return;}
+  rows.forEach(e=>{
+    const flags=el("td",{});
+    [e.flag,e.contested?"contested":null].filter(Boolean).forEach(f=>{
+      flags.appendChild(el("span",{class:"flag f-"+f},el("i",{}),f));
+      flags.appendChild(document.createTextNode(" "));});
+    const src=el("td",{});
+    e.sources.forEach((s,i)=>{const m=DATA.sources[s];
+      src.appendChild(el("a",{href:m?m.wiki:"#",target:"_blank",rel:"noopener",
+        title:m?`${m.title} (${m.kind}, ${m.year??"—"}) · tier ${m.tier}`:s},m?m.title:s));
+      if(i<e.sources.length-1)src.appendChild(document.createTextNode(", "));});
+    const tr=el("tr",{},el("td",{class:"date",text:e.lo==null?"off axis":e.start+(e.end?"–"+e.end:"")}),
+      el("td",{},e.label),el("td",{class:"muted",text:e.type}),flags,src);
+    tr.onclick=ev=>{if(ev.target.tagName!=="A")openEvent(e);};
+    tb.appendChild(tr);});
+}
+function drawRels(){
+  const box=$("#rels");box.textContent="";
+  const meta=id=>DATA.timelines.find(x=>x.id===id)||{name:id};
+  const byType={};DATA.relations.forEach(r=>(byType[r.type]||=[]).push(r));
+  Object.entries(byType).forEach(([type,rs])=>{
+    box.appendChild(el("h3",{style:"margin:20px 0 4px;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3)",
+      text:type.replace(/_/g," ")}));
+    rs.forEach(r=>{
+      const d=el("div",{class:"rel"}),head=el("div",{});
+      const mk=id=>{const a=el("a",{href:"#",class:"disp",style:`color:${hue(id)};font-size:15px;text-decoration:none`,text:meta(id).name});
+        a.onclick=ev=>{ev.preventDefault();openContinuity(id);};return a;};
+      head.appendChild(mk(r.from));head.appendChild(document.createTextNode("  →  "));head.appendChild(mk(r.to));
+      if(r.confidence)head.appendChild(el("span",{class:"flag f-"+(flagOf(r.confidence)||"reading"),
+        style:"margin-left:10px"},el("i",{}),r.confidence));
+      d.appendChild(head);
+      if(r.note)d.appendChild(el("div",{class:"meta",text:r.note.trim()}));
+      box.appendChild(d);});});
+}
+
+/* ---------- dialog ---------- */
+const dlg=$("#dlg");$("#dClose").onclick=()=>dlg.close();
+function openDialog(h,b){$("#dTitle").textContent="";$("#dTitle").appendChild(h);
+  $("#dBody").textContent="";$("#dBody").appendChild(b);dlg.showModal();}
+function srcList(ids){const ul=el("ul",{class:"plain"});
+  ids.forEach(s=>{const m=DATA.sources[s];ul.appendChild(el("li",{},m
+    ?el("a",{href:m.wiki,target:"_blank",rel:"noopener"},`${m.title} (${m.kind}${m.year?", "+m.year:""}, tier ${m.tier})`):s));});
+  return ul;}
+function idList(ids){const ul=el("ul",{class:"plain"});
+  ids.forEach(i=>ul.appendChild(el("li",{},el("a",{
+    href:`https://gundam.fandom.com/wiki/Special:Search?search=${encodeURIComponent(DATA.labels[i]||i)}&fulltext=0`,
+    target:"_blank",rel:"noopener"},DATA.labels[i]||i))));return ul;}
+const wikiLink=u=>el("p",{},el("a",{href:u,target:"_blank",rel:"noopener"},"Open on the Gundam Wiki ↗"));
+const dtitle=(m,s,c)=>el("div",{},el("div",{class:"disp",style:`font-size:23px;color:${c||"var(--ink)"}`,text:m}),
+  el("div",{class:"meta",text:s}));
+function openEvent(e){
+  const h=dtitle(e.label,(e.lo==null?"off axis":`${TL.abbrev} ${e.start}${e.end?"–"+e.end:""}`)+` · ${e.type}`,hue(TL.id));
+  [e.flag,e.contested?"contested":null].filter(Boolean).forEach(f=>
+    h.appendChild(el("span",{class:"flag f-"+f,style:"margin-top:8px"},el("i",{}),f)));
+  const b=el("div",{});
+  b.appendChild(el("p",{text:e.summary}));b.appendChild(wikiLink(e.wiki));
+  if(e.dateNote)b.appendChild(el("div",{class:"note",text:"On the date: "+e.dateNote.trim()}));
+  if(e.anchor)b.appendChild(el("div",{class:"note",
+    text:`Relative date: ${e.anchor.direction} ${DATA.labels[e.anchor.relative_to]||e.anchor.relative_to}`
+      +(e.anchor.offset_years?` by ${e.anchor.offset_years} years.`:". The source gives no interval.")}));
+  if(e.undated)b.appendChild(el("div",{class:"note",
+    text:"No date. The source shows that this happened. It gives no date and no order against another event."}));
+  if(e.note)b.appendChild(el("div",{class:"note",text:e.note.trim()}));
+  if(e.sources.length){b.appendChild(el("h3",{text:"Sources"}));b.appendChild(srcList(e.sources));}
+  if(e.claims.length){b.appendChild(el("h3",{text:"Claims"}));
+    e.claims.forEach(c=>{const d=el("div",{class:"claim"}),hh=el("div",{class:"p"},c.property.replace(/_/g," "));
+      if(c.flag)hh.appendChild(el("span",{class:"flag f-"+c.flag},el("i",{}),c.flag));
+      if(c.resolution==="unresolved")hh.appendChild(el("span",{class:"flag f-contested"},el("i",{}),"unresolved"));
+      d.appendChild(hh);d.appendChild(el("p",{text:c.value}));
+      if(c.note)d.appendChild(el("div",{class:"note",text:c.note.trim()}));
+      d.appendChild(srcList(c.sources));b.appendChild(d);});}
+  if(e.participants.length){b.appendChild(el("h3",{text:"Participants"}));b.appendChild(idList(e.participants));}
+  if(e.depicted_in.length){b.appendChild(el("h3",{text:"Depicted in"}));b.appendChild(idList(e.depicted_in));}
+  if(e.referenced_in.length){b.appendChild(el("h3",{text:"Referenced in (backstory only)"}));b.appendChild(idList(e.referenced_in));}
+  if(e.related.length){b.appendChild(el("h3",{text:"Related"}));b.appendChild(idList(e.related));}
+  openDialog(h,b);}
+function openSeries(s){
+  const h=dtitle(s.title,`${s.format??""}${s.release?" · released "+s.release:""}`,hue(TL.id));
+  const b=el("div",{});
+  if(s.focus)b.appendChild(el("p",{text:s.focus.trim()}));
+  b.appendChild(wikiLink(s.wiki));
+  if(s.foreign)b.appendChild(el("div",{class:"note",
+    text:`This work belongs to ${s.home}. One of its coverage spans is set in ${TL.name}, so it also appears here.`}));
+  b.appendChild(el("h3",{text:"Coverage"}));
+  const ul=el("ul",{class:"plain"});
+  s.spans.forEach(sp=>{const li=el("li",{},sp.undated?`${sp.weight} — undated`:`${sp.weight}: ${sp.start}–${sp.end}`);
+    if(sp.flag)li.appendChild(el("span",{class:"flag f-"+sp.flag,style:"margin-left:8px"},el("i",{}),sp.flag));
+    if(sp.note)li.appendChild(el("div",{class:"note",text:sp.note.trim()}));ul.appendChild(li);});
+  b.appendChild(ul);
+  if(s.source){b.appendChild(el("h3",{text:"Source"}));b.appendChild(srcList([s.source]));}
+  if(s.note)b.appendChild(el("div",{class:"note",text:s.note.trim()}));
+  const go=el("p",{},el("button",{class:"btn",type:"button"},"Open "+TL.name+" →"));
+  go.firstChild.onclick=()=>{dlg.close();openContinuity(TL.id);};
+  b.appendChild(go);
+  openDialog(h,b);}
+function openFaction(f){
+  const h=dtitle(f.name,`${f.start} – ${f.end??"no recorded end"}`,hue(TL.id));
+  if(f.flag)h.appendChild(el("span",{class:"flag f-"+f.flag,style:"margin-top:8px"},el("i",{}),f.flag));
+  const b=el("div",{});b.appendChild(wikiLink(f.wiki));
+  if(f.flag==="guess")b.appendChild(el("div",{class:"note",
+    text:"This start is the first event that names the faction. It is not a founding date. Read it as a lower bound."}));
+  if(f.predecessor)b.appendChild(el("p",{class:"meta",text:"Succeeds: "+(DATA.labels[f.predecessor]||f.predecessor)}));
+  if(f.parent)b.appendChild(el("p",{class:"meta",text:"Part of: "+(DATA.labels[f.parent]||f.parent)}));
+  if(f.note)b.appendChild(el("div",{class:"note",text:f.note.trim()}));
+  openDialog(h,b);}
+
+/* ---------- shell ---------- */
+function tiles(items){
+  const box=$("#tiles");box.textContent="";box.hidden=!items.length;
+  items.forEach(([v,k])=>box.appendChild(el("div",{class:"tile"},
+    el("b",{text:String(v)}),el("span",{text:k}))));
+}
+function drawLegend(){
+  const L=$("#legend");L.textContent="";if(TL.lo==null)return;
+  const c=hue(TL.id),cs=getComputedStyle(document.documentElement);
+  const ec=cs.getPropertyValue("--accent2").trim(),fc=cs.getPropertyValue("--accent3").trim();
+  L.insertAdjacentHTML("beforeend",
+    `<span><i class="key" style="background:${c}"></i>Works, main coverage</span>`
+   +`<span><i class="key" style="border:1.5px dashed ${c}"></i>prologue / flashback / epilogue</span>`
+   +`<span><i class="key" style="background:${ec};border-radius:50%;width:10px;height:10px"></i>Events</span>`
+   +`<span><i class="key" style="background:${fc};opacity:.8"></i>Factions</span>`
+   +`<span><i class="key" style="border:1.5px dashed ${ec}"></i>Carries a flag</span>`);
+}
+function drawTypes(){
+  const box=$("#types");box.textContent="";
+  [...new Set(TL.events.map(e=>e.type))].sort().forEach(ty=>{
+    const b=el("button",{class:"btn",type:"button","aria-pressed":String(TYPES.has(ty)),text:ty});
+    b.onclick=()=>{TYPES.has(ty)?TYPES.delete(ty):TYPES.add(ty);
+      b.setAttribute("aria-pressed",String(TYPES.has(ty)));render();};
+    box.appendChild(b);});
+}
+function openContinuity(id){
+  TL=DATA.timelines.find(x=>x.id===id)||TL;
+  VIEW="explore";TYPES.clear();Q="";$("#q").value="";
+  render();scrollTo({top:0,behavior:"smooth"});
+}
+function goMap(){VIEW="map";render();scrollTo({top:0,behavior:"smooth"});}
+$("#navMap").onclick=goMap; $("#backBtn").onclick=goMap;
+$("#q").addEventListener("input",e=>{Q=e.target.value.trim();drawChart();drawTray();drawTable();});
+$("#mapHelp").onclick=()=>{
+  const b=el("div",{});
+  b.appendChild(el("p",{text:"One rail shows one continuity. The works sit along the rail in order."}));
+  b.appendChild(el("p",{text:"The spacing shows sequence, not elapsed time. The eras share no clock, "
+    +"so one scale for all of them would be wrong. Open a continuity to see its own axis."}));
+  b.appendChild(el("p",{text:"Click a rail head to open that continuity. Click a node to read its "
+    +"sources and claims. Use the search to find a work, an era or a year."}));
+  openDialog(dtitle("How to read the star chart","19 continuities, 44 works"),b);
+};
+$("#aboutBtn").onclick=()=>{
+  const rows=[
+    ["@","Email","ssegota@gmail.com","mailto:ssegota@gmail.com",false],
+    ["GH","GitHub","ssegota","https://github.com/ssegota",false],
+    ["X","X","sandi.segota","https://x.com/sandi.segota",false],
+    ["Ko","Ko-fi","Coming soon","#",true],
+  ];
+  const b=el("div",{});
+  b.appendChild(el("p",{text:"A source-attributed chronology of every Gundam continuity. "
+    +"It keeps what a source says apart from what this project guessed."}));
+  const ul=el("div",{class:"links"});
+  rows.forEach(([ic,name,val,href,off])=>{
+    const a=el("a",{href,...(off?{"aria-disabled":"true"}:{target:"_blank",rel:"noopener"})},
+      el("span",{class:"ic",text:ic}),
+      el("span",{},el("b",{text:name}),el("span",{text:val})));
+    ul.appendChild(a);
+  });
+  b.appendChild(ul);
+  openDialog(dtitle("About","Gundam Timeline Dataset"),b);
+};
+$("#mapQ").addEventListener("input",e=>{MAPQ=e.target.value.trim();drawMap();});
+$("#mapQ").addEventListener("keydown",e=>{if(e.key==="Escape"){e.target.value="";MAPQ="";drawMap();}});
+
+function render(){
+  const map=VIEW==="map";
+  $("#mapView").hidden=!map;$("#exploreView").hidden=map;$("#backBtn").hidden=map;
+  $("#relCard").hidden=!map;      // the relation graph is about ALL continuities
+  buildNav();
+  if(map){
+    $("#pageTitle").textContent="Star chart";
+    $("#pageSub").textContent="Every Gundam continuity, and every work set in each one.";
+    tiles([]);            // the star chart carries no counters
+    drawMap();
+  } else {
+    $("#pageTitle").textContent=TL.name;
+    $("#pageTitle").style.color=hue(TL.id);
+    // The reader-facing blurb, never TL.note. The note records this project's
+    // reasoning about the DATA — corrections, filenames, schema limits — and
+    // that belongs in the YAML, not above a chart.
+    $("#pageSub").textContent=TL.blurb||"";
+    // The header has to follow the data. Saying "chart … on this era's own
+    // axis" above an empty card for a continuity that has no calendar reads
+    // as a broken render rather than as the honest answer it is.
+    const dateless = TL.lo==null, empty = !TL.events.length;
+    $("#tlHead").textContent = empty ? `${TL.abbrev} — nothing recorded`
+      : dateless ? `${TL.abbrev} — order, not dates` : `${TL.abbrev} — chart`;
+    $("#tlNote").textContent = empty
+      ? "This continuity is declared, but it holds no events."
+      : dateless
+      ? "This continuity has no calendar. There is no axis to draw, and this page does not invent one. The sources give sequence, and the diagram below shows it."
+      : "Works, events and factions on the axis of this era. A dashed mark carries a flag.";
+    const flagged=TL.events.filter(e=>e.flag||e.contested||e.claims.some(c=>c.flag)).length;
+    const undated=TL.events.filter(e=>e.lo==null).length;
+    tiles([[TL.events.length,"events"],[TL.series.length,"works"],[TL.factions.length,"factions"],
+           [flagged,"flagged"],[undated,"off axis"],
+           [TL.span&&TL.span.earliest_event?`${TL.span.earliest_event}–${TL.span.latest_event}`:"—","span"]]);
+    drawTypes();drawChart();drawTray();drawTable();drawLegend();
+  }
+}
+
+try{const t=localStorage.getItem("gt-theme"); if(t&&THEMES[t])THEME=t;}catch(e){}
+document.documentElement.setAttribute("data-theme",THEME);
+markTheme();paintBg();drawRels();render();
+let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{
+  paintBg(); VIEW==="map"?drawMap():drawChart();},170);});
+</script>
+</body>
+</html>

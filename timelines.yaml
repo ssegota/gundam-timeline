@@ -1,0 +1,584 @@
+# Continuities, their epochs, and the relationships between them.
+#
+# A "timeline" is a calendar era plus the body of works that use it.
+# Timelines are NOT independent: some succeed each other, some are
+# branches, some are contested. Model those edges here, not in prose.
+#
+# `status` reads as:
+#   primary  a first-class continuity with its own event data
+#   branch   derived from another continuity by an explicit divergence
+#   stub     declared but not yet populated
+# There can be many primaries. Being primary is not a claim about
+# importance; tl.uc is first here because it is where this dataset began,
+# not because the others are subordinate to it.
+#
+# Each timeline OWNS AN ID NAMESPACE: its abbrev, lowercased, with runs of
+# non-alphanumerics folded to a hyphen. tl.uc owns `uc.`, tl.uc.gquuuuuux
+# (UC-G) owns `uc-g.`. Every ser./src./fac./evt. id must sit in the
+# namespace of the timeline it declares, and validate.py enforces it —
+# Gundam AGE has its own Earth Federation, and `fac.efed` cannot mean both.
+
+timelines:
+  - id: tl.uc
+    name: Universal Century
+    abbrev: UC
+    status: primary
+    blurb: >
+      The original continuity, and by far the largest. Humanity has moved
+      most of its population into orbital colonies, and the clusters
+      furthest from Earth want independence. The One Year War of UC 0079
+      opens the sequence. The same grievance then renames itself about
+      every ten years for the next century and a half.
+    epoch:
+      label: "UC 0001.01.01"
+      gregorian_year: 2045
+      confidence: disputed
+      note: >
+        AD 2045 is the anchor most often cited for UC 0001. It comes from
+        the Laplace Charter material that Unicorn introduced. Earlier
+        supplementary sources imply other anchors. Treat the alignment
+        between an era and the Gregorian calendar as approximate. Order
+        inside the UC does not depend on it.
+    span:
+      earliest_event: "0001.01.31"
+      latest_event: "0153"
+    note: >
+      The main UC spine. Where a later work retcons an earlier one, this
+      dataset records both readings as competing claims. Neither one
+      overwrites the other. The 2026-08 pass corrected latest_event from
+      "0223". No event, series or source at UC 0223 exists here. The
+      figure came from G-Saviour, which this dataset does not catalogue,
+      and Gaia Gear at UC 0203 is also absent. A span must describe what
+      the data holds, not what the continuity holds. Otherwise a render
+      draws seventy empty years and shows a gap in the dataset as a gap in
+      history. The file uc-0105-0223-late.yaml keeps its name. Filenames
+      are cosmetic here, and ids are global.
+
+  - id: tl.uc.gquuuuuux
+    name: Universal Century (GQuuuuuuX branch)
+    abbrev: UC-G
+    status: branch
+    blurb: >
+      A branch of the Universal Century where the One Year War ends the
+      other way. Char takes the Federation prototype at Side 7, and Zeon
+      wins. The main story runs five years after that ending, on a colony
+      in Side 6.
+    epoch:
+      label: "UC 0001.01.01"
+      gregorian_year: 2045
+      confidence: inherited
+    span:
+      earliest_event: "0079.09"
+      latest_event: "0085"
+      confidence: approximate
+    note: >
+      An openly divergent continuity. The One Year War ends another way:
+      Char takes the Federation prototype at Side 7, and Zeon wins. The
+      main narrative sits in UC 0085, five years after that ending. The
+      event data stays sparse on purpose. This span comes from the premise
+      of the work, not from a catalogued event list.
+  # ---------------------------------------------------------------------
+  # Independent continuities, in release order. None of these is a future
+  # of the Universal Century or of each other; they are separate fictional
+  # histories that happen to share a franchise. That is why almost none of
+  # them carries a `gregorian_year` — see the note on tl.fc.
+  # ---------------------------------------------------------------------
+
+  - id: tl.fc
+    name: Future Century
+    abbrev: FC
+    status: primary
+    blurb: >
+      Earth lies in ruin, and the nations that matter now orbit it. Every
+      four years they settle who governs by a martial-arts tournament
+      fought in mobile suits, and the winning nation rules until the next
+      one. The story follows the thirteenth of those tournaments.
+    epoch:
+      label: "FC 0001.01.01"
+      confidence: needs-verification
+      note: >
+        No source fixes FC 0001 against any other calendar, so this entry
+        omits gregorian_year instead of guessing it. The distinction
+        matters. This continuity is not a future of our own history, so a
+        Gregorian anchor is a category error, not missing data. An absent
+        field and an unknown value are different states. Only tl.uc, tl.ad
+        and perhaps tl.cc can defend a value.
+    span:
+      earliest_event: "0020"
+      latest_event: "0060"
+    note: >
+      Mobile Fighter G Gundam. Earth lies in ruin. The orbital
+      nation-colonies decide who governs by a martial-arts tournament
+      every four years, and the winner takes power.
+
+  - id: tl.ac
+    name: After Colony
+    abbrev: AC
+    status: primary
+    blurb: >
+      The colonies lose their leading advocate of peace to an assassin.
+      Twenty years later, to the day, five colonial groups send a pilot
+      and a mobile suit down to Earth in answer. The alliance they came to
+      break falls, but not to them.
+    epoch:
+      label: "AC 0001.01.01"
+      confidence: needs-verification
+      note: >
+        Counted from the start of colonization. No source gives a
+        Gregorian anchor.
+    span:
+      earliest_event: "0175.04.07"
+      latest_event: "0196.12.24"
+    note: >
+      Gundam Wing and Endless Waltz. This era carries better dates than
+      most alternate continuities. The two events that bracket it fall on
+      the same calendar day, twenty years apart. The author chose that. Do
+      not smooth it away as coincidence.
+
+  - id: tl.aw
+    name: After War
+    abbrev: AW
+    status: primary
+    blurb: >
+      The calendar starts at the end of a war that dropped hundreds of
+      colonies onto Earth at once. Most of the surface population died
+      with it. Fifteen years on, the survivors dig that war's machines out
+      of the ground, because nobody can build new ones.
+    epoch:
+      label: "AW 0001.01.01"
+      confidence: interpretive
+      note: >
+        The calendar takes its name from the war it follows, and it starts
+        at the end of that war. AW 0001 is therefore a result, not an
+        arbitrary zero. The war itself has no date this calendar can
+        express. See evt.aw.0001.seventh-space-war.
+    span:
+      earliest_event: "0001"
+      latest_event: "0015"
+    note: >
+      After War Gundam X. The premise is the aftermath. The colony drops
+      that ended the Seventh Space War killed most of the surface
+      population. The series opens fifteen years into the recovery.
+
+  - id: tl.cc
+    name: Correct Century
+    abbrev: CC
+    status: primary
+    blurb: >
+      Thousands of years after the last collapse, Earth has rebuilt to
+      roughly early-industrial technology and remembers none of it. The
+      people who left for the Moon want to come home. Both sides unearth
+      the weapons of the civilisation that came before them.
+    epoch:
+      label: "CC 0001.01.01"
+      confidence: disputed
+      note: >
+        Left unfixed on purpose. The Correct Century follows the Black
+        History after an unstated interval of millennia. If the Black
+        History holds the Universal Century, then CC 2345 is datable in
+        principle but not in practice. Marked disputed rather than
+        unknown, because the sources disagree about whether that
+        containment is literal.
+    span:
+      earliest_event: "2345"
+      latest_event: "2345"
+    note: >
+      Turn A Gundam. Earth has fallen back to roughly early-industrial
+      technology, and the Moonrace is coming home. See the `contains`
+      relation below. This is the one continuity that makes a claim about
+      all the others.
+
+  - id: tl.ce
+    name: Cosmic Era
+    abbrev: CE
+    status: primary
+    blurb: >
+      Here the dividing line is genetic rather than territorial. The
+      engineered live in the orbital colonies, the unengineered mostly on
+      Earth, and each side treats the other as a category instead of a
+      state. Two wars follow, and the second one opens with the corpse of
+      a colony from the first.
+    epoch:
+      label: "CE 0001.01.01"
+      confidence: needs-verification
+    span:
+      earliest_event: "0070.02.14"
+      latest_event: "0075"
+    note: >
+      Gundam SEED and its sequels. The central conflict is genetic, not
+      territorial. Coordinators stand against Naturals. The faction band
+      therefore reads differently from every other continuity here,
+      because the sides are not places.
+
+  - id: tl.ad
+    name: Anno Domini
+    abbrev: AD
+    status: primary
+    blurb: >
+      The calendar is our own. Fossil fuels have run out, three orbital
+      elevators carry the world's power, and a private organisation
+      announces that it will attack any nation that wages war. The three
+      great power blocs unite for the first time in order to destroy it.
+    epoch:
+      label: "AD 0001.01.01"
+      gregorian_year: 1
+      confidence: certain
+      note: >
+        The only continuity whose calendar is our own. Here gregorian_year
+        is 1 by definition. That makes the field trivially true, and it is
+        worth keeping. This is the one row that shows the conversion is
+        real and not a fudge.
+    span:
+      earliest_event: "2091"
+      latest_event: "2314"
+    note: >
+      Gundam 00. The dates are four-digit Gregorian years, so they fit the
+      eraDate pattern without padding. This is the only continuity where
+      the literal means what a reader expects.
+
+  - id: tl.ag
+    name: Advanced Generation
+    abbrev: AG
+    status: primary
+    blurb: >
+      An enemy nobody can name destroys a colony and disappears. The
+      Federation cannot say who attacked, and that failure shapes the next
+      sixty years more than the attack does. Three generations of one
+      family fight the same war, about twenty-five years apart.
+    epoch:
+      label: "AG 0001.01.01"
+      confidence: needs-verification
+    span:
+      earliest_event: "0101"
+      latest_event: "0164"
+    note: >
+      Gundam AGE. One television series covers three generations of one
+      family, at intervals of about 25 years. This makes it the clearest
+      test in the dataset of coverage spans as a list. See
+      ser.ag.gundam-age.
+
+  - id: tl.rc
+    name: Regild Century
+    abbrev: RC
+    status: primary
+    blurb: >
+      A thousand years after the Universal Century. An orbital elevator
+      survives from that era and supplies the world with power. The people
+      who guard it treat it as scripture, and nobody alive can build
+      another one.
+    epoch:
+      label: "RC 0001.01.01"
+      confidence: interpretive
+      note: >
+        Follows the Universal Century after a gap that no source fixes. RC
+        1014 can therefore be ordered against the UC but not dated against
+        it. The `succeeds` relation below carries no offset, on purpose.
+    span:
+      earliest_event: "1014"
+      latest_event: "1014"
+    note: >
+      Gundam Reconguista in G. Openly post-UC, and the only continuity in
+      this file with a stated relationship to another.
+
+  - id: tl.pd
+    name: Post Disaster
+    abbrev: PD
+    status: primary
+    blurb: >
+      Three centuries after a war fought with autonomous weapons, a single
+      organisation still polices the states that followed. On Mars, child
+      soldiers used as disposable labour take over the company that
+      employed them. They trade on the only asset they hold, which is
+      their willingness to be spent.
+    epoch:
+      label: "PD 0001.01.01"
+      confidence: interpretive
+      note: >
+        Like After War, the calendar takes its name from the catastrophe
+        it follows and starts at the end of it. The Calamity War therefore
+        has no date in the terms of its own era.
+    span:
+      earliest_event: "0001"
+      latest_event: "0325"
+    note: >
+      Iron-Blooded Orphans. The widest span of any non-UC continuity here,
+      and almost all of it is empty. Two dated points sit three centuries
+      apart. A linear render must show that emptiness rather than fill it.
+
+  - id: tl.as
+    name: Ad Stella
+    abbrev: AS
+    status: primary
+    blurb: >
+      Corporations hold the power here, not states. A school run by the
+      largest of them settles commercial disputes by mobile suit duel,
+      with control of subsidiary companies among the stakes. It stands on
+      top of an atrocity twenty-one years old.
+    epoch:
+      label: "AS 0001.01.01"
+      confidence: needs-verification
+    span:
+      earliest_event: "0101"
+      latest_event: "0123"
+    note: >
+      The Witch from Mercury. The antagonist is a corporate group, not a
+      state. The faction model handles that without change. Note that the
+      `participants` on these events are companies. A render that colors
+      by belligerent must not treat them as armies.
+
+  - id: tl.mc
+    name: Mars Century
+    abbrev: MC
+    status: primary
+    blurb: >
+      A successor era to After Colony, counted in Martian years on a
+      terraformed Mars. One Martian year runs about two Earth years, so
+      this calendar moves at half the speed of the one its characters grew
+      up with.
+    epoch:
+      label: "MC 0001.01.01"
+      confidence: disputed
+      note: >
+        THE HARDEST EPOCH IN THIS FILE. MC 0001 matches AC 0182, the start
+        of Martian colonization. But a Martian year runs about two Earth
+        years. The two calendars therefore differ by a RATE as well as an
+        offset. MC 0022 falls near AC 0226, not AC 0204. This schema
+        cannot express that. The `epoch` field holds a label and one
+        `gregorian_year` integer, which is an offset and nothing more. The
+        ordinal function applies a flat 360-day year to every era, so an
+        MC ordinal and an AC ordinal do not measure the same unit. Both
+        are called years and both satisfy eraDate. The `succeeds` relation
+        below records the correspondence, so the data at least holds it.
+        Any consumer that converts between MC and AC must apply the rate
+        itself. It must not assume 1:1. This is the strongest case in the
+        dataset for an epoch that carries a rate as well as an offset.
+    span:
+      earliest_event: "0001"
+      latest_event: "0022"
+    note: >
+      Gundam Wing: Frozen Teardrop. The only work set here. It is also the
+      only successor era whose parent this dataset still catalogues. That
+      makes it the one place where a cross-era conversion is within reach,
+      and therefore the one place where its absence hurts.
+
+  - id: tl.build
+    name: Build
+    abbrev: BUILD
+    status: primary
+    blurb: >
+      A near-present real world where people build plastic model kits and
+      battle them as a sport. Every other continuity in this dataset
+      exists here as fiction. The mobile suits the characters build are
+      designs from stories they have watched.
+    note: >
+      Gundam Build Fighters, Build Divers, and their sequels. Build
+      Metaverse confirms that they share one universe rather than run in
+      parallel. THIS ENTRY HAS NO EPOCH AND NO SPAN, and both omissions
+      are deliberate. The continuity sits in a near-present real world and
+      states no year for any of its works. It has no calendar to hold an
+      epoch, and `span` needs eraDate literals that it cannot supply. An
+      absent field is the honest answer. A nominal "BY 0001" invented to
+      fill the shape would make the dataset lie to itself in its own
+      schema. Every event here is `undated` or dated by `anchor`. That
+      makes tl.build the only timeline here that a render cannot lay on an
+      axis at all. See build.yaml. The anchor chains do not even form one
+      order.
+  # SD Gundam. Not one continuity but several unrelated ones, none of which
+  # has a calendar. Three are `stub`: declared so that their existence is
+  # recorded, deliberately unpopulated because a chronology dataset has very
+  # little to say about settings that supply no chronology. This is what the
+  # `stub` status is for, and it has been unused since RC and CC were filled
+  # in.
+
+  - id: tl.sd.knight
+    name: SD Gundam — Knight (Lacroa)
+    abbrev: SD-K
+    status: stub
+    blurb: >
+      A medieval world of swords and sorcery around the kingdom of Lacroa.
+      It grew across manga, model kits and games rather than one central
+      work.
+    note: >
+      A medieval sword-and-sorcery setting around the kingdom of Lacroa.
+      It grew across manga, model kits and games rather than one spine
+      work. It has no calendar and no chronology. The story sprawls far
+      enough that a specialist would need to catalogue it. Declared, not
+      populated.
+
+  - id: tl.sd.musha
+    name: SD Gundam — Musha (Ark)
+    abbrev: SD-M
+    status: stub
+    blurb: >
+      A samurai setting in the land of Ark, built on Japan's Sengoku
+      period.
+    note: >
+      A Sengoku-era samurai setting in the land of Ark. The same situation
+      as tl.sd.knight. It is a model-kit and manga line with no chronology
+      to record.
+
+  - id: tl.sd.command
+    name: SD Gundam — Command Chronicles
+    abbrev: SD-C
+    status: stub
+    blurb: >
+      A militarised science-fiction setting, and the third of the three
+      worlds that the later crossovers draw on.
+    note: >
+      A militarized science-fiction SD setting. Declared, not populated.
+
+  - id: tl.sd.force
+    name: SD Gundam Force
+    abbrev: SD-F
+    status: primary
+    blurb: >
+      Invaders from another dimension attack a city where humans and
+      robots live side by side. The war spreads into two further worlds,
+      which rework the older Knight and Musha settings.
+    note: >
+      A 2004 anime. It reworks the three settings above as separate
+      dimensions beside its own city of Neotopia. Note what the relations
+      below do NOT assert. This work takes those settings as material. It
+      does not hold them as history. A `contains` edge would claim the
+      second while meaning the first, so this dataset records no edge.
+      Undated throughout. The work has no calendar and needs none.
+
+  - id: tl.sd.world
+    name: SD Gundam World
+    abbrev: SD-W
+    status: primary
+    blurb: >
+      A retelling of Romance of the Three Kingdoms, cast with Gundam
+      designs. Its sequel opens the setting into a multiverse of worlds,
+      each with a protector of its own.
+    note: >
+      Sangoku Soketsuden (2019) and its sequel World Heroes (2021). A
+      Three Kingdoms analogue. The sequel opens it into an explicit
+      multiverse of worlds, each with its own protagonist. This schema
+      would model those worlds as sibling timelines if a source ever named
+      and dated them. None does. Undated throughout.
+# Edges between timelines. Direction is source -> target.
+#
+# Only three edges exist, and that is the finding rather than an omission.
+# The eight independent continuities added in the 2026-08 expansion have no
+# stated relationship to each other or to the UC, and `parallel_to` was
+# deliberately NOT used to connect them: asserting eight editorial edges
+# would manufacture a structure no source claims. An absent edge is the
+# accurate statement. Resist the urge to make the graph connected.
+relations:
+  - from: tl.rc
+    type: succeeds
+    to: tl.uc
+    sources: [src.rc.g-reco]
+    note: >
+      The work states in-universe that this era follows the Universal
+      Century after an unstated gap. No source fixes the length of that
+      gap.
+  - from: tl.cc
+    type: contains
+    to: tl.uc
+    sources: [src.cc.turn-a]
+    confidence: interpretive
+    note: >
+      The Black History implies that all earlier continuities come before
+      the Correct Century. This reading is widely held, but the text hints
+      at it rather than states it, so this entry flags it interpretive on
+      purpose. Readers often extend the reading further, to mean that the
+      Correct Century holds EVERY Gundam continuity and not only the UC.
+      That extension rests on creator statements, not on anything in the
+      text, so this dataset records no edges to tl.fc, tl.ac and the rest.
+      Eight more `contains` rows would make the graph tidy and the dataset
+      wrong. Anyone who wants them should add them at `editorial`
+      confidence, on purpose, and not inherit them from this note.
+  - from: tl.uc.gquuuuuux
+    type: diverges_from
+    to: tl.uc
+    at:
+      start: "0079.09.18"
+      event: evt.uc.0079.side7-raid
+      confidence: approximate
+    note: >
+      Pinned in the 2026-08 pass. The branch forks at the Side 7 raid,
+      where the prototype falls to Char instead of a civilian. The whole
+      divergence hangs on that one event. Note that `at.event` points into
+      tl.uc, the parent. A divergence is by definition the last event that
+      the two continuities share, so this reference crosses timelines
+      correctly. A future referential rule must not "fix" it.
+  - from: tl.mc
+    type: succeeds
+    to: tl.ac
+    at:
+      start: "0182"
+      confidence: approximate
+    sources: [src.mc.frozen-teardrop]
+    note: >
+      MC 0001 begins at AC 0182, with the colonization of Mars. The
+      `at.start` value uses the era of the TARGET timeline, as it does on
+      the GQuuuuuuX divergence below. The convention is that the `at` of a
+      relation is a coordinate in the era it points at, not in the era it
+      points from. This is the only relation here with a usable numeric
+      match between two eras, and it still cannot convert between them. A
+      Martian year runs about two Earth years. The eras therefore differ
+      by a rate as well as an offset, and `at` carries only the offset. MC
+      0022 falls near AC 0226. Anything that computes AC 0204 has assumed
+      1:1 and is wrong.
+  # The Build continuity depicts the others as FICTION — its characters
+  # build and battle models of mobile suits from works that, in that world,
+  # are stories. That is a real relationship, asserted on screen, and none
+  # of `contains`, `succeeds` or `parallel_to` means it: `contains` claims
+  # historical containment, which is what the Correct Century does and is
+  # precisely the wrong reading here. `depicts_as_fiction` was added to the
+  # enum for this, and it is the only relation type in the schema whose
+  # direction crosses from a diegesis into a fiction rather than between
+  # two histories.
+  #
+  # Six edges, one per continuity whose designs appear prominently enough
+  # in the Build works to be certain of. The remaining continuities are
+  # omitted rather than assumed — a Gunpla appearing is a specific,
+  # checkable fact and these six are the ones checked.
+  - from: tl.build
+    type: depicts_as_fiction
+    to: tl.uc
+    sources: [src.build.build-fighters]
+    confidence: interpretive
+  - from: tl.build
+    type: depicts_as_fiction
+    to: tl.ac
+    sources: [src.build.build-fighters]
+    confidence: interpretive
+  - from: tl.build
+    type: depicts_as_fiction
+    to: tl.ce
+    sources: [src.build.build-fighters]
+    confidence: interpretive
+  - from: tl.build
+    type: depicts_as_fiction
+    to: tl.ad
+    sources: [src.build.build-fighters]
+    confidence: interpretive
+  - from: tl.build
+    type: depicts_as_fiction
+    to: tl.aw
+    sources: [src.build.build-fighters]
+    confidence: interpretive
+  - from: tl.build
+    type: depicts_as_fiction
+    to: tl.fc
+    sources: [src.build.build-fighters-try]
+    confidence: interpretive
+
+  - from: tl.mc
+    type: contested_by
+    to: tl.ac
+    sources: [src.mc.frozen-teardrop]
+    confidence: disputed
+    note: >
+      The first use of `contested_by`. The enum has held it, unused, since
+      the schema was written. The standing of Frozen Teardrop as a
+      continuation of After Colony is genuinely disputed, not merely
+      unpopular. It revises AC-era backstory that the earlier works had
+      settled, and readers do not agree on whether it counts. This dataset
+      records an edge, not a canonicity ruling. This project cannot settle
+      the question and must not try. What it can do is make the dispute
+      visible, so that anyone who resolves MC against AC knows the ground
+      is contested before they start.

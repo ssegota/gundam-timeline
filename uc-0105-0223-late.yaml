@@ -1,0 +1,103 @@
+# UC 0105 onward: the late era.
+#
+# Coverage thins sharply after 0100 and the gaps become structural rather
+# than incidental — the thirty years between 0093 and 0123 contain one
+# major work. Do not paper over this. A linear render should show the
+# sparseness, because the sparseness is the accurate picture.
+
+events:
+  - id: evt.uc.0105.mafty-insurgency
+    label: Mafty insurgency
+    type: war
+    timeline: tl.uc
+    date:
+      - start: "0105"
+        sources: [src.uc.hathaway-novel]
+    participants: [fac.uc.mafty, fac.uc.efed]
+    summary: >
+      An armed movement runs a campaign of targeted assassination against
+      Federation officials, over the forced move of Earth's population to
+      the colonies. Its leader is the son of a decorated Federation
+      officer from the One Year War.
+    depicted_in: [ser.uc.hathaway]
+    claims:
+      - property: adaptation_note
+        value: >
+          The novel and the film adaptation differ in emphasis and in
+          detail. This dataset registers them as separate sources, so that
+          somebody can record the differences once they catalogue them.
+        sources: [src.uc.hathaway-novel, src.uc.hathaway]
+        confidence: editorial
+
+  - id: evt.uc.0123.cosmo-babylonia-war
+    label: Cosmo Babylonia War
+    type: war
+    timeline: tl.uc
+    date:
+      - start: "0123"
+        sources: [src.uc.f91]
+    participants: [fac.uc.crossbone-vanguard, fac.uc.efed]
+    summary: >
+      The Crossbone Vanguard acts for an aristocratic faction and seizes a
+      Side 4 colony. It aims to found a new space state led by nobles. The
+      Federation answers slowly and with little effect.
+    depicted_in: [ser.uc.f91]
+    claims:
+      - property: era_context
+        value: >
+          Mobile suits in this period are much smaller and faster than
+          those of the Char era. They show a generation of postwar
+          miniaturization. This is useful for a render that bands
+          technology.
+        sources: [src.uc.f91]
+    note: >
+      About thirty years after the previous entry. It is the largest gap
+      in the UC spine, and the most visible feature of any linear view.
+
+  - id: evt.uc.0133.jupiter-conflict
+    label: Jupiter Empire conflict
+    type: war
+    timeline: tl.uc
+    date:
+      - start: "0133"
+        sources: [src.uc.crossbone]
+        confidence: certain
+      - anchor:
+          relative_to: evt.uc.0123.cosmo-babylonia-war
+          offset_years: 10
+          direction: after
+        sources: [src.uc.crossbone]
+        confidence: approximate
+        note: >
+          The same source also dates this event relatively, at roughly a
+          decade after the previous war. This second claim exercises
+          relative anchoring. The ingest step resolves it against the
+          target event, and it should agree with the absolute claim above.
+          If the two ever disagree, that is a data error worth showing.
+    participants: [fac.uc.jupiter-empire, fac.uc.crossbone-vanguard]
+    summary: >
+      A militarized state grows out of the Jovian resource fleets and
+      moves against the Earth Sphere. A remnant of the Crossbone Vanguard,
+      now working as privateers, opposes it.
+    depicted_in: [ser.uc.crossbone]
+
+  - id: evt.uc.0153.zanscare-war
+    label: Zanscare war
+    type: war
+    timeline: tl.uc
+    date:
+      - start: "0153"
+        sources: [src.uc.victory]
+    participants: [fac.uc.zanscare, fac.uc.league-militaire, fac.uc.efed]
+    summary: >
+      The Zanscare Empire invades Earth from Side 2. A civilian militia
+      carries most of the defense. By this point the Federation military
+      can barely answer at all.
+    depicted_in: [ser.uc.victory]
+    claims:
+      - property: federation_status
+        value: >
+          The Federation survives as an institution but no longer works as
+          a military power. The preceding sixty years of entries trace
+          that decline.
+        sources: [src.uc.victory]

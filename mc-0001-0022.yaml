@@ -1,0 +1,92 @@
+# Mars Century: Gundam Wing: Frozen Teardrop.
+#
+# A successor era to After Colony, and the only place in this dataset where
+# two catalogued eras have a stated numeric correspondence. It is also the
+# place where that correspondence turns out to be unusable: MC 0001 is
+# AC 0182, but a Martian year runs roughly two Earth years, so converting
+# between the two needs a rate and `epoch` carries only an offset.
+#
+# Read the epoch note on tl.mc before computing anything across this
+# boundary. MC 0022 is approximately AC 0226. Anything that arrives at
+# AC 0204 has assumed the years are the same length.
+
+events:
+  - id: evt.mc.0001.mars-colonisation
+    label: Colonisation of Mars begins
+    type: political
+    timeline: tl.mc
+    date:
+      - start: "0001"
+        sources: [src.mc.frozen-teardrop]
+        confidence: approximate
+        note: >
+          This is also AC 0182. The event is the epoch of one era and an
+          ordinary dated year in another, and this file can express only
+          the first. The `date` field takes literals in the timeline of
+          the event, and it has no second slot for a coordinate in the
+          parent era. The correspondence survives on the `succeeds`
+          relation in timelines.yaml, which is a worse place for it.
+          Relations describe eras, not events, so a consumer who reads
+          this event alone cannot recover the AC date.
+    participants: [fac.mc.mars-colonies]
+    summary: >
+      Settlement of Mars begins. The colonists adopt a calendar of their
+      own, counted in Martian years. The new era does not replace After
+      Colony. It runs beside it at half the speed. Every later date in
+      this file depends on that.
+    referenced_in: [ser.mc.frozen-teardrop]
+    claims:
+      - property: calendar_rate
+        value: >
+          One Martian year runs about two Earth years. MC and AC years are
+          therefore not the same unit, even though both appear as
+          four-digit era dates under the same pattern.
+        sources: [src.mc.frozen-teardrop]
+        confidence: approximate
+        note: >
+          The most consequential claim in this file, and the one most
+          likely to be missed. Nothing about the literal "0022" shows that
+          it counts differently from "0196". This is the strongest case in
+          the dataset for an epoch that carries a rate as well as an
+          offset. Until it does, a resolver should refuse cross-era
+          arithmetic rather than perform it wrongly.
+    related: [evt.mc.0022.mars-conflict]
+
+  - id: evt.mc.0022.mars-conflict
+    label: The Mars Century conflict
+    type: war
+    timeline: tl.mc
+    date:
+      - start: "0022"
+        sources: [src.mc.frozen-teardrop]
+        confidence: approximate
+    participants: [fac.mc.preventers, fac.mc.mars-colonies]
+    summary: >
+      A conflict over the terraforming and governance of Mars pulls in the
+      surviving principals of the After Colony wars. Several of them come
+      out of cryogenic storage. They fight a war that their own settlement
+      was supposed to have made impossible.
+    depicted_in: [ser.mc.frozen-teardrop]
+    claims:
+      - property: continuity_status
+        value: >
+          Readers dispute whether this era continues After Colony or reads
+          it a second way. The work also revises After Colony backstory
+          that the earlier works had settled.
+        sources: [src.mc.frozen-teardrop]
+        resolution: contested
+        note: >
+          Recorded at the event level as well as on the `contested_by`
+          relation, because the two say different things. The relation
+          says the link between the eras is disputed. This says the
+          content of this event follows from that dispute. A resolver that
+          accepts the relation and then treats the events as settled has
+          half the warning.
+      - property: pacifist_settlement
+        value: >
+          The total disarmament reached at the end of After Colony does
+          not survive two generations and one planet. The work does not
+          make clear whether it treats that as a refutation.
+        sources: [src.mc.frozen-teardrop]
+        confidence: interpretive
+    related: [evt.ac.0195.esun-founded]

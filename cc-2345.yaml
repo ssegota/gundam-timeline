@@ -1,0 +1,109 @@
+# Correct Century: Turn A Gundam.
+#
+# The only continuity in this dataset that makes a claim about the others.
+# Everything before CC is the Black History, and the widely-held reading is
+# that the Universal Century is inside it — which is why tl.cc `contains`
+# tl.uc in timelines.yaml, flagged interpretive. Note what is NOT recorded
+# there: the extension of that reading to every other continuity in this
+# repository. See the relation note.
+
+events:
+  - id: evt.cc.undated.black-history
+    label: The Black History
+    type: war
+    timeline: tl.cc
+    date:
+      - anchor:
+          relative_to: evt.cc.2345.moonrace-return
+          direction: before
+        sources: [src.cc.turn-a]
+        confidence: interpretive
+        note: >
+          Undatable on purpose. The work places this thousands of years
+          earlier and fixes no interval. That interval is the whole
+          question. To pin it would decide by fiat how much history sits
+          between the Universal Century and this one. This is the second
+          use of `undated` in an id, after the Future Century. Both cases
+          arise the same way: a source gives sequence without chronology.
+          Treat that as a category, not as two one-off problems.
+    summary: >
+      A repeating cycle of collapse, driven by mobile suit warfare. Earth
+      remembers it as myth. The Moon keeps it as record. Its last phase
+      left the surface uninhabitable and drove the survivors off the
+      planet.
+    referenced_in: [ser.cc.turn-a]
+    claims:
+      - property: contains_prior_continuities
+        value: >
+          The record shown includes the Universal Century. That makes this
+          continuity a distant future of the UC rather than an alternative
+          to it.
+        sources: [src.cc.turn-a]
+        confidence: interpretive
+        note: >
+          The work asserts this through imagery, not through statement. It
+          stays interpretive for the same reason the timeline relation
+          does. Almost every reader takes the reading, and the text still
+          does not say it outright.
+    related: [evt.cc.2345.moonrace-return]
+
+  - id: evt.cc.2345.moonrace-return
+    label: The Moonrace returns to Earth
+    type: political
+    timeline: tl.cc
+    date:
+      - start: "2345"
+        sources: [src.cc.turn-a]
+    participants: [fac.cc.moonrace, fac.cc.militia]
+    summary: >
+      The lunar civilization descended from the survivors announces that
+      it is coming home. Earth has rebuilt to roughly early-industrial
+      technology and remembers nothing of ever being left. Talks fail,
+      mostly because neither side can work out what the other is.
+    depicted_in: [ser.cc.turn-a]
+    related: [evt.cc.2345.turn-a-unearthed]
+
+  - id: evt.cc.2345.turn-a-unearthed
+    label: The White Doll is opened
+    type: technological
+    timeline: tl.cc
+    date:
+      - start: "2345"
+        sources: [src.cc.turn-a]
+    participants: [fac.cc.militia]
+    summary: >
+      A stone monument that an Earth village venerates turns out to be a
+      Black History mobile suit, whole and working. Both sides then dig
+      instead of build, and they fight the war almost entirely with
+      recovered equipment.
+    depicted_in: [ser.cc.turn-a]
+    claims:
+      - property: parallel_to_after-war
+        value: >
+          Here the sides dig up weapons rather than build them, as they do
+          in the After War continuity, and for the same underlying reason.
+          The previous war destroyed the industrial base.
+        sources: [src.cc.turn-a]
+        confidence: editorial
+        note: >
+          An observation by this project across two unrelated
+          continuities. It sits as a claim on an event on purpose, and not
+          as a `parallel_to` timeline relation. The relation types
+          describe continuity. Two stories that reach the same idea on
+          their own are not that.
+
+  - id: evt.cc.2345.ghingnham-conflict
+    label: The Ghingnham fleet intervenes
+    type: war
+    timeline: tl.cc
+    date:
+      - start: "2345"
+        sources: [src.cc.turn-a]
+        confidence: approximate
+    participants: [fac.cc.ghingnham-fleet, fac.cc.moonrace, fac.cc.militia]
+    summary: >
+      A lunar military faction rejects the settlement under negotiation
+      and attacks both parties. It means to restart the cycle of war that
+      the Black History records. It is stopped, and the machines that
+      could repeat that history are sealed rather than destroyed.
+    depicted_in: [ser.cc.turn-a]

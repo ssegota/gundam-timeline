@@ -1,0 +1,754 @@
+# Series are first-class entities, not tags on events.
+#
+# `covers` is a LIST of in-universe spans, because coverage is frequently
+# non-contiguous: framing devices, flashback arcs, and epilogues all leave
+# gaps. A single start/end pair would draw Unicorn as a 95-year bar because
+# of one prologue scene, which is wrong and looks wrong.
+#
+# Each span carries `weight`:
+#   main      the bulk of the narrative
+#   prologue  framing or opening material set well outside the main span
+#   flashback backfill within an otherwise later narrative
+#   epilogue  closing material after the main span
+# Renderers should draw `main` solid and everything else hairline or dashed.
+#
+# `release_year` is real-world; `covers` is in-universe. Keeping both lets
+# you sort a shelf by publication order and a chart by chronology, and
+# makes retcon direction visible: a later release covering an earlier span
+# is where contradictions live.
+
+series:
+  - id: ser.uc.origin
+    title: "Mobile Suit Gundam: The Origin"
+    timeline: tl.uc
+    source: src.uc.origin
+    release_year: 2001
+    format: manga
+    covers:
+      - start: "0068"
+        end: "0079.12"
+        weight: main
+    focus: >
+      The origins of the Zabi regime and of Casval Rem Deikun. It retells
+      the opening of the One Year War from the Zeon side.
+
+  - id: ser.uc.origin-anime
+    title: "Mobile Suit Gundam: The Origin (Advent of the Red Comet)"
+    timeline: tl.uc
+    source: src.uc.origin
+    release_year: 2015
+    format: ona
+    covers:
+      - start: "0068"
+        end: "0079.01"
+        weight: main
+    note: >
+      An animated adaptation of the earlier chapters of ser.uc.origin
+      only.
+
+  - id: ser.uc.msg
+    title: Mobile Suit Gundam
+    timeline: tl.uc
+    source: src.uc.msg-tv
+    release_year: 1979
+    format: tv
+    covers:
+      - start: "0079.09.18"
+        end: "0080.01.01"
+        weight: main
+    focus: >
+      The run of the White Base from Side 7 to A Baoa Qu.
+
+  - id: ser.uc.08th
+    title: "Mobile Suit Gundam: The 08th MS Team"
+    timeline: tl.uc
+    source: src.uc.08th
+    release_year: 1996
+    format: ova
+    covers:
+      - start: "0079.11"
+        end: "0080.01"
+        weight: main
+        confidence: approximate
+    focus: >
+      Ground warfare in Southeast Asia, at the same time as ser.uc.msg.
+
+  - id: ser.uc.thunderbolt
+    title: Mobile Suit Gundam Thunderbolt
+    timeline: tl.uc
+    source: src.uc.thunderbolt
+    release_year: 2012
+    format: manga
+    covers:
+      - start: "0079"
+        end: "0080"
+        weight: main
+        note: >
+          The 2026-08 pass removed the 0083 epilogue span that stood here.
+          It carried a needs-verification flag, and the check found
+          nothing to support it. The only post-war arc that can be dated
+          is set in July UC 0080, already inside this span. Later arcs are
+          uncatalogued rather than absent. Add a span when somebody reads
+          one, not before.
+    focus: >
+      The Thunderbolt Sector debris field. Later arcs move past the war.
+    note: >
+      The author states that the history of this work differs from the
+      official chronology. This dataset files it under tl.uc, because
+      publishers and readers treat it as UC. It is still the strongest
+      candidate here for its own branch id, if those differences turn out
+      to matter. The timeline tl.uc.gquuuuuux already gets that treatment.
+
+  - id: ser.uc.igloo
+    title: Mobile Suit Gundam MS IGLOO
+    timeline: tl.uc
+    source: src.uc.igloo
+    release_year: 2004
+    format: ona
+    covers:
+      - start: "0079"
+        end: "0080.01"
+        weight: main
+    focus: >
+      Zeon weapons trials, told from the losing side.
+
+  - id: ser.uc.0080
+    title: "Mobile Suit Gundam 0080: War in the Pocket"
+    timeline: tl.uc
+    source: src.uc.0080
+    release_year: 1989
+    format: ova
+    covers:
+      - start: "0079.12"
+        end: "0080.01"
+        weight: main
+    focus: >
+      A Zeon commando operation in a Side 6 colony during the last weeks
+      of the war, seen by a child.
+
+  - id: ser.uc.0083
+    title: "Mobile Suit Gundam 0083: Stardust Memory"
+    timeline: tl.uc
+    source: src.uc.0083
+    release_year: 1991
+    format: ova
+    covers:
+      - start: "0083.10"
+        end: "0083.11"
+        weight: main
+        confidence: approximate
+      - start: "0083.12"
+        end: "0083.12"
+        weight: epilogue
+        confidence: approximate
+        note: >
+          Added in the 2026-08 pass. The Federation charters the Titans on
+          0083.12.04, three weeks after the main action, and the series
+          shows it in a closing epilogue. A second span records that
+          better than a main span stretched to December. This is the whole
+          reason `covers` is a list. The alternative draws Stardust Memory
+          as a three-month work when its narrative fills one month.
+    focus: >
+      Operation Stardust, and the politics that produce the Titans.
+
+  - id: ser.uc.zeta
+    title: Mobile Suit Zeta Gundam
+    timeline: tl.uc
+    source: src.uc.zeta
+    release_year: 1985
+    format: tv
+    covers:
+      - start: "0087.03"
+        end: "0088.02"
+        weight: main
+        confidence: approximate
+    focus: >
+      The Gryps Conflict between the Titans, the AEUG and Axis.
+
+  - id: ser.uc.zz
+    title: Mobile Suit Gundam ZZ
+    timeline: tl.uc
+    source: src.uc.zz
+    release_year: 1986
+    format: tv
+    covers:
+      - start: "0088.03"
+        end: "0089.01"
+        weight: main
+        confidence: approximate
+    focus: >
+      The First Neo Zeon War. It follows directly from ser.uc.zeta.
+
+  - id: ser.uc.cca
+    title: "Mobile Suit Gundam: Char's Counterattack"
+    timeline: tl.uc
+    source: src.uc.cca
+    release_year: 1988
+    format: film
+    covers:
+      - start: "0093.03"
+        end: "0093.03"
+        weight: main
+        confidence: approximate
+    focus: >
+      The Second Neo Zeon War and the attempt to drop Axis.
+
+  - id: ser.uc.unicorn
+    title: Mobile Suit Gundam Unicorn
+    timeline: tl.uc
+    source: src.uc.unicorn
+    release_year: 2010
+    format: ova
+    covers:
+      - start: "0001.01.31"
+        end: "0001.01.31"
+        weight: prologue
+      - start: "0096.04"
+        end: "0096.05"
+        weight: main
+        confidence: approximate
+        note: >
+          Shifted in the 2026-08 pass, with the corrected Laplace incident
+          dates. See evt.uc.0096.laplace-incident.
+    focus: >
+      The Laplace's Box affair. The prologue span is the reason `covers`
+      is a list. One range would draw this as a 95-year work.
+
+  - id: ser.uc.narrative
+    title: Mobile Suit Gundam Narrative
+    timeline: tl.uc
+    source: src.uc.narrative
+    release_year: 2018
+    format: film
+    covers:
+      - start: "0097"
+        end: "0097"
+        weight: main
+      - start: "0096"
+        end: "0096"
+        weight: flashback
+        confidence: approximate
+    focus: >
+      A direct sequel to ser.uc.unicorn. It follows the fate of the third
+      Unicorn unit.
+
+  - id: ser.uc.hathaway
+    title: "Mobile Suit Gundam: Hathaway's Flash"
+    timeline: tl.uc
+    source: src.uc.hathaway-novel
+    release_year: 1989
+    format: novel
+    covers:
+      - start: "0105"
+        end: "0105"
+        weight: main
+    focus: >
+      An insurgency against the Federation, led by Hathaway Noa.
+
+  - id: ser.uc.f91
+    title: Mobile Suit Gundam F91
+    timeline: tl.uc
+    source: src.uc.f91
+    release_year: 1991
+    format: film
+    covers:
+      - start: "0123"
+        end: "0123"
+        weight: main
+    focus: >
+      The Cosmo Babylonia War and the Crossbone Vanguard. The work jumps
+      30 years from the Char era on purpose. That gap is the largest in
+      the UC spine and the most visible feature of any linear render.
+
+  - id: ser.uc.crossbone
+    title: Mobile Suit Crossbone Gundam
+    timeline: tl.uc
+    source: src.uc.crossbone
+    release_year: 1994
+    format: manga
+    covers:
+      - start: "0133"
+        end: "0133"
+        weight: main
+    focus: >
+      The Jupiter Empire conflict, ten years after ser.uc.f91.
+
+  - id: ser.uc.victory
+    title: Mobile Suit Victory Gundam
+    timeline: tl.uc
+    source: src.uc.victory
+    release_year: 1993
+    format: tv
+    covers:
+      - start: "0153"
+        end: "0153"
+        weight: main
+    focus: >
+      The war of the Zanscare Empire against the League Militaire.
+
+  - id: ser.uc-g.gquuuuuux
+    title: "Mobile Suit Gundam GQuuuuuuX"
+    timeline: tl.uc.gquuuuuux
+    source: src.uc-g.gquuuuuux
+    release_year: 2025
+    format: film
+    covers:
+      - start: "0079.09"
+        end: "0080.01"
+        weight: prologue
+        confidence: approximate
+      - start: "0085"
+        end: "0085"
+        weight: main
+        confidence: approximate
+    focus: >
+      Set in the divergent branch that timelines.yaml defines. The main
+      narrative runs in UC 0085 on a Side 6 colony. The prologue restages
+      the Side 7 raid and the war it forks, with Char taking the Gundam
+      and Zeon winning.
+    note: >
+      Split in the 2026-08 pass from one 0079-0085 placeholder span. That
+      single span drew a six-year bar for a work whose main action fills
+      one year. It is the same fault as Unicorn's prologue. It also
+      confirms that the `covers` list works for branch continuities
+      without change.
+  # ---------------------------------------------------------------------
+  # Independent continuities, in release order.
+  # ---------------------------------------------------------------------
+
+  - id: ser.fc.g-gundam
+    title: Mobile Fighter G Gundam
+    timeline: tl.fc
+    source: src.fc.g-gundam
+    release_year: 1994
+    format: tv
+    covers:
+      - start: "0060"
+        end: "0060"
+        weight: main
+    focus: >
+      The 13th Gundam Fight, and the Devil Gundam loose on an Earth the
+      colonies have already given up.
+
+  - id: ser.ac.wing
+    title: New Mobile Report Gundam Wing
+    timeline: tl.ac
+    source: src.ac.wing
+    release_year: 1995
+    format: tv
+    covers:
+      - start: "0175.04.07"
+        end: "0175.04.07"
+        weight: flashback
+        confidence: approximate
+      - start: "0195.04.07"
+        end: "0195.12.24"
+        weight: main
+    focus: >
+      Five colonial saboteurs reach Earth on the twentieth anniversary of
+      the killing that drives them. The alliance they came to break then
+      collapses.
+
+  - id: ser.ac.endless-waltz
+    title: "Gundam Wing: Endless Waltz"
+    timeline: tl.ac
+    source: src.ac.endless-waltz
+    release_year: 1997
+    format: ova
+    covers:
+      - start: "0196.12"
+        end: "0196.12.24"
+        weight: main
+      - start: "0195"
+        end: "0195"
+        weight: flashback
+        confidence: approximate
+    focus: >
+      A last attempt at Operation Meteor, a year after the end of the war
+      it was built for.
+
+  - id: ser.aw.gundam-x
+    title: After War Gundam X
+    timeline: tl.aw
+    source: src.aw.gundam-x
+    release_year: 1996
+    format: tv
+    covers:
+      - start: "0001"
+        end: "0001"
+        weight: flashback
+        confidence: approximate
+      - start: "0015"
+        end: "0015"
+        weight: main
+    focus: >
+      Salvage and survival, fifteen years after the colony drops. The
+      crews dig the surviving machines out of the ground instead of
+      building them.
+
+  - id: ser.cc.turn-a
+    title: Turn A Gundam
+    timeline: tl.cc
+    source: src.cc.turn-a
+    release_year: 1999
+    format: tv
+    covers:
+      - start: "2345"
+        end: "2345"
+        weight: main
+    focus: >
+      The Moonrace comes home to an Earth that has forgotten it ever left.
+      Both sides dig up the weapons of the earlier civilization.
+
+  - id: ser.ce.seed
+    title: Mobile Suit Gundam SEED
+    timeline: tl.ce
+    source: src.ce.seed
+    release_year: 2002
+    format: tv
+    covers:
+      - start: "0070.02.14"
+        end: "0070.02.14"
+        weight: prologue
+      - start: "0071.01.25"
+        end: "0071.09.27"
+        weight: main
+    focus: >
+      The Bloody Valentine War, seen from a neutral colony caught inside
+      it. The prologue span holds the nuclear attack that starts the war,
+      eleven months before the narrative opens. It has the same shape as
+      Unicorn's prologue.
+
+  - id: ser.ce.seed-destiny
+    title: Mobile Suit Gundam SEED Destiny
+    timeline: tl.ce
+    source: src.ce.seed-destiny
+    release_year: 2004
+    format: tv
+    covers:
+      - start: "0073.10.02"
+        end: "0074"
+        weight: main
+        confidence: approximate
+    focus: >
+      The second war. It opens with the wreck of the colony that died in
+      the first one.
+
+  - id: ser.ce.seed-freedom
+    title: Mobile Suit Gundam SEED FREEDOM
+    timeline: tl.ce
+    source: src.ce.seed-freedom
+    release_year: 2024
+    format: film
+    covers:
+      - start: "0075"
+        end: "0075"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      A sequel film. Its year is the least certain span in this file, and
+      it carries a flag rather than a value smoothed to match the others.
+
+  - id: ser.ad.gundam-00-s1
+    title: Mobile Suit Gundam 00 (first season)
+    timeline: tl.ad
+    source: src.ad.gundam-00
+    release_year: 2007
+    format: tv
+    covers:
+      - start: "2307"
+        end: "2308"
+        weight: main
+    focus: >
+      A private army that intervenes by force against war itself. The
+      three power blocs then unite for the first time, in order to destroy
+      it.
+
+  - id: ser.ad.gundam-00-s2
+    title: Mobile Suit Gundam 00 (second season)
+    timeline: tl.ad
+    source: src.ad.gundam-00
+    release_year: 2008
+    format: tv
+    covers:
+      - start: "2312"
+        end: "2312"
+        weight: main
+    focus: >
+      Four years later. The antagonist is the unified world government
+      that season one produced.
+    note: >
+      It shares a source with ser.ad.gundam-00-s1 but stays a separate
+      series entry. One 2307-2312 span would draw four years of narrative
+      silence as coverage.
+
+  - id: ser.ad.trailblazer
+    title: "Mobile Suit Gundam 00: A Wakening of the Trailblazer"
+    timeline: tl.ad
+    source: src.ad.trailblazer
+    release_year: 2010
+    format: film
+    covers:
+      - start: "2314"
+        end: "2314"
+        weight: main
+    focus: >
+      First contact, and the only non-human antagonist in this dataset.
+
+  - id: ser.ag.gundam-age
+    title: Mobile Suit Gundam AGE
+    timeline: tl.ag
+    source: src.ag.gundam-age
+    release_year: 2011
+    format: tv
+    covers:
+      - start: "0101"
+        end: "0101"
+        weight: prologue
+        confidence: approximate
+      - start: "0115"
+        end: "0115"
+        weight: main
+      - start: "0140"
+        end: "0140"
+        weight: main
+      - start: "0164"
+        end: "0164"
+        weight: main
+    focus: >
+      Three generations of one family against the same enemy, about 25
+      years apart.
+    note: >
+      The strongest argument in the dataset for coverage as a list. One
+      span would draw this as a continuous 63-year work. It is really
+      three one-year windows with two 25-year silences between them, and
+      those silences are the point of the series.
+
+  - id: ser.rc.g-reco
+    title: "Gundam Reconguista in G"
+    timeline: tl.rc
+    source: src.rc.g-reco
+    release_year: 2014
+    format: tv
+    covers:
+      - start: "1014"
+        end: "1014"
+        weight: main
+    focus: >
+      A thousand years after the Universal Century. An orbital elevator
+      survives from it, and the people treat the elevator as scripture.
+
+  - id: ser.pd.ibo-s1
+    title: "Mobile Suit Gundam: Iron-Blooded Orphans (first season)"
+    timeline: tl.pd
+    source: src.pd.ibo
+    release_year: 2015
+    format: tv
+    covers:
+      - start: "0323"
+        end: "0323"
+        weight: main
+        confidence: approximate
+    focus: >
+      Child soldiers on Mars escort an independence activist to Earth.
+
+  - id: ser.pd.ibo-s2
+    title: "Mobile Suit Gundam: Iron-Blooded Orphans (second season)"
+    timeline: tl.pd
+    source: src.pd.ibo
+    release_year: 2016
+    format: tv
+    covers:
+      - start: "0325"
+        end: "0325"
+        weight: main
+        confidence: approximate
+    focus: >
+      Two years later. The same company, now large enough to be worth
+      destroying.
+
+  - id: ser.as.witch
+    title: "Mobile Suit Gundam: The Witch from Mercury"
+    timeline: tl.as
+    source: src.as.witch
+    release_year: 2022
+    format: tv
+    covers:
+      - start: "0101"
+        end: "0101"
+        weight: prologue
+      - start: "0122"
+        end: "0123"
+        weight: main
+        confidence: approximate
+    focus: >
+      A corporate school where mobile suit duels settle commercial
+      disputes, built on top of an atrocity twenty-one years old.
+  # ---------------------------------------------------------------------
+  # Mars Century, the Build continuity, and SD Gundam.
+  #
+  # Two schema features earn their keep below. ser.mc.frozen-teardrop uses
+  # per-span `timeline` — its main narrative is Mars Century and its
+  # flashbacks are After Colony, and no single era describes the work. The
+  # Build and SD entries use `undated` spans, because those continuities
+  # supply no calendar to have a span in.
+  # ---------------------------------------------------------------------
+
+  - id: ser.mc.frozen-teardrop
+    title: "New Mobile Report Gundam Wing: Frozen Teardrop"
+    timeline: tl.mc
+    source: src.mc.frozen-teardrop
+    release_year: 2010
+    format: novel
+    covers:
+      - start: "0022"
+        end: "0022"
+        weight: main
+        confidence: approximate
+      - start: "0195"
+        end: "0196"
+        timeline: tl.ac
+        weight: flashback
+        confidence: needs-verification
+        note: >
+          A span in a DIFFERENT era from the era of the series itself. The
+          flashback arcs of the novel sit in After Colony. Its present
+          sits in Mars Century. Before `coverageSpan.timeline` existed,
+          there were two options: drop the flashbacks, or move the whole
+          work into AC. The first loses half the book. The second files a
+          Mars Century work under the wrong era on every render. The AC
+          bounds here are the weakest figure in the entry. Some
+          chronologies run After Colony to AC 0197 and put part of this
+          material there. The range 0195-0196 is what this dataset can
+          support without inventing, so it carries needs-verification.
+    focus: >
+      The After Colony cast, decades later, on a terraformed Mars. Their
+      calendar runs at half the speed of the one they grew up with.
+    note: >
+      Read the epoch note on tl.mc before you compute anything from this
+      entry. MC 0022 falls near AC 0226, not AC 0204. The eras differ by a
+      rate as well as an offset, and the schema holds no rate.
+
+  - id: ser.build.gunpla-builders
+    title: "Model Suit Gunpla Builders Beginning G"
+    timeline: tl.build
+    source: src.build.gunpla-builders
+    release_year: 2010
+    format: ova
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      The prototype for everything below. A Gunpla battle tournament and
+      nothing more.
+
+  - id: ser.build.build-fighters
+    title: Gundam Build Fighters
+    timeline: tl.build
+    source: src.build.build-fighters
+    release_year: 2013
+    format: tv
+    covers:
+      - undated: true
+        weight: main
+        note: >
+          The work states no date, in any form, anywhere. This is the
+          first `undated` coverage span in the dataset, and it is not a
+          gap to fill later. The continuity has no calendar, so there is
+          nothing to enter. A render must place these outside the time
+          axis, not at its origin.
+    focus: >
+      A model-building tournament in a near-present real world. Every
+      other continuity in this dataset exists there as fiction.
+
+  - id: ser.build.build-fighters-try
+    title: Gundam Build Fighters Try
+    timeline: tl.build
+    source: src.build.build-fighters-try
+    release_year: 2014
+    format: tv
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      Seven years after ser.build.build-fighters. The work states that
+      interval, in a continuity that states no years. An anchor in
+      build.yaml carries it. It is the only chronology this era has.
+
+  - id: ser.build.build-divers
+    title: Gundam Build Divers
+    timeline: tl.build
+    source: src.build.build-divers
+    release_year: 2018
+    format: tv
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      The same universe, moved into a virtual-reality game world. No
+      source establishes whether it falls before or after the Build
+      Fighters works.
+
+  - id: ser.build.build-divers-rerise
+    title: "Gundam Build Divers Re:RISE"
+    timeline: tl.build
+    source: src.build.build-divers-rerise
+    release_year: 2019
+    format: ona
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      Two years after ser.build.build-divers, again by a stated interval
+      rather than a date.
+
+  - id: ser.build.build-metaverse
+    title: Gundam Build Metaverse
+    timeline: tl.build
+    source: src.build.build-metaverse
+    release_year: 2023
+    format: ona
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      It joins the two branches by showing characters from both. Its
+      contribution here is about shape, not chronology.
+
+  - id: ser.sd-f.gundam-force
+    title: SD Gundam Force
+    timeline: tl.sd.force
+    source: src.sd-f.gundam-force
+    release_year: 2004
+    format: tv
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      An invasion of the city of Neotopia from another dimension. It
+      spreads into two further worlds that rework the older SD settings.
+
+  - id: ser.sd-w.sangoku
+    title: SD Gundam World Sangoku Soketsuden
+    timeline: tl.sd.world
+    source: src.sd-w.sangoku
+    release_year: 2019
+    format: ona
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      A Romance of the Three Kingdoms analogue, cast with Gundam designs.
+
+  - id: ser.sd-w.heroes
+    title: SD Gundam World Heroes
+    timeline: tl.sd.world
+    source: src.sd-w.heroes
+    release_year: 2021
+    format: ona
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      A sequel. It opens the setting into an explicit multiverse of
+      worlds, each with its own protagonist.

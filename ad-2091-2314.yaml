@@ -1,0 +1,178 @@
+# Anno Domini: Gundam 00 and A Wakening of the Trailblazer.
+#
+# The only continuity whose calendar is the Gregorian one, which makes its
+# date literals mean what a reader assumes they mean and makes tl.ad the
+# single row where epoch.gregorian_year is trivially true. Everything else
+# in this repository requires a conversion nobody can perform.
+
+events:
+  - id: evt.ad.2091.aeolia-plan
+    label: Aeolia Schenberg's plan
+    type: political
+    timeline: tl.ad
+    date:
+      - start: "2091"
+        sources: [src.ad.gundam-00]
+        confidence: approximate
+    participants: [fac.ad.celestial-being]
+    summary: >
+      An engineer proposes a combined orbital elevator and solar
+      collection system as the answer to the end of fossil fuels. In
+      private he also founds an organization that will force an end to war
+      two centuries later. The infrastructure and the conspiracy are one
+      project.
+    referenced_in: [ser.ad.gundam-00-s1]
+    claims:
+      - property: interval
+        value: >
+          About two hundred and sixteen years pass between the plan and
+          its execution. An organization funds and maintains it the whole
+          time, and none of its members ever meets the founder.
+        sources: [src.ad.gundam-00]
+        confidence: interpretive
+        note: >
+          The longest planned interval in the dataset, and the reason the
+          span of tl.ad looks so empty. Two centuries pass with nothing
+          recorded between one event and the next. As with the UC
+          0093-0123 gap, that emptiness is accurate. Render it. Do not
+          compress it.
+    related: [evt.ad.2307.armed-interventions]
+
+  - id: evt.ad.2307.armed-interventions
+    label: Celestial Being begins armed intervention
+    type: war
+    timeline: tl.ad
+    date:
+      - start: "2307"
+        sources: [src.ad.gundam-00]
+    participants: [fac.ad.celestial-being, fac.ad.union, fac.ad.aeu, fac.ad.hrl]
+    summary: >
+      A private organization declares that it will attack any nation that
+      wages war. It proves it can by striking all three global power blocs
+      in turn. Its stated aim is to end war by making war too costly to
+      afford.
+    depicted_in: [ser.ad.gundam-00-s1]
+    claims:
+      - property: method_contradiction
+        value: >
+          The organization wages war without pause in order to abolish
+          war. The work treats that contradiction as its premise, not as
+          an objection it owes an answer to.
+        sources: [src.ad.gundam-00]
+        confidence: interpretive
+    related: [evt.ad.2308.operation-fallen-angels]
+
+  - id: evt.ad.2308.operation-fallen-angels
+    label: Operation Fallen Angels
+    type: battle
+    timeline: tl.ad
+    date:
+      - start: "2308"
+        sources: [src.ad.gundam-00]
+    participants: [fac.ad.union, fac.ad.aeu, fac.ad.hrl, fac.ad.celestial-being]
+    summary: >
+      The three power blocs combine their forces for the first time, in
+      order to destroy Celestial Being, and they mostly succeed. The
+      intervention therefore produces the unified world government that
+      the organization never asked for.
+    depicted_in: [ser.ad.gundam-00-s1]
+    claims:
+      - property: outcome_irony
+        value: >
+          The stated goal is an end to war between the blocs, and it
+          arrives. The blocs reach it by uniting against the organization
+          that demanded it. The means and the end arrive together, and
+          neither party is satisfied.
+        sources: [src.ad.gundam-00]
+        confidence: interpretive
+    related: [evt.ad.2312.esf-consolidation]
+
+  - id: evt.ad.2312.esf-consolidation
+    label: Earth Sphere Federation and the A-Laws
+    type: political
+    timeline: tl.ad
+    date:
+      - start: "2312"
+        sources: [src.ad.gundam-00]
+    participants: [fac.ad.esf, fac.ad.a-laws]
+    summary: >
+      Four years later. The unified government has chartered an autonomous
+      security force to put down dissent. That force has become the very
+      thing it was created to prevent.
+    depicted_in: [ser.ad.gundam-00-s2]
+    claims:
+      - property: titans_parallel
+        value: >
+          The same structure as the Titans of UC 0083. A legitimate
+          government charters an elite internal force, grants it autonomy,
+          and the force turns on the population at large. This is
+          independent invention, not continuity, but the institutional
+          argument is the same.
+        sources: [src.ad.gundam-00]
+        confidence: editorial
+        note: >
+          Recorded so that a render which puts the two lanes side by side
+          does not read the likeness as a data error. This is the third
+          such cross-continuity observation in the expansion, after
+          Heliopolis and the After War salvage economy. There are now
+          enough of them that a render might reasonably show `editorial`
+          claims as a layer of their own.
+    related: [evt.ad.2312.innovator-conflict]
+
+  - id: evt.ad.2312.memento-mori
+    label: Use of the Memento Mori
+    type: atrocity
+    timeline: tl.ad
+    date:
+      - start: "2312"
+        sources: [src.ad.gundam-00]
+        confidence: approximate
+    participants: [fac.ad.a-laws, fac.ad.esf]
+    summary: >
+      The security force turns an orbital beam weapon on inhabited targets
+      on its own planet. It destroys a city and a rebel base. Nobody tells
+      the government it serves in advance.
+    depicted_in: [ser.ad.gundam-00-s2]
+
+  - id: evt.ad.2312.innovator-conflict
+    label: The Innovator conflict
+    type: war
+    timeline: tl.ad
+    date:
+      - start: "2312"
+        sources: [src.ad.gundam-00]
+    participants: [fac.ad.innovators, fac.ad.celestial-being, fac.ad.esf]
+    summary: >
+      A group has steered the founder's plan from inside it for two
+      centuries. It now moves openly, and means to direct the development
+      of humanity rather than let it run. The organization it had been
+      manipulating defeats it.
+    depicted_in: [ser.ad.gundam-00-s2]
+
+  - id: evt.ad.2314.els-contact
+    label: First contact with the ELS
+    type: disaster
+    timeline: tl.ad
+    date:
+      - start: "2314"
+        sources: [src.ad.trailblazer]
+    participants: [fac.ad.els, fac.ad.esf, fac.ad.celestial-being]
+    summary: >
+      A metallic non-human species reaches the solar system and starts to
+      absorb structures and people. This turns out to be an attempt at
+      communication, made by a form of life with no concept of a separate
+      other. It ends in contact, not in victory.
+    depicted_in: [ser.ad.trailblazer]
+    claims:
+      - property: participant_kind
+        value: >
+          Not a polity. The `participants` model assumes that a
+          belligerent is an organization of people. This is the one entry
+          in the dataset where that assumption fails.
+        sources: [src.ad.trailblazer]
+        confidence: editorial
+        note: >
+          It stays in `participants` rather than take a new field, because
+          one instance is not a category. This note records the decision,
+          so that whoever adds a second one knows it was a choice and not
+          an oversight.

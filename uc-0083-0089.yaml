@@ -1,0 +1,215 @@
+# UC 0083 - 0089: Stardust, the Titans, Gryps, and the First Neo Zeon War.
+#
+# The causal chain through this file is unusually tight: each event is the
+# stated justification for the next. Worth encoding as `related` edges and
+# rendering as a chain, because it is the clearest example in the UC of
+# reaction producing the thing it was formed to prevent.
+
+events:
+  - id: evt.uc.0083.gundam-dev-project
+    label: Gundam Development Project prototype seized
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0083.10.13"
+        sources: [src.uc.0083, src.uc.chronology]
+        confidence: approximate
+        note: >
+          Sharpened in the 2026-08 pass from month precision. Sources date
+          the theft to 13 October.
+    participants: [fac.uc.delaz, fac.uc.efed]
+    summary: >
+      Zeon remnants steal a nuclear-armed Federation prototype during a
+      demonstration. The theft breaks the weapons ban of the Antarctic
+      Treaty. The Federation does not want to publicize that breach,
+      because the weapon was its own.
+    depicted_in: [ser.uc.0083]
+    related: [evt.uc.0083.operation-stardust]
+
+  - id: evt.uc.0083.operation-stardust
+    label: Operation Stardust
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0083.11.10"
+        end: "0083.11.13"
+        precision: range
+        sources: [src.uc.0083, src.uc.chronology]
+        confidence: approximate
+        note: >
+          Sharpened in the 2026-08 pass from month precision. The nuclear
+          strike on the assembled fleet falls on 10 November. The colony
+          goes on course on 13 November. The theft that opens the
+          operation comes a month earlier and has its own event, so this
+          entry covers the second phase only.
+    participants: [fac.uc.delaz, fac.uc.efed]
+    summary: >
+      The Delaz Fleet disables the assembled Federation fleet with a
+      nuclear detonation and drops a colony onto Earth. The colony hits
+      North America. It wrecks farming regions and does lasting damage to
+      the climate.
+    depicted_in: [ser.uc.0083]
+    claims:
+      - property: outcome
+        value: >
+          The operation fails in its stated aim to revive Zeon. It
+          succeeds in discrediting Federation security, and that directly
+          enables the creation of the Titans.
+        sources: [src.uc.0083]
+    related: [evt.uc.0083.titans-formed]
+
+  - id: evt.uc.0083.titans-formed
+    label: Formation of the Titans
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0083.12.04"
+        sources: [src.uc.0083, src.uc.zeta, src.uc.chronology]
+        confidence: approximate
+        note: >
+          Corrected in the 2026-08 pass from "0083.11". The Federation
+          Council charters the Titans on 4 December, three weeks after the
+          colony drop rather than during it. That pushed the event outside
+          the coverage span of ser.uc.0083. The warning was right, not a
+          problem. Stardust Memory shows the founding in an epilogue set
+          after its main action, so ser.uc.0083 gained an epilogue span
+          rather than a stretched main span.
+    participants: [fac.uc.titans, fac.uc.efed]
+    summary: >
+      The Federation charters an elite internal force to put down Zeon
+      remnants. The force gathers political autonomy fast and turns its
+      methods on the colonies in general, not on remnants alone.
+    depicted_in: [ser.uc.0083]
+    referenced_in: [ser.uc.zeta]
+    related: [evt.uc.0085.thirty-bunch, evt.uc.0085.aeug-formed]
+
+  - id: evt.uc.0085.thirty-bunch
+    label: Gas attack on Side 1, 30 Bunch
+    type: atrocity
+    timeline: tl.uc
+    date:
+      - start: "0085.07.31"
+        sources: [src.uc.zeta, src.uc.chronology]
+        confidence: approximate
+        note: >
+          Corrected in the 2026-08 pass from "0087.02". That was a
+          two-year error, and the largest single date fault found here.
+          The Titans gas 30 Bunch on 31 July UC 0085, and the AEUG forms
+          in answer within the same year. The old date put the atrocity
+          five months into UC 0087. That made the AEUG start two years
+          before its own stated cause. It also made the Gryps Conflict
+          look like an immediate reprisal, rather than the end of a long
+          build-up.
+    participants: [fac.uc.titans]
+    summary: >
+      The Titans kill the population of a dissident colony with poison
+      gas, after a protest against them gets out of hand. The attack
+      removes any doubt about the character of the organization. The
+      Federation then refuses to punish it, and that refusal turns
+      colonial dissent into organized opposition.
+    referenced_in: [ser.uc.zeta]
+    claims:
+      - property: treaty_status
+        value: >
+          A direct breach of the ban on chemical weapons in the Antarctic
+          Treaty. The Federation's own force committed it, against
+          Federation civilians.
+        sources: [src.uc.zeta]
+    related: [evt.uc.0085.aeug-formed]
+
+  - id: evt.uc.0085.aeug-formed
+    label: Formation of the AEUG
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0085"
+        sources: [src.uc.zeta]
+        confidence: approximate
+        note: >
+          The year holds. The order inside UC 0085 is causal, not sourced.
+          The AEUG forms after the 30 Bunch attack of 31 July. A render
+          that sorts on ordinals alone puts this entry at the start of the
+          year, and so puts the effect before the cause. The `related`
+          edge carries the true order.
+    participants: [fac.uc.aeug, fac.uc.titans]
+    summary: >
+      A spacenoid resistance movement forms against Titans rule. Colonial
+      industrial interests back it, and so do sympathetic officers inside
+      the Federation military.
+    referenced_in: [ser.uc.zeta]
+    related: [evt.uc.0085.thirty-bunch]
+
+  - id: evt.uc.0087.gryps-conflict
+    label: Gryps Conflict
+    type: war
+    timeline: tl.uc
+    date:
+      - start: "0087.03.02"
+        end: "0088.02.22"
+        precision: range
+        sources: [src.uc.zeta, src.uc.chronology]
+        confidence: approximate
+        note: >
+          Sharpened in the 2026-08 pass from month precision. It opens
+          with the AEUG raid on the Titans colonies at Side 7 on 2 March
+          UC 0087. It closes at the Battle of Gryps on 22 February UC
+          0088.
+    participants: [fac.uc.aeug, fac.uc.titans, fac.uc.axis]
+    summary: >
+      A three-sided war between the Titans, the AEUG and the returning
+      Axis forces. All sides use colony lasers and mass drivers as
+      strategic weapons against population centers.
+    depicted_in: [ser.uc.zeta]
+    related: [evt.uc.0088.gryps-conclusion]
+
+  - id: evt.uc.0088.gryps-conclusion
+    label: Conclusion of the Gryps Conflict
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0088.02.22"
+        sources: [src.uc.zeta, src.uc.chronology]
+        confidence: approximate
+        note: >
+          Sharpened in the 2026-08 pass from month precision. The Battle
+          of Gryps falls on 22 February.
+    participants: [fac.uc.aeug, fac.uc.titans, fac.uc.axis]
+    summary: >
+      The Titans are destroyed as an organization. The AEUG ends too weak
+      to hold what it won, and Axis takes the resulting vacuum almost
+      intact.
+    depicted_in: [ser.uc.zeta]
+    claims:
+      - property: char_aznable_status
+        value: >
+          The screen leaves the fate of Char Aznable open at the close of
+          the conflict. He returns five years later, in command of a new
+          organization.
+        sources: [src.uc.zeta, src.uc.cca]
+        note: >
+          A gap, not a contradiction. Model it openly. An unresolved span
+          between two sourced points differs from an absence of
+          information, and a render must show the difference.
+    related: [evt.uc.0093.second-neo-zeon-war]
+
+  - id: evt.uc.0088.first-neo-zeon-war
+    label: First Neo Zeon War
+    type: war
+    timeline: tl.uc
+    date:
+      - start: "0088.03.03"
+        end: "0089.01.17"
+        precision: range
+        sources: [src.uc.zz, src.uc.chronology]
+        confidence: approximate
+        note: >
+          Sharpened in the 2026-08 pass from month precision. It opens
+          eleven days after the Battle of Gryps. The gap between the two
+          wars runs under a fortnight. A month-precision render flattens
+          that into a three-week pause that never happened.
+    participants: [fac.uc.neo-zeon-1, fac.uc.aeug, fac.uc.efed]
+    summary: >
+      Axis reorganizes as Neo Zeon under Haman Karn and moves against a
+      Federation weakened by the Gryps Conflict. It comes close to taking
+      Earth outright, then falls apart in a dispute over succession.
+    depicted_in: [ser.uc.zz]

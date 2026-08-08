@@ -1,0 +1,404 @@
+# Every claim in this dataset cites at least one source id from here.
+#
+# `tier` drives the default resolution policy (see README). It is a
+# pragmatic ordering for picking a value to display, NOT a statement about
+# which work is "better" or officially canon. Reasonable people order these
+# differently; change the numbers and the whole dataset re-resolves.
+#
+# tier 1  theatrical film / TV broadcast, core spine
+# tier 2  OVA and ONA
+# tier 3  manga and novel, including retellings
+# tier 4  games, model kit documentation, encyclopedias, magazine material
+
+sources:
+  - id: src.uc.msg-tv
+    title: Mobile Suit Gundam
+    kind: tv
+    year: 1979
+    tier: 1
+    timeline: tl.uc
+
+  - id: src.uc.msg-films
+    title: Mobile Suit Gundam compilation film trilogy
+    kind: film
+    year: 1981
+    tier: 1
+    timeline: tl.uc
+    note: >
+      A recut of the TV series, with material changed and removed. Where
+      it differs from src.uc.msg-tv, the difference is usually an
+      omission. An omission is not by itself a contradiction. Do not
+      record silence as a claim.
+
+  - id: src.uc.zeta
+    title: Mobile Suit Zeta Gundam
+    kind: tv
+    year: 1985
+    tier: 1
+    timeline: tl.uc
+
+  - id: src.uc.zz
+    title: Mobile Suit Gundam ZZ
+    kind: tv
+    year: 1986
+    tier: 1
+    timeline: tl.uc
+
+  - id: src.uc.cca
+    title: "Mobile Suit Gundam: Char's Counterattack"
+    kind: film
+    year: 1988
+    tier: 1
+    timeline: tl.uc
+
+  - id: src.uc.f91
+    title: Mobile Suit Gundam F91
+    kind: film
+    year: 1991
+    tier: 1
+    timeline: tl.uc
+
+  - id: src.uc.victory
+    title: Mobile Suit Victory Gundam
+    kind: tv
+    year: 1993
+    tier: 1
+    timeline: tl.uc
+
+  - id: src.uc.0080
+    title: "Mobile Suit Gundam 0080: War in the Pocket"
+    kind: ova
+    year: 1989
+    tier: 2
+    timeline: tl.uc
+
+  - id: src.uc.0083
+    title: "Mobile Suit Gundam 0083: Stardust Memory"
+    kind: ova
+    year: 1991
+    tier: 2
+    timeline: tl.uc
+
+  - id: src.uc.08th
+    title: "Mobile Suit Gundam: The 08th MS Team"
+    kind: ova
+    year: 1996
+    tier: 2
+    timeline: tl.uc
+
+  - id: src.uc.igloo
+    title: "Mobile Suit Gundam MS IGLOO"
+    kind: ona
+    year: 2004
+    tier: 2
+    timeline: tl.uc
+
+  - id: src.uc.unicorn
+    title: Mobile Suit Gundam Unicorn
+    kind: ova
+    year: 2010
+    tier: 2
+    timeline: tl.uc
+    note: >
+      Introduces the Laplace incident and the Charter, and fills UC 0001
+      in after the fact. A large share of the pre-0068 material here
+      starts with this work and appears in no earlier source.
+
+  - id: src.uc.narrative
+    title: "Mobile Suit Gundam Narrative"
+    kind: film
+    year: 2018
+    tier: 2
+    timeline: tl.uc
+
+  - id: src.uc.hathaway
+    title: "Mobile Suit Gundam: Hathaway's Flash"
+    kind: film
+    year: 2021
+    tier: 2
+    timeline: tl.uc
+    note: >
+      A film adaptation of the novel src.uc.hathaway-novel. The two differ
+      in places.
+
+  - id: src.uc.origin
+    title: "Mobile Suit Gundam: The Origin"
+    kind: manga
+    year: 2001
+    tier: 3
+    timeline: tl.uc
+    note: >
+      Yasuhiko's retelling. It agrees with src.uc.msg-tv on the broad
+      spine and differs on specifics, above all around Casval, Loum and
+      the Zabi family. It is the richest source of real contradictions
+      here, which makes it a good test of the claim model.
+
+  - id: src.uc.thunderbolt
+    title: Mobile Suit Gundam Thunderbolt
+    kind: manga
+    year: 2012
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc.hathaway-novel
+    title: "Mobile Suit Gundam: Hathaway's Flash (novel)"
+    kind: novel
+    year: 1989
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc.crossbone
+    title: Mobile Suit Crossbone Gundam
+    kind: manga
+    year: 1994
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc-g.gquuuuuux
+    title: "Mobile Suit Gundam GQuuuuuuX"
+    kind: film
+    year: 2025
+    tier: 2
+    timeline: tl.uc.gquuuuuux
+    confidence: needs-verification
+
+  - id: src.uc.chronology
+    title: Universal Century supplementary chronology and technical material
+    kind: reference
+    tier: 4
+    timeline: tl.uc
+    confidence: needs-verification
+    note: >
+      One combined entry for the encyclopedia, mook and model-kit
+      documentation that fixes most UC dates at day and month level. No
+      narrative work states them. The 1979 series never gives a calendar
+      date for the founding of the Republic of Zeon. Before the 2026-08
+      pass, citing src.uc.msg-tv for such a date was the most common
+      attribution error here. This is one source rather than many on
+      purpose, because the individual publications cannot be told apart
+      from the secondary compilations that repeat them. Split it as soon
+      as somebody checks a specific volume. Everything credited here was
+      checked against reference compilations, not against a primary
+      publication. Hence the flag.
+  # ---------------------------------------------------------------------
+  # Independent continuities, in release order.
+  #
+  # Every primary text below is a television broadcast, so tier 1 covers
+  # all of them and the tier ordering never has to arbitrate. That is luck,
+  # not design: the moment a manga- or game-first continuity is catalogued,
+  # a UC-shaped hierarchy that puts manga at tier 3 will rank that
+  # continuity's own foundation text below its adaptations. See README.
+  # ---------------------------------------------------------------------
+
+  - id: src.fc.g-gundam
+    title: Mobile Fighter G Gundam
+    kind: tv
+    year: 1994
+    tier: 1
+    timeline: tl.fc
+
+  - id: src.ac.wing
+    title: New Mobile Report Gundam Wing
+    kind: tv
+    year: 1995
+    tier: 1
+    timeline: tl.ac
+
+  - id: src.ac.endless-waltz
+    title: "Gundam Wing: Endless Waltz"
+    kind: ova
+    year: 1997
+    tier: 2
+    timeline: tl.ac
+    note: >
+      A sequel and a partial retcon. It redesigns the mobile suits of
+      src.ac.wing after the fact and revises parts of the AC 195
+      backstory. That makes the pair a candidate for real date disputes
+      once somebody reads both properly. None are recorded yet.
+
+  - id: src.aw.gundam-x
+    title: After War Gundam X
+    kind: tv
+    year: 1996
+    tier: 1
+    timeline: tl.aw
+
+  - id: src.cc.turn-a
+    title: Turn A Gundam
+    kind: tv
+    year: 1999
+    tier: 1
+    timeline: tl.cc
+
+  - id: src.ce.seed
+    title: Mobile Suit Gundam SEED
+    kind: tv
+    year: 2002
+    tier: 1
+    timeline: tl.ce
+
+  - id: src.ce.seed-destiny
+    title: Mobile Suit Gundam SEED Destiny
+    kind: tv
+    year: 2004
+    tier: 1
+    timeline: tl.ce
+
+  - id: src.ce.seed-freedom
+    title: Mobile Suit Gundam SEED FREEDOM
+    kind: film
+    year: 2024
+    tier: 1
+    timeline: tl.ce
+    confidence: needs-verification
+
+  - id: src.ad.gundam-00
+    title: Mobile Suit Gundam 00
+    kind: tv
+    year: 2007
+    tier: 1
+    timeline: tl.ad
+    note: >
+      Two broadcast seasons, AD 2307-2308 and AD 2312, held as one source.
+
+  - id: src.ad.trailblazer
+    title: "Mobile Suit Gundam 00: A Wakening of the Trailblazer"
+    kind: film
+    year: 2010
+    tier: 1
+    timeline: tl.ad
+
+  - id: src.ag.gundam-age
+    title: Mobile Suit Gundam AGE
+    kind: tv
+    year: 2011
+    tier: 1
+    timeline: tl.ag
+
+  - id: src.rc.g-reco
+    title: "Gundam Reconguista in G"
+    kind: tv
+    year: 2014
+    tier: 1
+    timeline: tl.rc
+
+  - id: src.rc.g-reco-films
+    title: "Gundam Reconguista in G (film series)"
+    kind: film
+    year: 2019
+    tier: 1
+    timeline: tl.rc
+    note: >
+      A five-film recut of src.rc.g-reco, with new and altered material.
+      It is registered on its own for the same reason as src.uc.msg-films.
+      Where a recut omits something, that silence is not a contradiction.
+      Do not record it as a competing claim.
+
+  - id: src.pd.ibo
+    title: "Mobile Suit Gundam: Iron-Blooded Orphans"
+    kind: tv
+    year: 2015
+    tier: 1
+    timeline: tl.pd
+
+  - id: src.as.witch
+    title: "Mobile Suit Gundam: The Witch from Mercury"
+    kind: tv
+    year: 2022
+    tier: 1
+    timeline: tl.as
+
+  # ---------------------------------------------------------------------
+  # Mars Century, the Build continuity, and SD Gundam.
+  #
+  # Note what happens to the tier scale here. Every source above is a
+  # broadcast, film, OVA or manga and the ordering never had to arbitrate.
+  # These do not fit as cleanly: a novel that is the sole text of its era
+  # sits at tier 3 beneath adaptations of other eras it has no relation to,
+  # and an ONA aimed at children sits at tier 2 above it. The tiers are a
+  # display convention rather than a canonicity ruling, which is exactly
+  # what stops that being a claim about worth — but it is now visibly a
+  # convention that was designed around the Universal Century's shelf.
+  # ---------------------------------------------------------------------
+
+  - id: src.mc.frozen-teardrop
+    title: "New Mobile Report Gundam Wing: Frozen Teardrop"
+    kind: novel
+    year: 2010
+    tier: 3
+    timeline: tl.mc
+    confidence: disputed
+    note: >
+      The only work set in the Mars Century. It is also the sole authority
+      for the MC calendar and for how that calendar matches After Colony.
+      Its standing as a continuation of AC is genuinely disputed. See the
+      `contested_by` relation in timelines.yaml. One disputed source
+      carrying a whole era is the weakest evidence in this dataset.
+
+  - id: src.build.gunpla-builders
+    title: "Model Suit Gunpla Builders Beginning G"
+    kind: ova
+    year: 2010
+    tier: 2
+    timeline: tl.build
+
+  - id: src.build.build-fighters
+    title: Gundam Build Fighters
+    kind: tv
+    year: 2013
+    tier: 1
+    timeline: tl.build
+
+  - id: src.build.build-fighters-try
+    title: Gundam Build Fighters Try
+    kind: tv
+    year: 2014
+    tier: 1
+    timeline: tl.build
+
+  - id: src.build.build-divers
+    title: Gundam Build Divers
+    kind: tv
+    year: 2018
+    tier: 1
+    timeline: tl.build
+
+  - id: src.build.build-divers-rerise
+    title: "Gundam Build Divers Re:RISE"
+    kind: ona
+    year: 2019
+    tier: 2
+    timeline: tl.build
+
+  - id: src.build.build-metaverse
+    title: Gundam Build Metaverse
+    kind: ona
+    year: 2023
+    tier: 2
+    timeline: tl.build
+    note: >
+      Establishes that the Build Fighters works and the Build Divers works
+      share one universe rather than run in parallel. It is the only
+      source here whose main contribution is a statement about the shape
+      of its own timeline.
+
+  - id: src.sd-f.gundam-force
+    title: SD Gundam Force
+    kind: tv
+    year: 2004
+    tier: 1
+    timeline: tl.sd.force
+
+  - id: src.sd-w.sangoku
+    title: SD Gundam World Sangoku Soketsuden
+    kind: ona
+    year: 2019
+    tier: 2
+    timeline: tl.sd.world
+
+  - id: src.sd-w.heroes
+    title: SD Gundam World Heroes
+    kind: ona
+    year: 2021
+    tier: 2
+    timeline: tl.sd.world
