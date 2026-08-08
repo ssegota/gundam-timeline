@@ -69,10 +69,24 @@
 
   /* ---------------- app shell ---------------- */
   .app{position:relative;z-index:1;display:grid;grid-template-columns:264px minmax(0,1fr);
-    min-height:100vh;gap:0}
+    min-height:100vh;gap:0;transition:grid-template-columns .22s cubic-bezier(.4,0,.2,1)}
+  .app.folded{grid-template-columns:0 minmax(0,1fr)}
+  .app.folded .side{padding-left:0;padding-right:0;border-right:0;overflow:hidden}
+  .app.folded .side>*{opacity:0;visibility:hidden;transition:opacity .12s ease}
   .side{position:sticky;top:0;height:100vh;overflow:auto;padding:20px 16px 28px;
     background:color-mix(in srgb,var(--card) 82%,transparent);
     border-right:1px solid var(--line);backdrop-filter:blur(14px)}
+  /* The handle rides the sidebar edge, so it is where the panel was. */
+  .fold{position:fixed;top:26px;left:242px;z-index:30;width:26px;height:26px;
+    border-radius:8px;border:1px solid var(--line);background:var(--card);
+    color:var(--ink2);cursor:pointer;display:grid;place-items:center;padding:0;
+    font-size:13px;line-height:1;transition:left .22s cubic-bezier(.4,0,.2,1),
+    border-color .16s ease,color .16s ease}
+  .fold:hover{border-color:var(--brand);color:var(--brand)}
+  /* Folded, the handle sits in the main pane, so the pane makes room for it
+     rather than letting the page title run underneath. */
+  .app.folded .fold{left:12px}
+  .app.folded main{padding-left:52px}
   .brand{display:flex;align-items:center;gap:11px;margin-bottom:20px;padding:0 6px}
   .brand .mk{width:34px;height:34px;border-radius:10px;background:var(--brand);
     display:grid;place-items:center;color:var(--brand-ink);font-size:15px;flex:none;
@@ -273,17 +287,20 @@
   [hidden]{display:none!important}
 
   @media (max-width:900px){
-    .app{grid-template-columns:1fr}
+    .app,.app.folded{grid-template-columns:1fr}
     .side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line)}
     .navlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+    .fold{display:none}      /* the sidebar is already a banner at this width */
   }
 </style>
 </head>
 <body>
 <canvas id="bg" aria-hidden="true"></canvas>
-<div class="app">
+<div class="app" id="app">
+<button class="fold" id="foldBtn" type="button" aria-expanded="true"
+  aria-controls="sideNav" title="Hide the sidebar">‹</button>
 
-<aside class="side">
+<aside class="side" id="sideNav">
   <div class="brand">
     <div class="mk disp">G</div>
     <div><b>Gundam Timeline</b><span>Every continuity</span></div>
@@ -704,11 +721,18 @@ function drawMap(){
     // works keep the same pitch on every line.
     for(let k=0;k<r.segs;k++){
       const cnt=Math.min(r.per,r.n-k*r.per), len=dead?r.runX:r.runX*cnt/r.per;
-      g.appendChild(S("line",{class:(dead||q)?"":"rail-anim",
-        x1:x0,y1:segY(k),x2:x0+len,y2:segY(k),stroke:c,
-        "stroke-width":dead?1.1:2.2,"stroke-linecap":"round",pathLength:dead?null:1,
-        "stroke-dasharray":dead?"3 6":null,opacity:dead?.45:.95,filter:dead?"":GLOW,
-        style:(dead||q)?"":`animation-delay:${Math.min(ri*40,560)+k*90}ms`}));
+      const anim={class:(dead||q)?"":"rail-anim",pathLength:dead?null:1,
+        style:(dead||q)?"":`animation-delay:${Math.min(ri*40,560)+k*90}ms`};
+      // The glow filter cannot be used here. Its region is a percentage of the
+      // bounding box, and a horizontal line has no height, so the region
+      // collapses to nothing and the rail disappears. Paint the glow as a
+      // second, softer stroke instead.
+      if(!dead&&isDark())
+        g.appendChild(S("line",{...anim,x1:x0,y1:segY(k),x2:x0+len,y2:segY(k),
+          stroke:c,"stroke-width":8,"stroke-linecap":"round",opacity:.17}));
+      g.appendChild(S("line",{...anim,x1:x0,y1:segY(k),x2:x0+len,y2:segY(k),stroke:c,
+        "stroke-width":dead?1.1:2.4,"stroke-linecap":"round",
+        "stroke-dasharray":dead?"3 6":null,opacity:dead?.45:1}));
       if(dead) break;
     }
 
@@ -733,6 +757,9 @@ function drawMap(){
       leads.appendChild(S("path",{d:`M${px} ${yS} L${ex} ${ey} H${nx}`,fill:"none",stroke:c,
         "stroke-width":1.4,"stroke-linecap":"round","stroke-linejoin":"round",
         opacity:(!q||on)?.5:.12}));
+      // A filled dot where the branch meets the rail, so the eye can follow a
+      // title back to its place in the order.
+      leads.appendChild(S("circle",{cx:px,cy:yS,r:3,fill:c,opacity:(!q||on)?1:.15}));
       const gg=S("g",{class:q?"hit":"hit node-anim",opacity:(!q||on)?1:.2,
         style:q?"":`animation-delay:${Math.min(ri*40,560)+Math.min(i*30,300)+140}ms`});
       gg.appendChild(S("circle",{cx:nx,cy:ey,r:(q&&on)?6.4:4.6,fill:(q&&on)?c:"var(--card)",
@@ -1217,8 +1244,23 @@ function render(){
   }
 }
 
+/* ---------- sidebar ---------- */
+// Folding the sidebar changes how much room the drawings have, and neither
+// chart reflows on its own, so redraw once the column has finished moving.
+function setFold(on,redraw){
+  $("#app").classList.toggle("folded",on);
+  const btn=$("#foldBtn");
+  btn.textContent=on?"›":"‹";
+  btn.setAttribute("aria-expanded",String(!on));
+  btn.title=on?"Show the sidebar":"Hide the sidebar";
+  try{localStorage.setItem("gt-fold",on?"1":"0")}catch(e){}
+  if(redraw) setTimeout(()=>{paintBg(); VIEW==="map"?drawMap():drawChart();},240);
+}
+$("#foldBtn").onclick=()=>setFold(!$("#app").classList.contains("folded"),true);
+
 try{const t=localStorage.getItem("gt-theme"); if(t&&THEMES[t])THEME=t;}catch(e){}
 document.documentElement.setAttribute("data-theme",THEME);
+try{setFold(localStorage.getItem("gt-fold")==="1",false)}catch(e){}
 markTheme();paintBg();drawRels();render();
 let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{
   paintBg(); VIEW==="map"?drawMap():drawChart();},170);});
