@@ -135,6 +135,9 @@
 
   .card{background:var(--card);border:1px solid var(--line);border-radius:18px;
     padding:20px 22px;margin-bottom:18px;box-shadow:var(--shadow)}
+  .cardhead{display:flex;align-items:center;gap:9px;margin-bottom:6px}
+  .cardhead h2{margin:0}
+  .help.sm{width:24px;height:24px;font-size:13px}
   .card h2{margin:0 0 6px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;
     color:var(--ink3);font-weight:700}
   .lead{color:var(--ink2);font-size:13.5px;max-width:80ch;margin:0}
@@ -335,17 +338,6 @@
     </div>
 
     <div class="card">
-      <h2>What the flags mean</h2>
-      <p class="lead">This dataset keeps what a source says apart from what this project guessed.
-        A dashed mark carries a flag.</p>
-      <div class="flagkey">
-        <span><span class="flag f-guess"><i></i>guess</span> This project inferred it. No source states it.</span>
-        <span><span class="flag f-unchecked"><i></i>unchecked</span> Somebody entered it. Nobody checked it against the work.</span>
-        <span><span class="flag f-contested"><i></i>contested</span> The sources disagree.</span>
-      </div>
-    </div>
-
-    <div class="card">
       <h2 id="tlHead"></h2>
       <p class="lead" id="tlNote"></p>
       <div id="chartWrap"></div>
@@ -359,7 +351,11 @@
     </div>
 
     <div class="card">
-      <h2>Events</h2>
+      <div class="cardhead">
+        <h2>Events</h2>
+        <button class="help sm" id="flagHelp" type="button"
+                aria-label="What the flags mean" title="What the flags mean">?</button>
+      </div>
       <p class="lead">The table shows every value in the chart. You can read it without color.</p>
       <div class="scroll" style="margin-top:12px"><table id="tbl">
         <thead><tr><th>Date</th><th>Event</th><th>Type</th><th>Flags</th><th>Sources</th></tr></thead>
@@ -1073,6 +1069,22 @@ $("#mapHelp").onclick=()=>{
   b.appendChild(el("p",{text:"Click a rail head to open that continuity. Click a node to read its "
     +"sources and claims. Use the search to find a work, an era or a year."}));
   openDialog(dtitle("How to read the star chart","19 continuities, 44 works"),b);
+};
+$("#flagHelp").onclick=()=>{
+  const rows=[["guess","This project inferred it. No source states it."],
+              ["unchecked","Somebody entered it. Nobody checked it against the work."],
+              ["contested","The sources disagree."]];
+  const b=el("div",{});
+  b.appendChild(el("p",{text:"This dataset keeps what a source says apart from what this project "
+    +"guessed. A mark that carries a flag is drawn dashed, in the chart and in the table."}));
+  const g=el("div",{class:"flagkey"});
+  rows.forEach(([f,txt])=>g.appendChild(el("span",{},
+    el("span",{class:"flag f-"+f},el("i",{}),f), " "+txt)));
+  b.appendChild(g);
+  b.appendChild(el("p",{class:"meta",style:"margin-top:16px",
+    text:"Only the Universal Century is checked against reference compilations. "
+        +"Nobody has checked the other continuities."}));
+  openDialog(dtitle("What the flags mean",TL.name),b);
 };
 $("#aboutBtn").onclick=()=>{
   const rows=[
