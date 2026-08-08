@@ -176,6 +176,17 @@
   .era-sub{font-size:9.5px;fill:var(--ink3);letter-spacing:.13em;
     font-family:system-ui,sans-serif;font-style:normal;font-weight:700}
   .hit{cursor:pointer}
+  /* Hover lights the title and the branch that leads back to it. The title
+     takes the strongest ink so it separates from its neighbours, and the
+     branch and its junction dot come forward with it. */
+  .lead{transition:opacity .13s ease,stroke-width .13s ease}
+  .jd{transition:r .13s ease}
+  .wk .work-t,.wk .work-s,.wk circle{transition:fill .13s ease,stroke-width .13s ease}
+  .lead.on{opacity:1;stroke-width:2.6}
+  .wk.on .work-t{fill:var(--ink)}
+  .wk.on .work-s{fill:var(--ink2)}
+  .wk.on circle{fill:var(--c);stroke-width:3}
+  svg.dark .wk.on{filter:drop-shadow(0 0 7px var(--c))}
   .railg .plate{opacity:0;transition:opacity .16s ease}
   .railg:hover .plate{opacity:1}
   @keyframes draw{to{stroke-dashoffset:0}}
@@ -664,7 +675,7 @@ function drawMap(){
   });
   const H=Math.max(yA,yB)+10;
 
-  const svg=S("svg",{viewBox:`0 0 ${W} ${H}`,role:"img",
+  const svg=S("svg",{viewBox:`0 0 ${W} ${H}`,role:"img",class:isDark()?"dark":null,
     "aria-label":"All Gundam continuities and the works set in each"});
   const defs=S("defs");
   defs.appendChild(S("filter",{id:"gl",x:"-60%",y:"-60%",width:"220%",height:"220%"},
@@ -754,14 +765,16 @@ function drawMap(){
       const up=j%2===0, lane=Math.floor(j/2)%r.lanes, rise=NEAR+lane*LANEGAP;
       const ex=px+rise, ey=yS+(up?-rise:rise), nx=ex+TICK;
       const on=hit(t,s);
-      leads.appendChild(S("path",{d:`M${px} ${yS} L${ex} ${ey} H${nx}`,fill:"none",stroke:c,
+      const lead=S("path",{class:"lead",d:`M${px} ${yS} L${ex} ${ey} H${nx}`,fill:"none",stroke:c,
         "stroke-width":1.4,"stroke-linecap":"round","stroke-linejoin":"round",
-        opacity:(!q||on)?.5:.12}));
+        opacity:(!q||on)?.5:.12});
+      leads.appendChild(lead);
       // A filled dot where the branch meets the rail, so the eye can follow a
       // title back to its place in the order.
-      leads.appendChild(S("circle",{cx:px,cy:yS,r:3,fill:c,opacity:(!q||on)?1:.15}));
-      const gg=S("g",{class:q?"hit":"hit node-anim",opacity:(!q||on)?1:.2,
-        style:q?"":`animation-delay:${Math.min(ri*40,560)+Math.min(i*30,300)+140}ms`});
+      const dot=S("circle",{class:"jd",cx:px,cy:yS,r:3,fill:c,opacity:(!q||on)?1:.15});
+      leads.appendChild(dot);
+      const gg=S("g",{class:(q?"hit wk":"hit wk node-anim"),opacity:(!q||on)?1:.2,
+        style:`--c:${c};`+(q?"":`animation-delay:${Math.min(ri*40,560)+Math.min(i*30,300)+140}ms`)});
       gg.appendChild(S("circle",{cx:nx,cy:ey,r:(q&&on)?6.4:4.6,fill:(q&&on)?c:"var(--card)",
         stroke:c,"stroke-width":2.2,filter:GLOW}));
       gg.appendChild(S("title",{text:s.title}));
@@ -773,10 +786,19 @@ function drawMap(){
         text:(span?`${t.abbrev} ${span.start}${span.end&&span.end!==span.start?"–"+span.end:""}`:"undated")
              +(s.release?` · ${s.release}`:"")}));
       gg.addEventListener("click",e=>{e.stopPropagation();TL=t;openSeries(s);});
+      // Light the title and the branch it hangs from together, so a reader
+      // can see at once which point on the rail a title belongs to. The
+      // branch lives in another group for painting order, so the class goes
+      // on by hand rather than through a CSS sibling rule.
+      const light=v=>{
+        gg.classList.toggle("on",v); lead.classList.toggle("on",v);
+        dot.setAttribute("r",v?4.6:3);
+      };
+      gg.addEventListener("mouseenter",()=>light(true));
       gg.addEventListener("mousemove",ev=>{ev.stopPropagation();showTip(ev,
         `<b>${esc(s.title)}</b><span class="m">${esc(s.format||"")}${s.release?" · "+s.release:""}</span>`
         +(s.focus?`<br><span class="m">${esc(clip(s.focus.trim(),150))}</span>`:""));});
-      gg.addEventListener("mouseleave",hideTip);
+      gg.addEventListener("mouseleave",()=>{light(false);hideTip();});
       g.appendChild(gg);
     });
     svg.appendChild(g);
