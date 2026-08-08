@@ -294,7 +294,6 @@
   ul.plain{margin:6px 0;padding-left:18px} ul.plain li{margin:3px 0}
   .muted{color:var(--ink3)} .empty{color:var(--ink2);font-size:13.5px}
   .rel{margin:10px 0 16px}
-  footer{color:var(--ink3);font-size:12px;margin-top:26px;max-width:82ch}
   [hidden]{display:none!important}
 
   @media (max-width:900px){
@@ -398,13 +397,6 @@
     <div id="rels" style="margin-top:14px"></div>
   </div>
 
-  <footer>
-    The titles use an original type treatment, not the official logos. The official logos are
-    trademarked artwork, and this page does not copy them. The display face is Noto Sans Display
-    ExtraCondensed, under the SIL Open Font License 1.1. The build step subsets the font and
-    embeds it. Each wiki link opens the Gundam Wiki search. The search opens the article when
-    the title is an exact match.
-  </footer>
 </main>
 </div>
 
@@ -1207,8 +1199,15 @@ $("#aboutBtn").onclick=()=>{
     +"source and flagged as unchecked against a primary publication."]]
     .forEach(([n,d])=>src.appendChild(el("li",{},el("b",{text:n}),el("span",{text:" — "+d}))));
   b.appendChild(src);
-  b.appendChild(el("p",{class:"note",text:"Gundam is the property of Sotsu and Sunrise. This is "
-    +"an unofficial fan project, and it makes no claim on their work."}));
+  // The page embeds the typeface, so it is a redistribution of it, and the
+  // OFL asks that the notice travel with the font. It lives here rather than
+  // on the page itself.
+  b.appendChild(el("p",{class:"note"},
+    "Gundam is the property of Sotsu and Sunrise. This is an unofficial fan project, and it "
+    +"makes no claim on their work. The titles are set in an original treatment, not in the "
+    +"official logos. The display face is Noto Sans Display, embedded under the ",
+    el("a",{href:"https://github.com/ssegota/gundam-timeline/blob/main/THIRD-PARTY-FONTS.txt",
+      target:"_blank",rel:"noopener"},"SIL Open Font License 1.1"),"."));
 
   b.appendChild(el("h3",{text:"Links"}));
   const ul=el("div",{class:"links"});
