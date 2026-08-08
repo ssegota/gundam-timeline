@@ -212,3 +212,19 @@ events:
       technical means. It turns out to have been a belligerent throughout.
       Its defeat closes the main sequence of the continuity.
     depicted_in: [ser.ce.seed-freedom]
+
+  - id: evt.ce.0073.stargazer
+    label: The Stargazer expedition
+    type: technological
+    timeline: tl.ce
+    date:
+      - start: "0073"
+        sources: [src.ce.stargazer]
+        confidence: approximate
+    participants: [fac.ce.earth-alliance, fac.ce.zaft]
+    summary: >
+      A civilian team builds a ship meant to reach beyond the solar
+      system, in the middle of a war that has no use for it. Soldiers on
+      both sides end up defending the attempt.
+    depicted_in: [ser.ce.stargazer, ser.ce.delta-astray]
+    related: [evt.ce.0073.second-alliance-plant-war]

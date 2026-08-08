@@ -299,6 +299,23 @@ def check_entity_spans(events):
                     f"its active span — widen the faction or recheck the date")
 
 
+def check_orphan_sources(events):
+    """Every citable work should also exist as a series.
+
+    The coverage check only ever ran series -> source. Nothing ran the other
+    way, so three real works (the compilation trilogy, the Hathaway film, the
+    Reconguista recut) sat in sources.yaml with no series entry and never
+    appeared on any chart. A source with no series is a work the renderer
+    cannot draw.
+    """
+    used = {s["source"] for s in load(DATA / "series.yaml").get("series", [])}
+    for s in load(DATA / "sources.yaml").get("sources", []):
+        if s["id"] in used or s.get("kind") == "reference":
+            continue
+        warnings.append(f"sources.yaml :: {s['id']} :: no series entry — this work "
+                        f"is citable but cannot be drawn")
+
+
 def check_namespaces(events, tl):
     """Entity ids must be namespaced by the timeline they belong to.
 
@@ -353,6 +370,7 @@ def main():
     check_coverage(events)
     check_entity_spans(events)
     check_namespaces(events, tl)
+    check_orphan_sources(events)
     return report(strict, events, reg)
 
 

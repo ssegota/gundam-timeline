@@ -156,3 +156,19 @@ events:
       year.
     depicted_in: [ser.uc.narrative]
     related: [evt.uc.0096.laplace-incident]
+
+  - id: evt.uc.0096.twilight-axis
+    label: Survey of the Axis remains
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0096"
+        sources: [src.uc.twilight-axis]
+        confidence: needs-verification
+    participants: [fac.uc.efed]
+    summary: >
+      After the Laplace affair a team enters what is left of Axis to
+      catalogue it, and finds that the asteroid still holds people and
+      machines nobody logged.
+    depicted_in: [ser.uc.twilight-axis]
+    related: [evt.uc.0096.laplace-incident]

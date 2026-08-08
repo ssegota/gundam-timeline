@@ -128,3 +128,19 @@ events:
           accident.
         sources: [src.pd.ibo]
         confidence: interpretive
+
+  - id: evt.pd.0323.urdr-hunt
+    label: The Urdr-Hunt contract
+    type: battle
+    timeline: tl.pd
+    date:
+      - start: "0323"
+        sources: [src.pd.urdr-hunt]
+        confidence: needs-verification
+    participants: [fac.pd.gjallarhorn, fac.pd.teiwaz]
+    summary: >
+      Another Martian outfit takes the kind of work Tekkadan takes, in
+      the same year and for the same reasons. Mars has more than one
+      company of children with nothing to sell but risk.
+    depicted_in: [ser.pd.urdr-hunt, ser.pd.gekko]
+    related: [evt.pd.0323.tekkadan-founded]

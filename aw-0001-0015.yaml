@@ -113,3 +113,19 @@ events:
           dataset does not model it as a cross-timeline relation. The
           resemblance is thematic, and the relation types are not for
           thematic edges.
+
+  - id: evt.aw.0024.lunar-salvage
+    label: Salvage on the Moon
+    type: battle
+    timeline: tl.aw
+    date:
+      - start: "0024"
+        sources: [src.aw.under-the-moonlight]
+        confidence: needs-verification
+    participants: [fac.aw.new-une, fac.aw.vulture]
+    summary: >
+      Nine years after the series. A salvage crew works the lunar
+      surface for buried machines, and learns that the people who buried
+      them are still watching.
+    depicted_in: [ser.aw.under-the-moonlight]
+    related: [evt.aw.0015.une-sra-confrontation]

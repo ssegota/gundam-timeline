@@ -213,3 +213,21 @@ events:
       Federation weakened by the Gryps Conflict. It comes close to taking
       Earth outright, then falls apart in a dispute over succession.
     depicted_in: [ser.uc.zz]
+
+  - id: evt.uc.0084.titans-early
+    label: Early Titans operations
+    type: political
+    timeline: tl.uc
+    date:
+      - start: "0084"
+        end: "0087"
+        precision: range
+        sources: [src.uc.advance-of-zeta]
+        confidence: needs-verification
+    participants: [fac.uc.titans, fac.uc.efed]
+    summary: >
+      In the years after Stardust Memory the Titans build up quietly,
+      and test machines and doctrine on targets nobody counts. The
+      organization is already what it will be accused of being.
+    depicted_in: [ser.uc.advance-of-zeta, ser.uc.ecole]
+    related: [evt.uc.0083.titans-formed, evt.uc.0085.thirty-bunch]

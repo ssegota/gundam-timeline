@@ -752,3 +752,884 @@ series:
     focus: >
       A sequel. It opens the setting into an explicit multiverse of
       worlds, each with its own protagonist.
+  - id: ser.uc.msg-films
+    title: "Mobile Suit Gundam (compilation film trilogy)"
+    timeline: tl.uc
+    source: src.uc.msg-films
+    release_year: 1981
+    format: film
+    covers:
+      - start: "0079.09.18"
+        end: "0080.01.01"
+        weight: main
+    focus: >
+      The 1979 series recut as three films, with material altered and
+      removed. Outside Japan this is the version most people met
+      first.
+
+  - id: ser.uc.hathaway-film
+    title: "Mobile Suit Gundam: Hathaway"
+    timeline: tl.uc
+    source: src.uc.hathaway
+    release_year: 2021
+    format: film
+    covers:
+      - start: "0105"
+        end: "0105"
+        weight: main
+    focus: >
+      The film of the novel. A decorated officer's son leads an
+      assassination campaign against the government his father served.
+
+  - id: ser.rc.g-reco-films
+    title: "Gundam Reconguista in G (film series)"
+    timeline: tl.rc
+    source: src.rc.g-reco-films
+    release_year: 2019
+    format: film
+    covers:
+      - start: "1014"
+        end: "1014"
+        weight: main
+    focus: >
+      Five films that recut the broadcast series, with new and altered
+      material.
+
+  - id: ser.uc.igloo-apocalypse
+    title: "Mobile Suit Gundam MS IGLOO: Apocalypse 0079"
+    timeline: tl.uc
+    source: src.uc.igloo-apocalypse
+    release_year: 2006
+    format: ona
+    covers:
+      - start: "0079.12"
+        end: "0080.01"
+        weight: main
+        confidence: approximate
+    focus: >
+      The last weeks of the war from the Zeon side, and the
+      experimental weapons they spent lives proving.
+
+  - id: ser.uc.igloo2
+    title: "Mobile Suit Gundam MS IGLOO 2: The Gravity Front"
+    timeline: tl.uc
+    source: src.uc.igloo2
+    release_year: 2008
+    format: ona
+    covers:
+      - start: "0079.11"
+        end: "0079.12"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      The ground war in Europe from the Federation infantry's side.
+      Here a mobile suit is the thing that kills you, not the thing
+      you pilot.
+
+  - id: ser.uc.re0096
+    title: "Mobile Suit Gundam Unicorn RE:0096"
+    timeline: tl.uc
+    source: src.uc.re0096
+    release_year: 2016
+    format: tv
+    covers:
+      - start: "0096.04"
+        end: "0096.05"
+        weight: main
+        confidence: approximate
+    focus: >
+      The Unicorn serial recut for weekly broadcast.
+
+  - id: ser.uc.twilight-axis
+    title: "Mobile Suit Gundam: Twilight Axis"
+    timeline: tl.uc
+    source: src.uc.twilight-axis
+    release_year: 2017
+    format: ona
+    covers:
+      - start: "0096"
+        end: "0096"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      A survey team enters the hollowed remains of Axis after the
+      Laplace affair and finds the asteroid is not empty.
+
+  - id: ser.uc.thunderbolt-december
+    title: "Mobile Suit Gundam Thunderbolt: December Sky"
+    timeline: tl.uc
+    source: src.uc.thunderbolt-december
+    release_year: 2016
+    format: film
+    covers:
+      - start: "0079"
+        end: "0079"
+        weight: main
+        confidence: approximate
+    focus: >
+      The animated Thunderbolt Sector, cut as a film.
+
+  - id: ser.uc.thunderbolt-bandit
+    title: "Mobile Suit Gundam Thunderbolt: Bandit Flower"
+    timeline: tl.uc
+    source: src.uc.thunderbolt-bandit
+    release_year: 2017
+    format: film
+    covers:
+      - start: "0080"
+        end: "0080"
+        weight: main
+        confidence: approximate
+    focus: >
+      Months after the armistice, the survivors of the Thunderbolt
+      Sector are still fighting the war.
+
+  - id: ser.uc.doan
+    title: "Mobile Suit Gundam: Cucuruz Doan's Island"
+    timeline: tl.uc
+    source: src.uc.doan
+    release_year: 2022
+    format: film
+    covers:
+      - start: "0079"
+        end: "0079"
+        weight: main
+        confidence: approximate
+    focus: >
+      A remake of one 1979 episode. A Zeon deserter raises orphaned
+      children on an island the war has passed over.
+
+  - id: ser.uc.g-saviour
+    title: "G-Saviour"
+    timeline: tl.uc
+    source: src.uc.g-saviour
+    release_year: 2000
+    format: film
+    covers:
+      - start: "0223"
+        end: "0223"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      The one live-action Gundam film, and the furthest point the
+      Universal Century reaches. The Federation has collapsed and the
+      settlements govern themselves.
+
+  - id: ser.uc.requiem
+    title: "Mobile Suit Gundam: Requiem for Vengeance"
+    timeline: tl.uc
+    source: src.uc.requiem
+    release_year: 2024
+    format: ona
+    covers:
+      - start: "0079"
+        end: "0079"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      A Federation tank crew on the European front of the One Year
+      War.
+
+  - id: ser.uc.msg-novel
+    title: "Mobile Suit Gundam (novel)"
+    timeline: tl.uc
+    source: src.uc.msg-novel
+    release_year: 1979
+    format: novel
+    covers:
+      - start: "0079.09"
+        end: "0080.01"
+        weight: main
+        confidence: approximate
+    focus: >
+      Tomino's own retelling, written alongside the series. It ends
+      the war differently, and it kills people the broadcast spares.
+    note: >
+      Arguably a branch rather than a retelling. Filed under the
+      Universal Century for now. A candidate for a branch id once
+      somebody reads it properly.
+
+  - id: ser.uc.advance-of-zeta
+    title: "Advance of Zeta: The Flag of Titans"
+    timeline: tl.uc
+    source: src.uc.advance-of-zeta
+    release_year: 2002
+    format: manga
+    covers:
+      - start: "0084"
+        end: "0087"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      An early Titans unit in the years between Stardust Memory and
+      the Gryps Conflict. It shows the organization before anyone
+      treated it as the enemy.
+
+  - id: ser.uc.ecole
+    title: "Mobile Suit Gundam: Ecole du Ciel"
+    timeline: tl.uc
+    source: src.uc.ecole
+    release_year: 2002
+    format: manga
+    covers:
+      - start: "0085"
+        end: "0087"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      A girl at a Federation flight school in the run-up to the Gryps
+      Conflict, and what it costs her to be good at it.
+
+  - id: ser.uc.blue-destiny
+    title: "Mobile Suit Gundam Side Story: The Blue Destiny"
+    timeline: tl.uc
+    source: src.uc.blue-destiny
+    release_year: 1997
+    format: manga
+    covers:
+      - start: "0079.11"
+        end: "0080.01"
+        weight: main
+        confidence: approximate
+    focus: >
+      A Federation experiment in a machine that reads its pilot, and
+      the Zeon programme racing it.
+
+  - id: ser.uc.chars-deleted-affair
+    title: "Mobile Suit Gundam: Char's Deleted Affair"
+    timeline: tl.uc
+    source: src.uc.chars-deleted-affair
+    release_year: 2010
+    format: manga
+    covers:
+      - start: "0068"
+        end: "0079"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      The years between Casval Rem Deikun and the Red Comet, filling
+      gaps The Origin leaves open.
+
+  - id: ser.uc.moon-gundam
+    title: "Mobile Suit Moon Gundam"
+    timeline: tl.uc
+    source: src.uc.moon-gundam
+    release_year: 2017
+    format: manga
+    covers:
+      - start: "0095"
+        end: "0095"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Between Char's rebellion and the Laplace affair, in the two
+      years the Federation mistook for peace.
+
+  - id: ser.uc.crossbone-skull-heart
+    title: "Mobile Suit Crossbone Gundam: Skull Heart"
+    timeline: tl.uc
+    source: src.uc.crossbone-skull-heart
+    release_year: 1997
+    format: manga
+    covers:
+      - start: "0133"
+        end: "0136"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Short stories from the Crossbone Vanguard's years as privateers.
+
+  - id: ser.uc.crossbone-steel7
+    title: "Mobile Suit Crossbone Gundam: Steel 7"
+    timeline: tl.uc
+    source: src.uc.crossbone-steel7
+    release_year: 2006
+    format: manga
+    covers:
+      - start: "0136"
+        end: "0136"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      The Jupiter Empire's last weapon, and the seven sent to stop it.
+
+  - id: ser.uc.crossbone-ghost
+    title: "Mobile Suit Crossbone Gundam: Ghost"
+    timeline: tl.uc
+    source: src.uc.crossbone-ghost
+    release_year: 2011
+    format: manga
+    covers:
+      - start: "0153"
+        end: "0153"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Set during the Zanscare war. This is where the Crossbone line
+      meets Victory Gundam.
+
+  - id: ser.uc.crossbone-dust
+    title: "Mobile Suit Crossbone Gundam: Dust"
+    timeline: tl.uc
+    source: src.uc.crossbone-dust
+    release_year: 2014
+    format: manga
+    covers:
+      - start: "0169"
+        end: "0169"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      The furthest the Crossbone line reaches, on an Earth that has
+      been given up on again.
+
+  - id: ser.uc.gaia-gear
+    title: "Gaia Gear"
+    timeline: tl.uc
+    source: src.uc.gaia-gear
+    release_year: 1987
+    format: novel
+    covers:
+      - start: "0203"
+        end: "0203"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Two centuries in. A man carrying Char Aznable's genes leads a
+      resistance against a Federation that hunts people back off the
+      Earth.
+    note: >
+      A candidate for a contested_by edge once somebody decides how
+      this dataset should record a disowned work.
+
+  - id: ser.ac.episode-zero
+    title: "New Mobile Report Gundam Wing: Episode Zero"
+    timeline: tl.ac
+    source: src.ac.episode-zero
+    release_year: 1997
+    format: manga
+    covers:
+      - start: "0175"
+        end: "0195"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      How each of the five pilots, Relena and Zechs arrived at AC 195.
+      A prequel told as seven separate lives.
+
+  - id: ser.ac.blind-target
+    title: "New Mobile Report Gundam Wing: Blind Target"
+    timeline: tl.ac
+    source: src.ac.blind-target
+    release_year: 1998
+    format: manga
+    covers:
+      - start: "0196"
+        end: "0196"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Between the end of the war and the Mariemaia rising. The pilots
+      are hunted for the machines they no longer have.
+
+  - id: ser.ac.battlefield-pacifists
+    title: "New Mobile Report Gundam Wing: Battlefield of Pacifists"
+    timeline: tl.ac
+    source: src.ac.battlefield-pacifists
+    release_year: 1998
+    format: manga
+    covers:
+      - start: "0195"
+        end: "0196"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      The political side of the same months, seen from the Sanc
+      Kingdom rather than the cockpit.
+
+  - id: ser.ac.g-unit
+    title: "New Mobile Report Gundam Wing: Last Outpost (G-Unit)"
+    timeline: tl.ac
+    source: src.ac.g-unit
+    release_year: 1997
+    format: manga
+    covers:
+      - start: "0195"
+        end: "0195"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      A remote colony fights off a special forces unit, far from
+      anywhere the main story looks.
+
+  - id: ser.ac.ground-zero
+    title: "New Mobile Report Gundam Wing: Ground Zero"
+    timeline: tl.ac
+    source: src.ac.ground-zero
+    release_year: 1998
+    format: manga
+    covers:
+      - start: "0195"
+        end: "0195"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Short side stories from the same year as Operation Meteor.
+
+  - id: ser.ac.tiels-impulse
+    title: "New Mobile Report Gundam Wing: Tiel's Impulse"
+    timeline: tl.ac
+    source: src.ac.tiels-impulse
+    release_year: 1998
+    format: manga
+    covers:
+      - start: "0195"
+        end: "0195"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      A colonial engineer's side of the war, and a machine built
+      outside the five.
+
+  - id: ser.ac.glory-of-losers
+    title: "New Mobile Report Gundam Wing: Glory of the Losers"
+    timeline: tl.ac
+    source: src.ac.glory-of-losers
+    release_year: 2010
+    format: manga
+    covers:
+      - start: "0195.04.07"
+        end: "0195.12.24"
+        weight: main
+        confidence: approximate
+    focus: >
+      A retelling of the broadcast series that folds in material the
+      original had no room for.
+
+  - id: ser.ce.astray
+    title: "Mobile Suit Gundam SEED Astray"
+    timeline: tl.ce
+    source: src.ce.astray
+    release_year: 2002
+    format: manga
+    covers:
+      - start: "0071.01.25"
+        end: "0071.09.27"
+        weight: main
+        confidence: approximate
+    focus: >
+      The two prototypes nobody in the main story followed, and the
+      salvage crews who ended up with them.
+
+  - id: ser.ce.astray-r
+    title: "Mobile Suit Gundam SEED Astray R"
+    timeline: tl.ce
+    source: src.ce.astray-r
+    release_year: 2003
+    format: manga
+    covers:
+      - start: "0071"
+        end: "0071"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      The red machine's half of the same year, told separately.
+
+  - id: ser.ce.x-astray
+    title: "Mobile Suit Gundam SEED X Astray"
+    timeline: tl.ce
+    source: src.ce.x-astray
+    release_year: 2004
+    format: manga
+    covers:
+      - start: "0071"
+        end: "0072"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      The war's edges, in the months either side of the armistice.
+
+  - id: ser.ce.destiny-astray
+    title: "Mobile Suit Gundam SEED Destiny Astray"
+    timeline: tl.ce
+    source: src.ce.destiny-astray
+    release_year: 2004
+    format: manga
+    covers:
+      - start: "0073"
+        end: "0074"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      The second war from the salvage and mercenary side, where the
+      machines are traded rather than issued.
+
+  - id: ser.ce.frame-astrays
+    title: "Mobile Suit Gundam SEED Frame Astrays"
+    timeline: tl.ce
+    source: src.ce.frame-astrays
+    release_year: 2006
+    format: manga
+    covers:
+      - start: "0073"
+        end: "0074"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Further Astray-line stories set alongside the second war.
+
+  - id: ser.ce.stargazer
+    title: "Mobile Suit Gundam SEED C.E. 73: Stargazer"
+    timeline: tl.ce
+    source: src.ce.stargazer
+    release_year: 2006
+    format: ona
+    covers:
+      - start: "0073"
+        end: "0073"
+        weight: main
+        confidence: approximate
+    focus: >
+      A deep-space exploration ship and the soldiers dragged into
+      protecting it, at the far edge of the second war.
+
+  - id: ser.ce.delta-astray
+    title: "Mobile Suit Gundam SEED C.E. 73 Delta Astray"
+    timeline: tl.ce
+    source: src.ce.delta-astray
+    release_year: 2006
+    format: manga
+    covers:
+      - start: "0073"
+        end: "0073"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Ties the Astray line into the Stargazer story.
+
+  - id: ser.ce.astray-princess
+    title: "Mobile Suit Gundam SEED Astray: Princess of the Sky"
+    timeline: tl.ce
+    source: src.ce.astray-princess
+    release_year: 2007
+    format: manga
+    covers:
+      - start: "0074"
+        end: "0074"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      After the second war, and what the surviving Astray pilots do
+      with the peace.
+
+  - id: ser.ce.eclipse
+    title: "Mobile Suit Gundam SEED Eclipse"
+    timeline: tl.ce
+    source: src.ce.eclipse
+    release_year: 2021
+    format: manga
+    covers:
+      - start: "0074"
+        end: "0075"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Between the second war and the Foundation crisis, in the years
+      the anime skips.
+
+  - id: ser.ad.00f
+    title: "Mobile Suit Gundam 00F"
+    timeline: tl.ad
+    source: src.ad.00f
+    release_year: 2007
+    format: manga
+    covers:
+      - start: "2307"
+        end: "2308"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      A second, autonomous cell of Celestial Being running older
+      machines, working the same years as the first season.
+
+  - id: ser.ad.00i
+    title: "Mobile Suit Gundam 00I"
+    timeline: tl.ad
+    source: src.ad.00i
+    release_year: 2009
+    format: manga
+    covers:
+      - start: "2312"
+        end: "2312"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      The sequel, set alongside the second season and centred on the
+      Innovades.
+
+  - id: ser.ag.memory-of-eden
+    title: "Mobile Suit Gundam AGE: Memory of Eden"
+    timeline: tl.ag
+    source: src.ag.memory-of-eden
+    release_year: 2013
+    format: ova
+    covers:
+      - start: "0140"
+        end: "0140"
+        weight: main
+        confidence: approximate
+    focus: >
+      The second generation recut, with the friendship between Asemu
+      and Zeheart at the centre of it.
+
+  - id: ser.ag.treasure-star
+    title: "Mobile Suit Gundam AGE: Treasure Star"
+    timeline: tl.ag
+    source: src.ag.treasure-star
+    release_year: 2011
+    format: manga
+    covers:
+      - start: "0115"
+        end: "0115"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      A side story from the first generation.
+
+  - id: ser.ag.memories-of-sid
+    title: "Mobile Suit Gundam AGE: Memories of Sid"
+    timeline: tl.ag
+    source: src.ag.memories-of-sid
+    release_year: 2012
+    format: manga
+    covers:
+      - start: "0140"
+        end: "0164"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Between the second and third generations, in the gap the series
+      jumps.
+
+  - id: ser.pd.urdr-hunt
+    title: "Mobile Suit Gundam: Iron-Blooded Orphans — Urdr-Hunt"
+    timeline: tl.pd
+    source: src.pd.urdr-hunt
+    release_year: 2022
+    format: ona
+    covers:
+      - start: "0323"
+        end: "0323"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Another Martian outfit chasing the same kind of contract, in the
+      same years as the main story.
+
+  - id: ser.pd.gekko
+    title: "Mobile Suit Gundam: Iron-Blooded Orphans Gekko"
+    timeline: tl.pd
+    source: src.pd.gekko
+    release_year: 2019
+    format: manga
+    covers:
+      - start: "0323"
+        end: "0325"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      A side story following a crew outside Tekkadan.
+
+  - id: ser.as.prologue
+    title: "Mobile Suit Gundam: The Witch from Mercury — PROLOGUE"
+    timeline: tl.as
+    source: src.as.prologue
+    release_year: 2022
+    format: ona
+    covers:
+      - start: "0101"
+        end: "0101"
+        weight: main
+    focus: >
+      The Vanadis Incident, animated as a standalone episode. It is
+      the whole reason for everything that follows.
+
+  - id: ser.as.vanadis-heart
+    title: "Mobile Suit Gundam the Witch from Mercury — Vanadis Heart"
+    timeline: tl.as
+    source: src.as.vanadis-heart
+    release_year: 2023
+    format: manga
+    covers:
+      - start: "0101"
+        end: "0122"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      The twenty-one years between the Vanadis Incident and the
+      school.
+
+  - id: ser.as.cradle-planet
+    title: "Mobile Suit Gundam: The Witch from Mercury — Cradle Planet"
+    timeline: tl.as
+    source: src.as.cradle-planet
+    release_year: 2022
+    format: novel
+    covers:
+      - start: "0122"
+        end: "0122"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      A short story told from the machine's point of view.
+
+  - id: ser.cc.earth-light
+    title: "Turn A Gundam I: Earth Light"
+    timeline: tl.cc
+    source: src.cc.earth-light
+    release_year: 2002
+    format: film
+    covers:
+      - start: "2345"
+        end: "2345"
+        weight: main
+    focus: >
+      The first half of the series as a film.
+
+  - id: ser.cc.moonlight-butterfly
+    title: "Turn A Gundam II: Moonlight Butterfly"
+    timeline: tl.cc
+    source: src.cc.moonlight-butterfly
+    release_year: 2002
+    format: film
+    covers:
+      - start: "2345"
+        end: "2345"
+        weight: main
+    focus: >
+      The second half as a film, through to the sealing of the
+      machines.
+
+  - id: ser.cc.turn-a-novel
+    title: "Turn A Gundam (novel)"
+    timeline: tl.cc
+    source: src.cc.turn-a-novel
+    release_year: 1999
+    format: novel
+    covers:
+      - start: "2345"
+        end: "2345"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Tomino's own telling, written alongside the series.
+
+  - id: ser.aw.under-the-moonlight
+    title: "After War Gundam X: Under the Moonlight"
+    timeline: tl.aw
+    source: src.aw.under-the-moonlight
+    release_year: 2004
+    format: manga
+    covers:
+      - start: "0024"
+        end: "0024"
+        weight: main
+        confidence: needs-verification
+    focus: >
+      Nine years after the series. A salvage crew works the Moon, and
+      the machines they dig up still have owners.
+
+  - id: ser.fc.g-gundam-manga
+    title: "Mobile Fighter G Gundam (manga)"
+    timeline: tl.fc
+    source: src.fc.g-gundam-manga
+    release_year: 1994
+    format: manga
+    covers:
+      - start: "0060"
+        end: "0060"
+        weight: main
+        confidence: approximate
+    focus: >
+      A retelling of the 13th Gundam Fight that diverges from the
+      broadcast in places.
+
+  - id: ser.build.try-island-wars
+    title: "Gundam Build Fighters Try Island Wars"
+    timeline: tl.build
+    source: src.build.try-island-wars
+    release_year: 2016
+    format: ova
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      A holiday tournament on an island resort, between the two Build
+      Fighters series.
+
+  - id: ser.build.gms-counterattack
+    title: "Gundam Build Fighters: GM's Counterattack"
+    timeline: tl.build
+    source: src.build.gms-counterattack
+    release_year: 2017
+    format: ova
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      A team of ordinary mass-production models against the machines
+      everyone actually wants to build.
+
+  - id: ser.build.bf-battlogue
+    title: "Gundam Build Fighters Battlogue"
+    timeline: tl.build
+    source: src.build.bf-battlogue
+    release_year: 2017
+    format: ona
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      Short exhibition matches with no plot to speak of, drawn from
+      across the Build Fighters cast.
+
+  - id: ser.build.breaker-battlogue
+    title: "Gundam Breaker Battlogue"
+    timeline: tl.build
+    source: src.build.breaker-battlogue
+    release_year: 2021
+    format: ona
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      The same format again, tied to the Gundam Breaker games.
+
+  - id: ser.build.build-real
+    title: "Gundam Build Real"
+    timeline: tl.build
+    source: src.build.build-real
+    release_year: 2021
+    format: tv
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      Live action. Real people building real kits, with the battles
+      imagined rather than simulated.
+
+  - id: ser.sd-w.sangokuden
+    title: "SD Gundam Sangokuden Brave Battle Warriors"
+    timeline: tl.sd.world
+    source: src.sd-w.sangokuden
+    release_year: 2010
+    format: tv
+    covers:
+      - undated: true
+        weight: main
+    focus: >
+      The earlier Three Kingdoms line, told before the 2019 reboot.
+    note: >
+      An earlier and separate telling from ser.sd-w.sangoku. Filed in
+      the same era because both work the same material. Split it into
+      its own continuity if the differences turn out to matter.

@@ -101,3 +101,67 @@ events:
           a military power. The preceding sixty years of entries trace
           that decline.
         sources: [src.uc.victory]
+
+  - id: evt.uc.0136.jupiter-remnant
+    label: The last Jupiter weapon
+    type: battle
+    timeline: tl.uc
+    date:
+      - start: "0136"
+        sources: [src.uc.crossbone-steel7]
+        confidence: needs-verification
+    participants: [fac.uc.crossbone-vanguard, fac.uc.jupiter-empire]
+    summary: >
+      Three years after the Jupiter conflict, a weapon built by the
+      losing side is still running. A small crew goes out to end it.
+    depicted_in: [ser.uc.crossbone-steel7, ser.uc.crossbone-skull-heart]
+    related: [evt.uc.0133.jupiter-conflict]
+
+  - id: evt.uc.0169.dust-conflict
+    label: Fighting over an abandoned Earth
+    type: war
+    timeline: tl.uc
+    date:
+      - start: "0169"
+        sources: [src.uc.crossbone-dust]
+        confidence: needs-verification
+    summary: >
+      Sixteen years after the Zanscare war, Earth has been written off
+      again. What is left of the population fights over what is left of
+      the planet.
+    depicted_in: [ser.uc.crossbone-dust]
+    related: [evt.uc.0153.zanscare-war]
+
+  - id: evt.uc.0203.metatron-resistance
+    label: The Man Hunting campaign
+    type: war
+    timeline: tl.uc
+    date:
+      - start: "0203"
+        sources: [src.uc.gaia-gear]
+        confidence: needs-verification
+    participants: [fac.uc.metatron, fac.uc.man-hunting]
+    summary: >
+      The Federation forces Earth's remaining population back into
+      space, and a resistance movement forms around a man who carries
+      Char Aznable's genes.
+    depicted_in: [ser.uc.gaia-gear]
+    note: >
+      From a work its rights holder has since disowned. Kept because it
+      is published and read, and flagged so nobody mistakes it for
+      settled ground.
+
+  - id: evt.uc.0223.consent-conflict
+    label: The settlements break from Earth
+    type: war
+    timeline: tl.uc
+    date:
+      - start: "0223"
+        sources: [src.uc.g-saviour]
+        confidence: needs-verification
+    participants: [fac.uc.consent, fac.uc.freedom-league]
+    summary: >
+      The Earth Federation has collapsed. The space settlements govern
+      themselves, and two blocs form. A food crisis on Earth turns the
+      split into a war.
+    depicted_in: [ser.uc.g-saviour]

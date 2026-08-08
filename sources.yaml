@@ -402,3 +402,405 @@ sources:
     year: 2021
     tier: 2
     timeline: tl.sd.world
+
+  - id: src.uc.igloo-apocalypse
+    title: "Mobile Suit Gundam MS IGLOO: Apocalypse 0079"
+    kind: ona
+    year: 2006
+    tier: 2
+    timeline: tl.uc
+
+  - id: src.uc.igloo2
+    title: "Mobile Suit Gundam MS IGLOO 2: The Gravity Front"
+    kind: ona
+    year: 2008
+    tier: 2
+    timeline: tl.uc
+
+  - id: src.uc.re0096
+    title: "Mobile Suit Gundam Unicorn RE:0096"
+    kind: tv
+    year: 2016
+    tier: 1
+    timeline: tl.uc
+
+  - id: src.uc.twilight-axis
+    title: "Mobile Suit Gundam: Twilight Axis"
+    kind: ona
+    year: 2017
+    tier: 2
+    timeline: tl.uc
+
+  - id: src.uc.thunderbolt-december
+    title: "Mobile Suit Gundam Thunderbolt: December Sky"
+    kind: film
+    year: 2016
+    tier: 1
+    timeline: tl.uc
+
+  - id: src.uc.thunderbolt-bandit
+    title: "Mobile Suit Gundam Thunderbolt: Bandit Flower"
+    kind: film
+    year: 2017
+    tier: 1
+    timeline: tl.uc
+
+  - id: src.uc.doan
+    title: "Mobile Suit Gundam: Cucuruz Doan's Island"
+    kind: film
+    year: 2022
+    tier: 1
+    timeline: tl.uc
+
+  - id: src.uc.g-saviour
+    title: "G-Saviour"
+    kind: film
+    year: 2000
+    tier: 1
+    timeline: tl.uc
+
+  - id: src.uc.requiem
+    title: "Mobile Suit Gundam: Requiem for Vengeance"
+    kind: ona
+    year: 2024
+    tier: 2
+    timeline: tl.uc
+
+  - id: src.uc.msg-novel
+    title: "Mobile Suit Gundam (novel)"
+    kind: novel
+    year: 1979
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc.advance-of-zeta
+    title: "Advance of Zeta: The Flag of Titans"
+    kind: manga
+    year: 2002
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc.ecole
+    title: "Mobile Suit Gundam: Ecole du Ciel"
+    kind: manga
+    year: 2002
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc.blue-destiny
+    title: "Mobile Suit Gundam Side Story: The Blue Destiny"
+    kind: manga
+    year: 1997
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc.chars-deleted-affair
+    title: "Mobile Suit Gundam: Char's Deleted Affair"
+    kind: manga
+    year: 2010
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc.moon-gundam
+    title: "Mobile Suit Moon Gundam"
+    kind: manga
+    year: 2017
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc.crossbone-skull-heart
+    title: "Mobile Suit Crossbone Gundam: Skull Heart"
+    kind: manga
+    year: 1997
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc.crossbone-steel7
+    title: "Mobile Suit Crossbone Gundam: Steel 7"
+    kind: manga
+    year: 2006
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc.crossbone-ghost
+    title: "Mobile Suit Crossbone Gundam: Ghost"
+    kind: manga
+    year: 2011
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc.crossbone-dust
+    title: "Mobile Suit Crossbone Gundam: Dust"
+    kind: manga
+    year: 2014
+    tier: 3
+    timeline: tl.uc
+
+  - id: src.uc.gaia-gear
+    title: "Gaia Gear"
+    kind: novel
+    year: 1987
+    tier: 3
+    timeline: tl.uc
+    note: >
+      Its rights holder has since disowned it, so its standing is
+      disputed rather than settled.
+
+  - id: src.ac.episode-zero
+    title: "New Mobile Report Gundam Wing: Episode Zero"
+    kind: manga
+    year: 1997
+    tier: 3
+    timeline: tl.ac
+
+  - id: src.ac.blind-target
+    title: "New Mobile Report Gundam Wing: Blind Target"
+    kind: manga
+    year: 1998
+    tier: 3
+    timeline: tl.ac
+
+  - id: src.ac.battlefield-pacifists
+    title: "New Mobile Report Gundam Wing: Battlefield of Pacifists"
+    kind: manga
+    year: 1998
+    tier: 3
+    timeline: tl.ac
+
+  - id: src.ac.g-unit
+    title: "New Mobile Report Gundam Wing: Last Outpost (G-Unit)"
+    kind: manga
+    year: 1997
+    tier: 3
+    timeline: tl.ac
+
+  - id: src.ac.ground-zero
+    title: "New Mobile Report Gundam Wing: Ground Zero"
+    kind: manga
+    year: 1998
+    tier: 3
+    timeline: tl.ac
+
+  - id: src.ac.tiels-impulse
+    title: "New Mobile Report Gundam Wing: Tiel's Impulse"
+    kind: manga
+    year: 1998
+    tier: 3
+    timeline: tl.ac
+
+  - id: src.ac.glory-of-losers
+    title: "New Mobile Report Gundam Wing: Glory of the Losers"
+    kind: manga
+    year: 2010
+    tier: 3
+    timeline: tl.ac
+
+  - id: src.ce.astray
+    title: "Mobile Suit Gundam SEED Astray"
+    kind: manga
+    year: 2002
+    tier: 3
+    timeline: tl.ce
+
+  - id: src.ce.astray-r
+    title: "Mobile Suit Gundam SEED Astray R"
+    kind: manga
+    year: 2003
+    tier: 3
+    timeline: tl.ce
+
+  - id: src.ce.x-astray
+    title: "Mobile Suit Gundam SEED X Astray"
+    kind: manga
+    year: 2004
+    tier: 3
+    timeline: tl.ce
+
+  - id: src.ce.destiny-astray
+    title: "Mobile Suit Gundam SEED Destiny Astray"
+    kind: manga
+    year: 2004
+    tier: 3
+    timeline: tl.ce
+
+  - id: src.ce.frame-astrays
+    title: "Mobile Suit Gundam SEED Frame Astrays"
+    kind: manga
+    year: 2006
+    tier: 3
+    timeline: tl.ce
+
+  - id: src.ce.stargazer
+    title: "Mobile Suit Gundam SEED C.E. 73: Stargazer"
+    kind: ona
+    year: 2006
+    tier: 2
+    timeline: tl.ce
+
+  - id: src.ce.delta-astray
+    title: "Mobile Suit Gundam SEED C.E. 73 Delta Astray"
+    kind: manga
+    year: 2006
+    tier: 3
+    timeline: tl.ce
+
+  - id: src.ce.astray-princess
+    title: "Mobile Suit Gundam SEED Astray: Princess of the Sky"
+    kind: manga
+    year: 2007
+    tier: 3
+    timeline: tl.ce
+
+  - id: src.ce.eclipse
+    title: "Mobile Suit Gundam SEED Eclipse"
+    kind: manga
+    year: 2021
+    tier: 3
+    timeline: tl.ce
+
+  - id: src.ad.00f
+    title: "Mobile Suit Gundam 00F"
+    kind: manga
+    year: 2007
+    tier: 3
+    timeline: tl.ad
+
+  - id: src.ad.00i
+    title: "Mobile Suit Gundam 00I"
+    kind: manga
+    year: 2009
+    tier: 3
+    timeline: tl.ad
+
+  - id: src.ag.memory-of-eden
+    title: "Mobile Suit Gundam AGE: Memory of Eden"
+    kind: ova
+    year: 2013
+    tier: 2
+    timeline: tl.ag
+
+  - id: src.ag.treasure-star
+    title: "Mobile Suit Gundam AGE: Treasure Star"
+    kind: manga
+    year: 2011
+    tier: 3
+    timeline: tl.ag
+
+  - id: src.ag.memories-of-sid
+    title: "Mobile Suit Gundam AGE: Memories of Sid"
+    kind: manga
+    year: 2012
+    tier: 3
+    timeline: tl.ag
+
+  - id: src.pd.urdr-hunt
+    title: "Mobile Suit Gundam: Iron-Blooded Orphans — Urdr-Hunt"
+    kind: ona
+    year: 2022
+    tier: 2
+    timeline: tl.pd
+
+  - id: src.pd.gekko
+    title: "Mobile Suit Gundam: Iron-Blooded Orphans Gekko"
+    kind: manga
+    year: 2019
+    tier: 3
+    timeline: tl.pd
+
+  - id: src.as.prologue
+    title: "Mobile Suit Gundam: The Witch from Mercury — PROLOGUE"
+    kind: ona
+    year: 2022
+    tier: 2
+    timeline: tl.as
+
+  - id: src.as.vanadis-heart
+    title: "Mobile Suit Gundam the Witch from Mercury — Vanadis Heart"
+    kind: manga
+    year: 2023
+    tier: 3
+    timeline: tl.as
+
+  - id: src.as.cradle-planet
+    title: "Mobile Suit Gundam: The Witch from Mercury — Cradle Planet"
+    kind: novel
+    year: 2022
+    tier: 3
+    timeline: tl.as
+
+  - id: src.cc.earth-light
+    title: "Turn A Gundam I: Earth Light"
+    kind: film
+    year: 2002
+    tier: 1
+    timeline: tl.cc
+
+  - id: src.cc.moonlight-butterfly
+    title: "Turn A Gundam II: Moonlight Butterfly"
+    kind: film
+    year: 2002
+    tier: 1
+    timeline: tl.cc
+
+  - id: src.cc.turn-a-novel
+    title: "Turn A Gundam (novel)"
+    kind: novel
+    year: 1999
+    tier: 3
+    timeline: tl.cc
+
+  - id: src.aw.under-the-moonlight
+    title: "After War Gundam X: Under the Moonlight"
+    kind: manga
+    year: 2004
+    tier: 3
+    timeline: tl.aw
+
+  - id: src.fc.g-gundam-manga
+    title: "Mobile Fighter G Gundam (manga)"
+    kind: manga
+    year: 1994
+    tier: 3
+    timeline: tl.fc
+
+  - id: src.build.try-island-wars
+    title: "Gundam Build Fighters Try Island Wars"
+    kind: ova
+    year: 2016
+    tier: 2
+    timeline: tl.build
+
+  - id: src.build.gms-counterattack
+    title: "Gundam Build Fighters: GM's Counterattack"
+    kind: ova
+    year: 2017
+    tier: 2
+    timeline: tl.build
+
+  - id: src.build.bf-battlogue
+    title: "Gundam Build Fighters Battlogue"
+    kind: ona
+    year: 2017
+    tier: 2
+    timeline: tl.build
+
+  - id: src.build.breaker-battlogue
+    title: "Gundam Breaker Battlogue"
+    kind: ona
+    year: 2021
+    tier: 2
+    timeline: tl.build
+
+  - id: src.build.build-real
+    title: "Gundam Build Real"
+    kind: tv
+    year: 2021
+    tier: 1
+    timeline: tl.build
+
+  - id: src.sd-w.sangokuden
+    title: "SD Gundam Sangokuden Brave Battle Warriors"
+    kind: tv
+    year: 2010
+    tier: 1
+    timeline: tl.sd.world

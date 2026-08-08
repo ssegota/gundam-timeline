@@ -713,3 +713,33 @@ factions:
     active:
       start: "0001"
       confidence: editorial
+
+  - id: fac.uc.metatron
+    name: Metatron
+    timeline: tl.uc
+    active:
+      start: "0203"
+      confidence: editorial
+
+  - id: fac.uc.man-hunting
+    name: Man Hunting Attachment
+    timeline: tl.uc
+    parent: fac.uc.efed
+    active:
+      start: "0203"
+      confidence: editorial
+
+  - id: fac.uc.consent
+    name: Congress of Settlement Nations
+    abbrev: CONSENT
+    timeline: tl.uc
+    active:
+      start: "0223"
+      confidence: editorial
+
+  - id: fac.uc.freedom-league
+    name: Settlement Freedom League
+    timeline: tl.uc
+    active:
+      start: "0223"
+      confidence: editorial
