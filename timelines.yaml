@@ -41,18 +41,18 @@ timelines:
         inside the UC does not depend on it.
     span:
       earliest_event: "0001.01.31"
-      latest_event: "0153"
+      latest_event: "0223"
     note: >
       The main UC spine. Where a later work retcons an earlier one, this
-      dataset records both readings as competing claims. Neither one
-      overwrites the other. The 2026-08 pass corrected latest_event from
-      "0223". No event, series or source at UC 0223 exists here. The
-      figure came from G-Saviour, which this dataset does not catalogue,
-      and Gaia Gear at UC 0203 is also absent. A span must describe what
-      the data holds, not what the continuity holds. Otherwise a render
-      draws seventy empty years and shows a gap in the dataset as a gap in
-      history. The file uc-0105-0223-late.yaml keeps its name. Filenames
-      are cosmetic here, and ids are global.
+      collection records both readings as competing claims. Neither one
+      overwrites the other.
+
+      The span ran to "0223" at first. An earlier pass pulled it back to
+      "0153", because nothing at UC 0223 was catalogued and a span must
+      describe what is held here, not what the continuity contains.
+      G-Saviour and Gaia Gear are both in now, so the span reaches 0223
+      again, this time with works behind it. The file named
+      uc-0105-0223-late.yaml gets its name back.
 
   - id: tl.uc.gquuuuuux
     name: Universal Century (GQuuuuuuX branch)
@@ -154,7 +154,7 @@ timelines:
         express. See evt.aw.0001.seventh-space-war.
     span:
       earliest_event: "0001"
-      latest_event: "0015"
+      latest_event: "0024"
     note: >
       After War Gundam X. The premise is the aftermath. The colony drops
       that ended the Seventh Space War killed most of the surface
