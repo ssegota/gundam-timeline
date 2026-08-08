@@ -152,6 +152,10 @@
   #mapWrap{scroll-margin-top:130px}   /* clear the sticky topbar */
   #mapWrap svg{display:block;width:100%;height:auto}
   .badge-t{font-size:13px}
+  /* Branch lines pass close to the titles. A stroke in the page colour,
+     painted under the glyphs, keeps a line from cutting through a letter. */
+  .work-t,.work-s{paint-order:stroke fill;stroke:var(--bg);stroke-width:3px;
+    stroke-linejoin:round}
   .work-t{font-size:12px}
   .work-s{font-size:9px;fill:var(--ink3);font-variant-numeric:tabular-nums;letter-spacing:.05em;
     font-family:system-ui,sans-serif;font-style:normal;font-weight:400}
@@ -564,21 +568,31 @@ function buildNav(){
 }
 
 /* ---------- map ---------- */
-const STEP=30, MINDROP=64, GAP=40, TAN=0.62;
+// One horizontal rail per continuity. The works branch off it on alternating
+// sides, on short diagonals.
+//
+//        __ The Origin
+//       /
+//   ---o------------------------------
+//          \__ Unicorn
+//
+// The rail used to run on a diagonal, which put every title on a slope and
+// made the block grow taller with each work. A horizontal rail reads left to
+// right the way a timeline should, and the branches carry the titles clear of
+// the line instead of stacking beside it.
+const CAPH=28, NEAR=32, LANEGAP=34, LBLW=182, GAP=26, TICK=8, ROWGAP=18;
 function drawMap(){
   const host=$("#mapWrap"); host.textContent="";
   const W=Math.max(600,host.clientWidth||900);
-  const twoCol=W>=760;
+  const twoCol=W>=900;
   const colW=twoCol?(W-26)/2:W;
 
   // Wide rails (many works) span both columns; the rest pack into the
-  // shorter column. Two columns roughly halve the height of the map, which
-  // was the whole complaint about the one-column poster.
-  // Scatter, not a grid. A seeded generator gives each rail its own slope,
-  // indent and breathing room, so the map reads as composed rather than
-  // laid out by a spreadsheet. Seeded and reset per draw, so it never
-  // reshuffles on resize — a map that rearranges itself when you drag the
-  // window is worse than a tidy one.
+  // shorter column. Two columns roughly halve the height of the map.
+  // A seeded generator gives each rail its own indent and breathing room, so
+  // the map reads as composed rather than laid out by a spreadsheet. Seeded
+  // and reset per draw, so it never reshuffles on resize — a map that
+  // rearranges itself when you drag the window is worse than a tidy one.
   let sd=7781; const jr=()=>((sd=(sd*1103515245+12345)&0x7fffffff)/0x7fffffff);
 
   // A work matches on title, era, span or release year — the four things a
@@ -595,33 +609,43 @@ function drawMap(){
   const rows=DATA.timelines.map(t=>{
     const n=t.series.length, wide=twoCol&&n>6;
     const cw=wide?W:colW;
-    const HEAD=Math.min(120,cw*.17), TAIL=Math.min(250,cw*.34);
-    const drop=Math.max(MINDROP,n*STEP);
-    const tan=TAN*(0.86+jr()*0.30);                 // per-rail slope
-    const room=cw-HEAD-TAIL;
-    const runX=Math.max(Math.min(150,room),Math.min(room,drop/tan));
-    const slack=Math.max(0,room-runX);
-    // Centre the drawn block in its column. Left-anchored rails leave a wide
-    // dead margin on the right, which reads as missing content.
-    const cx=Math.max(0,(cw-(HEAD+runX+TAIL))/2);
-    return {t,n,wide,cw,HEAD,TAIL,cx,drop,runX,
+    // Branches fan out in lanes above and below the rail. Two titles in one
+    // lane must not touch, so a rail holds only so many works before it has
+    // to either fan deeper or wrap onto a second segment. Deeper lanes cost
+    // a longer tail — an outer branch reaches further right — and a wrapped
+    // rail costs a whole extra row. Which is cheaper depends on the width,
+    // so price both and take the shorter block. On a wide screen this lands
+    // on one deep rail; on a narrow one it wraps instead of fanning off the
+    // edge. The tail is a hard reserve either way: a rail that runs into it
+    // pushes its last title out of the chart.
+    const tailFor=l=>NEAR+(l-1)*LANEGAP+TICK+9+LBLW;
+    const lenFor=l=>Math.min(Math.max(120,cw-18-tailFor(l)),Math.max(180,n*112));
+    let m={lanes:1,runX:lenFor(1),per:1,segs:1,ext:26,h:2*26+ROWGAP};
+    for(let l=1;n&&l<=6;l++){
+      const runX=lenFor(l), fits=Math.max(1,Math.floor(2*l*runX/LBLW));
+      const segs=Math.ceil(n/fits), ext=NEAR+(l-1)*LANEGAP+22, h=segs*(2*ext+ROWGAP);
+      // Spread the works evenly over the segments rather than filling each.
+      if(l===1||h<m.h) m={lanes:l,runX,per:Math.ceil(n/segs),segs,ext,h};
+    }
+    const room=Math.max(120,cw-18-tailFor(m.lanes));
+    return {t,n,wide,cw,...m,
             hits:t.series.filter(s=>hit(t,s)).length, era:eraHit(t),
-            jx:(jr()-.5)*Math.min(slack,54),         // organic drift about centre
-            jgap:jr()*30};                           // extra breathing room below
+            jx:jr()*Math.min(Math.max(0,room-m.runX),40),
+            jgap:jr()*16};                           // extra breathing room below
   });
   // During a search the matching rails rise to the top. Without this the
   // only hits can sit below the fold, and the chart reads as though nothing
   // happened. Order is otherwise untouched, and the sort is stable.
   if(q) rows.sort((a,b)=>((b.hits>0)-(a.hits>0)) || ((b.era&&!b.n)-(a.era&&!a.n)));
 
-  let yA=34,yB=34;
+  let yA=10,yB=10;
   rows.forEach(r=>{
-    const adv=r.drop+GAP+26+r.jgap;
+    const adv=CAPH+r.h+GAP+r.jgap;
     if(r.wide||!twoCol){ const y=Math.max(yA,yB); r.x=0; r.y=y; yA=yB=y+adv; }
     else if(yA<=yB){ r.x=0; r.y=yA; yA+=adv; }
     else { r.x=colW+26; r.y=yB; yB+=adv; }
   });
-  const H=Math.max(yA,yB)+16;
+  const H=Math.max(yA,yB)+10;
 
   const svg=S("svg",{viewBox:`0 0 ${W} ${H}`,role:"img",
     "aria-label":"All Gundam continuities and the works set in each"});
@@ -643,28 +667,27 @@ function drawMap(){
     // A rail with no match fades but stays. To remove it would collapse the
     // layout and hide how much of the chart the search passed over.
     const live=!q||r.hits>0||(r.era&&dead);
-    const x0=r.x+r.cx+r.HEAD+r.jx,y0=r.y,x1=x0+r.runX,y1=y0+r.drop;
+    const x0=r.x+18+r.jx;
+    // A rail that does not fit on one line continues on the next, in reading
+    // order. segY gives the centre line of segment k.
+    const segH=2*r.ext+ROWGAP, segY=k=>r.y+CAPH+r.ext+k*segH, y0=segY(0);
     const g=S("g",{class:"railg",opacity:live?1:.15});
 
     // invisible plate: makes the whole rail area a hover/click target
-    const plate=S("rect",{class:"plate",x:r.x,y:r.y-30,width:r.cw,height:r.drop+52,rx:14,
+    const plate=S("rect",{class:"plate",x:r.x,y:r.y-4,width:r.cw,height:CAPH+r.h+8,rx:14,
       fill:c,"fill-opacity":isDark()?.06:.05});
     g.appendChild(plate);
 
-    g.appendChild(S("line",{class:(dead||q)?"":"rail-anim",x1:x0,y1:y0,x2:x1,y2:y1,stroke:c,
-      "stroke-width":dead?1.1:2.2,"stroke-linecap":"round",pathLength:dead?null:1,
-      "stroke-dasharray":dead?"3 6":null,opacity:dead?.45:.95,filter:dead?"":GLOW,
-      style:(dead||q)?"":`animation-delay:${Math.min(ri*40,560)}ms`}));
-
-    // rail head: badge + era name + explore affordance
-    const bw=Math.max(46,14+t.abbrev.length*9), bh=22, bx=x0-bw-12, by=y0-bh/2;
+    // caption row above the rail: badge + era name + explore affordance.
+    // It sits clear of the rail so the branches own the space either side.
+    const bw=Math.max(46,14+t.abbrev.length*9), bh=20, bx=r.x+18, by=r.y;
     const head=S("g",{class:"hit",role:"button",tabindex:"0",
       "aria-label":`Open ${t.name}`});
     head.appendChild(S("path",{d:`M${bx} ${by} h${bw-9} l9 ${bh/2} l-9 ${bh/2} h${-(bw-9)} z`,
       fill:c,filter:GLOW}));
-    head.appendChild(S("text",{class:"disp badge-t",x:bx+9,y:by+15,fill:isDark()?"#0b0d12":"#fff",
+    head.appendChild(S("text",{class:"disp badge-t",x:bx+9,y:by+14,fill:isDark()?"#0b0d12":"#fff",
       text:t.abbrev}));
-    head.appendChild(S("text",{class:"era-sub",x:x0+2,y:y0-16},
+    head.appendChild(S("text",{class:"era-sub",x:bx+bw+12,y:by+14},
       t.name.toUpperCase()+(r.n?`  ·  ${r.n} WORK${r.n>1?"S":""}`:""),
       S("tspan",{fill:c,"font-weight":"700"},"    OPEN →")));
     const go=()=>openContinuity(t.id);
@@ -677,27 +700,49 @@ function drawMap(){
     head.addEventListener("mouseleave",hideTip);
     g.appendChild(head);
 
+    // One line per segment. A partial last segment is drawn short, so the
+    // works keep the same pitch on every line.
+    for(let k=0;k<r.segs;k++){
+      const cnt=Math.min(r.per,r.n-k*r.per), len=dead?r.runX:r.runX*cnt/r.per;
+      g.appendChild(S("line",{class:(dead||q)?"":"rail-anim",
+        x1:x0,y1:segY(k),x2:x0+len,y2:segY(k),stroke:c,
+        "stroke-width":dead?1.1:2.2,"stroke-linecap":"round",pathLength:dead?null:1,
+        "stroke-dasharray":dead?"3 6":null,opacity:dead?.45:.95,filter:dead?"":GLOW,
+        style:(dead||q)?"":`animation-delay:${Math.min(ri*40,560)+k*90}ms`}));
+      if(dead) break;
+    }
+
     if(dead){
-      // Below the rail end — at the midpoint the descending dashes strike
-      // straight through the words.
-      g.appendChild(S("text",{class:"work-s",x:x0+6,y:y1+16,
+      g.appendChild(S("text",{class:"work-s",x:x0+2,y:y0+18,
         text:"declared, no entries"}));
       svg.appendChild(g); return;
     }
 
+    // Every branch line goes in first, so no leader can be drawn over a
+    // title that belongs to a different work.
+    const leads=S("g"); g.appendChild(leads);
+
     t.series.forEach((s,i)=>{
-      const f=(i+.5)/r.n, px=x0+(x1-x0)*f, py=y0+(y1-y0)*f;
+      const seg=Math.floor(i/r.per), j=i%r.per;
+      const px=x0+(r.runX/r.per)*(j+.5), yS=segY(seg);
+      // Alternate sides, and step out one lane every second work on a side,
+      // so two titles in the same lane are 2*lanes works apart.
+      const up=j%2===0, lane=Math.floor(j/2)%r.lanes, rise=NEAR+lane*LANEGAP;
+      const ex=px+rise, ey=yS+(up?-rise:rise), nx=ex+TICK;
       const on=hit(t,s);
+      leads.appendChild(S("path",{d:`M${px} ${yS} L${ex} ${ey} H${nx}`,fill:"none",stroke:c,
+        "stroke-width":1.4,"stroke-linecap":"round","stroke-linejoin":"round",
+        opacity:(!q||on)?.5:.12}));
       const gg=S("g",{class:q?"hit":"hit node-anim",opacity:(!q||on)?1:.2,
         style:q?"":`animation-delay:${Math.min(ri*40,560)+Math.min(i*30,300)+140}ms`});
-      gg.appendChild(S("circle",{cx:px,cy:py,r:(q&&on)?6.4:4.6,fill:(q&&on)?c:"var(--card)",
+      gg.appendChild(S("circle",{cx:nx,cy:ey,r:(q&&on)?6.4:4.6,fill:(q&&on)?c:"var(--card)",
         stroke:c,"stroke-width":2.2,filter:GLOW}));
-      gg.appendChild(S("text",{class:"disp work-t",x:px+12,y:py-13,fill:c,
+      gg.appendChild(S("title",{text:s.title}));
+      gg.appendChild(S("text",{class:"disp work-t",x:nx+9,y:ey-2,fill:c,
         text:clip(shortTitle(s.title).replace(/\s*\((first|second) season\)/i,
-          m=>/first/i.test(m)?" I":" II"),r.wide?34:24)+(s.foreign?" ↗":"")},
-        S("title",{text:s.title})));
+          m=>/first/i.test(m)?" I":" II"),r.wide?26:22)+(s.foreign?" ↗":"")}));
       const span=s.spans.find(x=>!x.undated&&x.weight==="main")||s.spans.find(x=>!x.undated);
-      gg.appendChild(S("text",{class:"work-s",x:px+12,y:py-3,
+      gg.appendChild(S("text",{class:"work-s",x:nx+9,y:ey+10,
         text:(span?`${t.abbrev} ${span.start}${span.end&&span.end!==span.start?"–"+span.end:""}`:"undated")
              +(s.release?` · ${s.release}`:"")}));
       gg.addEventListener("click",e=>{e.stopPropagation();TL=t;openSeries(s);});
@@ -1056,10 +1101,11 @@ $("#navMap").onclick=goMap; $("#backBtn").onclick=goMap;
 $("#q").addEventListener("input",e=>{Q=e.target.value.trim();drawChart();drawTray();drawTable();});
 $("#mapHelp").onclick=()=>{
   const b=el("div",{});
-  b.appendChild(el("p",{text:"One rail shows one continuity. The works sit along the rail in order."}));
+  b.appendChild(el("p",{text:"One rail shows one continuity. The works branch off the rail in "
+    +"order, above and below it."}));
   b.appendChild(el("p",{text:"The spacing shows sequence, not elapsed time. The eras share no clock, "
     +"so one scale for all of them would be wrong. Open a continuity to see its own axis."}));
-  b.appendChild(el("p",{text:"Click a rail head to open that continuity. Click a node to read its "
+  b.appendChild(el("p",{text:"Click a rail name to open that continuity. Click a work to read its "
     +"sources and claims. Use the search to find a work, an era or a year."}));
   openDialog(dtitle("How to read the star chart",
     `${DATA.totals.timelines} continuities, ${DATA.totals.series} works`),b);
@@ -1081,21 +1127,52 @@ $("#flagHelp").onclick=()=>{
   openDialog(dtitle("What the flags mean",TL.name),b);
 };
 $("#aboutBtn").onclick=()=>{
-  const rows=[
-    ["@","Email","ssegota@gmail.com","mailto:ssegota@gmail.com",false],
-    ["GH","GitHub","ssegota","https://github.com/ssegota",false],
-    ["X","X","sandisegota","https://x.com/sandisegota",false],
-    ["Ko","Ko-fi","sabase","https://ko-fi.com/sabase",false],
-  ];
   const b=el("div",{});
-  b.appendChild(el("p",{text:"Every Gundam continuity, every work set in one, and the "
-    +"events they cover. Built by a fan, for fans."}));
+  b.appendChild(el("p",{text:"Gundam does not have one timeline. It has "
+    +`${DATA.totals.timelines}, and they do not share a calendar. This page puts all of them in `
+    +`one place: every continuity, the ${DATA.totals.series} works set in one, and the events `
+    +"those works cover."}));
+  b.appendChild(el("p",{text:"The star chart is the whole franchise at a glance. Open any "
+    +"continuity and you get its own calendar, the works drawn against it as bars, and its "
+    +"events in order. Every event names the works that show it, and every work, faction and "
+    +"event links out to the Gundam Wiki."}));
+  b.appendChild(el("p",{text:"The canon argues with itself. Works made decades apart date the "
+    +"same battle differently, some dates come from reference books rather than from anything on "
+    +"screen, and some works cannot be dated at all. This page shows that instead of hiding it. "
+    +"Where two works disagree, both readings stay on the page, and a flag marks whatever is a "
+    +"guess, is contested, or is still unchecked. Use the flag key on any continuity to read "
+    +"what each one means."}));
+
+  b.appendChild(el("h3",{text:"What this is built from"}));
+  const src=el("ul",{class:"plain"});
+  [["The works themselves",
+    `${DATA.totals.sources} films, series, OVAs, ONAs, manga and novels. These are the primary `
+    +"record. Every dated event on this page cites the ones it rests on, and you can see the "
+    +"citation on the event itself."],
+   ["The Gundam Wiki",
+    "Used to check titles, spellings and dates, and to find works this project had missed. "
+    +"Every article link on this page was resolved against it and confirmed to load."],
+   ["Published Universal Century chronologies",
+    "Encyclopedias, mooks and model kit documentation. Most exact day and month dates in the "
+    +"Universal Century come from these rather than from any story, so they are recorded as one "
+    +"source and flagged as unchecked against a primary publication."]]
+    .forEach(([n,d])=>src.appendChild(el("li",{},el("b",{text:n}),el("span",{text:" — "+d}))));
+  b.appendChild(src);
+  b.appendChild(el("p",{class:"note",text:"Gundam is the property of Sotsu and Sunrise. This is "
+    +"an unofficial fan project, and it makes no claim on their work."}));
+
+  b.appendChild(el("h3",{text:"Links"}));
   const ul=el("div",{class:"links"});
-  rows.forEach(([ic,name,val,href,off])=>{
-    const a=el("a",{href,...(off?{"aria-disabled":"true"}:{target:"_blank",rel:"noopener"})},
+  [["</>","Source code and data","ssegota/gundam-timeline",
+     "https://github.com/ssegota/gundam-timeline"],
+   ["@","Email","ssegota@gmail.com","mailto:ssegota@gmail.com"],
+   ["GH","GitHub","ssegota","https://github.com/ssegota"],
+   ["X","X","sandisegota","https://x.com/sandisegota"],
+   ["Ko","Ko-fi","sabase","https://ko-fi.com/sabase"],
+  ].forEach(([ic,name,val,href])=>{
+    ul.appendChild(el("a",{href,target:"_blank",rel:"noopener"},
       el("span",{class:"ic",text:ic}),
-      el("span",{},el("b",{text:name}),el("span",{text:val})));
-    ul.appendChild(a);
+      el("span",{},el("b",{text:name}),el("span",{text:val}))));
   });
   b.appendChild(ul);
   openDialog(dtitle("About","Gundam Timeline"),b);

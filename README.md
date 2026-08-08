@@ -8,7 +8,7 @@ contradicts itself, the dates are frequently imprecise, and works released
 decades apart describe the same events differently. This dataset is
 structured around that fact rather than in spite of it.
 
-**Status:** 100 events across 44 series in 19 continuities — every Gundam
+**Status:** 109 events across 104 works in 19 continuities — every Gundam
 continuity that has one, plus three declared as stubs. The UC spine is
 verified against reference compilations (eleven dates were wrong);
 everything added in the 2026-08 expansion is seeded at main-spine depth and
@@ -94,7 +94,7 @@ the SD Gundam settings have no chronology of any kind. For those,
 inventing an era to satisfy the schema would be precisely the fabrication
 this project exists to avoid.
 
-12 of 100 events carry no absolute date: 5 ordered by anchor, 7 fully
+12 of 109 events carry no absolute date: 5 ordered by anchor, 7 fully
 undated. `validate.py` prints that split on every run, because a dataset
 that silently contains unplaceable events is one nobody remembers to check.
 **Consumers must not sort on these.** Placing an undated event at the
@@ -422,7 +422,7 @@ Layer 3 is where the value is. It found the depiction/reference bug
 described above, and it will catch the same class of error every time you
 add a series with a flashback.
 
-Current state: **0 errors, 1 warning** across 100 events — the one warning
+Current state: **0 errors, 1 warning** across 109 events — the one warning
 is informational, reporting that `evt.uc.0133.jupiter-conflict` carries two
 competing date claims. That is intended; contested dates are always
 reported so they never go unnoticed.
@@ -451,6 +451,13 @@ published site cannot drift from the data it claims to render.
 The page embeds a subset of Noto Sans Display under the SIL Open Font
 License 1.1. `THIRD-PARTY-FONTS.txt` carries that licence, because the OFL
 requires it to travel with the font.
+
+## Licence
+
+The code and the dataset are MIT licensed; see `LICENSE`. That covers what
+is written here, not what it describes. Gundam is the property of Sotsu and
+Sunrise, this is an unofficial fan project, and the titles, names and events
+catalogued here belong to their rights holders.
 
 One Python script, one HTML template, no toolchain and no runtime
 dependencies. The YAML is read once at build time and embedded as JSON, so
