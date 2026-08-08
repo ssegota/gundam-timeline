@@ -19,6 +19,7 @@
 
 series:
   - id: ser.uc.origin
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_The_Origin"
     title: "Mobile Suit Gundam: The Origin"
     timeline: tl.uc
     source: src.uc.origin
@@ -33,6 +34,7 @@ series:
       the opening of the One Year War from the Zeon side.
 
   - id: ser.uc.origin-anime
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_The_Origin_Advent_of_the_Red_Comet"
     title: "Mobile Suit Gundam: The Origin (Advent of the Red Comet)"
     timeline: tl.uc
     source: src.uc.origin
@@ -47,6 +49,7 @@ series:
       only.
 
   - id: ser.uc.msg
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam"
     title: Mobile Suit Gundam
     timeline: tl.uc
     source: src.uc.msg-tv
@@ -60,6 +63,7 @@ series:
       The run of the White Base from Side 7 to A Baoa Qu.
 
   - id: ser.uc.08th
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team"
     title: "Mobile Suit Gundam: The 08th MS Team"
     timeline: tl.uc
     source: src.uc.08th
@@ -75,6 +79,7 @@ series:
       series.
 
   - id: ser.uc.thunderbolt
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Thunderbolt"
     title: Mobile Suit Gundam Thunderbolt
     timeline: tl.uc
     source: src.uc.thunderbolt
@@ -101,6 +106,7 @@ series:
       to matter. The timeline tl.uc.gquuuuuux already gets that treatment.
 
   - id: ser.uc.igloo
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_MS_IGLOO:_The_Hidden_One_Year_War"
     title: Mobile Suit Gundam MS IGLOO
     timeline: tl.uc
     source: src.uc.igloo
@@ -114,6 +120,7 @@ series:
       Zeon weapons trials, told from the losing side.
 
   - id: ser.uc.0080
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0080:_War_in_the_Pocket"
     title: "Mobile Suit Gundam 0080: War in the Pocket"
     timeline: tl.uc
     source: src.uc.0080
@@ -128,6 +135,7 @@ series:
       of the war, seen by a child.
 
   - id: ser.uc.0083
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083:_Stardust_Memory"
     title: "Mobile Suit Gundam 0083: Stardust Memory"
     timeline: tl.uc
     source: src.uc.0083
@@ -153,6 +161,7 @@ series:
       Operation Stardust, and the politics that produce the Titans.
 
   - id: ser.uc.zeta
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Zeta_Gundam"
     title: Mobile Suit Zeta Gundam
     timeline: tl.uc
     source: src.uc.zeta
@@ -167,6 +176,7 @@ series:
       The Gryps Conflict between the Titans, the AEUG and Axis.
 
   - id: ser.uc.zz
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_ZZ"
     title: Mobile Suit Gundam ZZ
     timeline: tl.uc
     source: src.uc.zz
@@ -181,6 +191,7 @@ series:
       The First Neo Zeon War. It follows directly from Zeta Gundam.
 
   - id: ser.uc.cca
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Char's_Counterattack"
     title: "Mobile Suit Gundam: Char's Counterattack"
     timeline: tl.uc
     source: src.uc.cca
@@ -195,6 +206,7 @@ series:
       The Second Neo Zeon War and the attempt to drop Axis.
 
   - id: ser.uc.unicorn
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Unicorn"
     title: Mobile Suit Gundam Unicorn
     timeline: tl.uc
     source: src.uc.unicorn
@@ -216,6 +228,7 @@ series:
       bombing that started everything, then jumps ninety-five years.
 
   - id: ser.uc.narrative
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Narrative"
     title: Mobile Suit Gundam Narrative
     timeline: tl.uc
     source: src.uc.narrative
@@ -234,6 +247,8 @@ series:
       unit.
 
   - id: ser.uc.hathaway
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Hathaway"
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Hathaway's_Flash"
     title: "Mobile Suit Gundam: Hathaway's Flash"
     timeline: tl.uc
     source: src.uc.hathaway-novel
@@ -247,6 +262,7 @@ series:
       An insurgency against the Federation, led by Hathaway Noa.
 
   - id: ser.uc.f91
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_F91"
     title: Mobile Suit Gundam F91
     timeline: tl.uc
     source: src.uc.f91
@@ -262,6 +278,7 @@ series:
       the UC spine and the most visible feature of any linear render.
 
   - id: ser.uc.crossbone
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Crossbone_Gundam"
     title: Mobile Suit Crossbone Gundam
     timeline: tl.uc
     source: src.uc.crossbone
@@ -275,6 +292,7 @@ series:
       The Jupiter Empire conflict, ten years after F91.
 
   - id: ser.uc.victory
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Victory_Gundam"
     title: Mobile Suit Victory Gundam
     timeline: tl.uc
     source: src.uc.victory
@@ -288,6 +306,7 @@ series:
       The war of the Zanscare Empire against the League Militaire.
 
   - id: ser.uc-g.gquuuuuux
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_GQuuuuuuX"
     title: "Mobile Suit Gundam GQuuuuuuX"
     timeline: tl.uc.gquuuuuux
     source: src.uc-g.gquuuuuux
@@ -317,6 +336,7 @@ series:
   # ---------------------------------------------------------------------
 
   - id: ser.fc.g-gundam
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Fighter_G_Gundam"
     title: Mobile Fighter G Gundam
     timeline: tl.fc
     source: src.fc.g-gundam
@@ -331,6 +351,7 @@ series:
       colonies have already given up.
 
   - id: ser.ac.wing
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Wing"
     title: New Mobile Report Gundam Wing
     timeline: tl.ac
     source: src.ac.wing
@@ -350,6 +371,7 @@ series:
       collapses.
 
   - id: ser.ac.endless-waltz
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Wing_Endless_Waltz"
     title: "Gundam Wing: Endless Waltz"
     timeline: tl.ac
     source: src.ac.endless-waltz
@@ -368,6 +390,7 @@ series:
       it was built for.
 
   - id: ser.aw.gundam-x
+    wiki: "https://gundam.fandom.com/wiki/After_War_Gundam_X"
     title: After War Gundam X
     timeline: tl.aw
     source: src.aw.gundam-x
@@ -387,6 +410,7 @@ series:
       building them.
 
   - id: ser.cc.turn-a
+    wiki: "https://gundam.fandom.com/wiki/%E2%88%80_Gundam"
     title: Turn A Gundam
     timeline: tl.cc
     source: src.cc.turn-a
@@ -401,6 +425,7 @@ series:
       Both sides dig up the weapons of the earlier civilization.
 
   - id: ser.ce.seed
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED"
     title: Mobile Suit Gundam SEED
     timeline: tl.ce
     source: src.ce.seed
@@ -419,6 +444,7 @@ series:
       months before the story proper.
 
   - id: ser.ce.seed-destiny
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Destiny"
     title: Mobile Suit Gundam SEED Destiny
     timeline: tl.ce
     source: src.ce.seed-destiny
@@ -434,6 +460,7 @@ series:
       the first one.
 
   - id: ser.ce.seed-freedom
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Freedom"
     title: Mobile Suit Gundam SEED FREEDOM
     timeline: tl.ce
     source: src.ce.seed-freedom
@@ -450,6 +477,7 @@ series:
       over.
 
   - id: ser.ad.gundam-00-s1
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00"
     title: Mobile Suit Gundam 00 (first season)
     timeline: tl.ad
     source: src.ad.gundam-00
@@ -465,6 +493,7 @@ series:
       it.
 
   - id: ser.ad.gundam-00-s2
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00"
     title: Mobile Suit Gundam 00 (second season)
     timeline: tl.ad
     source: src.ad.gundam-00
@@ -483,6 +512,7 @@ series:
       silence as coverage.
 
   - id: ser.ad.trailblazer
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00_The_Movie_-A_wakening_of_the_Trailblazer-"
     title: "Mobile Suit Gundam 00: A Wakening of the Trailblazer"
     timeline: tl.ad
     source: src.ad.trailblazer
@@ -496,6 +526,7 @@ series:
       First contact, and the only non-human enemy in any Gundam continuity.
 
   - id: ser.ag.gundam-age
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE"
     title: Mobile Suit Gundam AGE
     timeline: tl.ag
     source: src.ag.gundam-age
@@ -525,6 +556,7 @@ series:
       those silences are the point of the series.
 
   - id: ser.rc.g-reco
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Reconguista_in_G"
     title: "Gundam Reconguista in G"
     timeline: tl.rc
     source: src.rc.g-reco
@@ -539,6 +571,7 @@ series:
       survives from it, and the people treat the elevator as scripture.
 
   - id: ser.pd.ibo-s1
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_IRON-BLOODED_ORPHANS"
     title: "Mobile Suit Gundam: Iron-Blooded Orphans (first season)"
     timeline: tl.pd
     source: src.pd.ibo
@@ -553,6 +586,7 @@ series:
       Child soldiers on Mars escort an independence activist to Earth.
 
   - id: ser.pd.ibo-s2
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_IRON-BLOODED_ORPHANS"
     title: "Mobile Suit Gundam: Iron-Blooded Orphans (second season)"
     timeline: tl.pd
     source: src.pd.ibo
@@ -568,6 +602,7 @@ series:
       destroying.
 
   - id: ser.as.witch
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_the_Witch_from_Mercury"
     title: "Mobile Suit Gundam: The Witch from Mercury"
     timeline: tl.as
     source: src.as.witch
@@ -595,6 +630,7 @@ series:
   # ---------------------------------------------------------------------
 
   - id: ser.mc.frozen-teardrop
+    wiki: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_Wing:_Frozen_Teardrop"
     title: "New Mobile Report Gundam Wing: Frozen Teardrop"
     timeline: tl.mc
     source: src.mc.frozen-teardrop
@@ -630,6 +666,7 @@ series:
       rate as well as an offset, and the schema holds no rate.
 
   - id: ser.build.gunpla-builders
+    wiki: "https://gundam.fandom.com/wiki/Model_Suit_Gunpla_Builders_Beginning_G"
     title: "Model Suit Gunpla Builders Beginning G"
     timeline: tl.build
     source: src.build.gunpla-builders
@@ -643,6 +680,7 @@ series:
       nothing more.
 
   - id: ser.build.build-fighters
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Fighters"
     title: Gundam Build Fighters
     timeline: tl.build
     source: src.build.build-fighters
@@ -662,6 +700,7 @@ series:
       other Gundam continuity exists there as fiction.
 
   - id: ser.build.build-fighters-try
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Fighters_Try"
     title: Gundam Build Fighters Try
     timeline: tl.build
     source: src.build.build-fighters-try
@@ -676,6 +715,7 @@ series:
       era has.
 
   - id: ser.build.build-divers
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Divers"
     title: Gundam Build Divers
     timeline: tl.build
     source: src.build.build-divers
@@ -690,6 +730,7 @@ series:
       Fighters works.
 
   - id: ser.build.build-divers-rerise
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Divers_Re:RISE"
     title: "Gundam Build Divers Re:RISE"
     timeline: tl.build
     source: src.build.build-divers-rerise
@@ -703,6 +744,7 @@ series:
       rather than a date.
 
   - id: ser.build.build-metaverse
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Metaverse"
     title: Gundam Build Metaverse
     timeline: tl.build
     source: src.build.build-metaverse
@@ -716,6 +758,7 @@ series:
       contribution here is about shape, not chronology.
 
   - id: ser.sd-f.gundam-force
+    wiki: "https://gundam.fandom.com/wiki/Superior_Defender_Gundam_Force"
     title: SD Gundam Force
     timeline: tl.sd.force
     source: src.sd-f.gundam-force
@@ -729,6 +772,7 @@ series:
       spreads into two further worlds that rework the older SD settings.
 
   - id: ser.sd-w.sangoku
+    wiki: "https://gundam.fandom.com/wiki/SD_Gundam_World_Sangoku_Soketsuden"
     title: SD Gundam World Sangoku Soketsuden
     timeline: tl.sd.world
     source: src.sd-w.sangoku
@@ -741,6 +785,7 @@ series:
       A Romance of the Three Kingdoms analogue, cast with Gundam designs.
 
   - id: ser.sd-w.heroes
+    wiki: "https://gundam.fandom.com/wiki/SD_Gundam_World_Heroes"
     title: SD Gundam World Heroes
     timeline: tl.sd.world
     source: src.sd-w.heroes
@@ -753,6 +798,7 @@ series:
       A sequel. It opens the setting into an explicit multiverse of
       worlds, each with its own protagonist.
   - id: ser.uc.msg-films
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_I"
     title: "Mobile Suit Gundam (compilation film trilogy)"
     timeline: tl.uc
     source: src.uc.msg-films
@@ -782,6 +828,7 @@ series:
       assassination campaign against the government his father served.
 
   - id: ser.rc.g-reco-films
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Reconguista_in_G"
     title: "Gundam Reconguista in G (film series)"
     timeline: tl.rc
     source: src.rc.g-reco-films
@@ -796,6 +843,7 @@ series:
       material.
 
   - id: ser.uc.igloo-apocalypse
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_MS_IGLOO:_Apocalypse_0079"
     title: "Mobile Suit Gundam MS IGLOO: Apocalypse 0079"
     timeline: tl.uc
     source: src.uc.igloo-apocalypse
@@ -811,6 +859,7 @@ series:
       experimental weapons they spent lives proving.
 
   - id: ser.uc.igloo2
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_MS_IGLOO_2:_The_Gravity_Front"
     title: "Mobile Suit Gundam MS IGLOO 2: The Gravity Front"
     timeline: tl.uc
     source: src.uc.igloo2
@@ -827,6 +876,7 @@ series:
       you pilot.
 
   - id: ser.uc.re0096
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Unicorn_RE:0096"
     title: "Mobile Suit Gundam Unicorn RE:0096"
     timeline: tl.uc
     source: src.uc.re0096
@@ -841,6 +891,7 @@ series:
       The Unicorn serial recut for weekly broadcast.
 
   - id: ser.uc.twilight-axis
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Twilight_Axis"
     title: "Mobile Suit Gundam: Twilight Axis"
     timeline: tl.uc
     source: src.uc.twilight-axis
@@ -856,6 +907,7 @@ series:
       Laplace affair and finds the asteroid is not empty.
 
   - id: ser.uc.thunderbolt-december
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Thunderbolt:_December_Sky"
     title: "Mobile Suit Gundam Thunderbolt: December Sky"
     timeline: tl.uc
     source: src.uc.thunderbolt-december
@@ -870,6 +922,7 @@ series:
       The animated Thunderbolt Sector, cut as a film.
 
   - id: ser.uc.thunderbolt-bandit
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Thunderbolt:_Bandit_Flower"
     title: "Mobile Suit Gundam Thunderbolt: Bandit Flower"
     timeline: tl.uc
     source: src.uc.thunderbolt-bandit
@@ -885,6 +938,7 @@ series:
       Sector are still fighting the war.
 
   - id: ser.uc.doan
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Cucuruz_Doan's_Island"
     title: "Mobile Suit Gundam: Cucuruz Doan's Island"
     timeline: tl.uc
     source: src.uc.doan
@@ -900,6 +954,7 @@ series:
       children on an island the war has passed over.
 
   - id: ser.uc.g-saviour
+    wiki: "https://gundam.fandom.com/wiki/G-Saviour"
     title: "G-Saviour"
     timeline: tl.uc
     source: src.uc.g-saviour
@@ -916,6 +971,7 @@ series:
       settlements govern themselves.
 
   - id: ser.uc.requiem
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Requiem_for_Vengeance"
     title: "Mobile Suit Gundam: Requiem for Vengeance"
     timeline: tl.uc
     source: src.uc.requiem
@@ -931,6 +987,7 @@ series:
       War.
 
   - id: ser.uc.msg-novel
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_(Novel)"
     title: "Mobile Suit Gundam (novel)"
     timeline: tl.uc
     source: src.uc.msg-novel
@@ -950,6 +1007,7 @@ series:
       somebody reads it properly.
 
   - id: ser.uc.advance-of-zeta
+    wiki: "https://gundam.fandom.com/wiki/Advance_of_Zeta:_The_Flag_of_Titans"
     title: "Advance of Zeta: The Flag of Titans"
     timeline: tl.uc
     source: src.uc.advance-of-zeta
@@ -966,6 +1024,7 @@ series:
       treated it as the enemy.
 
   - id: ser.uc.ecole
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_%C3%89cole_du_Ciel"
     title: "Mobile Suit Gundam: Ecole du Ciel"
     timeline: tl.uc
     source: src.uc.ecole
@@ -981,6 +1040,7 @@ series:
       Conflict, and what it costs her to be good at it.
 
   - id: ser.uc.blue-destiny
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Side_Story:_The_Blue_Destiny"
     title: "Mobile Suit Gundam Side Story: The Blue Destiny"
     timeline: tl.uc
     source: src.uc.blue-destiny
@@ -996,6 +1056,7 @@ series:
       the Zeon programme racing it.
 
   - id: ser.uc.chars-deleted-affair
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Char's_Deleted_Affair:_Portrait_Of_Young_Comet"
     title: "Mobile Suit Gundam: Char's Deleted Affair"
     timeline: tl.uc
     source: src.uc.chars-deleted-affair
@@ -1011,6 +1072,7 @@ series:
       gaps The Origin leaves open.
 
   - id: ser.uc.moon-gundam
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Moon_Gundam"
     title: "Mobile Suit Moon Gundam"
     timeline: tl.uc
     source: src.uc.moon-gundam
@@ -1026,6 +1088,7 @@ series:
       years the Federation mistook for peace.
 
   - id: ser.uc.crossbone-skull-heart
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Crossbone_Gundam:_Skull_Heart"
     title: "Mobile Suit Crossbone Gundam: Skull Heart"
     timeline: tl.uc
     source: src.uc.crossbone-skull-heart
@@ -1040,6 +1103,7 @@ series:
       Short stories from the Crossbone Vanguard's years as privateers.
 
   - id: ser.uc.crossbone-steel7
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Crossbone_Gundam:_Steel_7"
     title: "Mobile Suit Crossbone Gundam: Steel 7"
     timeline: tl.uc
     source: src.uc.crossbone-steel7
@@ -1054,6 +1118,7 @@ series:
       The Jupiter Empire's last weapon, and the seven sent to stop it.
 
   - id: ser.uc.crossbone-ghost
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Crossbone_Gundam:_Ghost"
     title: "Mobile Suit Crossbone Gundam: Ghost"
     timeline: tl.uc
     source: src.uc.crossbone-ghost
@@ -1069,6 +1134,7 @@ series:
       meets Victory Gundam.
 
   - id: ser.uc.crossbone-dust
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Crossbone_Gundam:_Dust"
     title: "Mobile Suit Crossbone Gundam: Dust"
     timeline: tl.uc
     source: src.uc.crossbone-dust
@@ -1084,6 +1150,7 @@ series:
       been given up on again.
 
   - id: ser.uc.gaia-gear
+    wiki: "https://gundam.fandom.com/wiki/Gaia_Gear"
     title: "Gaia Gear"
     timeline: tl.uc
     source: src.uc.gaia-gear
@@ -1103,6 +1170,7 @@ series:
       this dataset should record a disowned work.
 
   - id: ser.ac.episode-zero
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Wing:_Episode_Zero"
     title: "New Mobile Report Gundam Wing: Episode Zero"
     timeline: tl.ac
     source: src.ac.episode-zero
@@ -1118,6 +1186,7 @@ series:
       A prequel told as seven separate lives.
 
   - id: ser.ac.blind-target
+    wiki: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_Wing:_Blind_Target"
     title: "New Mobile Report Gundam Wing: Blind Target"
     timeline: tl.ac
     source: src.ac.blind-target
@@ -1133,6 +1202,7 @@ series:
       are hunted for the machines they no longer have.
 
   - id: ser.ac.battlefield-pacifists
+    wiki: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_Wing:_Battlefield_of_Pacifists"
     title: "New Mobile Report Gundam Wing: Battlefield of Pacifists"
     timeline: tl.ac
     source: src.ac.battlefield-pacifists
@@ -1148,6 +1218,7 @@ series:
       Kingdom rather than the cockpit.
 
   - id: ser.ac.g-unit
+    wiki: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_Wing_Dual_Story:_G-Unit"
     title: "New Mobile Report Gundam Wing: Last Outpost (G-Unit)"
     timeline: tl.ac
     source: src.ac.g-unit
@@ -1163,6 +1234,7 @@ series:
       anywhere the main story looks.
 
   - id: ser.ac.ground-zero
+    wiki: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_Wing:_Ground_Zero"
     title: "New Mobile Report Gundam Wing: Ground Zero"
     timeline: tl.ac
     source: src.ac.ground-zero
@@ -1177,6 +1249,7 @@ series:
       Short side stories from the same year as Operation Meteor.
 
   - id: ser.ac.tiels-impulse
+    wiki: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_Wing_Sidestory:_Tiel's_Impulse"
     title: "New Mobile Report Gundam Wing: Tiel's Impulse"
     timeline: tl.ac
     source: src.ac.tiels-impulse
@@ -1192,6 +1265,7 @@ series:
       outside the five.
 
   - id: ser.ac.glory-of-losers
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Wing_Endless_Waltz:_Glory_of_the_Losers"
     title: "New Mobile Report Gundam Wing: Glory of the Losers"
     timeline: tl.ac
     source: src.ac.glory-of-losers
@@ -1207,6 +1281,7 @@ series:
       original had no room for.
 
   - id: ser.ce.astray
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Astray"
     title: "Mobile Suit Gundam SEED Astray"
     timeline: tl.ce
     source: src.ce.astray
@@ -1222,6 +1297,7 @@ series:
       salvage crews who ended up with them.
 
   - id: ser.ce.astray-r
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Astray_R"
     title: "Mobile Suit Gundam SEED Astray R"
     timeline: tl.ce
     source: src.ce.astray-r
@@ -1236,6 +1312,7 @@ series:
       The red machine's half of the same year, told separately.
 
   - id: ser.ce.x-astray
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_X_Astray"
     title: "Mobile Suit Gundam SEED X Astray"
     timeline: tl.ce
     source: src.ce.x-astray
@@ -1250,6 +1327,7 @@ series:
       The war's edges, in the months either side of the armistice.
 
   - id: ser.ce.destiny-astray
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Destiny_Astray"
     title: "Mobile Suit Gundam SEED Destiny Astray"
     timeline: tl.ce
     source: src.ce.destiny-astray
@@ -1265,6 +1343,7 @@ series:
       machines are traded rather than issued.
 
   - id: ser.ce.frame-astrays
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Frame_Astrays"
     title: "Mobile Suit Gundam SEED Frame Astrays"
     timeline: tl.ce
     source: src.ce.frame-astrays
@@ -1279,6 +1358,7 @@ series:
       Further Astray-line stories set alongside the second war.
 
   - id: ser.ce.stargazer
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_C.E._73:_STARGAZER"
     title: "Mobile Suit Gundam SEED C.E. 73: Stargazer"
     timeline: tl.ce
     source: src.ce.stargazer
@@ -1294,6 +1374,7 @@ series:
       protecting it, at the far edge of the second war.
 
   - id: ser.ce.delta-astray
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_C.E._73_%CE%94_Astray"
     title: "Mobile Suit Gundam SEED C.E. 73 Delta Astray"
     timeline: tl.ce
     source: src.ce.delta-astray
@@ -1308,6 +1389,7 @@ series:
       Ties the Astray line into the Stargazer story.
 
   - id: ser.ce.astray-princess
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_ASTRAY_Princess_of_the_Sky"
     title: "Mobile Suit Gundam SEED Astray: Princess of the Sky"
     timeline: tl.ce
     source: src.ce.astray-princess
@@ -1323,6 +1405,7 @@ series:
       with the peace.
 
   - id: ser.ce.eclipse
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Eclipse"
     title: "Mobile Suit Gundam SEED Eclipse"
     timeline: tl.ce
     source: src.ce.eclipse
@@ -1338,6 +1421,7 @@ series:
       the anime skips.
 
   - id: ser.ad.00f
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00F"
     title: "Mobile Suit Gundam 00F"
     timeline: tl.ad
     source: src.ad.00f
@@ -1353,6 +1437,7 @@ series:
       machines, working the same years as the first season.
 
   - id: ser.ad.00i
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00I"
     title: "Mobile Suit Gundam 00I"
     timeline: tl.ad
     source: src.ad.00i
@@ -1368,6 +1453,7 @@ series:
       Innovades.
 
   - id: ser.ag.memory-of-eden
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE:_Memory_of_Eden"
     title: "Mobile Suit Gundam AGE: Memory of Eden"
     timeline: tl.ag
     source: src.ag.memory-of-eden
@@ -1383,6 +1469,7 @@ series:
       and Zeheart at the centre of it.
 
   - id: ser.ag.treasure-star
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE:_Treasure_Star"
     title: "Mobile Suit Gundam AGE: Treasure Star"
     timeline: tl.ag
     source: src.ag.treasure-star
@@ -1397,6 +1484,7 @@ series:
       A side story from the first generation.
 
   - id: ser.ag.memories-of-sid
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE:_~Memories_of_Sid~"
     title: "Mobile Suit Gundam AGE: Memories of Sid"
     timeline: tl.ag
     source: src.ag.memories-of-sid
@@ -1412,6 +1500,7 @@ series:
       jumps.
 
   - id: ser.pd.urdr-hunt
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_IRON-BLOODED_ORPHANS_Urdr-Hunt"
     title: "Mobile Suit Gundam: Iron-Blooded Orphans — Urdr-Hunt"
     timeline: tl.pd
     source: src.pd.urdr-hunt
@@ -1427,6 +1516,7 @@ series:
       same years as the main story.
 
   - id: ser.pd.gekko
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_IRON-BLOODED_ORPHANS_Gekko"
     title: "Mobile Suit Gundam: Iron-Blooded Orphans Gekko"
     timeline: tl.pd
     source: src.pd.gekko
@@ -1441,6 +1531,7 @@ series:
       A side story following a crew outside Tekkadan.
 
   - id: ser.as.prologue
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_the_Witch_from_Mercury_PROLOGUE"
     title: "Mobile Suit Gundam: The Witch from Mercury — PROLOGUE"
     timeline: tl.as
     source: src.as.prologue
@@ -1455,6 +1546,7 @@ series:
       the whole reason for everything that follows.
 
   - id: ser.as.vanadis-heart
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_the_Witch_from_Mercury_-_Vanadis_Heart"
     title: "Mobile Suit Gundam the Witch from Mercury — Vanadis Heart"
     timeline: tl.as
     source: src.as.vanadis-heart
@@ -1470,6 +1562,7 @@ series:
       school.
 
   - id: ser.as.cradle-planet
+    wiki: "https://gundam.fandom.com/wiki/Cradle_Planet"
     title: "Mobile Suit Gundam: The Witch from Mercury — Cradle Planet"
     timeline: tl.as
     source: src.as.cradle-planet
@@ -1484,6 +1577,7 @@ series:
       A short story told from the machine's point of view.
 
   - id: ser.cc.earth-light
+    wiki: "https://gundam.fandom.com/wiki/%E2%88%80_Gundam_I:_Earth_Light"
     title: "Turn A Gundam I: Earth Light"
     timeline: tl.cc
     source: src.cc.earth-light
@@ -1497,6 +1591,7 @@ series:
       The first half of the series as a film.
 
   - id: ser.cc.moonlight-butterfly
+    wiki: "https://gundam.fandom.com/wiki/%E2%88%80_Gundam_II:_Moonlight_Butterfly"
     title: "Turn A Gundam II: Moonlight Butterfly"
     timeline: tl.cc
     source: src.cc.moonlight-butterfly
@@ -1511,6 +1606,7 @@ series:
       machines.
 
   - id: ser.cc.turn-a-novel
+    wiki: "https://gundam.fandom.com/wiki/%E2%88%80_Gundam_(Novel)"
     title: "Turn A Gundam (novel)"
     timeline: tl.cc
     source: src.cc.turn-a-novel
@@ -1525,6 +1621,7 @@ series:
       Tomino's own telling, written alongside the series.
 
   - id: ser.aw.under-the-moonlight
+    wiki: "https://gundam.fandom.com/wiki/After_War_Gundam_X:_~Under_the_Moonlight~"
     title: "After War Gundam X: Under the Moonlight"
     timeline: tl.aw
     source: src.aw.under-the-moonlight
@@ -1540,6 +1637,7 @@ series:
       the machines they dig up still have owners.
 
   - id: ser.fc.g-gundam-manga
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Fighter_G_Gundam_(Manga)"
     title: "Mobile Fighter G Gundam (manga)"
     timeline: tl.fc
     source: src.fc.g-gundam-manga
@@ -1555,6 +1653,7 @@ series:
       broadcast in places.
 
   - id: ser.build.try-island-wars
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Fighters_Try_Island_Wars"
     title: "Gundam Build Fighters Try Island Wars"
     timeline: tl.build
     source: src.build.try-island-wars
@@ -1568,6 +1667,7 @@ series:
       Fighters series.
 
   - id: ser.build.gms-counterattack
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Fighters:_GM's_Counterattack"
     title: "Gundam Build Fighters: GM's Counterattack"
     timeline: tl.build
     source: src.build.gms-counterattack
@@ -1581,6 +1681,7 @@ series:
       everyone actually wants to build.
 
   - id: ser.build.bf-battlogue
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Fighters:_Battlogue"
     title: "Gundam Build Fighters Battlogue"
     timeline: tl.build
     source: src.build.bf-battlogue
@@ -1594,6 +1695,7 @@ series:
       across the Build Fighters cast.
 
   - id: ser.build.breaker-battlogue
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Breaker_Battlogue"
     title: "Gundam Breaker Battlogue"
     timeline: tl.build
     source: src.build.breaker-battlogue
@@ -1606,6 +1708,7 @@ series:
       The same format again, tied to the Gundam Breaker games.
 
   - id: ser.build.build-real
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Real"
     title: "Gundam Build Real"
     timeline: tl.build
     source: src.build.build-real
@@ -1619,6 +1722,7 @@ series:
       imagined rather than simulated.
 
   - id: ser.sd-w.sangokuden
+    wiki: "https://gundam.fandom.com/wiki/SD_Gundam_Sangokuden_Brave_Battle_Warriors"
     title: "SD Gundam Sangokuden Brave Battle Warriors"
     timeline: tl.sd.world
     source: src.sd-w.sangokuden

@@ -5,6 +5,7 @@
 
 factions:
   - id: fac.uc.efed
+    wiki: "https://gundam.fandom.com/wiki/Earth_Federation"
     name: Earth Federation
     timeline: tl.uc
     active:
@@ -19,6 +20,7 @@ factions:
         across the whole span. No source records a dissolution.
 
   - id: fac.uc.efsf
+    wiki: "https://gundam.fandom.com/wiki/Earth_Federation_Forces"
     name: Earth Federation Space Force
     timeline: tl.uc
     parent: fac.uc.efed
@@ -27,6 +29,7 @@ factions:
       confidence: approximate
 
   - id: fac.uc.republic-zeon
+    wiki: "https://gundam.fandom.com/wiki/Republic_of_Zeon"
     name: Republic of Zeon
     timeline: tl.uc
     active:
@@ -44,6 +47,7 @@ factions:
       not merge the two.
 
   - id: fac.uc.principality-zeon
+    wiki: "https://gundam.fandom.com/wiki/Principality_of_Zeon"
     name: Principality of Zeon
     timeline: tl.uc
     active:
@@ -53,6 +57,7 @@ factions:
     predecessor: fac.uc.republic-zeon
 
   - id: fac.uc.republic-zeon-2
+    wiki: "https://gundam.fandom.com/wiki/Republic_of_Zeon"
     name: Republic of Zeon (post-war)
     timeline: tl.uc
     active:
@@ -70,6 +75,7 @@ factions:
     predecessor: fac.uc.principality-zeon
 
   - id: fac.uc.delaz
+    wiki: "https://gundam.fandom.com/wiki/Delaz_Fleet"
     name: Delaz Fleet
     timeline: tl.uc
     active:
@@ -79,6 +85,7 @@ factions:
     predecessor: fac.uc.principality-zeon
 
   - id: fac.uc.titans
+    wiki: "https://gundam.fandom.com/wiki/Titans"
     name: Titans
     timeline: tl.uc
     parent: fac.uc.efed
@@ -95,6 +102,7 @@ factions:
         band would have stopped in the middle of the war.
 
   - id: fac.uc.aeug
+    wiki: "https://gundam.fandom.com/wiki/Anti_Earth_Union_Group"
     name: Anti-Earth Union Group
     timeline: tl.uc
     abbrev: AEUG
@@ -110,6 +118,7 @@ factions:
         against the events naming them catches both.
 
   - id: fac.uc.axis
+    wiki: "https://gundam.fandom.com/wiki/Axis_Zeon"
     name: Axis Zeon
     timeline: tl.uc
     active:
@@ -125,6 +134,7 @@ factions:
     predecessor: fac.uc.principality-zeon
 
   - id: fac.uc.neo-zeon-1
+    wiki: "https://gundam.fandom.com/wiki/Neo_Zeon"
     name: Neo Zeon (First)
     timeline: tl.uc
     active:
@@ -134,6 +144,7 @@ factions:
     predecessor: fac.uc.axis
 
   - id: fac.uc.neo-zeon-2
+    wiki: "https://gundam.fandom.com/wiki/Neo_Zeon"
     name: Neo Zeon (Second)
     timeline: tl.uc
     active:
@@ -146,6 +157,7 @@ factions:
       despite the name.
 
   - id: fac.uc.sleeves
+    wiki: "https://gundam.fandom.com/wiki/Sleeves"
     name: The Sleeves
     timeline: tl.uc
     active:
@@ -162,6 +174,7 @@ factions:
     predecessor: fac.uc.neo-zeon-2
 
   - id: fac.uc.londo-bell
+    wiki: "https://gundam.fandom.com/wiki/Londo_Bell"
     name: Londo Bell
     timeline: tl.uc
     parent: fac.uc.efed
@@ -170,6 +183,7 @@ factions:
       confidence: approximate
 
   - id: fac.uc.mafty
+    wiki: "https://gundam.fandom.com/wiki/Mafty"
     name: Mafty Nabiu Erin
     timeline: tl.uc
     active:
@@ -178,6 +192,7 @@ factions:
       confidence: approximate
 
   - id: fac.uc.crossbone-vanguard
+    wiki: "https://gundam.fandom.com/wiki/Crossbone_Vanguard"
     name: Crossbone Vanguard
     timeline: tl.uc
     active:
@@ -185,6 +200,7 @@ factions:
       confidence: approximate
 
   - id: fac.uc.jupiter-empire
+    wiki: "https://gundam.fandom.com/wiki/Jupiter_Empire"
     name: Jupiter Empire
     timeline: tl.uc
     active:
@@ -192,6 +208,7 @@ factions:
       confidence: approximate
 
   - id: fac.uc.zanscare
+    wiki: "https://gundam.fandom.com/wiki/Zanscare_Empire"
     name: Zanscare Empire
     timeline: tl.uc
     active:
@@ -200,6 +217,7 @@ factions:
       confidence: approximate
 
   - id: fac.uc.league-militaire
+    wiki: "https://gundam.fandom.com/wiki/League_Militaire"
     name: League Militaire
     timeline: tl.uc
     active:
@@ -221,6 +239,7 @@ factions:
 # ---------------------------------------------------------------------
 
   - id: fac.fc.neo-japan
+    wiki: "https://gundam.fandom.com/wiki/Neo_Japan"
     name: Neo Japan
     timeline: tl.fc
     active:
@@ -238,6 +257,7 @@ factions:
       role.
 
   - id: fac.fc.shuffle-alliance
+    wiki: "https://gundam.fandom.com/wiki/Shuffle_Alliance"
     name: Shuffle Alliance
     timeline: tl.fc
     active:
@@ -245,6 +265,7 @@ factions:
       confidence: editorial
 
   - id: fac.fc.devil-gundam
+    wiki: "https://gundam.fandom.com/wiki/JDG-00X_Devil_Gundam"
     name: Devil Gundam
     timeline: tl.fc
     active:
@@ -257,6 +278,7 @@ factions:
       side fought alone.
 
   - id: fac.ac.uesa
+    wiki: "https://gundam.fandom.com/wiki/United_Earth_Sphere_Alliance"
     name: United Earth Sphere Alliance
     abbrev: UESA
     timeline: tl.ac
@@ -266,6 +288,7 @@ factions:
       confidence: editorial
 
   - id: fac.ac.oz
+    wiki: "https://gundam.fandom.com/wiki/Organization_of_the_Zodiac"
     name: Organization of the Zodiac
     abbrev: OZ
     timeline: tl.ac
@@ -279,6 +302,7 @@ factions:
       dataset keeps it separate, because the takeover is the point.
 
   - id: fac.ac.romefeller
+    wiki: "https://gundam.fandom.com/wiki/Romefeller_Foundation"
     name: Romefeller Foundation
     timeline: tl.ac
     active:
@@ -287,6 +311,7 @@ factions:
       confidence: editorial
 
   - id: fac.ac.white-fang
+    wiki: "https://gundam.fandom.com/wiki/White_Fang"
     name: White Fang
     timeline: tl.ac
     active:
@@ -308,6 +333,7 @@ factions:
       note flags it rather than hides it.
 
   - id: fac.ac.esun
+    wiki: "https://gundam.fandom.com/wiki/Earth_Sphere_Unified_Nation"
     name: Earth Sphere Unified Nation
     abbrev: ESUN
     timeline: tl.ac
@@ -317,6 +343,7 @@ factions:
     predecessor: fac.ac.uesa
 
   - id: fac.ac.mariemaia-army
+    wiki: "https://gundam.fandom.com/wiki/Mariemaia_Army"
     name: Mariemaia Army
     timeline: tl.ac
     active:
@@ -325,6 +352,7 @@ factions:
       confidence: editorial
 
   - id: fac.aw.une
+    wiki: "https://gundam.fandom.com/wiki/United_Nations_Earth"
     name: United Nations Earth
     abbrev: UNE
     timeline: tl.aw
@@ -341,6 +369,7 @@ factions:
         calendars.
 
   - id: fac.aw.sra
+    wiki: "https://gundam.fandom.com/wiki/Space_Revolutionary_Army"
     name: Space Revolutionary Army
     abbrev: SRA
     timeline: tl.aw
@@ -349,6 +378,7 @@ factions:
       confidence: editorial
 
   - id: fac.aw.new-une
+    wiki: "https://gundam.fandom.com/wiki/United_Nations_Earth"
     name: New United Nations Earth
     timeline: tl.aw
     active:
@@ -357,6 +387,7 @@ factions:
     predecessor: fac.aw.une
 
   - id: fac.aw.vulture
+    wiki: "https://gundam.fandom.com/wiki/Vulture"
     name: Vultures
     timeline: tl.aw
     active:
@@ -366,6 +397,7 @@ factions:
       Freelance salvage crews. They fight only when they must.
 
   - id: fac.cc.moonrace
+    wiki: "https://gundam.fandom.com/wiki/Dianna_Counter"
     name: Moonrace (Dianna Counter)
     timeline: tl.cc
     active:
@@ -387,6 +419,7 @@ factions:
       confidence: editorial
 
   - id: fac.ce.earth-alliance
+    wiki: "https://gundam.fandom.com/wiki/Earth_Alliance"
     name: Earth Alliance
     timeline: tl.ce
     active:
@@ -394,6 +427,7 @@ factions:
       confidence: editorial
 
   - id: fac.ce.plants
+    wiki: "https://gundam.fandom.com/wiki/PLANT_Supreme_Council"
     name: PLANT Supreme Council
     timeline: tl.ce
     active:
@@ -401,6 +435,7 @@ factions:
       confidence: editorial
 
   - id: fac.ce.zaft
+    wiki: "https://gundam.fandom.com/wiki/ZAFT"
     name: ZAFT
     timeline: tl.ce
     parent: fac.ce.plants
@@ -409,6 +444,7 @@ factions:
       confidence: editorial
 
   - id: fac.ce.blue-cosmos
+    wiki: "https://gundam.fandom.com/wiki/Blue_Cosmos"
     name: Blue Cosmos
     timeline: tl.ce
     active:
@@ -416,6 +452,7 @@ factions:
       confidence: editorial
 
   - id: fac.ce.orb
+    wiki: "https://gundam.fandom.com/wiki/Orb_Union"
     name: Orb Union
     timeline: tl.ce
     active:
@@ -423,6 +460,7 @@ factions:
       confidence: editorial
 
   - id: fac.ce.three-ships-alliance
+    wiki: "https://gundam.fandom.com/wiki/Three_Ships_Alliance"
     name: Three Ships Alliance
     timeline: tl.ce
     active:
@@ -431,6 +469,7 @@ factions:
       confidence: editorial
 
   - id: fac.ce.phantom-pain
+    wiki: "https://gundam.fandom.com/wiki/Phantom_Pain"
     name: Phantom Pain
     timeline: tl.ce
     parent: fac.ce.earth-alliance
@@ -440,6 +479,7 @@ factions:
       confidence: editorial
 
   - id: fac.ad.celestial-being
+    wiki: "https://gundam.fandom.com/wiki/Celestial_Being"
     name: Celestial Being
     timeline: tl.ad
     active:
@@ -447,6 +487,7 @@ factions:
       confidence: editorial
 
   - id: fac.ad.union
+    wiki: "https://gundam.fandom.com/wiki/Union_of_Solar_Energy_and_Free_Nations"
     name: Union of Solar Energy and Free Nations
     timeline: tl.ad
     active:
@@ -455,6 +496,7 @@ factions:
       confidence: editorial
 
   - id: fac.ad.aeu
+    wiki: "https://gundam.fandom.com/wiki/Advanced_European_Union"
     name: Advanced European Union
     abbrev: AEU
     timeline: tl.ad
@@ -464,6 +506,7 @@ factions:
       confidence: editorial
 
   - id: fac.ad.hrl
+    wiki: "https://gundam.fandom.com/wiki/Human_Reform_League"
     name: Human Reform League
     abbrev: HRL
     timeline: tl.ad
@@ -473,6 +516,7 @@ factions:
       confidence: editorial
 
   - id: fac.ad.esf
+    wiki: "https://gundam.fandom.com/wiki/Earth_Sphere_Federation"
     name: Earth Sphere Federation
     abbrev: ESF
     timeline: tl.ad
@@ -488,6 +532,7 @@ factions:
       never needed it, because its factions renamed themselves in a line.
 
   - id: fac.ad.a-laws
+    wiki: "https://gundam.fandom.com/wiki/A-Laws"
     name: A-Laws
     timeline: tl.ad
     parent: fac.ad.esf
@@ -497,6 +542,7 @@ factions:
       confidence: editorial
 
   - id: fac.ad.innovators
+    wiki: "https://gundam.fandom.com/wiki/Innovators"
     name: Innovators
     timeline: tl.ad
     active:
@@ -505,6 +551,7 @@ factions:
       confidence: editorial
 
   - id: fac.ad.els
+    wiki: "https://gundam.fandom.com/wiki/Extraterrestrial_Living-metal_Shape-shifter"
     name: Extraterrestrial Living-metal Shapeshifter
     abbrev: ELS
     timeline: tl.ad
@@ -517,6 +564,7 @@ factions:
       polity.
 
   - id: fac.ag.efed
+    wiki: "https://gundam.fandom.com/wiki/Earth_Federation"
     name: Earth Federation
     timeline: tl.ag
     active:
@@ -528,6 +576,7 @@ factions:
       timeline namespace at all. See timelines.yaml.
 
   - id: fac.ag.vagan
+    wiki: "https://gundam.fandom.com/wiki/Vagan"
     name: Vagan
     timeline: tl.ag
     active:
@@ -540,6 +589,7 @@ factions:
       render.
 
   - id: fac.rc.capital-territory
+    wiki: "https://gundam.fandom.com/wiki/Capital_Territory"
     name: Capital Territory
     timeline: tl.rc
     active:
@@ -547,6 +597,7 @@ factions:
       confidence: editorial
 
   - id: fac.rc.capital-army
+    wiki: "https://gundam.fandom.com/wiki/Capital_Army"
     name: Capital Army
     timeline: tl.rc
     parent: fac.rc.capital-territory
@@ -555,6 +606,7 @@ factions:
       confidence: editorial
 
   - id: fac.rc.amerian
+    wiki: "https://gundam.fandom.com/wiki/Amerian_Army"
     name: Amerian Forces
     timeline: tl.rc
     active:
@@ -562,6 +614,7 @@ factions:
       confidence: editorial
 
   - id: fac.rc.towasanga
+    wiki: "https://gundam.fandom.com/wiki/Towasanga"
     name: Towasanga
     timeline: tl.rc
     active:
@@ -569,6 +622,7 @@ factions:
       confidence: editorial
 
   - id: fac.rc.venus-globe
+    wiki: "https://gundam.fandom.com/wiki/Venus_Globe"
     name: Venus Globe
     timeline: tl.rc
     active:
@@ -576,6 +630,7 @@ factions:
       confidence: editorial
 
   - id: fac.pd.gjallarhorn
+    wiki: "https://gundam.fandom.com/wiki/Gjallarhorn"
     name: Gjallarhorn
     timeline: tl.pd
     active:
@@ -587,6 +642,7 @@ factions:
         construction, not by evidence.
 
   - id: fac.pd.tekkadan
+    wiki: "https://gundam.fandom.com/wiki/Tekkadan"
     name: Tekkadan
     timeline: tl.pd
     active:
@@ -595,6 +651,7 @@ factions:
       confidence: editorial
 
   - id: fac.pd.teiwaz
+    wiki: "https://gundam.fandom.com/wiki/Teiwaz"
     name: Teiwaz
     timeline: tl.pd
     active:
@@ -602,6 +659,7 @@ factions:
       confidence: editorial
 
   - id: fac.pd.arianrhod
+    wiki: "https://gundam.fandom.com/wiki/Arianrhod_Fleet"
     name: Arianrhod Fleet
     timeline: tl.pd
     parent: fac.pd.gjallarhorn
@@ -610,6 +668,7 @@ factions:
       confidence: editorial
 
   - id: fac.as.benerit-group
+    wiki: "https://gundam.fandom.com/wiki/Benerit_Group"
     name: Benerit Group
     timeline: tl.as
     active:
@@ -617,6 +676,7 @@ factions:
       confidence: editorial
 
   - id: fac.as.vanadis
+    wiki: "https://gundam.fandom.com/wiki/Vanadis_Institute"
     name: Vanadis Institute
     timeline: tl.as
     active:
@@ -625,6 +685,7 @@ factions:
       confidence: editorial
 
   - id: fac.as.shin-sei
+    wiki: "https://gundam.fandom.com/wiki/Shin_Sei_Development_Corporation"
     name: Shin Sei Development Corporation
     timeline: tl.as
     active:
@@ -632,6 +693,7 @@ factions:
       confidence: editorial
 
   - id: fac.as.earth-house
+    wiki: "https://gundam.fandom.com/wiki/Earth_House"
     name: Earth House
     timeline: tl.as
     active:
@@ -639,6 +701,7 @@ factions:
       confidence: editorial
 
   - id: fac.as.dawn-of-fold
+    wiki: "https://gundam.fandom.com/wiki/Dawn_of_Fold"
     name: Dawn of Fold
     timeline: tl.as
     active:
@@ -647,6 +710,7 @@ factions:
       confidence: editorial
 
   - id: fac.as.space-assembly-league
+    wiki: "https://gundam.fandom.com/wiki/Space_Assembly_League"
     name: Space Assembly League
     timeline: tl.as
     active:
@@ -665,6 +729,7 @@ factions:
 # ---------------------------------------------------------------------
 
   - id: fac.mc.preventers
+    wiki: "https://gundam.fandom.com/wiki/Preventer"
     name: Preventers
     timeline: tl.mc
     active:
@@ -686,6 +751,7 @@ factions:
       confidence: editorial
 
   - id: fac.sd-f.sdg
+    wiki: "https://gundam.fandom.com/wiki/Superior_Defender_Gundam_Force_Nations_and_Factions"
     name: Super Dimensional Guard
     abbrev: SDG
     timeline: tl.sd.force
@@ -701,6 +767,7 @@ factions:
         left open rather than patched in the same pass.
 
   - id: fac.sd-f.dark-axis
+    wiki: "https://gundam.fandom.com/wiki/Superior_Defender_Gundam_Force_Nations_and_Factions"
     name: Dark Axis
     timeline: tl.sd.force
     active:
@@ -715,6 +782,7 @@ factions:
       confidence: editorial
 
   - id: fac.uc.metatron
+    wiki: "https://gundam.fandom.com/wiki/Metatron"
     name: Metatron
     timeline: tl.uc
     active:
@@ -722,6 +790,7 @@ factions:
       confidence: editorial
 
   - id: fac.uc.man-hunting
+    wiki: "https://gundam.fandom.com/wiki/Man_Hunters"
     name: Man Hunting Attachment
     timeline: tl.uc
     parent: fac.uc.efed
@@ -730,6 +799,7 @@ factions:
       confidence: editorial
 
   - id: fac.uc.consent
+    wiki: "https://gundam.fandom.com/wiki/Congress_of_Settlement_Nations"
     name: Congress of Settlement Nations
     abbrev: CONSENT
     timeline: tl.uc
@@ -738,6 +808,7 @@ factions:
       confidence: editorial
 
   - id: fac.uc.freedom-league
+    wiki: "https://gundam.fandom.com/wiki/Settlement_Freedom_League"
     name: Settlement Freedom League
     timeline: tl.uc
     active:

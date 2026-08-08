@@ -9,6 +9,7 @@
 
 events:
   - id: evt.ce.0070.bloody-valentine
+    wiki: "https://gundam.fandom.com/wiki/Bloody_Valentine_Incident"
     label: Bloody Valentine
     type: atrocity
     timeline: tl.ce
@@ -36,6 +37,7 @@ events:
     related: [evt.ce.0070.first-alliance-plant-war, evt.ce.0073.break-the-world]
 
   - id: evt.ce.0070.first-alliance-plant-war
+    wiki: "https://gundam.fandom.com/wiki/First_Alliance-PLANT_War"
     label: First Alliance-PLANT War
     type: war
     timeline: tl.ce
@@ -95,6 +97,7 @@ events:
     related: [evt.ce.0070.first-alliance-plant-war]
 
   - id: evt.ce.0071.jachin-due
+    wiki: "https://gundam.fandom.com/wiki/Second_Battle_of_Jachin_Due"
     label: Second Battle of Jachin Due
     type: battle
     timeline: tl.ce
@@ -143,6 +146,7 @@ events:
     related: [evt.ce.0073.break-the-world]
 
   - id: evt.ce.0073.break-the-world
+    wiki: "https://gundam.fandom.com/wiki/%22Break_The_World%22_Incident"
     label: Break the World
     type: atrocity
     timeline: tl.ce
@@ -173,6 +177,7 @@ events:
     related: [evt.ce.0073.second-alliance-plant-war]
 
   - id: evt.ce.0073.second-alliance-plant-war
+    wiki: "https://gundam.fandom.com/wiki/Second_Alliance-PLANT_War"
     label: Second Alliance-PLANT War
     type: war
     timeline: tl.ce

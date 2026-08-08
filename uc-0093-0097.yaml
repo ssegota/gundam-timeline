@@ -2,6 +2,7 @@
 
 events:
   - id: evt.uc.0093.second-neo-zeon-war
+    wiki: "https://gundam.fandom.com/wiki/Second_Neo_Zeon_War"
     label: Second Neo Zeon War
     type: war
     timeline: tl.uc
@@ -44,6 +45,7 @@ events:
     related: [evt.uc.0093.axis-shock]
 
   - id: evt.uc.0093.axis-shock
+    wiki: "https://gundam.fandom.com/wiki/Axis"
     label: Attempted drop of Axis
     type: battle
     timeline: tl.uc
@@ -110,6 +112,7 @@ events:
     related: [evt.uc.0001.laplace-bombing, evt.uc.0096.box-revealed]
 
   - id: evt.uc.0096.box-revealed
+    wiki: "https://gundam.fandom.com/wiki/Laplace's_Box"
     label: Contents of Laplace's Box made public
     type: political
     timeline: tl.uc
@@ -158,6 +161,7 @@ events:
     related: [evt.uc.0096.laplace-incident]
 
   - id: evt.uc.0096.twilight-axis
+    wiki: "https://gundam.fandom.com/wiki/Axis"
     label: Survey of the Axis remains
     type: battle
     timeline: tl.uc

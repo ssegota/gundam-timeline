@@ -63,6 +63,10 @@
               },
               "note": {
                 "type": "string"
+              },
+              "wiki": {
+                "type": "string",
+                "description": "Verified Gundam Wiki article URL. Written by resolve_wiki.py, which only records a link after the wiki's API confirms the article exists. Absent means no article was confirmed, and the page falls back to a search link."
               }
             }
           }
@@ -123,6 +127,10 @@
               },
               "note": {
                 "type": "string"
+              },
+              "wiki": {
+                "type": "string",
+                "description": "Verified Gundam Wiki article URL. Written by resolve_wiki.py, which only records a link after the wiki's API confirms the article exists. Absent means no article was confirmed, and the page falls back to a search link."
               }
             }
           }
@@ -190,6 +198,10 @@
               },
               "note": {
                 "type": "string"
+              },
+              "wiki": {
+                "type": "string",
+                "description": "Verified Gundam Wiki article URL. Written by resolve_wiki.py, which only records a link after the wiki's API confirms the article exists. Absent means no article was confirmed, and the page falls back to a search link."
               }
             }
           }

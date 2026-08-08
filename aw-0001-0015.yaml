@@ -7,6 +7,7 @@
 
 events:
   - id: evt.aw.0001.seventh-space-war
+    wiki: "https://gundam.fandom.com/wiki/7th_Space_War"
     label: Seventh Space War
     type: war
     timeline: tl.aw

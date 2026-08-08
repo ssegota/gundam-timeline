@@ -27,6 +27,7 @@ events:
     related: [evt.uc.0083.operation-stardust]
 
   - id: evt.uc.0083.operation-stardust
+    wiki: "https://gundam.fandom.com/wiki/Delaz_Conflict"
     label: Operation Stardust
     type: battle
     timeline: tl.uc
@@ -59,6 +60,7 @@ events:
     related: [evt.uc.0083.titans-formed]
 
   - id: evt.uc.0083.titans-formed
+    wiki: "https://gundam.fandom.com/wiki/Titans"
     label: Formation of the Titans
     type: political
     timeline: tl.uc
@@ -140,6 +142,7 @@ events:
     related: [evt.uc.0085.thirty-bunch]
 
   - id: evt.uc.0087.gryps-conflict
+    wiki: "https://gundam.fandom.com/wiki/Gryps_Conflict"
     label: Gryps Conflict
     type: war
     timeline: tl.uc
@@ -163,6 +166,7 @@ events:
     related: [evt.uc.0088.gryps-conclusion]
 
   - id: evt.uc.0088.gryps-conclusion
+    wiki: "https://gundam.fandom.com/wiki/Gryps_Conflict"
     label: Conclusion of the Gryps Conflict
     type: battle
     timeline: tl.uc
@@ -193,6 +197,7 @@ events:
     related: [evt.uc.0093.second-neo-zeon-war]
 
   - id: evt.uc.0088.first-neo-zeon-war
+    wiki: "https://gundam.fandom.com/wiki/First_Neo_Zeon_War"
     label: First Neo Zeon War
     type: war
     timeline: tl.uc
@@ -215,6 +220,7 @@ events:
     depicted_in: [ser.uc.zz]
 
   - id: evt.uc.0084.titans-early
+    wiki: "https://gundam.fandom.com/wiki/Titans"
     label: Early Titans operations
     type: political
     timeline: tl.uc

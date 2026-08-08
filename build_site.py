@@ -70,8 +70,16 @@ def ordinal(literal, upper=False):
     return (year - 1) * 360 + (month - 1) * 30 + (day - 1)
 
 
-def wiki(term):
-    return WIKI.format(urllib.parse.quote_plus(str(term)))
+def wiki(entity, term):
+    """A verified article link if we have one, otherwise the wiki's search.
+
+    resolve_wiki.py writes `wiki` only after the wiki's own API confirms the
+    article exists, so a recorded link is known to resolve. A search URL is
+    the honest fallback: it always lands somewhere, and it does not pretend
+    to be an article that may not exist.
+    """
+    fixed = (entity or {}).get("wiki")
+    return fixed if fixed else WIKI.format(urllib.parse.quote_plus(str(term)))
 
 
 # `certain` and `approximate` are ordinary sourced states and get no chip.
@@ -124,7 +132,7 @@ def build():
                 "release": s.get("release_year"), "format": s.get("format"),
                 "focus": s.get("focus", ""),
                 "source": s.get("source"),
-                "wiki": wiki(s["title"]),
+                "wiki": wiki(s, s["title"]),
                 "spans": [{
                     "lo": None if c.get("undated") else ordinal(c["start"]),
                     "hi": None if c.get("undated") else ordinal(c["end"], upper=True),
@@ -146,7 +154,7 @@ def build():
                 "start": a["start"], "end": a.get("end"),
                 "flag": flag(a.get("confidence")),
                 "predecessor": f.get("predecessor"), "parent": f.get("parent"),
-                "wiki": wiki(f["name"]),
+                "wiki": wiki(f, f["name"]),
             })
 
         evs = []
@@ -175,7 +183,7 @@ def build():
                     "sources": c.get("sources", []), "flag": flag(c.get("confidence")),
                     "resolution": c.get("resolution"),
                 } for c in e.get("claims", [])],
-                "wiki": wiki(e["label"]),
+                "wiki": wiki(e, e["label"]),
             })
         evs.sort(key=lambda x: (x["lo"] is None, x["lo"] or 0, x["label"]))
 
@@ -212,16 +220,19 @@ def build():
                             "year": s.get("year"), "tier": s["tier"],
                             "timeline": s["timeline"],
                             "flag": flag(s.get("confidence")),
-                            "wiki": wiki(s["title"])}
+                            "wiki": wiki(s, s["title"])}
                       for sid, s in sources.items()}
+    # Cross-references in the page render as name + link, so they need the
+    # same verified URL the entity itself uses.
     out["labels"] = {}
+    out["links"] = {}
     for t in out["timelines"]:
         for f in t["factions"]:
-            out["labels"][f["id"]] = f["name"]
+            out["labels"][f["id"]] = f["name"]; out["links"][f["id"]] = f["wiki"]
         for s in t["series"]:
-            out["labels"][s["id"]] = s["title"]
+            out["labels"][s["id"]] = s["title"]; out["links"][s["id"]] = s["wiki"]
         for e in t["events"]:
-            out["labels"][e["id"]] = e["label"]
+            out["labels"][e["id"]] = e["label"]; out["links"][e["id"]] = e["wiki"]
     out["flagHelp"] = {v[0]: v[1] for v in FLAGS.values()}
     return out
 

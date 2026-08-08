@@ -8,6 +8,7 @@
 
 events:
   - id: evt.as.0101.vanadis-incident
+    wiki: "https://gundam.fandom.com/wiki/Vanadis_Incident"
     label: The Vanadis Incident
     type: atrocity
     timeline: tl.as
@@ -84,6 +85,7 @@ events:
     related: [evt.as.0123.quiet-zero]
 
   - id: evt.as.0123.quiet-zero
+    wiki: "https://gundam.fandom.com/wiki/Quiet_Zero"
     label: The Quiet Zero incident
     type: battle
     timeline: tl.as

@@ -12,6 +12,7 @@
 
 events:
   - id: evt.mc.0001.mars-colonisation
+    wiki: "https://gundam.fandom.com/wiki/Mars"
     label: Colonisation of Mars begins
     type: political
     timeline: tl.mc

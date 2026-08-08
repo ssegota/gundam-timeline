@@ -20,6 +20,7 @@ events:
     depicted_in: [ser.uc.origin]
 
   - id: evt.uc.0079.operation-british
+    wiki: "https://gundam.fandom.com/wiki/Operation_British"
     label: Operation British
     type: battle
     timeline: tl.uc
@@ -69,6 +70,7 @@ events:
     related: [evt.uc.0079.antarctic-treaty, evt.uc.0079.loum]
 
   - id: evt.uc.0079.loum
+    wiki: "https://gundam.fandom.com/wiki/Battle_of_Loum"
     label: Battle of Loum
     type: battle
     timeline: tl.uc
@@ -112,6 +114,7 @@ events:
     related: [evt.uc.0079.operation-british]
 
   - id: evt.uc.0079.antarctic-treaty
+    wiki: "https://gundam.fandom.com/wiki/Antarctic_Treaty"
     label: Antarctic Treaty
     type: political
     timeline: tl.uc
@@ -148,6 +151,7 @@ events:
       is why this event uses referenced_in.
 
   - id: evt.uc.0079.side7-raid
+    wiki: "https://gundam.fandom.com/wiki/Attack_on_Side_7"
     label: Zeon raid on Side 7
     type: battle
     timeline: tl.uc
@@ -182,6 +186,7 @@ events:
     depicted_in: [ser.uc.thunderbolt]
 
   - id: evt.uc.0079.odessa
+    wiki: "https://gundam.fandom.com/wiki/Operation_Odessa"
     label: Operation Odessa
     type: battle
     timeline: tl.uc
@@ -242,6 +247,7 @@ events:
     depicted_in: [ser.uc.0080]
 
   - id: evt.uc.0079.solomon
+    wiki: "https://gundam.fandom.com/wiki/Battle_of_Solomon"
     label: Battle of Solomon
     type: battle
     timeline: tl.uc
@@ -256,6 +262,7 @@ events:
     depicted_in: [ser.uc.msg]
 
   - id: evt.uc.0079.a-baoa-qu
+    wiki: "https://gundam.fandom.com/wiki/Operation_Star_One"
     label: Battle of A Baoa Qu
     type: battle
     timeline: tl.uc
@@ -281,6 +288,7 @@ events:
     related: [evt.uc.0080.granada-treaty]
 
   - id: evt.uc.0080.granada-treaty
+    wiki: "https://gundam.fandom.com/wiki/Granada_Treaty"
     label: Treaty of Granada
     type: political
     timeline: tl.uc

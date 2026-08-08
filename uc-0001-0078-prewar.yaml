@@ -76,6 +76,7 @@ events:
       the shape of every battle that follows.
 
   - id: evt.uc.0058.republic-declared
+    wiki: "https://gundam.fandom.com/wiki/Republic_of_Zeon"
     label: Side 3 declares independence as the Republic of Zeon
     type: political
     timeline: tl.uc
@@ -116,6 +117,7 @@ events:
     related: [evt.uc.0068.deikun-death, evt.uc.0069.principality-declared]
 
   - id: evt.uc.0068.deikun-death
+    wiki: "https://gundam.fandom.com/wiki/Zeon_Zum_Deikun"
     label: Death of Zeon Zum Deikun
     type: political
     timeline: tl.uc

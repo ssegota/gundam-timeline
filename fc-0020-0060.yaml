@@ -21,6 +21,7 @@ events:
       is the only earlier Fight the series pins to a year.
 
   - id: evt.fc.undated.devil-gundam-theft
+    wiki: "https://gundam.fandom.com/wiki/Ultimate_Gundam"
     label: Theft of the Ultimate Gundam
     type: technological
     timeline: tl.fc

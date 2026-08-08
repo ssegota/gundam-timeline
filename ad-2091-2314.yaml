@@ -7,6 +7,7 @@
 
 events:
   - id: evt.ad.2091.aeolia-plan
+    wiki: "https://gundam.fandom.com/wiki/Aeolia_Schenberg"
     label: Aeolia Schenberg's plan
     type: political
     timeline: tl.ad
@@ -39,6 +40,7 @@ events:
     related: [evt.ad.2307.armed-interventions]
 
   - id: evt.ad.2307.armed-interventions
+    wiki: "https://gundam.fandom.com/wiki/Celestial_Being"
     label: Celestial Being begins armed intervention
     type: war
     timeline: tl.ad
@@ -63,6 +65,7 @@ events:
     related: [evt.ad.2308.operation-fallen-angels]
 
   - id: evt.ad.2308.operation-fallen-angels
+    wiki: "https://gundam.fandom.com/wiki/Operation_Fallen_Angels"
     label: Operation Fallen Angels
     type: battle
     timeline: tl.ad
@@ -88,6 +91,7 @@ events:
     related: [evt.ad.2312.esf-consolidation]
 
   - id: evt.ad.2312.esf-consolidation
+    wiki: "https://gundam.fandom.com/wiki/Earth_Sphere_Federation"
     label: Earth Sphere Federation and the A-Laws
     type: political
     timeline: tl.ad
@@ -120,6 +124,7 @@ events:
     related: [evt.ad.2312.innovator-conflict]
 
   - id: evt.ad.2312.memento-mori
+    wiki: "https://gundam.fandom.com/wiki/Memento_Mori"
     label: Use of the Memento Mori
     type: atrocity
     timeline: tl.ad

@@ -48,6 +48,7 @@ events:
     related: [evt.cc.2345.moonrace-return]
 
   - id: evt.cc.2345.moonrace-return
+    wiki: "https://gundam.fandom.com/wiki/Moonrace"
     label: The Moonrace returns to Earth
     type: political
     timeline: tl.cc

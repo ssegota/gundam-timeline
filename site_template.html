@@ -93,8 +93,6 @@
     transition:transform .18s ease;filter:drop-shadow(0 1px 2px rgba(0,0,0,.28))}
   .sw:hover svg{transform:scale(1.07)}
   .sw[aria-pressed="true"]{box-shadow:0 0 0 2px var(--brand);border-color:transparent}
-  .themeName{margin:9px 6px 0;font-size:11px;color:var(--ink3);letter-spacing:.09em;
-    text-transform:uppercase;font-weight:700}
 
   .navlist{display:flex;flex-direction:column;gap:2px}
   .navlist button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;
@@ -298,7 +296,6 @@
   <div class="themebox">
     <h4>Theme</h4>
     <div class="swatches" id="swatches"></div>
-    <div class="themeName" id="themeName"></div>
     <button class="aboutbtn" id="aboutBtn" type="button">About this project →</button>
   </div>
 </aside>
@@ -366,8 +363,6 @@
 
   <div class="card" id="relCard">
     <h2>Relations between continuities</h2>
-    <p class="lead">Nineteen continuities, eleven edges. The graph stays mostly disconnected on
-      purpose. An edge that no source states would add a structure that does not exist.</p>
     <div id="rels" style="margin-top:14px"></div>
   </div>
 
@@ -432,9 +427,8 @@ function headSVG(t){
   const {shell,fin,visor,eye,trim,kind}=t;
   const OL=`stroke="${visor}" stroke-width="1" stroke-linejoin="round"`;
 
-  if(kind==="monoeye"){        // Zaku II / Sazabi: dome, centred lens, commander blade
+  if(kind==="monoeye"){        // Zaku II / Sazabi: plain dome, centred lens
     return `<svg viewBox="0 0 48 48" aria-hidden="true">
-      <path d="M16.8 12 L10.2 1.6 L22.4 6.4 Z" fill="${fin}"/>
       <path d="M24 5.6 C33.6 5.6 39.4 12.6 39.4 21.6 L39.4 31.5
                C39.4 37.2 35.6 40.8 30 40.8 L18 40.8
                C12.4 40.8 8.6 37.2 8.6 31.5 L8.6 21.6
@@ -467,9 +461,8 @@ function headSVG(t){
     brow=`<path d="M24 0.8 L26.9 9.6 L27.7 16.6 L20.3 16.6 L21.1 9.6 Z" fill="${fin}"/>`;
     face=`<path d="M15.6 19.8 L32.4 19.8 L30.2 27.6 L17.8 27.6 Z" fill="${visor}"/>
           <path d="M17.7 22.4 L30.3 22.4 L29.6 25 L18.4 25 Z" fill="${eye}"/>`;
-  } else {                     // Banshee: horn split, one lit eye
-    brow=`<path d="M20.9 0.8 L24.3 10 L24.8 16.6 L17.6 16.6 L18.4 10 Z" fill="${fin}"/>
-          <path d="M30.4 4.6 L31.9 11.6 L31.4 16.6 L26.4 16.6 L26.9 11.6 Z" fill="${fin}" opacity=".8"/>`;
+  } else {                     // Banshee: same single horn, one lit eye
+    brow=`<path d="M24 0.8 L26.9 9.6 L27.7 16.6 L20.3 16.6 L21.1 9.6 Z" fill="${fin}"/>`;
     face=`<path d="M15.6 19.8 L32.4 19.8 L30.2 27.6 L17.8 27.6 Z" fill="${visor}"/>
           <path d="M17.7 22.4 L30.3 22.4 L29.6 25 L18.4 25 Z" fill="${eye}"/>
           <circle cx="28.8" cy="23.6" r="1.8" fill="${trim}"/>`;
@@ -555,7 +548,6 @@ function setTheme(k){
 function markTheme(){
   [...$("#swatches").children].forEach((b,i)=>
     b.setAttribute("aria-pressed",String(Object.keys(THEMES)[i]===THEME)));
-  $("#themeName").textContent=THEMES[THEME].name;
 }
 function buildNav(){
   const box=$("#navList"); box.textContent="";
@@ -968,9 +960,13 @@ function srcList(ids){const ul=el("ul",{class:"plain"});
     ?el("a",{href:m.wiki,target:"_blank",rel:"noopener"},`${m.title} (${m.kind}${m.year?", "+m.year:""}, tier ${m.tier})`):s));});
   return ul;}
 function idList(ids){const ul=el("ul",{class:"plain"});
-  ids.forEach(i=>ul.appendChild(el("li",{},el("a",{
-    href:`https://gundam.fandom.com/wiki/Special:Search?search=${encodeURIComponent(DATA.labels[i]||i)}&fulltext=0`,
-    target:"_blank",rel:"noopener"},DATA.labels[i]||i))));return ul;}
+  ids.forEach(i=>{
+    const name=DATA.labels[i]||i;
+    const href=DATA.links[i]
+      ||`https://gundam.fandom.com/wiki/Special:Search?search=${encodeURIComponent(name)}&fulltext=0`;
+    ul.appendChild(el("li",{},el("a",{href,target:"_blank",rel:"noopener"},name)));
+  });
+  return ul;}
 const wikiLink=u=>el("p",{},el("a",{href:u,target:"_blank",rel:"noopener"},"Open on the Gundam Wiki ↗"));
 const dtitle=(m,s,c)=>el("div",{},el("div",{class:"disp",style:`font-size:23px;color:${c||"var(--ink)"}`,text:m}),
   el("div",{class:"meta",text:s}));
@@ -1088,8 +1084,8 @@ $("#aboutBtn").onclick=()=>{
   const rows=[
     ["@","Email","ssegota@gmail.com","mailto:ssegota@gmail.com",false],
     ["GH","GitHub","ssegota","https://github.com/ssegota",false],
-    ["X","X","sandi.segota","https://x.com/sandi.segota",false],
-    ["Ko","Ko-fi","Coming soon","#",true],
+    ["X","X","sandisegota","https://x.com/sandisegota",false],
+    ["Ko","Ko-fi","sabase","https://ko-fi.com/sabase",false],
   ];
   const b=el("div",{});
   b.appendChild(el("p",{text:"Every Gundam continuity, every work set in one, and the "

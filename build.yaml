@@ -21,6 +21,7 @@
 
 events:
   - id: evt.build.undated.gunpla-battle-established
+    wiki: "https://gundam.fandom.com/wiki/Gunpla_Battle"
     label: Gunpla Battle becomes a competitive sport
     type: competition
     timeline: tl.build
@@ -57,6 +58,7 @@ events:
     related: [evt.build.undated.world-championship]
 
   - id: evt.build.undated.world-championship
+    wiki: "https://gundam.fandom.com/wiki/Gunpla_Battle"
     label: The seventh Gunpla Battle World Championship
     type: competition
     timeline: tl.build

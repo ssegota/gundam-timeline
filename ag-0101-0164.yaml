@@ -11,6 +11,7 @@
 
 events:
   - id: evt.ag.0101.angel-fall
+    wiki: "https://gundam.fandom.com/wiki/Angel"
     label: Destruction of the Angel colony
     type: atrocity
     timeline: tl.ag
@@ -43,6 +44,7 @@ events:
     related: [evt.ag.0115.nora-attack]
 
   - id: evt.ag.0115.nora-attack
+    wiki: "https://gundam.fandom.com/wiki/Nora"
     label: Attack on the Nora colony
     type: battle
     timeline: tl.ag
@@ -98,6 +100,7 @@ events:
     depicted_in: [ser.ag.gundam-age]
 
   - id: evt.ag.0164.vagan-war-ends
+    wiki: "https://gundam.fandom.com/wiki/Vagan"
     label: End of the Vagan war
     type: war
     timeline: tl.ag

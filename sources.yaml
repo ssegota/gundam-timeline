@@ -12,6 +12,7 @@
 
 sources:
   - id: src.uc.msg-tv
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam"
     title: Mobile Suit Gundam
     kind: tv
     year: 1979
@@ -19,6 +20,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.msg-films
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_I"
     title: Mobile Suit Gundam compilation film trilogy
     kind: film
     year: 1981
@@ -31,6 +33,7 @@ sources:
       record silence as a claim.
 
   - id: src.uc.zeta
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Zeta_Gundam"
     title: Mobile Suit Zeta Gundam
     kind: tv
     year: 1985
@@ -38,6 +41,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.zz
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_ZZ"
     title: Mobile Suit Gundam ZZ
     kind: tv
     year: 1986
@@ -45,6 +49,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.cca
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Char's_Counterattack"
     title: "Mobile Suit Gundam: Char's Counterattack"
     kind: film
     year: 1988
@@ -52,6 +57,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.f91
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_F91"
     title: Mobile Suit Gundam F91
     kind: film
     year: 1991
@@ -59,6 +65,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.victory
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Victory_Gundam"
     title: Mobile Suit Victory Gundam
     kind: tv
     year: 1993
@@ -66,6 +73,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.0080
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0080:_War_in_the_Pocket"
     title: "Mobile Suit Gundam 0080: War in the Pocket"
     kind: ova
     year: 1989
@@ -73,6 +81,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.0083
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_0083:_Stardust_Memory"
     title: "Mobile Suit Gundam 0083: Stardust Memory"
     kind: ova
     year: 1991
@@ -80,6 +89,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.08th
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_The_08th_MS_Team"
     title: "Mobile Suit Gundam: The 08th MS Team"
     kind: ova
     year: 1996
@@ -87,6 +97,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.igloo
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_MS_IGLOO:_The_Hidden_One_Year_War"
     title: "Mobile Suit Gundam MS IGLOO"
     kind: ona
     year: 2004
@@ -94,6 +105,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.unicorn
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Unicorn"
     title: Mobile Suit Gundam Unicorn
     kind: ova
     year: 2010
@@ -105,6 +117,7 @@ sources:
       starts with this work and appears in no earlier source.
 
   - id: src.uc.narrative
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Narrative"
     title: "Mobile Suit Gundam Narrative"
     kind: film
     year: 2018
@@ -112,6 +125,8 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.hathaway
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Hathaway"
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Hathaway's_Flash"
     title: "Mobile Suit Gundam: Hathaway's Flash"
     kind: film
     year: 2021
@@ -122,6 +137,7 @@ sources:
       in places.
 
   - id: src.uc.origin
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_The_Origin"
     title: "Mobile Suit Gundam: The Origin"
     kind: manga
     year: 2001
@@ -134,6 +150,7 @@ sources:
       here, which makes it a good test of the claim model.
 
   - id: src.uc.thunderbolt
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Thunderbolt"
     title: Mobile Suit Gundam Thunderbolt
     kind: manga
     year: 2012
@@ -141,6 +158,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.hathaway-novel
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Hathaway's_Flash"
     title: "Mobile Suit Gundam: Hathaway's Flash (novel)"
     kind: novel
     year: 1989
@@ -148,6 +166,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.crossbone
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Crossbone_Gundam"
     title: Mobile Suit Crossbone Gundam
     kind: manga
     year: 1994
@@ -155,6 +174,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc-g.gquuuuuux
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_GQuuuuuuX"
     title: "Mobile Suit Gundam GQuuuuuuX"
     kind: film
     year: 2025
@@ -163,6 +183,7 @@ sources:
     confidence: needs-verification
 
   - id: src.uc.chronology
+    wiki: "https://gundam.fandom.com/wiki/Universal_Century"
     title: Universal Century supplementary chronology and technical material
     kind: reference
     tier: 4
@@ -191,6 +212,7 @@ sources:
   # ---------------------------------------------------------------------
 
   - id: src.fc.g-gundam
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Fighter_G_Gundam"
     title: Mobile Fighter G Gundam
     kind: tv
     year: 1994
@@ -198,6 +220,7 @@ sources:
     timeline: tl.fc
 
   - id: src.ac.wing
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Wing"
     title: New Mobile Report Gundam Wing
     kind: tv
     year: 1995
@@ -205,6 +228,7 @@ sources:
     timeline: tl.ac
 
   - id: src.ac.endless-waltz
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Wing_Endless_Waltz"
     title: "Gundam Wing: Endless Waltz"
     kind: ova
     year: 1997
@@ -217,6 +241,7 @@ sources:
       once somebody reads both properly. None are recorded yet.
 
   - id: src.aw.gundam-x
+    wiki: "https://gundam.fandom.com/wiki/After_War_Gundam_X"
     title: After War Gundam X
     kind: tv
     year: 1996
@@ -224,6 +249,7 @@ sources:
     timeline: tl.aw
 
   - id: src.cc.turn-a
+    wiki: "https://gundam.fandom.com/wiki/%E2%88%80_Gundam"
     title: Turn A Gundam
     kind: tv
     year: 1999
@@ -231,6 +257,7 @@ sources:
     timeline: tl.cc
 
   - id: src.ce.seed
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED"
     title: Mobile Suit Gundam SEED
     kind: tv
     year: 2002
@@ -238,6 +265,7 @@ sources:
     timeline: tl.ce
 
   - id: src.ce.seed-destiny
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Destiny"
     title: Mobile Suit Gundam SEED Destiny
     kind: tv
     year: 2004
@@ -245,6 +273,7 @@ sources:
     timeline: tl.ce
 
   - id: src.ce.seed-freedom
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Freedom"
     title: Mobile Suit Gundam SEED FREEDOM
     kind: film
     year: 2024
@@ -253,6 +282,7 @@ sources:
     confidence: needs-verification
 
   - id: src.ad.gundam-00
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00"
     title: Mobile Suit Gundam 00
     kind: tv
     year: 2007
@@ -262,6 +292,7 @@ sources:
       Two broadcast seasons, AD 2307-2308 and AD 2312, held as one source.
 
   - id: src.ad.trailblazer
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00_The_Movie_-A_wakening_of_the_Trailblazer-"
     title: "Mobile Suit Gundam 00: A Wakening of the Trailblazer"
     kind: film
     year: 2010
@@ -269,6 +300,7 @@ sources:
     timeline: tl.ad
 
   - id: src.ag.gundam-age
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE"
     title: Mobile Suit Gundam AGE
     kind: tv
     year: 2011
@@ -276,6 +308,7 @@ sources:
     timeline: tl.ag
 
   - id: src.rc.g-reco
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Reconguista_in_G"
     title: "Gundam Reconguista in G"
     kind: tv
     year: 2014
@@ -283,6 +316,7 @@ sources:
     timeline: tl.rc
 
   - id: src.rc.g-reco-films
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Reconguista_in_G"
     title: "Gundam Reconguista in G (film series)"
     kind: film
     year: 2019
@@ -295,6 +329,7 @@ sources:
       Do not record it as a competing claim.
 
   - id: src.pd.ibo
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_IRON-BLOODED_ORPHANS"
     title: "Mobile Suit Gundam: Iron-Blooded Orphans"
     kind: tv
     year: 2015
@@ -302,6 +337,7 @@ sources:
     timeline: tl.pd
 
   - id: src.as.witch
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_the_Witch_from_Mercury"
     title: "Mobile Suit Gundam: The Witch from Mercury"
     kind: tv
     year: 2022
@@ -322,6 +358,7 @@ sources:
   # ---------------------------------------------------------------------
 
   - id: src.mc.frozen-teardrop
+    wiki: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_Wing:_Frozen_Teardrop"
     title: "New Mobile Report Gundam Wing: Frozen Teardrop"
     kind: novel
     year: 2010
@@ -336,6 +373,7 @@ sources:
       carrying a whole era is the weakest evidence in this dataset.
 
   - id: src.build.gunpla-builders
+    wiki: "https://gundam.fandom.com/wiki/Model_Suit_Gunpla_Builders_Beginning_G"
     title: "Model Suit Gunpla Builders Beginning G"
     kind: ova
     year: 2010
@@ -343,6 +381,7 @@ sources:
     timeline: tl.build
 
   - id: src.build.build-fighters
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Fighters"
     title: Gundam Build Fighters
     kind: tv
     year: 2013
@@ -350,6 +389,7 @@ sources:
     timeline: tl.build
 
   - id: src.build.build-fighters-try
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Fighters_Try"
     title: Gundam Build Fighters Try
     kind: tv
     year: 2014
@@ -357,6 +397,7 @@ sources:
     timeline: tl.build
 
   - id: src.build.build-divers
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Divers"
     title: Gundam Build Divers
     kind: tv
     year: 2018
@@ -364,6 +405,7 @@ sources:
     timeline: tl.build
 
   - id: src.build.build-divers-rerise
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Divers_Re:RISE"
     title: "Gundam Build Divers Re:RISE"
     kind: ona
     year: 2019
@@ -371,6 +413,7 @@ sources:
     timeline: tl.build
 
   - id: src.build.build-metaverse
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Metaverse"
     title: Gundam Build Metaverse
     kind: ona
     year: 2023
@@ -383,6 +426,7 @@ sources:
       of its own timeline.
 
   - id: src.sd-f.gundam-force
+    wiki: "https://gundam.fandom.com/wiki/Superior_Defender_Gundam_Force"
     title: SD Gundam Force
     kind: tv
     year: 2004
@@ -390,6 +434,7 @@ sources:
     timeline: tl.sd.force
 
   - id: src.sd-w.sangoku
+    wiki: "https://gundam.fandom.com/wiki/SD_Gundam_World_Sangoku_Soketsuden"
     title: SD Gundam World Sangoku Soketsuden
     kind: ona
     year: 2019
@@ -397,6 +442,7 @@ sources:
     timeline: tl.sd.world
 
   - id: src.sd-w.heroes
+    wiki: "https://gundam.fandom.com/wiki/SD_Gundam_World_Heroes"
     title: SD Gundam World Heroes
     kind: ona
     year: 2021
@@ -404,6 +450,7 @@ sources:
     timeline: tl.sd.world
 
   - id: src.uc.igloo-apocalypse
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_MS_IGLOO:_Apocalypse_0079"
     title: "Mobile Suit Gundam MS IGLOO: Apocalypse 0079"
     kind: ona
     year: 2006
@@ -411,6 +458,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.igloo2
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_MS_IGLOO_2:_The_Gravity_Front"
     title: "Mobile Suit Gundam MS IGLOO 2: The Gravity Front"
     kind: ona
     year: 2008
@@ -418,6 +466,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.re0096
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Unicorn_RE:0096"
     title: "Mobile Suit Gundam Unicorn RE:0096"
     kind: tv
     year: 2016
@@ -425,6 +474,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.twilight-axis
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Twilight_Axis"
     title: "Mobile Suit Gundam: Twilight Axis"
     kind: ona
     year: 2017
@@ -432,6 +482,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.thunderbolt-december
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Thunderbolt:_December_Sky"
     title: "Mobile Suit Gundam Thunderbolt: December Sky"
     kind: film
     year: 2016
@@ -439,6 +490,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.thunderbolt-bandit
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Thunderbolt:_Bandit_Flower"
     title: "Mobile Suit Gundam Thunderbolt: Bandit Flower"
     kind: film
     year: 2017
@@ -446,6 +498,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.doan
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Cucuruz_Doan's_Island"
     title: "Mobile Suit Gundam: Cucuruz Doan's Island"
     kind: film
     year: 2022
@@ -453,6 +506,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.g-saviour
+    wiki: "https://gundam.fandom.com/wiki/G-Saviour"
     title: "G-Saviour"
     kind: film
     year: 2000
@@ -460,6 +514,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.requiem
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Requiem_for_Vengeance"
     title: "Mobile Suit Gundam: Requiem for Vengeance"
     kind: ona
     year: 2024
@@ -467,6 +522,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.msg-novel
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_(Novel)"
     title: "Mobile Suit Gundam (novel)"
     kind: novel
     year: 1979
@@ -474,6 +530,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.advance-of-zeta
+    wiki: "https://gundam.fandom.com/wiki/Advance_of_Zeta:_The_Flag_of_Titans"
     title: "Advance of Zeta: The Flag of Titans"
     kind: manga
     year: 2002
@@ -481,6 +538,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.ecole
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_%C3%89cole_du_Ciel"
     title: "Mobile Suit Gundam: Ecole du Ciel"
     kind: manga
     year: 2002
@@ -488,6 +546,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.blue-destiny
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Side_Story:_The_Blue_Destiny"
     title: "Mobile Suit Gundam Side Story: The Blue Destiny"
     kind: manga
     year: 1997
@@ -495,6 +554,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.chars-deleted-affair
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam:_Char's_Deleted_Affair:_Portrait_Of_Young_Comet"
     title: "Mobile Suit Gundam: Char's Deleted Affair"
     kind: manga
     year: 2010
@@ -502,6 +562,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.moon-gundam
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Moon_Gundam"
     title: "Mobile Suit Moon Gundam"
     kind: manga
     year: 2017
@@ -509,6 +570,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.crossbone-skull-heart
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Crossbone_Gundam:_Skull_Heart"
     title: "Mobile Suit Crossbone Gundam: Skull Heart"
     kind: manga
     year: 1997
@@ -516,6 +578,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.crossbone-steel7
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Crossbone_Gundam:_Steel_7"
     title: "Mobile Suit Crossbone Gundam: Steel 7"
     kind: manga
     year: 2006
@@ -523,6 +586,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.crossbone-ghost
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Crossbone_Gundam:_Ghost"
     title: "Mobile Suit Crossbone Gundam: Ghost"
     kind: manga
     year: 2011
@@ -530,6 +594,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.crossbone-dust
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Crossbone_Gundam:_Dust"
     title: "Mobile Suit Crossbone Gundam: Dust"
     kind: manga
     year: 2014
@@ -537,6 +602,7 @@ sources:
     timeline: tl.uc
 
   - id: src.uc.gaia-gear
+    wiki: "https://gundam.fandom.com/wiki/Gaia_Gear"
     title: "Gaia Gear"
     kind: novel
     year: 1987
@@ -547,6 +613,7 @@ sources:
       disputed rather than settled.
 
   - id: src.ac.episode-zero
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Wing:_Episode_Zero"
     title: "New Mobile Report Gundam Wing: Episode Zero"
     kind: manga
     year: 1997
@@ -554,6 +621,7 @@ sources:
     timeline: tl.ac
 
   - id: src.ac.blind-target
+    wiki: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_Wing:_Blind_Target"
     title: "New Mobile Report Gundam Wing: Blind Target"
     kind: manga
     year: 1998
@@ -561,6 +629,7 @@ sources:
     timeline: tl.ac
 
   - id: src.ac.battlefield-pacifists
+    wiki: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_Wing:_Battlefield_of_Pacifists"
     title: "New Mobile Report Gundam Wing: Battlefield of Pacifists"
     kind: manga
     year: 1998
@@ -568,6 +637,7 @@ sources:
     timeline: tl.ac
 
   - id: src.ac.g-unit
+    wiki: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_Wing_Dual_Story:_G-Unit"
     title: "New Mobile Report Gundam Wing: Last Outpost (G-Unit)"
     kind: manga
     year: 1997
@@ -575,6 +645,7 @@ sources:
     timeline: tl.ac
 
   - id: src.ac.ground-zero
+    wiki: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_Wing:_Ground_Zero"
     title: "New Mobile Report Gundam Wing: Ground Zero"
     kind: manga
     year: 1998
@@ -582,6 +653,7 @@ sources:
     timeline: tl.ac
 
   - id: src.ac.tiels-impulse
+    wiki: "https://gundam.fandom.com/wiki/New_Mobile_Report_Gundam_Wing_Sidestory:_Tiel's_Impulse"
     title: "New Mobile Report Gundam Wing: Tiel's Impulse"
     kind: manga
     year: 1998
@@ -589,6 +661,7 @@ sources:
     timeline: tl.ac
 
   - id: src.ac.glory-of-losers
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_Wing_Endless_Waltz:_Glory_of_the_Losers"
     title: "New Mobile Report Gundam Wing: Glory of the Losers"
     kind: manga
     year: 2010
@@ -596,6 +669,7 @@ sources:
     timeline: tl.ac
 
   - id: src.ce.astray
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Astray"
     title: "Mobile Suit Gundam SEED Astray"
     kind: manga
     year: 2002
@@ -603,6 +677,7 @@ sources:
     timeline: tl.ce
 
   - id: src.ce.astray-r
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Astray_R"
     title: "Mobile Suit Gundam SEED Astray R"
     kind: manga
     year: 2003
@@ -610,6 +685,7 @@ sources:
     timeline: tl.ce
 
   - id: src.ce.x-astray
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_X_Astray"
     title: "Mobile Suit Gundam SEED X Astray"
     kind: manga
     year: 2004
@@ -617,6 +693,7 @@ sources:
     timeline: tl.ce
 
   - id: src.ce.destiny-astray
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Destiny_Astray"
     title: "Mobile Suit Gundam SEED Destiny Astray"
     kind: manga
     year: 2004
@@ -624,6 +701,7 @@ sources:
     timeline: tl.ce
 
   - id: src.ce.frame-astrays
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Frame_Astrays"
     title: "Mobile Suit Gundam SEED Frame Astrays"
     kind: manga
     year: 2006
@@ -631,6 +709,7 @@ sources:
     timeline: tl.ce
 
   - id: src.ce.stargazer
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_C.E._73:_STARGAZER"
     title: "Mobile Suit Gundam SEED C.E. 73: Stargazer"
     kind: ona
     year: 2006
@@ -638,6 +717,7 @@ sources:
     timeline: tl.ce
 
   - id: src.ce.delta-astray
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_C.E._73_%CE%94_Astray"
     title: "Mobile Suit Gundam SEED C.E. 73 Delta Astray"
     kind: manga
     year: 2006
@@ -645,6 +725,7 @@ sources:
     timeline: tl.ce
 
   - id: src.ce.astray-princess
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_ASTRAY_Princess_of_the_Sky"
     title: "Mobile Suit Gundam SEED Astray: Princess of the Sky"
     kind: manga
     year: 2007
@@ -652,6 +733,7 @@ sources:
     timeline: tl.ce
 
   - id: src.ce.eclipse
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_SEED_Eclipse"
     title: "Mobile Suit Gundam SEED Eclipse"
     kind: manga
     year: 2021
@@ -659,6 +741,7 @@ sources:
     timeline: tl.ce
 
   - id: src.ad.00f
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00F"
     title: "Mobile Suit Gundam 00F"
     kind: manga
     year: 2007
@@ -666,6 +749,7 @@ sources:
     timeline: tl.ad
 
   - id: src.ad.00i
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_00I"
     title: "Mobile Suit Gundam 00I"
     kind: manga
     year: 2009
@@ -673,6 +757,7 @@ sources:
     timeline: tl.ad
 
   - id: src.ag.memory-of-eden
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE:_Memory_of_Eden"
     title: "Mobile Suit Gundam AGE: Memory of Eden"
     kind: ova
     year: 2013
@@ -680,6 +765,7 @@ sources:
     timeline: tl.ag
 
   - id: src.ag.treasure-star
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE:_Treasure_Star"
     title: "Mobile Suit Gundam AGE: Treasure Star"
     kind: manga
     year: 2011
@@ -687,6 +773,7 @@ sources:
     timeline: tl.ag
 
   - id: src.ag.memories-of-sid
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_AGE:_~Memories_of_Sid~"
     title: "Mobile Suit Gundam AGE: Memories of Sid"
     kind: manga
     year: 2012
@@ -694,6 +781,7 @@ sources:
     timeline: tl.ag
 
   - id: src.pd.urdr-hunt
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_IRON-BLOODED_ORPHANS_Urdr-Hunt"
     title: "Mobile Suit Gundam: Iron-Blooded Orphans — Urdr-Hunt"
     kind: ona
     year: 2022
@@ -701,6 +789,7 @@ sources:
     timeline: tl.pd
 
   - id: src.pd.gekko
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_IRON-BLOODED_ORPHANS_Gekko"
     title: "Mobile Suit Gundam: Iron-Blooded Orphans Gekko"
     kind: manga
     year: 2019
@@ -708,6 +797,7 @@ sources:
     timeline: tl.pd
 
   - id: src.as.prologue
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_the_Witch_from_Mercury_PROLOGUE"
     title: "Mobile Suit Gundam: The Witch from Mercury — PROLOGUE"
     kind: ona
     year: 2022
@@ -715,6 +805,7 @@ sources:
     timeline: tl.as
 
   - id: src.as.vanadis-heart
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Suit_Gundam_the_Witch_from_Mercury_-_Vanadis_Heart"
     title: "Mobile Suit Gundam the Witch from Mercury — Vanadis Heart"
     kind: manga
     year: 2023
@@ -722,6 +813,7 @@ sources:
     timeline: tl.as
 
   - id: src.as.cradle-planet
+    wiki: "https://gundam.fandom.com/wiki/Cradle_Planet"
     title: "Mobile Suit Gundam: The Witch from Mercury — Cradle Planet"
     kind: novel
     year: 2022
@@ -729,6 +821,7 @@ sources:
     timeline: tl.as
 
   - id: src.cc.earth-light
+    wiki: "https://gundam.fandom.com/wiki/%E2%88%80_Gundam_I:_Earth_Light"
     title: "Turn A Gundam I: Earth Light"
     kind: film
     year: 2002
@@ -736,6 +829,7 @@ sources:
     timeline: tl.cc
 
   - id: src.cc.moonlight-butterfly
+    wiki: "https://gundam.fandom.com/wiki/%E2%88%80_Gundam_II:_Moonlight_Butterfly"
     title: "Turn A Gundam II: Moonlight Butterfly"
     kind: film
     year: 2002
@@ -743,6 +837,7 @@ sources:
     timeline: tl.cc
 
   - id: src.cc.turn-a-novel
+    wiki: "https://gundam.fandom.com/wiki/%E2%88%80_Gundam_(Novel)"
     title: "Turn A Gundam (novel)"
     kind: novel
     year: 1999
@@ -750,6 +845,7 @@ sources:
     timeline: tl.cc
 
   - id: src.aw.under-the-moonlight
+    wiki: "https://gundam.fandom.com/wiki/After_War_Gundam_X:_~Under_the_Moonlight~"
     title: "After War Gundam X: Under the Moonlight"
     kind: manga
     year: 2004
@@ -757,6 +853,7 @@ sources:
     timeline: tl.aw
 
   - id: src.fc.g-gundam-manga
+    wiki: "https://gundam.fandom.com/wiki/Mobile_Fighter_G_Gundam_(Manga)"
     title: "Mobile Fighter G Gundam (manga)"
     kind: manga
     year: 1994
@@ -764,6 +861,7 @@ sources:
     timeline: tl.fc
 
   - id: src.build.try-island-wars
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Fighters_Try_Island_Wars"
     title: "Gundam Build Fighters Try Island Wars"
     kind: ova
     year: 2016
@@ -771,6 +869,7 @@ sources:
     timeline: tl.build
 
   - id: src.build.gms-counterattack
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Fighters:_GM's_Counterattack"
     title: "Gundam Build Fighters: GM's Counterattack"
     kind: ova
     year: 2017
@@ -778,6 +877,7 @@ sources:
     timeline: tl.build
 
   - id: src.build.bf-battlogue
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Fighters:_Battlogue"
     title: "Gundam Build Fighters Battlogue"
     kind: ona
     year: 2017
@@ -785,6 +885,7 @@ sources:
     timeline: tl.build
 
   - id: src.build.breaker-battlogue
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Breaker_Battlogue"
     title: "Gundam Breaker Battlogue"
     kind: ona
     year: 2021
@@ -792,6 +893,7 @@ sources:
     timeline: tl.build
 
   - id: src.build.build-real
+    wiki: "https://gundam.fandom.com/wiki/Gundam_Build_Real"
     title: "Gundam Build Real"
     kind: tv
     year: 2021
@@ -799,6 +901,7 @@ sources:
     timeline: tl.build
 
   - id: src.sd-w.sangokuden
+    wiki: "https://gundam.fandom.com/wiki/SD_Gundam_Sangokuden_Brave_Battle_Warriors"
     title: "SD Gundam Sangokuden Brave Battle Warriors"
     kind: tv
     year: 2010

@@ -70,6 +70,7 @@ events:
     depicted_in: [ser.rc.g-reco]
 
   - id: evt.rc.1014.venus-globe-conflict
+    wiki: "https://gundam.fandom.com/wiki/Venus_Globe"
     label: The Venus Globe fleet arrives
     type: war
     timeline: tl.rc

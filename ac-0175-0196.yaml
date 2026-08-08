@@ -8,6 +8,7 @@
 
 events:
   - id: evt.ac.0175.heero-yuy-assassination
+    wiki: "https://gundam.fandom.com/wiki/Heero_Yuy_(politician)"
     label: Assassination of Heero Yuy
     type: political
     timeline: tl.ac
@@ -33,6 +34,7 @@ events:
     related: [evt.ac.0195.operation-meteor]
 
   - id: evt.ac.0195.operation-meteor
+    wiki: "https://gundam.fandom.com/wiki/Operation_Meteor"
     label: Operation Meteor
     type: battle
     timeline: tl.ac
@@ -83,6 +85,7 @@ events:
     related: [evt.ac.0195.eve-wars]
 
   - id: evt.ac.0195.eve-wars
+    wiki: "https://gundam.fandom.com/wiki/Eve_Wars"
     label: Eve Wars
     type: war
     timeline: tl.ac
@@ -104,6 +107,7 @@ events:
     related: [evt.ac.0195.esun-founded]
 
   - id: evt.ac.0195.esun-founded
+    wiki: "https://gundam.fandom.com/wiki/Earth_Sphere_Unified_Nation"
     label: Earth Sphere Unified Nation founded
     type: political
     timeline: tl.ac
@@ -128,6 +132,7 @@ events:
     related: [evt.ac.0196.mariemaia-rebellion]
 
   - id: evt.ac.0196.mariemaia-rebellion
+    wiki: "https://gundam.fandom.com/wiki/Mariemaia's_Rebellion"
     label: Mariemaia rebellion
     type: war
     timeline: tl.ac

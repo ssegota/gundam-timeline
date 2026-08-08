@@ -29,6 +29,7 @@ events:
         confidence: editorial
 
   - id: evt.uc.0123.cosmo-babylonia-war
+    wiki: "https://gundam.fandom.com/wiki/Cosmo_Babylonia"
     label: Cosmo Babylonia War
     type: war
     timeline: tl.uc
@@ -53,6 +54,7 @@ events:
       in the UC spine, and the most visible feature of any linear view.
 
   - id: evt.uc.0133.jupiter-conflict
+    wiki: "https://gundam.fandom.com/wiki/Jupiter_Empire"
     label: Jupiter Empire conflict
     type: war
     timeline: tl.uc

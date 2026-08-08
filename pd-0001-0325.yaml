@@ -10,6 +10,7 @@
 
 events:
   - id: evt.pd.0001.calamity-war-ends
+    wiki: "https://gundam.fandom.com/wiki/Calamity_War"
     label: End of the Calamity War
     type: war
     timeline: tl.pd
@@ -46,6 +47,7 @@ events:
     related: [evt.pd.0323.tekkadan-founded]
 
   - id: evt.pd.0323.tekkadan-founded
+    wiki: "https://gundam.fandom.com/wiki/Tekkadan"
     label: Founding of Tekkadan
     type: political
     timeline: tl.pd
